@@ -57,11 +57,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BUSCAR_EXPEDIENTE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BUSCAR_EXPEDIENTE.Designer.cs">
+      <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INICIAR_SESIÓN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INICIAR_SESIÓN.Designer.cs">
+      <DependentUpon>INICIAR_SESIÓN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONSULTAR_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONSULTAR_EXPEDIENTE.Designer.cs">
+      <DependentUpon>CONSULTAR_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GESTIONAR_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GESTIONAR_EXPEDIENTE.Designer.cs">
+      <DependentUpon>GESTIONAR_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONFIGURACIÓN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONFIGURACIÓN.Designer.cs">
+      <DependentUpon>CONFIGURACIÓN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REPORTES.Designer.cs">
+      <DependentUpon>REPORTES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="REGISTRO_DE_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REGISTRO_DE_EXPEDIENTE.Designer.cs">
+      <DependentUpon>REGISTRO_DE_EXPEDIENTE.cs</DependentUpon>
     </Compile>
     <Compile Include="MENU_PRINCIPAL.cs">
       <SubType>Form</SubType>
@@ -71,8 +107,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="BUSCAR_EXPEDIENTE.resx">
+      <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INICIAR_SESIÓN.resx">
+      <DependentUpon>INICIAR_SESIÓN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONSULTAR_EXPEDIENTE.resx">
+      <DependentUpon>CONSULTAR_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GESTIONAR_EXPEDIENTE.resx">
+      <DependentUpon>GESTIONAR_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONFIGURACIÓN.resx">
+      <DependentUpon>CONFIGURACIÓN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTES.resx">
+      <DependentUpon>REPORTES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REGISTRO_DE_EXPEDIENTE.resx">
+      <DependentUpon>REGISTRO_DE_EXPEDIENTE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MENU_PRINCIPAL.resx">
       <DependentUpon>MENU_PRINCIPAL.cs</DependentUpon>
@@ -115,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhatsApp Image 2026-09-13 at 3.30.16 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8a41f07a-7020-4cc3-aa97-9d994a693faf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

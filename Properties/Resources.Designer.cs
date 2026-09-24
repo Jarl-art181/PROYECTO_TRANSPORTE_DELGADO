@@ -83,6 +83,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8a41f07a_7020_4cc3_aa97_9d994a693faf {
+            get {
+                object obj = ResourceManager.GetObject("8a41f07a-7020-4cc3-aa97-9d994a693faf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ceb7456e_eeb8_4314_b8c0_0f288ce64368 {
             get {
                 object obj = ResourceManager.GetObject("ceb7456e-eeb8-4314-b8c0-0f288ce64368", resourceCulture);

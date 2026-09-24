@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:menu_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\iniciar_sesi\u00F3n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:iniciar_sesi\u00F3n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\configuraci\u00F3n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:configuraci\u00F3n.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:reportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\gestionar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:gestionar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\buscar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:buscar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\consultar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:consultar_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|c:\\users\\jarlin\\desktop\\desafios\\cursos\\fundamentos_de_programacion\\proyecto_transporte_delgado_uceda_sac\\registro_de_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2D07367B-8A9C-4996-A58A-8211CF3AC2B5}|PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.csproj|solutionrelative:registro_de_expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,16 +42,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\Form1.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]*",
+              "DocumentIndex": 1,
+              "Title": "INICIAR_SESI\u00D3N.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\INICIAR_SESI\u00D3N.cs",
+              "RelativeDocumentMoniker": "INICIAR_SESI\u00D3N.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\INICIAR_SESI\u00D3N.cs [Dise\u00F1o]",
+              "RelativeToolTip": "INICIAR_SESI\u00D3N.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-11T23:18:13.241Z",
               "IsPinned": true,
@@ -43,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MENU_PRINCIPAL.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\MENU_PRINCIPAL.cs",
               "RelativeDocumentMoniker": "MENU_PRINCIPAL.cs",
@@ -56,17 +72,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\Form1.cs*",
-              "RelativeToolTip": "Form1.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "REGISTRO_DE_EXPEDIENTE.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\REGISTRO_DE_EXPEDIENTE.cs",
+              "RelativeDocumentMoniker": "REGISTRO_DE_EXPEDIENTE.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\REGISTRO_DE_EXPEDIENTE.cs [Dise\u00F1o]",
+              "RelativeToolTip": "REGISTRO_DE_EXPEDIENTE.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-11T22:51:51.08Z",
+              "WhenOpened": "2026-09-24T20:40:53.261Z",
               "IsPinned": true,
-              "EditorCaption": ""
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CONSULTAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\CONSULTAR_EXPEDIENTE.cs",
+              "RelativeDocumentMoniker": "CONSULTAR_EXPEDIENTE.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\CONSULTAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CONSULTAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T20:45:59.483Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BUSCAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\BUSCAR_EXPEDIENTE.cs",
+              "RelativeDocumentMoniker": "BUSCAR_EXPEDIENTE.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\BUSCAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "RelativeToolTip": "BUSCAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T20:49:34.717Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GESTIONAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\GESTIONAR_EXPEDIENTE.cs",
+              "RelativeDocumentMoniker": "GESTIONAR_EXPEDIENTE.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\GESTIONAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GESTIONAR_EXPEDIENTE.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T20:51:19.588Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "REPORTES.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\REPORTES.cs",
+              "RelativeDocumentMoniker": "REPORTES.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\REPORTES.cs [Dise\u00F1o]",
+              "RelativeToolTip": "REPORTES.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T20:52:37.466Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CONFIGURACI\u00D3N.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\CONFIGURACI\u00D3N.cs",
+              "RelativeDocumentMoniker": "CONFIGURACI\u00D3N.cs",
+              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\CONFIGURACI\u00D3N.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CONFIGURACI\u00D3N.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-24T20:53:57.536Z",
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Bookmark",
@@ -83,19 +163,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MENU_PRINCIPAL.cs",
-              "DocumentMoniker": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\MENU_PRINCIPAL.cs",
-              "RelativeDocumentMoniker": "MENU_PRINCIPAL.cs",
-              "ToolTip": "C:\\Users\\Jarlin\\Desktop\\DESAFIOS\\CURSOS\\FUNDAMENTOS_DE_PROGRAMACION\\PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC\\MENU_PRINCIPAL.cs",
-              "RelativeToolTip": "MENU_PRINCIPAL.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAWwCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-14T00:09:20.706Z",
-              "EditorCaption": ""
             }
           ]
         }

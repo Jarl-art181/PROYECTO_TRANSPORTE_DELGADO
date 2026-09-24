@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 {
-    public partial class Form1 : Form
+    public partial class INICIAR_SESIÓN : Form
     {
-        public Form1()
+        public INICIAR_SESIÓN()
         {
             InitializeComponent();
            // this.WindowState = FormWindowState.Maximized;

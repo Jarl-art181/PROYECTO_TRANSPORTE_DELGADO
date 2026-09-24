@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 {
-    partial class Form1
+    partial class INICIAR_SESIÓN
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INICIAR_SESIÓN));
             this.lblhora = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();

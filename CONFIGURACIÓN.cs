@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 {
-    public partial class MENU_PRINCIPAL : Form
+    public partial class CONFIGURACIÓN : Form
     {
-        public MENU_PRINCIPAL()
+        public CONFIGURACIÓN()
         {
             InitializeComponent();
             InitializeComponent();
