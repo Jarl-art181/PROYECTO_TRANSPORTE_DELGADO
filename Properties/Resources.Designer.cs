@@ -63,6 +63,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0d799d05_d5ae_4a35_bef3_043fd163ce4c {
+            get {
+                object obj = ResourceManager.GetObject("0d799d05-d5ae-4a35-bef3-043fd163ce4c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3c5f48b2_f828_47a9_bd6d_440b0ca9825f {
             get {
                 object obj = ResourceManager.GetObject("3c5f48b2-f828-47a9-bd6d-440b0ca9825f", resourceCulture);
@@ -96,6 +106,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties {
         internal static System.Drawing.Bitmap ceb7456e_eeb8_4314_b8c0_0f288ce64368 {
             get {
                 object obj = ResourceManager.GetObject("ceb7456e-eeb8-4314-b8c0-0f288ce64368", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cfe09738_6cb6_4665_bdec_ddaa89fcc78d {
+            get {
+                object obj = ResourceManager.GetObject("cfe09738-6cb6-4665-bdec-ddaa89fcc78d", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

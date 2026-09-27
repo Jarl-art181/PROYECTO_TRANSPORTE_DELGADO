@@ -16,9 +16,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         public INICIAR_SESIÓN()
         {
             InitializeComponent();
-           // this.WindowState = FormWindowState.Maximized;
-          //  this.FormBorderStyle = FormBorderStyle.None;
-           // this.DoubleBuffered = true;
+           this.WindowState = FormWindowState.Maximized;
+          this.FormBorderStyle = FormBorderStyle.None;
+           this.DoubleBuffered = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,25 +42,22 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
    
         
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+       
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        private void But_Iniciar_sesion_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            MENU_PRINCIPAL ventana = new MENU_PRINCIPAL();
+            INICIO ventana = new INICIO();
             ventana.Show();
+        }
+
+        private void But_Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ButSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

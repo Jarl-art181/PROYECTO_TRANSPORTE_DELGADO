@@ -33,7 +33,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)
         {
-
+            GESTIONAR_EXPEDIENTE ventana = new GESTIONAR_EXPEDIENTE();
+            ventana.Show();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -43,7 +44,38 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
+            GESTIONAR_EXPEDIENTE ventana = new GESTIONAR_EXPEDIENTE();
+            ventana.Show();
+        }
 
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            REGISTRO_DE_EXPEDIENTE ventana = new REGISTRO_DE_EXPEDIENTE();
+            ventana.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            INICIO ventana = new INICIO();
+            ventana.Show();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            CONSULTAR_EXPEDIENTE ventana = new CONSULTAR_EXPEDIENTE();
+            ventana.Show();
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            REPORTES ventana = new REPORTES();
+            ventana.Show();
+        }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            CONFIGURACIÓN ventana = new CONFIGURACIÓN();
+            ventana.Show();
         }
     }
 }
