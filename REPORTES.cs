@@ -76,5 +76,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             CONFIGURACIÓN ventana = new CONFIGURACIÓN();
             ventana.Show();
         }
+
+        private void guna2HtmlLabel23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

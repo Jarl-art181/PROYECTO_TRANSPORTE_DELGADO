@@ -121,6 +121,12 @@
   <data name="WhatsApp Image 2026-09-13 at 3.30.16 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Image 2026-09-13 at 3.30.16 PM.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="b1a42936-4535-41e5-a757-96116d5102b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b1a42936-4535-41e5-a757-96116d5102b1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0a10d7d0-8721-4b64-8146-1b07c7c222f3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0a10d7d0-8721-4b64-8146-1b07c7c222f3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="8a41f07a-7020-4cc3-aa97-9d994a693faf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8a41f07a-7020-4cc3-aa97-9d994a693faf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,10 +142,13 @@
   <data name="ea56fd45-1065-4af0-86cc-0a56840ff7d1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ea56fd45-1065-4af0-86cc-0a56840ff7d1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cfe09738-6cb6-4665-bdec-ddaa89fcc78d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cfe09738-6cb6-4665-bdec-ddaa89fcc78d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ceb7456e-eeb8-4314-b8c0-0f288ce64368" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ceb7456e-eeb8-4314-b8c0-0f288ce64368.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cfe09738-6cb6-4665-bdec-ddaa89fcc78d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cfe09738-6cb6-4665-bdec-ddaa89fcc78d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="067613af-2284-43fd-b932-4073bca7d695" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\067613af-2284-43fd-b932-4073bca7d695.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

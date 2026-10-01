@@ -20,7 +20,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.DoubleBuffered = true;
         }
 
-      
+
 
         private void REGISTRO_DE_EXPEDIENTE_Load(object sender, EventArgs e)
         {
@@ -72,9 +72,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         {
             OpenFileDialog abrirPDF = new OpenFileDialog();
 
-            abrirPDF.Filter =  "Archivos PDF (*.pdf)|*.pdf";
+            abrirPDF.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
-            abrirPDF.Title =  "Seleccionar documento PDF";
+            abrirPDF.Title = "Seleccionar documento PDF";
 
 
             if (abrirPDF.ShowDialog() == DialogResult.OK)
@@ -410,15 +410,14 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         // GUARDAR EXPEDIENTE
 
-        private void but_guardar_Click(
-            object sender,
-            EventArgs e)
+   
+            // GUARDAR EXPEDIENTE
+
+private void but_guardar_Click(object sender, EventArgs e)
         {
+            // 1. VERIFICAR CAMPOS VACÍOS
 
-            //  VERIFICAR CAMPOS VACÍOS
-
-            if (string.IsNullOrWhiteSpace(
-                txtN_expediente.Text))
+            if (string.IsNullOrWhiteSpace(txtN_expediente.Text))
             {
                 MessageBox.Show(
                     "Ingrese el número de expediente.",
@@ -428,13 +427,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 txtN_expediente.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                textFecha.Text))
+            if (string.IsNullOrWhiteSpace(textFecha.Text))
             {
                 MessageBox.Show(
                     "Ingrese la fecha.",
@@ -444,7 +441,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textFecha.Focus();
-
                 return;
             }
 
@@ -459,13 +455,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 ComboTipoDocumento.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show(
                     "Ingrese la descripción.",
@@ -475,13 +469,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 txtDescripcion.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                texNAME_USUARIO.Text))
+            if (string.IsNullOrWhiteSpace(texNAME_USUARIO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el nombre del usuario.",
@@ -491,13 +483,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 texNAME_USUARIO.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                textDNI.Text))
+            if (string.IsNullOrWhiteSpace(textDNI.Text))
             {
                 MessageBox.Show(
                     "Ingrese el documento de identificación.",
@@ -507,13 +497,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textDNI.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                textEMPRESA.Text))
+            if (string.IsNullOrWhiteSpace(textEMPRESA.Text))
             {
                 MessageBox.Show(
                     "Ingrese la empresa.",
@@ -523,13 +511,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textEMPRESA.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                textTELEFONO.Text))
+            if (string.IsNullOrWhiteSpace(textTELEFONO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el teléfono.",
@@ -539,13 +525,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textTELEFONO.Focus();
-
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(
-                textCORREO.Text))
+            if (string.IsNullOrWhiteSpace(textCORREO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el correo electrónico.",
@@ -555,7 +539,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textCORREO.Focus();
-
                 return;
             }
 
@@ -570,7 +553,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 comboESTADO.Focus();
-
                 return;
             }
 
@@ -579,7 +561,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             int numeroExpediente;
 
-            if (!int.TryParse(txtN_expediente.Text.Trim(), out numeroExpediente))
+            if (!int.TryParse(
+                txtN_expediente.Text.Trim(),
+                out numeroExpediente))
             {
                 MessageBox.Show(
                     "El número de expediente debe contener solo números.",
@@ -612,18 +596,17 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
                 textFecha.Focus();
-
                 return;
             }
 
 
             // 4. VALIDAR NOMBRE
 
-            if (!texNAME_USUARIO.Text.All(char.IsLetter) &&
-     !texNAME_USUARIO.Text.All(char.IsWhiteSpace))
+            if (!texNAME_USUARIO.Text.All(
+                c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 MessageBox.Show(
-                    "El nombre solo debe contener letras.",
+                    "El nombre solo debe contener letras y espacios.",
                     "Dato inválido",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -636,7 +619,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             // 5. VALIDAR DNI
 
-            if (!int.TryParse(textDNI.Text.Trim(), out int dni) || textDNI.Text.Trim().Length != 8)
+            if (!int.TryParse(
+                textDNI.Text.Trim(),
+                out int dni) ||
+                textDNI.Text.Trim().Length != 8)
             {
                 MessageBox.Show(
                     "El DNI debe contener exactamente 8 dígitos.",
@@ -652,7 +638,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             // 6. VALIDAR TELÉFONO
 
-            if (!int.TryParse(textTELEFONO.Text.Trim(), out int telefono) ||
+            if (!int.TryParse(
+                textTELEFONO.Text.Trim(),
+                out int telefono) ||
                 textTELEFONO.Text.Trim().Length != 9)
             {
                 MessageBox.Show(
@@ -682,8 +670,23 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 return;
             }
 
-            ///CREACIÓN DE CARPETA DE INFORMACIÓN
-            // 8. CREAR CARPETA DE DATOS
+
+            // 8. VALIDAR PDF
+
+            if (string.IsNullOrWhiteSpace(rutaPDF))
+            {
+                MessageBox.Show(
+                    "Debe adjuntar un documento PDF.",
+                    "Archivo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+
+            // 9. CREAR CARPETA DE DATOS
 
             string carpetaDatos =
                 Path.Combine(
@@ -691,12 +694,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     "Datos"
                 );
 
-            Directory.CreateDirectory(
-                carpetaDatos
-            );
+            Directory.CreateDirectory(carpetaDatos);
 
 
-            // 9. RUTA DEL ARCHIVO
+            // 10. RUTA DEL ARCHIVO
 
             string archivoExpedientes =
                 Path.Combine(
@@ -705,7 +706,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
 
 
-            // 10. VERIFICAR NÚMERO REPETIDO
+            // 11. VERIFICAR NÚMERO REPETIDO
             //     UTILIZANDO MATRIZ + FOR
 
             string numero_Expediente =
@@ -715,32 +716,35 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             if (File.Exists(archivoExpedientes))
             {
                 // Leer todos los registros
-                // y almacenarlos en un arreglo
 
-                string[] registros = File.ReadAllLines(archivoExpedientes);
+                string[] registros =
+                    File.ReadAllLines(archivoExpedientes);
 
 
                 // Crear matriz
-                // Filas = expedientes
-                // Columnas = datos
 
-                string[,] matriz = new string[ registros.Length,9 ];
+                string[,] matriz =
+                    new string[registros.Length, 9];
 
 
                 // GUARDAR LOS DATOS EN LA MATRIZ
 
-                for (int i = 0;i < registros.Length; i++)
+                for (int i = 0;
+                     i < registros.Length;
+                     i++)
                 {
-
                     // Separar los datos
 
-                    string[] datos =registros[i].Split('|');
+                    string[] datos =
+                        registros[i].Split('|');
 
 
                     // Guardar los datos
                     // dentro de la matriz
 
-                    for (int j = 0; j < datos.Length && j <9;j++)
+                    for (int j = 0;
+                         j < datos.Length && j < 9;
+                         j++)
                     {
                         matriz[i, j] =
                             datos[j];
@@ -750,12 +754,15 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                 // BUSCAR NÚMERO REPETIDO
 
-                for (int i = 0; i < matriz.GetLength(0);i++)
+                for (int i = 0;
+                     i < matriz.GetLength(0);
+                     i++)
                 {
                     // La columna 0 contiene
                     // el número de expediente
 
-                    if (matriz[i, 0] ==numero_Expediente)
+                    if (matriz[i, 0] ==
+                        numero_Expediente)
                     {
                         MessageBox.Show(
                             "El número de expediente ya existe.\n" +
@@ -765,55 +772,47 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                             MessageBoxIcon.Warning
                         );
 
-
                         txtN_expediente.Focus();
-
                         return;
                     }
                 }
             }
 
 
-            // 11. OBTENER LOS DATOS
+            // 12. OBTENER LOS DATOS
 
             string fechaRegistro =
                 textFecha.Text.Trim();
 
-
             string tipoDocumento =
                 ComboTipoDocumento.Text.Trim();
-
 
             string descripcion =
                 txtDescripcion.Text.Trim();
 
-
             string nombreUsuario =
                 texNAME_USUARIO.Text.Trim();
-
 
             string identificacion =
                 textDNI.Text.Trim();
 
-
             string empresa =
                 textEMPRESA.Text.Trim();
-
 
             string telefono_text =
                 textTELEFONO.Text.Trim();
 
-
             string correo =
                 textCORREO.Text.Trim();
-
 
             string estado =
                 comboESTADO.Text.Trim();
 
-            string pdf = rutaPDF;
+            string pdf =
+                rutaPDF;
 
-            // 12. CREAR EL REGISTRO
+
+            // 13. CREAR EL REGISTRO
 
             string registro =
                 numeroExpediente + "|" +
@@ -823,13 +822,13 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 nombreUsuario + "|" +
                 identificacion + "|" +
                 empresa + "|" +
-                telefono + "|" +
+                telefono_text + "|" +
                 correo + "|" +
                 estado + "|" +
                 pdf;
 
 
-            // 13. GUARDAR EN EL ARCHIVO
+            // 14. GUARDAR EN EL ARCHIVO
 
             File.AppendAllText(
                 archivoExpedientes,
@@ -838,7 +837,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             );
 
 
-            // 14. MENSAJE DE CONFIRMACIÓN
+            // 15. MENSAJE DE CONFIRMACIÓN
 
             MessageBox.Show(
                 "El expediente se registró correctamente.",
@@ -847,15 +846,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 MessageBoxIcon.Information
             );
         }
+        
 
-         private void But_Cerrar_Click(object sender, EventArgs e)
+        private void But_Cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void ButtonINICIO_Click(object sender, EventArgs e)
         {
-          INICIO ventana = new INICIO();
+            INICIO ventana = new INICIO();
             ventana.Show();
             this.Close();
         }
@@ -895,6 +895,5 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.Close();
         }
 
-      
     }
 }

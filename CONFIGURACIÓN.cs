@@ -76,5 +76,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             REPORTES ventana = new REPORTES();
             ventana.Show();
         }
+
+        private void guna2Panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

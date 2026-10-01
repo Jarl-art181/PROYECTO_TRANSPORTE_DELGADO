@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INICIO));
             Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
@@ -75,41 +74,30 @@
             Guna.Charts.WinForms.LPoint lPoint13 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint14 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint15 = new Guna.Charts.WinForms.LPoint();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INICIO));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.but_configuración = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.but_Reportes = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.But_Gestionar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Button_BUSCAR = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Button_CONSULTAR = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Button_REGISTRO = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonINICIO = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.but_Cerrar = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureCerrar = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblhora = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -124,39 +112,30 @@
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBox11 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.guna2PictureBox15 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBox10 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBox9 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Panel_ultimos_expedientes = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBox8 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox11 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.gunaChartExpedientesMes = new Guna.Charts.WinForms.GunaChart();
             this.gunaBarDataset1 = new Guna.Charts.WinForms.GunaBarDataset();
-            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -172,20 +151,64 @@
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaChartDona = new Guna.Charts.WinForms.GunaChart();
             this.gunaDoughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.guna2PictureBox15 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox14 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox11 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox10 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox9 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureCerrar = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
+            this.guna2Panel5.SuspendLayout();
+            this.guna2Panel11.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
+            this.Panel_ultimos_expedientes.SuspendLayout();
+            this.guna2Panel10.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -196,31 +219,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.guna2Panel4.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox15)).BeginInit();
-            this.guna2Panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
-            this.guna2Panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
-            this.Panel_ultimos_expedientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
-            this.guna2Panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
-            this.guna2Panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
-            this.guna2Panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -270,16 +270,6 @@
             this.guna2HtmlLabel7.TabIndex = 47;
             this.guna2HtmlLabel7.Text = "Configuración";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(35, 668);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 48;
-            this.pictureBox7.TabStop = false;
-            // 
             // but_configuración
             // 
             this.but_configuración.BorderRadius = 15;
@@ -306,16 +296,6 @@
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(93, 30);
             this.guna2HtmlLabel6.TabIndex = 44;
             this.guna2HtmlLabel6.Text = "Reportes";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(35, 599);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 45;
-            this.pictureBox6.TabStop = false;
             // 
             // but_Reportes
             // 
@@ -344,16 +324,6 @@
             this.guna2HtmlLabel5.TabIndex = 41;
             this.guna2HtmlLabel5.Text = "Gestionar Expediente";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(35, 530);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 42;
-            this.pictureBox5.TabStop = false;
-            // 
             // But_Gestionar
             // 
             this.But_Gestionar.BorderRadius = 15;
@@ -380,16 +350,6 @@
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(194, 30);
             this.guna2HtmlLabel4.TabIndex = 38;
             this.guna2HtmlLabel4.Text = "Buscar Expediente";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(35, 455);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 39;
-            this.pictureBox4.TabStop = false;
             // 
             // Button_BUSCAR
             // 
@@ -418,16 +378,6 @@
             this.guna2HtmlLabel3.TabIndex = 35;
             this.guna2HtmlLabel3.Text = "Consultar Expedientes";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(35, 381);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 36;
-            this.pictureBox3.TabStop = false;
-            // 
             // Button_CONSULTAR
             // 
             this.Button_CONSULTAR.BorderRadius = 15;
@@ -455,16 +405,6 @@
             this.guna2HtmlLabel2.TabIndex = 32;
             this.guna2HtmlLabel2.Text = "Registro de Expediente";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(35, 300);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
-            // 
             // Button_REGISTRO
             // 
             this.Button_REGISTRO.BorderRadius = 15;
@@ -491,17 +431,6 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(63, 30);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Inicio";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(35, 217);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // ButtonINICIO
             // 
@@ -555,17 +484,6 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "TRANSPORTE";
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(74, 16);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(149, 91);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 1;
-            this.guna2PictureBox2.TabStop = false;
-            // 
             // but_Cerrar
             // 
             this.but_Cerrar.BorderRadius = 15;
@@ -582,30 +500,7 @@
             this.but_Cerrar.Size = new System.Drawing.Size(180, 45);
             this.but_Cerrar.TabIndex = 1;
             this.but_Cerrar.Text = "Cerrar Sesión";
-            // 
-            // guna2PictureCerrar
-            // 
-            this.guna2PictureCerrar.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureCerrar.Image")));
-            this.guna2PictureCerrar.ImageRotate = 0F;
-            this.guna2PictureCerrar.Location = new System.Drawing.Point(15, 879);
-            this.guna2PictureCerrar.Name = "guna2PictureCerrar";
-            this.guna2PictureCerrar.Size = new System.Drawing.Size(55, 54);
-            this.guna2PictureCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureCerrar.TabIndex = 1;
-            this.guna2PictureCerrar.TabStop = false;
-            this.guna2PictureCerrar.Click += new System.EventHandler(this.guna2PictureCerrar_Click);
-            // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._8a41f07a_7020_4cc3_aa97_9d994a693faf;
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(3, 715);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(364, 182);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox4.TabIndex = 50;
-            this.guna2PictureBox4.TabStop = false;
+            this.but_Cerrar.Click += new System.EventHandler(this.but_Cerrar_Click);
             // 
             // guna2Panel2
             // 
@@ -642,17 +537,6 @@
             this.lblhora.TabIndex = 3;
             this.lblhora.Text = "15: 00: 00 ";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(13, 10);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(41, 40);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
@@ -664,17 +548,6 @@
             this.lblFecha.Size = new System.Drawing.Size(255, 29);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Domingo 12 de setiembre de 2026";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(13, 56);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(41, 35);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 1;
-            this.pictureBox9.TabStop = false;
             // 
             // label3
             // 
@@ -855,17 +728,6 @@
             this.label18.TabIndex = 13;
             this.label18.Text = "Finalizados";
             // 
-            // guna2PictureBox15
-            // 
-            this.guna2PictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox15.Image")));
-            this.guna2PictureBox15.ImageRotate = 0F;
-            this.guna2PictureBox15.Location = new System.Drawing.Point(12, 10);
-            this.guna2PictureBox15.Name = "guna2PictureBox15";
-            this.guna2PictureBox15.Size = new System.Drawing.Size(86, 84);
-            this.guna2PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox15.TabIndex = 2;
-            this.guna2PictureBox15.TabStop = false;
-            // 
             // guna2Panel11
             // 
             this.guna2Panel11.BackColor = System.Drawing.Color.Gray;
@@ -915,17 +777,6 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Pendientes";
             // 
-            // guna2PictureBox14
-            // 
-            this.guna2PictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox14.Image")));
-            this.guna2PictureBox14.ImageRotate = 0F;
-            this.guna2PictureBox14.Location = new System.Drawing.Point(12, 10);
-            this.guna2PictureBox14.Name = "guna2PictureBox14";
-            this.guna2PictureBox14.Size = new System.Drawing.Size(86, 84);
-            this.guna2PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox14.TabIndex = 2;
-            this.guna2PictureBox14.TabStop = false;
-            // 
             // guna2Panel8
             // 
             this.guna2Panel8.BackColor = System.Drawing.Color.Gray;
@@ -974,17 +825,6 @@
             this.label17.Size = new System.Drawing.Size(88, 20);
             this.label17.TabIndex = 13;
             this.label17.Text = "En Proceso";
-            // 
-            // guna2PictureBox13
-            // 
-            this.guna2PictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox13.Image")));
-            this.guna2PictureBox13.ImageRotate = 0F;
-            this.guna2PictureBox13.Location = new System.Drawing.Point(12, 10);
-            this.guna2PictureBox13.Name = "guna2PictureBox13";
-            this.guna2PictureBox13.Size = new System.Drawing.Size(79, 84);
-            this.guna2PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox13.TabIndex = 2;
-            this.guna2PictureBox13.TabStop = false;
             // 
             // Panel_ultimos_expedientes
             // 
@@ -1062,17 +902,6 @@
             this.guna2HtmlLabel25.TabIndex = 37;
             this.guna2HtmlLabel25.Text = "EXP-2025-0228";
             // 
-            // guna2PictureBox12
-            // 
-            this.guna2PictureBox12.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
-            this.guna2PictureBox12.ImageRotate = 0F;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(20, 257);
-            this.guna2PictureBox12.Name = "guna2PictureBox12";
-            this.guna2PictureBox12.Size = new System.Drawing.Size(46, 57);
-            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox12.TabIndex = 36;
-            this.guna2PictureBox12.TabStop = false;
-            // 
             // guna2TextBox7
             // 
             this.guna2TextBox7.BackColor = System.Drawing.Color.Transparent;
@@ -1118,17 +947,6 @@
             this.guna2HtmlLabel23.Size = new System.Drawing.Size(111, 19);
             this.guna2HtmlLabel23.TabIndex = 33;
             this.guna2HtmlLabel23.Text = "EXP-2025-0228";
-            // 
-            // guna2PictureBox11
-            // 
-            this.guna2PictureBox11.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
-            this.guna2PictureBox11.ImageRotate = 0F;
-            this.guna2PictureBox11.Location = new System.Drawing.Point(20, 195);
-            this.guna2PictureBox11.Name = "guna2PictureBox11";
-            this.guna2PictureBox11.Size = new System.Drawing.Size(46, 57);
-            this.guna2PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox11.TabIndex = 32;
-            this.guna2PictureBox11.TabStop = false;
             // 
             // guna2TextBox6
             // 
@@ -1176,17 +994,6 @@
             this.guna2HtmlLabel21.TabIndex = 29;
             this.guna2HtmlLabel21.Text = "EXP-2025-0228";
             // 
-            // guna2PictureBox10
-            // 
-            this.guna2PictureBox10.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
-            this.guna2PictureBox10.ImageRotate = 0F;
-            this.guna2PictureBox10.Location = new System.Drawing.Point(20, 135);
-            this.guna2PictureBox10.Name = "guna2PictureBox10";
-            this.guna2PictureBox10.Size = new System.Drawing.Size(46, 57);
-            this.guna2PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox10.TabIndex = 28;
-            this.guna2PictureBox10.TabStop = false;
-            // 
             // guna2TextBox5
             // 
             this.guna2TextBox5.BackColor = System.Drawing.Color.Transparent;
@@ -1233,17 +1040,6 @@
             this.guna2HtmlLabel18.TabIndex = 24;
             this.guna2HtmlLabel18.Text = "EXP-2025-0228";
             // 
-            // guna2PictureBox9
-            // 
-            this.guna2PictureBox9.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
-            this.guna2PictureBox9.ImageRotate = 0F;
-            this.guna2PictureBox9.Location = new System.Drawing.Point(20, 74);
-            this.guna2PictureBox9.Name = "guna2PictureBox9";
-            this.guna2PictureBox9.Size = new System.Drawing.Size(46, 57);
-            this.guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox9.TabIndex = 23;
-            this.guna2PictureBox9.TabStop = false;
-            // 
             // guna2Button9
             // 
             this.guna2Button9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1264,18 +1060,6 @@
             this.guna2Button9.Size = new System.Drawing.Size(129, 29);
             this.guna2Button9.TabIndex = 22;
             this.guna2Button9.Text = "Ver Todos";
-            // 
-            // guna2PictureBox8
-            // 
-            this.guna2PictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox8.Image")));
-            this.guna2PictureBox8.ImageRotate = 0F;
-            this.guna2PictureBox8.Location = new System.Drawing.Point(21, 12);
-            this.guna2PictureBox8.Name = "guna2PictureBox8";
-            this.guna2PictureBox8.Size = new System.Drawing.Size(25, 32);
-            this.guna2PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox8.TabIndex = 20;
-            this.guna2PictureBox8.TabStop = false;
             // 
             // guna2TextBox4
             // 
@@ -1402,18 +1186,6 @@
             System.Drawing.Color.DarkGoldenrod});
             this.gunaBarDataset1.Label = "Bar1";
             this.gunaBarDataset1.TargetChart = this.gunaChartExpedientesMes;
-            // 
-            // guna2PictureBox7
-            // 
-            this.guna2PictureBox7.BackColor = System.Drawing.Color.White;
-            this.guna2PictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox7.Image")));
-            this.guna2PictureBox7.ImageRotate = 0F;
-            this.guna2PictureBox7.Location = new System.Drawing.Point(18, 7);
-            this.guna2PictureBox7.Name = "guna2PictureBox7";
-            this.guna2PictureBox7.Size = new System.Drawing.Size(25, 32);
-            this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox7.TabIndex = 18;
-            this.guna2PictureBox7.TabStop = false;
             // 
             // guna2TextBox1
             // 
@@ -1610,18 +1382,6 @@
             this.guna2HtmlLabel8.TabIndex = 5;
             this.guna2HtmlLabel8.Text = "PROCESO";
             // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.BackColor = System.Drawing.Color.White;
-            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(23, 6);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(25, 32);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 3;
-            this.guna2PictureBox6.TabStop = false;
-            // 
             // guna2TextBox3
             // 
             this.guna2TextBox3.BorderColor = System.Drawing.Color.White;
@@ -1652,7 +1412,7 @@
             chartFont9.FontName = "Arial";
             this.gunaChartDona.Legend.LabelFont = chartFont9;
             this.gunaChartDona.Location = new System.Drawing.Point(17, 48);
-            this.gunaChartDona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaChartDona.Margin = new System.Windows.Forms.Padding(2);
             this.gunaChartDona.Name = "gunaChartDona";
             this.gunaChartDona.Size = new System.Drawing.Size(341, 184);
             this.gunaChartDona.TabIndex = 4;
@@ -1744,17 +1504,6 @@
             this.label14.TabIndex = 13;
             this.label14.Text = "Expedientes ";
             // 
-            // guna2PictureBox5
-            // 
-            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(12, 10);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(75, 84);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox5.TabIndex = 2;
-            this.guna2PictureBox5.TabStop = false;
-            // 
             // guna2TextBox2
             // 
             this.guna2TextBox2.BorderColor = System.Drawing.Color.White;
@@ -1776,13 +1525,142 @@
             this.guna2TextBox2.Size = new System.Drawing.Size(54, 35);
             this.guna2TextBox2.TabIndex = 1;
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            // 
+            // guna2PictureBox15
+            // 
+            this.guna2PictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox15.Image")));
+            this.guna2PictureBox15.ImageRotate = 0F;
+            this.guna2PictureBox15.Location = new System.Drawing.Point(12, 10);
+            this.guna2PictureBox15.Name = "guna2PictureBox15";
+            this.guna2PictureBox15.Size = new System.Drawing.Size(86, 84);
+            this.guna2PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox15.TabIndex = 2;
+            this.guna2PictureBox15.TabStop = false;
+            // 
+            // guna2PictureBox14
+            // 
+            this.guna2PictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox14.Image")));
+            this.guna2PictureBox14.ImageRotate = 0F;
+            this.guna2PictureBox14.Location = new System.Drawing.Point(12, 10);
+            this.guna2PictureBox14.Name = "guna2PictureBox14";
+            this.guna2PictureBox14.Size = new System.Drawing.Size(86, 84);
+            this.guna2PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox14.TabIndex = 2;
+            this.guna2PictureBox14.TabStop = false;
+            // 
+            // guna2PictureBox13
+            // 
+            this.guna2PictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox13.Image")));
+            this.guna2PictureBox13.ImageRotate = 0F;
+            this.guna2PictureBox13.Location = new System.Drawing.Point(12, 10);
+            this.guna2PictureBox13.Name = "guna2PictureBox13";
+            this.guna2PictureBox13.Size = new System.Drawing.Size(79, 84);
+            this.guna2PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox13.TabIndex = 2;
+            this.guna2PictureBox13.TabStop = false;
+            // 
+            // guna2PictureBox12
+            // 
+            this.guna2PictureBox12.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
+            this.guna2PictureBox12.ImageRotate = 0F;
+            this.guna2PictureBox12.Location = new System.Drawing.Point(20, 257);
+            this.guna2PictureBox12.Name = "guna2PictureBox12";
+            this.guna2PictureBox12.Size = new System.Drawing.Size(46, 57);
+            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox12.TabIndex = 36;
+            this.guna2PictureBox12.TabStop = false;
+            // 
+            // guna2PictureBox11
+            // 
+            this.guna2PictureBox11.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
+            this.guna2PictureBox11.ImageRotate = 0F;
+            this.guna2PictureBox11.Location = new System.Drawing.Point(20, 195);
+            this.guna2PictureBox11.Name = "guna2PictureBox11";
+            this.guna2PictureBox11.Size = new System.Drawing.Size(46, 57);
+            this.guna2PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox11.TabIndex = 32;
+            this.guna2PictureBox11.TabStop = false;
+            // 
+            // guna2PictureBox10
+            // 
+            this.guna2PictureBox10.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
+            this.guna2PictureBox10.ImageRotate = 0F;
+            this.guna2PictureBox10.Location = new System.Drawing.Point(20, 135);
+            this.guna2PictureBox10.Name = "guna2PictureBox10";
+            this.guna2PictureBox10.Size = new System.Drawing.Size(46, 57);
+            this.guna2PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox10.TabIndex = 28;
+            this.guna2PictureBox10.TabStop = false;
+            // 
+            // guna2PictureBox9
+            // 
+            this.guna2PictureBox9.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._0d799d05_d5ae_4a35_bef3_043fd163ce4c;
+            this.guna2PictureBox9.ImageRotate = 0F;
+            this.guna2PictureBox9.Location = new System.Drawing.Point(20, 74);
+            this.guna2PictureBox9.Name = "guna2PictureBox9";
+            this.guna2PictureBox9.Size = new System.Drawing.Size(46, 57);
+            this.guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox9.TabIndex = 23;
+            this.guna2PictureBox9.TabStop = false;
+            // 
+            // guna2PictureBox8
+            // 
+            this.guna2PictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox8.Image")));
+            this.guna2PictureBox8.ImageRotate = 0F;
+            this.guna2PictureBox8.Location = new System.Drawing.Point(21, 12);
+            this.guna2PictureBox8.Name = "guna2PictureBox8";
+            this.guna2PictureBox8.Size = new System.Drawing.Size(25, 32);
+            this.guna2PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox8.TabIndex = 20;
+            this.guna2PictureBox8.TabStop = false;
+            // 
+            // guna2PictureBox7
+            // 
+            this.guna2PictureBox7.BackColor = System.Drawing.Color.White;
+            this.guna2PictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox7.Image")));
+            this.guna2PictureBox7.ImageRotate = 0F;
+            this.guna2PictureBox7.Location = new System.Drawing.Point(18, 7);
+            this.guna2PictureBox7.Name = "guna2PictureBox7";
+            this.guna2PictureBox7.Size = new System.Drawing.Size(25, 32);
+            this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox7.TabIndex = 18;
+            this.guna2PictureBox7.TabStop = false;
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.BackColor = System.Drawing.Color.White;
+            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(23, 6);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(25, 32);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 3;
+            this.guna2PictureBox6.TabStop = false;
+            // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.Location = new System.Drawing.Point(12, 10);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(75, 84);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox5.TabIndex = 2;
+            this.guna2PictureBox5.TabStop = false;
+            // 
             // guna2PictureBox3
             // 
-            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources.b1a42936_4535_41e5_a757_96116d5102b1;
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(364, 135);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(364, 143);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(1190, 300);
+            this.guna2PictureBox3.Size = new System.Drawing.Size(1174, 292);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 2;
             this.guna2PictureBox3.TabStop = false;
@@ -1797,10 +1675,133 @@
             this.guna2CirclePictureBox1.TabIndex = 1;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // timer2
+            // pictureBox7
             // 
-            this.timer2.Enabled = true;
-            this.timer2.Interval = 1000;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(35, 668);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 48;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(35, 599);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 45;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(35, 530);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 42;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(35, 455);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 39;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(35, 381);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 36;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(35, 300);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(35, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(74, 16);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(149, 91);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 1;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2PictureCerrar
+            // 
+            this.guna2PictureCerrar.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureCerrar.Image")));
+            this.guna2PictureCerrar.ImageRotate = 0F;
+            this.guna2PictureCerrar.Location = new System.Drawing.Point(15, 879);
+            this.guna2PictureCerrar.Name = "guna2PictureCerrar";
+            this.guna2PictureCerrar.Size = new System.Drawing.Size(55, 54);
+            this.guna2PictureCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureCerrar.TabIndex = 1;
+            this.guna2PictureCerrar.TabStop = false;
+            this.guna2PictureCerrar.Click += new System.EventHandler(this.guna2PictureCerrar_Click);
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._8a41f07a_7020_4cc3_aa97_9d994a693faf;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(3, 715);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(364, 182);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox4.TabIndex = 50;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(13, 10);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(13, 56);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(41, 35);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 1;
+            this.pictureBox9.TabStop = false;
             // 
             // INICIO
             // 
@@ -1824,6 +1825,37 @@
             this.Text = "MENU_PRINCIPAL_SISTEMA";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
+            this.guna2Panel11.ResumeLayout(false);
+            this.guna2Panel11.PerformLayout();
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel8.PerformLayout();
+            this.Panel_ultimos_expedientes.ResumeLayout(false);
+            this.Panel_ultimos_expedientes.PerformLayout();
+            this.guna2Panel10.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.guna2Panel9.PerformLayout();
+            this.guna2Panel7.ResumeLayout(false);
+            this.guna2Panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1834,39 +1866,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox15)).EndInit();
-            this.guna2Panel11.ResumeLayout(false);
-            this.guna2Panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).EndInit();
-            this.guna2Panel8.ResumeLayout(false);
-            this.guna2Panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
-            this.Panel_ultimos_expedientes.ResumeLayout(false);
-            this.Panel_ultimos_expedientes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
-            this.guna2Panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
-            this.guna2Panel9.ResumeLayout(false);
-            this.guna2Panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            this.guna2Panel7.ResumeLayout(false);
-            this.guna2Panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

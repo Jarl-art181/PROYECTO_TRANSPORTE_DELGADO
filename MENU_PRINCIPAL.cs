@@ -92,5 +92,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             CONFIGURACIÓN ventana = new CONFIGURACIÓN();
             ventana.Show(); this.Close();
         }
+
+        private void but_Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

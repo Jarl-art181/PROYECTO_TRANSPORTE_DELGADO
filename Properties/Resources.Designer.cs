@@ -63,6 +63,26 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _067613af_2284_43fd_b932_4073bca7d695 {
+            get {
+                object obj = ResourceManager.GetObject("067613af-2284-43fd-b932-4073bca7d695", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _0a10d7d0_8721_4b64_8146_1b07c7c222f3 {
+            get {
+                object obj = ResourceManager.GetObject("0a10d7d0-8721-4b64-8146-1b07c7c222f3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _0d799d05_d5ae_4a35_bef3_043fd163ce4c {
             get {
                 object obj = ResourceManager.GetObject("0d799d05-d5ae-4a35-bef3-043fd163ce4c", resourceCulture);
@@ -96,6 +116,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties {
         internal static System.Drawing.Bitmap _8a41f07a_7020_4cc3_aa97_9d994a693faf {
             get {
                 object obj = ResourceManager.GetObject("8a41f07a-7020-4cc3-aa97-9d994a693faf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b1a42936_4535_41e5_a757_96116d5102b1 {
+            get {
+                object obj = ResourceManager.GetObject("b1a42936-4535-41e5-a757-96116d5102b1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

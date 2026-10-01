@@ -28,11 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CONSULTAR_EXPEDIENTE));
             this.dgvExpedientes = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -65,7 +75,6 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
@@ -73,8 +82,8 @@
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -101,16 +110,7 @@
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPDF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAcciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -124,35 +124,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.guna2Panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.guna2Panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvExpedientes
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExpedientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Maiandra GD", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Maiandra GD", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvExpedientes.ColumnHeadersHeight = 42;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -166,16 +166,16 @@
             this.colTelefono,
             this.colCorreo,
             this.coluEstadoExpediente});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExpedientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvExpedientes.Location = new System.Drawing.Point(14, 15);
+            this.dgvExpedientes.Location = new System.Drawing.Point(9, 15);
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidth = 51;
@@ -192,6 +192,67 @@
             this.dgvExpedientes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // colExpediente
+            // 
+            this.colExpediente.HeaderText = "N.º Expediente";
+            this.colExpediente.MinimumWidth = 6;
+            this.colExpediente.Name = "colExpediente";
+            // 
+            // colFechaRegistro
+            // 
+            this.colFechaRegistro.HeaderText = "Fecha";
+            this.colFechaRegistro.MinimumWidth = 6;
+            this.colFechaRegistro.Name = "colFechaRegistro";
+            // 
+            // colDocumento
+            // 
+            this.colDocumento.HeaderText = "Tipo de documento";
+            this.colDocumento.MinimumWidth = 6;
+            this.colDocumento.Name = "colDocumento";
+            // 
+            // ColuDescripción
+            // 
+            this.ColuDescripción.HeaderText = "Descripción";
+            this.ColuDescripción.MinimumWidth = 6;
+            this.ColuDescripción.Name = "ColuDescripción";
+            // 
+            // coloSolicitante
+            // 
+            this.coloSolicitante.HeaderText = "Solicitante";
+            this.coloSolicitante.MinimumWidth = 6;
+            this.coloSolicitante.Name = "coloSolicitante";
+            // 
+            // colDNI
+            // 
+            this.colDNI.HeaderText = "DNI";
+            this.colDNI.MinimumWidth = 6;
+            this.colDNI.Name = "colDNI";
+            // 
+            // coloEmpresa
+            // 
+            this.coloEmpresa.HeaderText = "Empresa";
+            this.coloEmpresa.MinimumWidth = 6;
+            this.coloEmpresa.Name = "coloEmpresa";
+            // 
+            // colTelefono
+            // 
+            this.colTelefono.HeaderText = "Teléfono";
+            this.colTelefono.MinimumWidth = 6;
+            this.colTelefono.Name = "colTelefono";
+            // 
+            // colCorreo
+            // 
+            this.colCorreo.FillWeight = 200F;
+            this.colCorreo.HeaderText = "Correo electrónico";
+            this.colCorreo.MinimumWidth = 6;
+            this.colCorreo.Name = "colCorreo";
+            // 
+            // coluEstadoExpediente
+            // 
+            this.coluEstadoExpediente.HeaderText = "Estado";
+            this.coluEstadoExpediente.MinimumWidth = 6;
+            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
             // 
             // guna2Panel1
             // 
@@ -607,17 +668,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "SISTEMA DE GESTIÓN DOCUMENTARIA";
             // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(909, 0);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(632, 138);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 4;
-            this.guna2PictureBox3.TabStop = false;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
@@ -644,7 +694,7 @@
             // 
             // guna2Panel8
             // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.LightGray;
+            this.guna2Panel8.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel8.BorderRadius = 10;
             this.guna2Panel8.Controls.Add(this.dgvExpedientes);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
@@ -655,8 +705,11 @@
             // 
             // guna2Panel7
             // 
+            this.guna2Panel7.BackColor = System.Drawing.Color.White;
+            this.guna2Panel7.BorderRadius = 15;
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel10);
             this.guna2Panel7.Controls.Add(this.pictureBox10);
+            this.guna2Panel7.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel7.Location = new System.Drawing.Point(7, 410);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(1158, 52);
@@ -684,10 +737,10 @@
             // 
             // guna2Panel6
             // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.LightGray;
+            this.guna2Panel6.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel6.BorderRadius = 12;
-            this.guna2Panel6.Controls.Add(this.guna2CirclePictureBox2);
-            this.guna2Panel6.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel6.Controls.Add(this.guna2PictureBox6);
+            this.guna2Panel6.Controls.Add(this.guna2PictureBox4);
             this.guna2Panel6.Controls.Add(this.guna2ComboBox2);
             this.guna2Panel6.Controls.Add(this.guna2TextBox3);
             this.guna2Panel6.Controls.Add(this.guna2TextBox2);
@@ -706,25 +759,29 @@
             this.guna2Panel6.Size = new System.Drawing.Size(1158, 225);
             this.guna2Panel6.TabIndex = 2;
             // 
-            // guna2CirclePictureBox2
+            // guna2PictureBox6
             // 
-            this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(1001, 122);
-            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
-            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(36, 41);
-            this.guna2CirclePictureBox2.TabIndex = 17;
-            this.guna2CirclePictureBox2.TabStop = false;
+            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.InitialImage")));
+            this.guna2PictureBox6.Location = new System.Drawing.Point(998, 120);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(39, 43);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 18;
+            this.guna2PictureBox6.TabStop = false;
             // 
-            // guna2CirclePictureBox1
+            // guna2PictureBox4
             // 
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(827, 122);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(36, 41);
-            this.guna2CirclePictureBox1.TabIndex = 16;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.InitialImage")));
+            this.guna2PictureBox4.Location = new System.Drawing.Point(825, 120);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(47, 43);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox4.TabIndex = 17;
+            this.guna2PictureBox4.TabStop = false;
             // 
             // guna2ComboBox2
             // 
@@ -800,6 +857,8 @@
             // 
             // guna2Button10
             // 
+            this.guna2Button10.BackColor = System.Drawing.Color.White;
+            this.guna2Button10.BorderColor = System.Drawing.Color.White;
             this.guna2Button10.BorderRadius = 7;
             this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -903,10 +962,10 @@
             // 
             // guna2Panel5
             // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Gold;
+            this.guna2Panel5.BackColor = System.Drawing.Color.White;
             this.guna2Panel5.BorderRadius = 8;
             this.guna2Panel5.Controls.Add(this.guna2HtmlLabel9);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel5.Location = new System.Drawing.Point(7, 113);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(1158, 50);
@@ -1023,66 +1082,16 @@
             this.colAcciones.Name = "colAcciones";
             this.colAcciones.Width = 140;
             // 
-            // colExpediente
+            // guna2PictureBox3
             // 
-            this.colExpediente.HeaderText = "N.º Expediente";
-            this.colExpediente.MinimumWidth = 6;
-            this.colExpediente.Name = "colExpediente";
-            // 
-            // colFechaRegistro
-            // 
-            this.colFechaRegistro.HeaderText = "Fecha";
-            this.colFechaRegistro.MinimumWidth = 6;
-            this.colFechaRegistro.Name = "colFechaRegistro";
-            // 
-            // colDocumento
-            // 
-            this.colDocumento.HeaderText = "Tipo de documento";
-            this.colDocumento.MinimumWidth = 6;
-            this.colDocumento.Name = "colDocumento";
-            // 
-            // ColuDescripción
-            // 
-            this.ColuDescripción.HeaderText = "Descripción";
-            this.ColuDescripción.MinimumWidth = 6;
-            this.ColuDescripción.Name = "ColuDescripción";
-            // 
-            // coloSolicitante
-            // 
-            this.coloSolicitante.HeaderText = "Solicitante";
-            this.coloSolicitante.MinimumWidth = 6;
-            this.coloSolicitante.Name = "coloSolicitante";
-            // 
-            // colDNI
-            // 
-            this.colDNI.HeaderText = "DNI";
-            this.colDNI.MinimumWidth = 6;
-            this.colDNI.Name = "colDNI";
-            // 
-            // coloEmpresa
-            // 
-            this.coloEmpresa.HeaderText = "Empresa";
-            this.coloEmpresa.MinimumWidth = 6;
-            this.coloEmpresa.Name = "coloEmpresa";
-            // 
-            // colTelefono
-            // 
-            this.colTelefono.HeaderText = "Teléfono";
-            this.colTelefono.MinimumWidth = 6;
-            this.colTelefono.Name = "colTelefono";
-            // 
-            // colCorreo
-            // 
-            this.colCorreo.FillWeight = 200F;
-            this.colCorreo.HeaderText = "Correo electrónico";
-            this.colCorreo.MinimumWidth = 6;
-            this.colCorreo.Name = "colCorreo";
-            // 
-            // coluEstadoExpediente
-            // 
-            this.coluEstadoExpediente.HeaderText = "Estado";
-            this.coluEstadoExpediente.MinimumWidth = 6;
-            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(909, 0);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(632, 138);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 4;
+            this.guna2PictureBox3.TabStop = false;
             // 
             // CONSULTAR_EXPEDIENTE
             // 
@@ -1111,7 +1120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.guna2Panel8.ResumeLayout(false);
@@ -1120,13 +1128,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1191,8 +1200,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
@@ -1212,5 +1219,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn coluEstadoExpediente;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
     }
 }
