@@ -21,15 +21,19 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
+        // CARGAR FORMULARIO
+        // =========================================================
 
         private void REGISTRO_DE_EXPEDIENTE_Load(object sender, EventArgs e)
         {
             // FECHA ACTUAL
-
-            textFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            textFecha.Text =
+                DateTime.Now.ToString("dd/MM/yyyy");
 
 
             // TIPOS DE DOCUMENTO
+            ComboTipoDocumento.Items.Clear();
 
             ComboTipoDocumento.Items.Add("Solicitud");
             ComboTipoDocumento.Items.Add("Oficio");
@@ -42,7 +46,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
             // INICIALMENTE NO HAY PDF
-
             txtRutaPDF.Text = "";
 
             picPDF.Visible = false;
@@ -54,7 +57,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
             // ESTADOS DEL EXPEDIENTE
-
             comboESTADO.Items.Clear();
 
             comboESTADO.Items.Add("En proceso");
@@ -63,18 +65,27 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             comboESTADO.DropDownStyle =
                 ComboBoxStyle.DropDownList;
+
+
+            // GENERAR NÚMERO SEGÚN CONFIGURACIÓN
+            GenerarNumeroExpediente();
         }
 
 
+        // =========================================================
         // ADJUNTAR PDF
+        // =========================================================
 
         private void btnAdjuntarPDF_Click(object sender, EventArgs e)
         {
-            OpenFileDialog abrirPDF = new OpenFileDialog();
+            OpenFileDialog abrirPDF =
+                new OpenFileDialog();
 
-            abrirPDF.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            abrirPDF.Filter =
+                "Archivos PDF (*.pdf)|*.pdf";
 
-            abrirPDF.Title = "Seleccionar documento PDF";
+            abrirPDF.Title =
+                "Seleccionar documento PDF";
 
 
             if (abrirPDF.ShowDialog() == DialogResult.OK)
@@ -84,8 +95,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
                 // Comprobar que no supere 10 MB
-
-                if (archivo.Length > 10 * 1024 * 1024)
+                if (archivo.Length >
+                    10 * 1024 * 1024)
                 {
                     MessageBox.Show(
                         "El archivo PDF no puede superar los 10 MB.",
@@ -99,25 +110,27 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
                 // Guardar la ruta completa
-
-                rutaPDF = abrirPDF.FileName;
+                rutaPDF =
+                    abrirPDF.FileName;
 
 
                 // Obtener solamente el nombre del PDF
+                string nombrePDF =
+                    Path.GetFileName(
+                        abrirPDF.FileName
+                    );
 
-                string nombrePDF = Path.GetFileName(abrirPDF.FileName);
 
-
-                lblTipoPDF.Text = "Documento PDF";
+                lblTipoPDF.Text =
+                    "Documento PDF";
 
 
                 // Mostrar el nombre
-
-                lblNombrePDF.Text = nombrePDF;
+                lblNombrePDF.Text =
+                    nombrePDF;
 
 
                 // Mostrar logo y nombre
-
                 picPDF.Visible = true;
                 lblNombrePDF.Visible = true;
                 lblTipoPDF.Visible = true;
@@ -125,7 +138,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
         // VER PDF
+        // =========================================================
 
         private void btnVerPDF_Click(object sender, EventArgs e)
         {
@@ -180,9 +195,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
-
-
+        // =========================================================
         // LIMPIAR NOMBRE
+        // =========================================================
 
         private void texNAME_USUARIO_Enter(
             object sender,
@@ -196,46 +211,57 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
         // LIMPIAR NÚMERO
+        // =========================================================
 
         private void txtN_expediente_Enter(
             object sender,
             EventArgs e)
         {
-            if (txtN_expediente.Text == "100526")
+            if (txtN_expediente.Text ==
+                "12345678")
             {
                 txtN_expediente.Clear();
             }
         }
 
 
+        // =========================================================
         // LIMPIAR FECHA
+        // =========================================================
 
         private void textFecha_Enter(
             object sender,
             EventArgs e)
         {
-            if (textFecha.Text == "26/09/2026")
+            if (textFecha.Text ==
+                "26/09/2026")
             {
                 textFecha.Clear();
             }
         }
 
 
+        // =========================================================
         // LIMPIAR DNI
+        // =========================================================
 
         private void textDNI_Enter(
             object sender,
             EventArgs e)
         {
-            if (textDNI.Text == "78459554")
+            if (textDNI.Text ==
+                "78459554")
             {
                 textDNI.Clear();
             }
         }
 
 
+        // =========================================================
         // LIMPIAR EMPRESA
+        // =========================================================
 
         private void textEMPRESA_Enter(
             object sender,
@@ -249,7 +275,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
         // LIMPIAR TELÉFONO
+        // =========================================================
 
         private void textTELEFONO_Enter(
             object sender,
@@ -262,7 +290,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             }
         }
 
+
+        // =========================================================
         // LIMPIAR CORREO
+        // =========================================================
 
         private void textCORREO_Enter(
             object sender,
@@ -274,46 +305,328 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 textCORREO.Clear();
             }
         }
-        /// BOTONES:
-        private void But_Limpieza_Click(object sender, EventArgs e)
+
+
+        // =========================================================
+        // MÉTODO PARA LIMPIAR FORMULARIO
+        // =========================================================
+
+        private void LimpiarFormulario()
         {
+            txtN_expediente.Clear();
 
-            DialogResult respuesta = MessageBox.Show(
-       "¿Está seguro de limpiar los datos?",
-       "Confirmar limpieza",
-       MessageBoxButtons.YesNo,
-       MessageBoxIcon.Question
-   );
+            txtDescripcion.Clear();
 
-            if (respuesta == DialogResult.Yes)
+            texNAME_USUARIO.Clear();
+
+            textDNI.Clear();
+
+            textEMPRESA.Clear();
+
+            textTELEFONO.Clear();
+
+            textCORREO.Clear();
+
+
+            ComboTipoDocumento.SelectedIndex = -1;
+
+            comboESTADO.SelectedIndex = -1;
+
+
+            textFecha.Clear();
+
+
+            rutaPDF = "";
+
+
+            txtRutaPDF.Text = "";
+
+            lblNombrePDF.Text = "";
+
+            lblTipoPDF.Text = "";
+
+
+            picPDF.Visible = false;
+
+            lblNombrePDF.Visible = false;
+
+            lblTipoPDF.Visible = false;
+
+
+            // Permitir escritura nuevamente
+            txtN_expediente.ReadOnly = false;
+        }
+
+
+        // =========================================================
+        // LEER OPCIÓN:
+        // LIMPIAR FORMULARIO DESPUÉS DE GUARDAR
+        // =========================================================
+
+        private bool LimpiarDespuesDeGuardar()
+        {
+            string rutaOpciones =
+                Path.Combine(
+                    Application.StartupPath,
+                    "Datos",
+                    "opciones.txt"
+                );
+
+
+            if (!File.Exists(rutaOpciones))
+                return false;
+
+
+            string contenido =
+                File.ReadAllText(rutaOpciones);
+
+
+            string[] opciones =
+                contenido.Split('|');
+
+
+            if (opciones.Length >= 1)
             {
+                bool.TryParse(
+                    opciones[0],
+                    out bool limpiar
+                );
+
+                return limpiar;
+            }
 
 
+            return false;
+        }
+
+
+        // =========================================================
+        // LEER OPCIÓN:
+        // MOSTRAR MENSAJE DESPUÉS DE GUARDAR
+        // =========================================================
+
+        private bool MostrarMensajeDespuesDeGuardar()
+        {
+            string rutaOpciones =
+                Path.Combine(
+                    Application.StartupPath,
+                    "Datos",
+                    "opciones.txt"
+                );
+
+
+            if (!File.Exists(rutaOpciones))
+                return true;
+
+
+            string contenido =
+                File.ReadAllText(rutaOpciones);
+
+
+            string[] opciones =
+                contenido.Split('|');
+
+
+            if (opciones.Length >= 2)
+            {
+                bool.TryParse(
+                    opciones[1],
+                    out bool mostrarMensaje
+                );
+
+                return mostrarMensaje;
+            }
+
+
+            return true;
+        }
+
+
+        // =========================================================
+        // LEER OPCIÓN:
+        // GENERAR NÚMEROS AUTOMÁTICAMENTE
+        // =========================================================
+
+        private bool GenerarNumerosAutomaticamente()
+        {
+            string rutaOpciones =
+                Path.Combine(
+                    Application.StartupPath,
+                    "Datos",
+                    "opciones.txt"
+                );
+
+
+            if (!File.Exists(rutaOpciones))
+                return false;
+
+
+            string contenido =
+                File.ReadAllText(rutaOpciones);
+
+
+            string[] opciones =
+                contenido.Split('|');
+
+
+            if (opciones.Length >= 4)
+            {
+                bool.TryParse(
+                    opciones[3],
+                    out bool generarNumero
+                );
+
+                return generarNumero;
+            }
+
+
+            return false;
+        }
+
+
+        // =========================================================
+        // OBTENER SIGUIENTE NÚMERO DE EXPEDIENTE
+        // =========================================================
+
+        private string ObtenerSiguienteNumeroExpediente()
+        {
+            string ruta =
+                Path.Combine(
+                    Application.StartupPath,
+                    "Datos",
+                    "expedientes.txt"
+                );
+
+
+            int mayor = 0;
+
+
+            if (File.Exists(ruta))
+            {
+                string[] registros =
+                    File.ReadAllLines(ruta);
+
+
+                for (int i = 0;
+                     i < registros.Length;
+                     i++)
+                {
+                    if (string.IsNullOrWhiteSpace(
+                        registros[i]))
+                    {
+                        continue;
+                    }
+
+
+                    string[] datos =
+                        registros[i].Split('|');
+
+
+                    if (datos.Length > 0)
+                    {
+                        if (int.TryParse(
+                            datos[0].Trim(),
+                            out int numero))
+                        {
+                            if (numero > mayor)
+                            {
+                                mayor = numero;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            int siguiente =
+                mayor + 1;
+
+
+            return siguiente.ToString("D8");
+        }
+
+
+        // =========================================================
+        // GENERAR NÚMERO SEGÚN CONFIGURACIÓN
+        // =========================================================
+
+        private void GenerarNumeroExpediente()
+        {
+            if (GenerarNumerosAutomaticamente())
+            {
+                txtN_expediente.Text =
+                    ObtenerSiguienteNumeroExpediente();
+
+                txtN_expediente.ReadOnly = true;
+            }
+            else
+            {
                 txtN_expediente.Clear();
-                txtDescripcion.Clear();
-                texNAME_USUARIO.Clear();
-                textDNI.Clear();
-                textEMPRESA.Clear();
-                textTELEFONO.Clear();
-                textCORREO.Clear();
 
-                ComboTipoDocumento.SelectedIndex = -1;
-                comboESTADO.SelectedIndex = -1;
-
-                textFecha.Clear();
-
-                rutaPDF = "";
-
-                lblNombrePDF.Text = "";
-                lblTipoPDF.Text = "";
-
-                picPDF.Visible = false;
-                lblNombrePDF.Visible = false;
-                lblTipoPDF.Visible = false;
+                txtN_expediente.ReadOnly = false;
             }
         }
 
+
+        // =========================================================
+        // PREPARAR NUEVO EXPEDIENTE
+        // =========================================================
+
+        private void PrepararNuevoExpediente()
+        {
+            // Limpiar todos los campos
+            LimpiarFormulario();
+
+
+            // Colocar fecha actual
+            textFecha.Text =
+                DateTime.Now.ToString("dd/MM/yyyy");
+
+
+            // Generar número si está activado
+            GenerarNumeroExpediente();
+
+
+            // Colocar cursor
+            txtN_expediente.Focus();
+        }
+
+
+        // =========================================================
+        // BOTÓN LIMPIEZA
+        // =========================================================
+
+        private void But_Limpieza_Click(
+            object sender,
+            EventArgs e)
+        {
+            DialogResult respuesta =
+                MessageBox.Show(
+                    "¿Está seguro de limpiar los datos?",
+                    "Confirmar limpieza",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+
+            if (respuesta == DialogResult.Yes)
+            {
+                LimpiarFormulario();
+
+                textFecha.Text =
+                    DateTime.Now.ToString("dd/MM/yyyy");
+
+                GenerarNumeroExpediente();
+
+                txtN_expediente.Focus();
+            }
+        }
+
+
+        // =========================================================
         // CANCELAR REGISTRO
+        // =========================================================
+
         private void guna2Button14_Click(
             object sender,
             EventArgs e)
@@ -339,8 +652,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
         // NUEVO EXPEDIENTE
-        private void guna2Button13_Click(
+        // =========================================================
+
+        private void But_nuevo_Click(
             object sender,
             EventArgs e)
         {
@@ -355,47 +671,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             if (respuesta == DialogResult.Yes)
             {
-                // Limpiar los datos
-
-                txtN_expediente.Clear();
-
-                textFecha.Clear();
-
-                ComboTipoDocumento.SelectedIndex = -1;
-
-                txtDescripcion.Clear();
-
-                texNAME_USUARIO.Clear();
-
-                textDNI.Clear();
-
-                textEMPRESA.Clear();
-
-                textTELEFONO.Clear();
-
-                textCORREO.Clear();
-
-                comboESTADO.SelectedIndex = -1;
-
-
-                // Limpiar PDF
-
-                rutaPDF = "";
-
-                picPDF.Visible = false;
-
-                lblNombrePDF.Visible = false;
-
-                lblTipoPDF.Visible = false;
-
-                lblNombrePDF.Text = "";
-
-                lblTipoPDF.Text = "";
-
-
-                // Colocar cursor
-
-                txtN_expediente.Focus();
+                // PREPARAR NUEVO EXPEDIENTE
+                PrepararNuevoExpediente();
 
 
                 MessageBox.Show(
@@ -408,16 +685,20 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+        // =========================================================
         // GUARDAR EXPEDIENTE
+        // =========================================================
 
-   
-            // GUARDAR EXPEDIENTE
-
-private void but_guardar_Click(object sender, EventArgs e)
+        private void but_guardar_Click(
+            object sender,
+            EventArgs e)
         {
+            // =====================================================
             // 1. VERIFICAR CAMPOS VACÍOS
+            // =====================================================
 
-            if (string.IsNullOrWhiteSpace(txtN_expediente.Text))
+            if (string.IsNullOrWhiteSpace(
+                txtN_expediente.Text))
             {
                 MessageBox.Show(
                     "Ingrese el número de expediente.",
@@ -427,11 +708,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 txtN_expediente.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(textFecha.Text))
+            if (string.IsNullOrWhiteSpace(
+                textFecha.Text))
             {
                 MessageBox.Show(
                     "Ingrese la fecha.",
@@ -441,6 +724,7 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textFecha.Focus();
+
                 return;
             }
 
@@ -455,11 +739,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 ComboTipoDocumento.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(
+                txtDescripcion.Text))
             {
                 MessageBox.Show(
                     "Ingrese la descripción.",
@@ -469,11 +755,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 txtDescripcion.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(texNAME_USUARIO.Text))
+            if (string.IsNullOrWhiteSpace(
+                texNAME_USUARIO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el nombre del usuario.",
@@ -483,11 +771,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 texNAME_USUARIO.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(textDNI.Text))
+            if (string.IsNullOrWhiteSpace(
+                textDNI.Text))
             {
                 MessageBox.Show(
                     "Ingrese el documento de identificación.",
@@ -497,11 +787,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textDNI.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(textEMPRESA.Text))
+            if (string.IsNullOrWhiteSpace(
+                textEMPRESA.Text))
             {
                 MessageBox.Show(
                     "Ingrese la empresa.",
@@ -511,11 +803,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textEMPRESA.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(textTELEFONO.Text))
+            if (string.IsNullOrWhiteSpace(
+                textTELEFONO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el teléfono.",
@@ -525,11 +819,13 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textTELEFONO.Focus();
+
                 return;
             }
 
 
-            if (string.IsNullOrWhiteSpace(textCORREO.Text))
+            if (string.IsNullOrWhiteSpace(
+                textCORREO.Text))
             {
                 MessageBox.Show(
                     "Ingrese el correo electrónico.",
@@ -539,6 +835,7 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textCORREO.Focus();
+
                 return;
             }
 
@@ -553,13 +850,17 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 comboESTADO.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 2. VALIDAR NÚMERO DE EXPEDIENTE
+            // =====================================================
 
             int numeroExpediente;
+
 
             if (!int.TryParse(
                 txtN_expediente.Text.Trim(),
@@ -573,13 +874,34 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 txtN_expediente.Focus();
+
                 return;
             }
 
 
+            // VALIDAR EXACTAMENTE 8 NÚMEROS
+
+            if (txtN_expediente.Text.Trim().Length != 8)
+            {
+                MessageBox.Show(
+                    "El número de expediente debe tener exactamente 8 números.",
+                    "Número inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                txtN_expediente.Focus();
+
+                return;
+            }
+
+
+            // =====================================================
             // 3. VALIDAR FECHA
+            // =====================================================
 
             DateTime fecha;
+
 
             if (!DateTime.TryParseExact(
                 textFecha.Text,
@@ -596,14 +918,18 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textFecha.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 4. VALIDAR NOMBRE
+            // =====================================================
 
             if (!texNAME_USUARIO.Text.All(
-                c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+                c => char.IsLetter(c) ||
+                     char.IsWhiteSpace(c)))
             {
                 MessageBox.Show(
                     "El nombre solo debe contener letras y espacios.",
@@ -613,11 +939,14 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 texNAME_USUARIO.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 5. VALIDAR DNI
+            // =====================================================
 
             if (!int.TryParse(
                 textDNI.Text.Trim(),
@@ -632,11 +961,14 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textDNI.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 6. VALIDAR TELÉFONO
+            // =====================================================
 
             if (!int.TryParse(
                 textTELEFONO.Text.Trim(),
@@ -651,13 +983,17 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textTELEFONO.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 7. VALIDAR CORREO
+            // =====================================================
 
-            if (!textCORREO.Text.Trim().EndsWith("@gmail.com"))
+            if (!textCORREO.Text.Trim()
+                .EndsWith("@gmail.com"))
             {
                 MessageBox.Show(
                     "El correo debe terminar en @gmail.com.",
@@ -667,11 +1003,14 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
                 textCORREO.Focus();
+
                 return;
             }
 
 
+            // =====================================================
             // 8. VALIDAR PDF
+            // =====================================================
 
             if (string.IsNullOrWhiteSpace(rutaPDF))
             {
@@ -686,7 +1025,9 @@ private void but_guardar_Click(object sender, EventArgs e)
             }
 
 
+            // =====================================================
             // 9. CREAR CARPETA DE DATOS
+            // =====================================================
 
             string carpetaDatos =
                 Path.Combine(
@@ -694,10 +1035,15 @@ private void but_guardar_Click(object sender, EventArgs e)
                     "Datos"
                 );
 
-            Directory.CreateDirectory(carpetaDatos);
+
+            Directory.CreateDirectory(
+                carpetaDatos
+            );
 
 
+            // =====================================================
             // 10. RUTA DEL ARCHIVO
+            // =====================================================
 
             string archivoExpedientes =
                 Path.Combine(
@@ -706,8 +1052,10 @@ private void but_guardar_Click(object sender, EventArgs e)
                 );
 
 
+            // =====================================================
             // 11. VERIFICAR NÚMERO REPETIDO
             //     UTILIZANDO MATRIZ + FOR
+            // =====================================================
 
             string numero_Expediente =
                 txtN_expediente.Text.Trim();
@@ -716,34 +1064,32 @@ private void but_guardar_Click(object sender, EventArgs e)
             if (File.Exists(archivoExpedientes))
             {
                 // Leer todos los registros
-
                 string[] registros =
-                    File.ReadAllLines(archivoExpedientes);
+                    File.ReadAllLines(
+                        archivoExpedientes
+                    );
 
 
                 // Crear matriz
-
                 string[,] matriz =
                     new string[registros.Length, 9];
 
 
-                // GUARDAR LOS DATOS EN LA MATRIZ
-
+                // GUARDAR DATOS EN LA MATRIZ
                 for (int i = 0;
                      i < registros.Length;
                      i++)
                 {
                     // Separar los datos
-
                     string[] datos =
                         registros[i].Split('|');
 
 
-                    // Guardar los datos
-                    // dentro de la matriz
-
+                    // Guardar datos dentro
+                    // de la matriz
                     for (int j = 0;
-                         j < datos.Length && j < 9;
+                         j < datos.Length &&
+                         j < 9;
                          j++)
                     {
                         matriz[i, j] =
@@ -753,14 +1099,12 @@ private void but_guardar_Click(object sender, EventArgs e)
 
 
                 // BUSCAR NÚMERO REPETIDO
-
                 for (int i = 0;
                      i < matriz.GetLength(0);
                      i++)
                 {
                     // La columna 0 contiene
                     // el número de expediente
-
                     if (matriz[i, 0] ==
                         numero_Expediente)
                     {
@@ -773,46 +1117,60 @@ private void but_guardar_Click(object sender, EventArgs e)
                         );
 
                         txtN_expediente.Focus();
+
                         return;
                     }
                 }
             }
 
 
+            // =====================================================
             // 12. OBTENER LOS DATOS
+            // =====================================================
 
             string fechaRegistro =
                 textFecha.Text.Trim();
 
+
             string tipoDocumento =
                 ComboTipoDocumento.Text.Trim();
+
 
             string descripcion =
                 txtDescripcion.Text.Trim();
 
+
             string nombreUsuario =
                 texNAME_USUARIO.Text.Trim();
+
 
             string identificacion =
                 textDNI.Text.Trim();
 
+
             string empresa =
                 textEMPRESA.Text.Trim();
+
 
             string telefono_text =
                 textTELEFONO.Text.Trim();
 
+
             string correo =
                 textCORREO.Text.Trim();
 
+
             string estado =
                 comboESTADO.Text.Trim();
+
 
             string pdf =
                 rutaPDF;
 
 
+            // =====================================================
             // 13. CREAR EL REGISTRO
+            // =====================================================
 
             string registro =
                 numeroExpediente + "|" +
@@ -828,7 +1186,9 @@ private void but_guardar_Click(object sender, EventArgs e)
                 pdf;
 
 
+            // =====================================================
             // 14. GUARDAR EN EL ARCHIVO
+            // =====================================================
 
             File.AppendAllText(
                 archivoExpedientes,
@@ -837,63 +1197,143 @@ private void but_guardar_Click(object sender, EventArgs e)
             );
 
 
-            // 15. MENSAJE DE CONFIRMACIÓN
+            // =====================================================
+            // 15. LIMPIAR SEGÚN CONFIGURACIÓN
+            // =====================================================
 
-            MessageBox.Show(
-                "El expediente se registró correctamente.",
-                "Registro exitoso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            if (LimpiarDespuesDeGuardar())
+            {
+                PrepararNuevoExpediente();
+            }
+
+
+            // =====================================================
+            // 16. MENSAJE DE CONFIRMACIÓN
+            // =====================================================
+
+            if (MostrarMensajeDespuesDeGuardar())
+            {
+                MessageBox.Show(
+                    "El expediente se registró correctamente.",
+                    "Registro exitoso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
         }
-        
 
-        private void But_Cerrar_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // CERRAR
+        // =========================================================
+
+        private void But_Cerrar_Click(
+            object sender,
+            EventArgs e)
         {
             Application.Exit();
         }
 
-        private void ButtonINICIO_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // INICIO
+        // =========================================================
+
+        private void ButtonINICIO_Click(
+            object sender,
+            EventArgs e)
         {
-            INICIO ventana = new INICIO();
+            INICIO ventana =
+                new INICIO();
+
             ventana.Show();
+
             this.Close();
         }
 
-        private void But_Consultar_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // CONSULTAR
+        // =========================================================
+
+        private void But_Consultar_Click(
+            object sender,
+            EventArgs e)
         {
-            CONSULTAR_EXPEDIENTE ventana = new CONSULTAR_EXPEDIENTE();
+            CONSULTAR_EXPEDIENTE ventana =
+                new CONSULTAR_EXPEDIENTE();
+
             ventana.Show();
+
             this.Close();
         }
 
-        private void But_buscar_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // BUSCAR
+        // =========================================================
+
+        private void But_buscar_Click(
+            object sender,
+            EventArgs e)
         {
-            BUSCAR_EXPEDIENTE ventana = new BUSCAR_EXPEDIENTE();
+            BUSCAR_EXPEDIENTE ventana =
+                new BUSCAR_EXPEDIENTE();
+
             ventana.Show();
+
             this.Close();
         }
 
-        private void But_gestionar_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // GESTIONAR
+        // =========================================================
+
+        private void But_gestionar_Click(
+            object sender,
+            EventArgs e)
         {
-            GESTIONAR_EXPEDIENTE ventana = new GESTIONAR_EXPEDIENTE();
+            GESTIONAR_EXPEDIENTE ventana =
+                new GESTIONAR_EXPEDIENTE();
+
             ventana.Show();
+
             this.Close();
         }
 
-        private void But_Reportes_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // REPORTES
+        // =========================================================
+
+        private void But_Reportes_Click(
+            object sender,
+            EventArgs e)
         {
-            REPORTES ventana = new REPORTES();
+            REPORTES ventana =
+                new REPORTES();
+
             ventana.Show();
+
             this.Close();
         }
 
-        private void But_Configuración_Click(object sender, EventArgs e)
+
+        // =========================================================
+        // CONFIGURACIÓN
+        // =========================================================
+
+        private void But_Configuración_Click(
+            object sender,
+            EventArgs e)
         {
-            CONFIGURACIÓN ventana = new CONFIGURACIÓN();
+            CONFIGURACIÓN ventana =
+                new CONFIGURACIÓN();
+
             ventana.Show();
+
             this.Close();
         }
-
     }
 }

@@ -61,36 +61,35 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel16 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel32 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.tex_pesoPDF_des = new System.Windows.Forms.Label();
+            this.tex_nombrepdf_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.But_descargarpdf = new Guna.UI2.WinForms.Guna2Button();
+            this.But_verpdf = new Guna.UI2.WinForms.Guna2Button();
+            this.pic_pdf_des = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_correo_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_telefono_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel30 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel31 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_empresa_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_nombreusuario_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_dni_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel33 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_des_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tex_estado_des = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lab_tipodedocumento_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labe_fecha_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.text_num_expe_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -102,13 +101,15 @@
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label7 = new System.Windows.Forms.Label();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.text_estado = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lab_Numero_expediente = new System.Windows.Forms.Label();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.combo_busquedadeexpediente = new System.Windows.Forms.ComboBox();
+            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.But_Limpiar = new Guna.UI2.WinForms.Guna2Button();
+            this.But_Buscar = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -118,6 +119,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -130,12 +132,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
             this.guna2Panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pdf_des)).BeginInit();
             this.guna2Panel15.SuspendLayout();
             this.guna2Panel17.SuspendLayout();
             this.guna2Panel13.SuspendLayout();
@@ -144,8 +145,11 @@
             this.guna2Panel11.SuspendLayout();
             this.guna2Panel10.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -563,17 +567,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "SISTEMA DE GESTIÓN DOCUMENTARIA";
             // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(909, 0);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(632, 138);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 4;
-            this.guna2PictureBox3.TabStop = false;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
@@ -614,8 +607,8 @@
             this.guna2Panel8.Controls.Add(this.guna2Panel11);
             this.guna2Panel8.Controls.Add(this.guna2Panel10);
             this.guna2Panel8.Controls.Add(this.label7);
-            this.guna2Panel8.Controls.Add(this.guna2TextBox2);
-            this.guna2Panel8.Controls.Add(this.label6);
+            this.guna2Panel8.Controls.Add(this.text_estado);
+            this.guna2Panel8.Controls.Add(this.lab_Numero_expediente);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
             this.guna2Panel8.Location = new System.Drawing.Point(24, 338);
             this.guna2Panel8.Name = "guna2Panel8";
@@ -626,99 +619,101 @@
             // 
             this.guna2Panel16.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel16.BorderRadius = 11;
-            this.guna2Panel16.Controls.Add(this.label8);
-            this.guna2Panel16.Controls.Add(this.guna2HtmlLabel32);
-            this.guna2Panel16.Controls.Add(this.guna2Button12);
-            this.guna2Panel16.Controls.Add(this.guna2Button11);
-            this.guna2Panel16.Controls.Add(this.guna2PictureBox4);
+            this.guna2Panel16.Controls.Add(this.tex_pesoPDF_des);
+            this.guna2Panel16.Controls.Add(this.tex_nombrepdf_des);
+            this.guna2Panel16.Controls.Add(this.But_descargarpdf);
+            this.guna2Panel16.Controls.Add(this.But_verpdf);
+            this.guna2Panel16.Controls.Add(this.pic_pdf_des);
             this.guna2Panel16.FillColor = System.Drawing.Color.White;
             this.guna2Panel16.Location = new System.Drawing.Point(565, 283);
             this.guna2Panel16.Name = "guna2Panel16";
             this.guna2Panel16.Size = new System.Drawing.Size(517, 126);
             this.guna2Panel16.TabIndex = 26;
             // 
-            // label8
+            // tex_pesoPDF_des
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(111, 64);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "1.2 MB";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tex_pesoPDF_des.AutoSize = true;
+            this.tex_pesoPDF_des.BackColor = System.Drawing.Color.White;
+            this.tex_pesoPDF_des.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_pesoPDF_des.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tex_pesoPDF_des.Location = new System.Drawing.Point(81, 64);
+            this.tex_pesoPDF_des.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tex_pesoPDF_des.Name = "tex_pesoPDF_des";
+            this.tex_pesoPDF_des.Size = new System.Drawing.Size(48, 20);
+            this.tex_pesoPDF_des.TabIndex = 15;
+            this.tex_pesoPDF_des.Text = "1.2 MB";
+            this.tex_pesoPDF_des.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // guna2HtmlLabel32
+            // tex_nombrepdf_des
             // 
-            this.guna2HtmlLabel32.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel32.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel32.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel32.Location = new System.Drawing.Point(111, 39);
-            this.guna2HtmlLabel32.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2HtmlLabel32.Name = "guna2HtmlLabel32";
-            this.guna2HtmlLabel32.Size = new System.Drawing.Size(190, 21);
-            this.guna2HtmlLabel32.TabIndex = 23;
-            this.guna2HtmlLabel32.Text = "guia_remision_110.pdf";
+            this.tex_nombrepdf_des.BackColor = System.Drawing.Color.White;
+            this.tex_nombrepdf_des.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_nombrepdf_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_nombrepdf_des.Location = new System.Drawing.Point(81, 39);
+            this.tex_nombrepdf_des.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tex_nombrepdf_des.Name = "tex_nombrepdf_des";
+            this.tex_nombrepdf_des.Size = new System.Drawing.Size(160, 17);
+            this.tex_nombrepdf_des.TabIndex = 23;
+            this.tex_nombrepdf_des.Text = "guia_remision_110.pdf";
             // 
-            // guna2Button12
+            // But_descargarpdf
             // 
-            this.guna2Button12.BackColor = System.Drawing.Color.White;
-            this.guna2Button12.BorderRadius = 8;
-            this.guna2Button12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button12.FillColor = System.Drawing.Color.Black;
-            this.guna2Button12.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button12.ForeColor = System.Drawing.Color.White;
-            this.guna2Button12.Location = new System.Drawing.Point(351, 66);
-            this.guna2Button12.Name = "guna2Button12";
-            this.guna2Button12.Size = new System.Drawing.Size(142, 44);
-            this.guna2Button12.TabIndex = 19;
-            this.guna2Button12.Text = "Descargar PDF";
+            this.But_descargarpdf.BackColor = System.Drawing.Color.White;
+            this.But_descargarpdf.BorderRadius = 8;
+            this.But_descargarpdf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.But_descargarpdf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.But_descargarpdf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.But_descargarpdf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.But_descargarpdf.FillColor = System.Drawing.Color.Black;
+            this.But_descargarpdf.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.But_descargarpdf.ForeColor = System.Drawing.Color.White;
+            this.But_descargarpdf.Location = new System.Drawing.Point(358, 66);
+            this.But_descargarpdf.Name = "But_descargarpdf";
+            this.But_descargarpdf.Size = new System.Drawing.Size(142, 44);
+            this.But_descargarpdf.TabIndex = 19;
+            this.But_descargarpdf.Text = "Descargar PDF";
+            this.But_descargarpdf.Click += new System.EventHandler(this.But_descargarpdf_Click);
             // 
-            // guna2Button11
+            // But_verpdf
             // 
-            this.guna2Button11.BackColor = System.Drawing.Color.White;
-            this.guna2Button11.BorderRadius = 8;
-            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button11.FillColor = System.Drawing.Color.Gold;
-            this.guna2Button11.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Location = new System.Drawing.Point(352, 16);
-            this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(142, 44);
-            this.guna2Button11.TabIndex = 18;
-            this.guna2Button11.Text = "Ver PDF";
+            this.But_verpdf.BackColor = System.Drawing.Color.White;
+            this.But_verpdf.BorderRadius = 8;
+            this.But_verpdf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.But_verpdf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.But_verpdf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.But_verpdf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.But_verpdf.FillColor = System.Drawing.Color.Gold;
+            this.But_verpdf.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.But_verpdf.ForeColor = System.Drawing.Color.White;
+            this.But_verpdf.Location = new System.Drawing.Point(359, 16);
+            this.But_verpdf.Name = "But_verpdf";
+            this.But_verpdf.Size = new System.Drawing.Size(142, 44);
+            this.But_verpdf.TabIndex = 18;
+            this.But_verpdf.Text = "Ver PDF";
+            this.But_verpdf.Click += new System.EventHandler(this.But_verpdf_Click);
             // 
-            // guna2PictureBox4
+            // pic_pdf_des
             // 
-            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(41, 25);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(63, 76);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox4.TabIndex = 0;
-            this.guna2PictureBox4.TabStop = false;
+            this.pic_pdf_des.Image = ((System.Drawing.Image)(resources.GetObject("pic_pdf_des.Image")));
+            this.pic_pdf_des.ImageRotate = 0F;
+            this.pic_pdf_des.Location = new System.Drawing.Point(11, 25);
+            this.pic_pdf_des.Name = "pic_pdf_des";
+            this.pic_pdf_des.Size = new System.Drawing.Size(63, 76);
+            this.pic_pdf_des.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_pdf_des.TabIndex = 0;
+            this.pic_pdf_des.TabStop = false;
             // 
             // guna2Panel15
             // 
             this.guna2Panel15.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel15.BorderRadius = 11;
-            this.guna2Panel15.Controls.Add(this.guna2HtmlLabel28);
-            this.guna2Panel15.Controls.Add(this.guna2HtmlLabel29);
+            this.guna2Panel15.Controls.Add(this.tex_correo_des);
+            this.guna2Panel15.Controls.Add(this.tex_telefono_des);
             this.guna2Panel15.Controls.Add(this.guna2HtmlLabel30);
             this.guna2Panel15.Controls.Add(this.guna2HtmlLabel31);
-            this.guna2Panel15.Controls.Add(this.guna2HtmlLabel22);
-            this.guna2Panel15.Controls.Add(this.guna2HtmlLabel24);
-            this.guna2Panel15.Controls.Add(this.guna2HtmlLabel23);
+            this.guna2Panel15.Controls.Add(this.tex_empresa_des);
+            this.guna2Panel15.Controls.Add(this.tex_nombreusuario_des);
+            this.guna2Panel15.Controls.Add(this.tex_dni_des);
             this.guna2Panel15.Controls.Add(this.guna2HtmlLabel27);
             this.guna2Panel15.Controls.Add(this.guna2HtmlLabel26);
             this.guna2Panel15.Controls.Add(this.guna2HtmlLabel25);
@@ -728,27 +723,27 @@
             this.guna2Panel15.Size = new System.Drawing.Size(517, 142);
             this.guna2Panel15.TabIndex = 24;
             // 
-            // guna2HtmlLabel28
+            // tex_correo_des
             // 
-            this.guna2HtmlLabel28.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel28.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel28.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel28.Location = new System.Drawing.Point(252, 110);
-            this.guna2HtmlLabel28.Name = "guna2HtmlLabel28";
-            this.guna2HtmlLabel28.Size = new System.Drawing.Size(158, 20);
-            this.guna2HtmlLabel28.TabIndex = 37;
-            this.guna2HtmlLabel28.Text = "juanperez@gmail.com";
+            this.tex_correo_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_correo_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_correo_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_correo_des.Location = new System.Drawing.Point(252, 110);
+            this.tex_correo_des.Name = "tex_correo_des";
+            this.tex_correo_des.Size = new System.Drawing.Size(158, 20);
+            this.tex_correo_des.TabIndex = 37;
+            this.tex_correo_des.Text = "juanperez@gmail.com";
             // 
-            // guna2HtmlLabel29
+            // tex_telefono_des
             // 
-            this.guna2HtmlLabel29.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel29.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel29.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel29.Location = new System.Drawing.Point(252, 85);
-            this.guna2HtmlLabel29.Name = "guna2HtmlLabel29";
-            this.guna2HtmlLabel29.Size = new System.Drawing.Size(84, 20);
-            this.guna2HtmlLabel29.TabIndex = 36;
-            this.guna2HtmlLabel29.Text = "987654321";
+            this.tex_telefono_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_telefono_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_telefono_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_telefono_des.Location = new System.Drawing.Point(252, 85);
+            this.tex_telefono_des.Name = "tex_telefono_des";
+            this.tex_telefono_des.Size = new System.Drawing.Size(84, 20);
+            this.tex_telefono_des.TabIndex = 36;
+            this.tex_telefono_des.Text = "987654321";
             // 
             // guna2HtmlLabel30
             // 
@@ -772,38 +767,38 @@
             this.guna2HtmlLabel31.TabIndex = 35;
             this.guna2HtmlLabel31.Text = "Correo:";
             // 
-            // guna2HtmlLabel22
+            // tex_empresa_des
             // 
-            this.guna2HtmlLabel22.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel22.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel22.Location = new System.Drawing.Point(251, 60);
-            this.guna2HtmlLabel22.Name = "guna2HtmlLabel22";
-            this.guna2HtmlLabel22.Size = new System.Drawing.Size(168, 20);
-            this.guna2HtmlLabel22.TabIndex = 33;
-            this.guna2HtmlLabel22.Text = "Transportes Rojas SAC";
+            this.tex_empresa_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_empresa_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_empresa_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_empresa_des.Location = new System.Drawing.Point(251, 60);
+            this.tex_empresa_des.Name = "tex_empresa_des";
+            this.tex_empresa_des.Size = new System.Drawing.Size(168, 20);
+            this.tex_empresa_des.TabIndex = 33;
+            this.tex_empresa_des.Text = "Transportes Rojas SAC";
             // 
-            // guna2HtmlLabel24
+            // tex_nombreusuario_des
             // 
-            this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel24.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel24.Location = new System.Drawing.Point(251, 11);
-            this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
-            this.guna2HtmlLabel24.Size = new System.Drawing.Size(131, 20);
-            this.guna2HtmlLabel24.TabIndex = 31;
-            this.guna2HtmlLabel24.Text = "Juan Pérez García";
+            this.tex_nombreusuario_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_nombreusuario_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_nombreusuario_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_nombreusuario_des.Location = new System.Drawing.Point(251, 11);
+            this.tex_nombreusuario_des.Name = "tex_nombreusuario_des";
+            this.tex_nombreusuario_des.Size = new System.Drawing.Size(131, 20);
+            this.tex_nombreusuario_des.TabIndex = 31;
+            this.tex_nombreusuario_des.Text = "Juan Pérez García";
             // 
-            // guna2HtmlLabel23
+            // tex_dni_des
             // 
-            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel23.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel23.Location = new System.Drawing.Point(251, 36);
-            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
-            this.guna2HtmlLabel23.Size = new System.Drawing.Size(75, 20);
-            this.guna2HtmlLabel23.TabIndex = 32;
-            this.guna2HtmlLabel23.Text = "74589623";
+            this.tex_dni_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_dni_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_dni_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_dni_des.Location = new System.Drawing.Point(251, 36);
+            this.tex_dni_des.Name = "tex_dni_des";
+            this.tex_dni_des.Size = new System.Drawing.Size(75, 20);
+            this.tex_dni_des.TabIndex = 32;
+            this.tex_dni_des.Text = "74589623";
             // 
             // guna2HtmlLabel27
             // 
@@ -845,7 +840,7 @@
             this.guna2Panel17.Controls.Add(this.guna2HtmlLabel13);
             this.guna2Panel17.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel17.Location = new System.Drawing.Point(564, 246);
-            this.guna2Panel17.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel17.Name = "guna2Panel17";
             this.guna2Panel17.Size = new System.Drawing.Size(519, 29);
             this.guna2Panel17.TabIndex = 25;
@@ -855,7 +850,7 @@
             this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel13.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel13.Location = new System.Drawing.Point(20, 4);
-            this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
             this.guna2HtmlLabel13.Size = new System.Drawing.Size(135, 21);
             this.guna2HtmlLabel13.TabIndex = 24;
@@ -865,32 +860,32 @@
             // 
             this.guna2Panel13.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel13.BorderRadius = 11;
-            this.guna2Panel13.Controls.Add(this.guna2HtmlLabel33);
+            this.guna2Panel13.Controls.Add(this.tex_des_des);
             this.guna2Panel13.FillColor = System.Drawing.Color.White;
             this.guna2Panel13.Location = new System.Drawing.Point(24, 282);
             this.guna2Panel13.Name = "guna2Panel13";
             this.guna2Panel13.Size = new System.Drawing.Size(517, 127);
             this.guna2Panel13.TabIndex = 25;
             // 
-            // guna2HtmlLabel33
+            // tex_des_des
             // 
-            this.guna2HtmlLabel33.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel33.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel33.Location = new System.Drawing.Point(43, 26);
-            this.guna2HtmlLabel33.Name = "guna2HtmlLabel33";
-            this.guna2HtmlLabel33.Size = new System.Drawing.Size(351, 20);
-            this.guna2HtmlLabel33.TabIndex = 28;
-            this.guna2HtmlLabel33.Text = "Traslado de mercaderia desde Lima hacia Trujillo.";
+            this.tex_des_des.BackColor = System.Drawing.Color.Transparent;
+            this.tex_des_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_des_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_des_des.Location = new System.Drawing.Point(43, 26);
+            this.tex_des_des.Name = "tex_des_des";
+            this.tex_des_des.Size = new System.Drawing.Size(351, 20);
+            this.tex_des_des.TabIndex = 28;
+            this.tex_des_des.Text = "Traslado de mercaderia desde Lima hacia Trujillo.";
             // 
             // guna2Panel12
             // 
             this.guna2Panel12.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel12.BorderRadius = 11;
-            this.guna2Panel12.Controls.Add(this.guna2TextBox3);
-            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel21);
-            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel20);
-            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel19);
+            this.guna2Panel12.Controls.Add(this.tex_estado_des);
+            this.guna2Panel12.Controls.Add(this.lab_tipodedocumento_des);
+            this.guna2Panel12.Controls.Add(this.labe_fecha_des);
+            this.guna2Panel12.Controls.Add(this.text_num_expe_des);
             this.guna2Panel12.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel12.Controls.Add(this.guna2HtmlLabel18);
             this.guna2Panel12.Controls.Add(this.guna2HtmlLabel16);
@@ -901,61 +896,61 @@
             this.guna2Panel12.Size = new System.Drawing.Size(517, 142);
             this.guna2Panel12.TabIndex = 23;
             // 
-            // guna2TextBox3
+            // tex_estado_des
             // 
-            this.guna2TextBox3.BackColor = System.Drawing.Color.White;
-            this.guna2TextBox3.BorderRadius = 8;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "     Activo";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FillColor = System.Drawing.Color.MediumSpringGreen;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Berlin Sans FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(245, 97);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(104, 33);
-            this.guna2TextBox3.TabIndex = 27;
+            this.tex_estado_des.BackColor = System.Drawing.Color.White;
+            this.tex_estado_des.BorderRadius = 8;
+            this.tex_estado_des.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tex_estado_des.DefaultText = "     Activo";
+            this.tex_estado_des.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tex_estado_des.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tex_estado_des.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tex_estado_des.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tex_estado_des.FillColor = System.Drawing.Color.MediumSpringGreen;
+            this.tex_estado_des.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tex_estado_des.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_estado_des.ForeColor = System.Drawing.Color.Black;
+            this.tex_estado_des.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tex_estado_des.Location = new System.Drawing.Point(245, 97);
+            this.tex_estado_des.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tex_estado_des.Name = "tex_estado_des";
+            this.tex_estado_des.PlaceholderText = "";
+            this.tex_estado_des.SelectedText = "";
+            this.tex_estado_des.Size = new System.Drawing.Size(104, 33);
+            this.tex_estado_des.TabIndex = 27;
             // 
-            // guna2HtmlLabel21
+            // lab_tipodedocumento_des
             // 
-            this.guna2HtmlLabel21.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel21.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel21.Location = new System.Drawing.Point(240, 67);
-            this.guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            this.guna2HtmlLabel21.Size = new System.Drawing.Size(128, 20);
-            this.guna2HtmlLabel21.TabIndex = 6;
-            this.guna2HtmlLabel21.Text = "Guia de Remisión";
+            this.lab_tipodedocumento_des.BackColor = System.Drawing.Color.Transparent;
+            this.lab_tipodedocumento_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_tipodedocumento_des.ForeColor = System.Drawing.Color.Black;
+            this.lab_tipodedocumento_des.Location = new System.Drawing.Point(240, 67);
+            this.lab_tipodedocumento_des.Name = "lab_tipodedocumento_des";
+            this.lab_tipodedocumento_des.Size = new System.Drawing.Size(128, 20);
+            this.lab_tipodedocumento_des.TabIndex = 6;
+            this.lab_tipodedocumento_des.Text = "Guia de Remisión";
             // 
-            // guna2HtmlLabel20
+            // labe_fecha_des
             // 
-            this.guna2HtmlLabel20.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel20.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel20.Location = new System.Drawing.Point(240, 42);
-            this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
-            this.guna2HtmlLabel20.Size = new System.Drawing.Size(83, 20);
-            this.guna2HtmlLabel20.TabIndex = 5;
-            this.guna2HtmlLabel20.Text = "23/09/2026";
+            this.labe_fecha_des.BackColor = System.Drawing.Color.Transparent;
+            this.labe_fecha_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labe_fecha_des.ForeColor = System.Drawing.Color.Black;
+            this.labe_fecha_des.Location = new System.Drawing.Point(240, 42);
+            this.labe_fecha_des.Name = "labe_fecha_des";
+            this.labe_fecha_des.Size = new System.Drawing.Size(83, 20);
+            this.labe_fecha_des.TabIndex = 5;
+            this.labe_fecha_des.Text = "23/09/2026";
             // 
-            // guna2HtmlLabel19
+            // text_num_expe_des
             // 
-            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel19.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel19.Location = new System.Drawing.Point(240, 16);
-            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            this.guna2HtmlLabel19.Size = new System.Drawing.Size(118, 20);
-            this.guna2HtmlLabel19.TabIndex = 4;
-            this.guna2HtmlLabel19.Text = "EXP-2025-0128";
+            this.text_num_expe_des.BackColor = System.Drawing.Color.Transparent;
+            this.text_num_expe_des.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_num_expe_des.ForeColor = System.Drawing.Color.Black;
+            this.text_num_expe_des.Location = new System.Drawing.Point(240, 16);
+            this.text_num_expe_des.Name = "text_num_expe_des";
+            this.text_num_expe_des.Size = new System.Drawing.Size(113, 20);
+            this.text_num_expe_des.TabIndex = 4;
+            this.text_num_expe_des.Text = "EXP-20250128";
             // 
             // guna2HtmlLabel17
             // 
@@ -1008,7 +1003,7 @@
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel12);
             this.guna2Panel14.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel14.Location = new System.Drawing.Point(24, 246);
-            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.Size = new System.Drawing.Size(517, 29);
             this.guna2Panel14.TabIndex = 24;
@@ -1018,7 +1013,7 @@
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel12.Location = new System.Drawing.Point(20, 4);
-            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(101, 21);
             this.guna2HtmlLabel12.TabIndex = 23;
@@ -1031,7 +1026,7 @@
             this.guna2Panel11.Controls.Add(this.guna2HtmlLabel11);
             this.guna2Panel11.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel11.Location = new System.Drawing.Point(563, 53);
-            this.guna2Panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel11.Name = "guna2Panel11";
             this.guna2Panel11.Size = new System.Drawing.Size(519, 29);
             this.guna2Panel11.TabIndex = 22;
@@ -1041,7 +1036,7 @@
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel11.Location = new System.Drawing.Point(21, 4);
-            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(170, 21);
             this.guna2HtmlLabel11.TabIndex = 23;
@@ -1054,7 +1049,7 @@
             this.guna2Panel10.Controls.Add(this.guna2HtmlLabel10);
             this.guna2Panel10.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel10.Location = new System.Drawing.Point(24, 54);
-            this.guna2Panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.Size = new System.Drawing.Size(517, 29);
             this.guna2Panel10.TabIndex = 21;
@@ -1064,7 +1059,7 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.Location = new System.Drawing.Point(20, 4);
-            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(172, 21);
             this.guna2HtmlLabel10.TabIndex = 22;
@@ -1083,48 +1078,48 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Registrado el: 23/092026";
             // 
-            // guna2TextBox2
+            // text_estado
             // 
-            this.guna2TextBox2.BackColor = System.Drawing.Color.White;
-            this.guna2TextBox2.BorderRadius = 8;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "     Activo";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.MediumSpringGreen;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Berlin Sans FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(203, 13);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(104, 33);
-            this.guna2TextBox2.TabIndex = 19;
+            this.text_estado.BackColor = System.Drawing.Color.White;
+            this.text_estado.BorderRadius = 8;
+            this.text_estado.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_estado.DefaultText = "     Activo";
+            this.text_estado.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_estado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_estado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_estado.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_estado.FillColor = System.Drawing.Color.MediumSpringGreen;
+            this.text_estado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_estado.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold);
+            this.text_estado.ForeColor = System.Drawing.Color.Black;
+            this.text_estado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_estado.Location = new System.Drawing.Point(203, 13);
+            this.text_estado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.text_estado.Name = "text_estado";
+            this.text_estado.PlaceholderText = "";
+            this.text_estado.SelectedText = "";
+            this.text_estado.Size = new System.Drawing.Size(104, 33);
+            this.text_estado.TabIndex = 19;
             // 
-            // label6
+            // lab_Numero_expediente
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(28, 18);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 25);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "EXP - 2025 - 0128";
+            this.lab_Numero_expediente.AutoSize = true;
+            this.lab_Numero_expediente.BackColor = System.Drawing.Color.White;
+            this.lab_Numero_expediente.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_Numero_expediente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lab_Numero_expediente.Location = new System.Drawing.Point(28, 18);
+            this.lab_Numero_expediente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lab_Numero_expediente.Name = "lab_Numero_expediente";
+            this.lab_Numero_expediente.Size = new System.Drawing.Size(136, 25);
+            this.lab_Numero_expediente.TabIndex = 15;
+            this.lab_Numero_expediente.Text = "EXP - 20250128";
             // 
             // guna2HtmlLabel9
             // 
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(68, 306);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(38, 306);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(228, 21);
             this.guna2HtmlLabel9.TabIndex = 21;
@@ -1134,9 +1129,11 @@
             // 
             this.guna2Panel7.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel7.BorderRadius = 15;
-            this.guna2Panel7.Controls.Add(this.guna2Button10);
-            this.guna2Panel7.Controls.Add(this.guna2Button9);
-            this.guna2Panel7.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel7.Controls.Add(this.combo_busquedadeexpediente);
+            this.guna2Panel7.Controls.Add(this.guna2PictureBox7);
+            this.guna2Panel7.Controls.Add(this.guna2PictureBox6);
+            this.guna2Panel7.Controls.Add(this.But_Limpiar);
+            this.guna2Panel7.Controls.Add(this.But_Buscar);
             this.guna2Panel7.Controls.Add(this.label5);
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
             this.guna2Panel7.ForeColor = System.Drawing.Color.White;
@@ -1145,59 +1142,74 @@
             this.guna2Panel7.Size = new System.Drawing.Size(1106, 107);
             this.guna2Panel7.TabIndex = 15;
             // 
-            // guna2Button10
+            // combo_busquedadeexpediente
             // 
-            this.guna2Button10.BackColor = System.Drawing.Color.White;
-            this.guna2Button10.BorderRadius = 15;
-            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button10.FillColor = System.Drawing.Color.Black;
-            this.guna2Button10.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2Button10.ForeColor = System.Drawing.Color.White;
-            this.guna2Button10.Location = new System.Drawing.Point(913, 22);
-            this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(180, 53);
-            this.guna2Button10.TabIndex = 18;
-            this.guna2Button10.Text = "   Limpiar";
+            this.combo_busquedadeexpediente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_busquedadeexpediente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combo_busquedadeexpediente.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combo_busquedadeexpediente.FormattingEnabled = true;
+            this.combo_busquedadeexpediente.Location = new System.Drawing.Point(84, 50);
+            this.combo_busquedadeexpediente.Name = "combo_busquedadeexpediente";
+            this.combo_busquedadeexpediente.Size = new System.Drawing.Size(541, 31);
+            this.combo_busquedadeexpediente.TabIndex = 21;
             // 
-            // guna2Button9
+            // guna2PictureBox7
             // 
-            this.guna2Button9.BackColor = System.Drawing.Color.White;
-            this.guna2Button9.BorderRadius = 15;
-            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button9.FillColor = System.Drawing.Color.Gold;
-            this.guna2Button9.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button9.ForeColor = System.Drawing.Color.White;
-            this.guna2Button9.Location = new System.Drawing.Point(715, 23);
-            this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(180, 53);
-            this.guna2Button9.TabIndex = 17;
-            this.guna2Button9.Text = "   Buscar";
+            this.guna2PictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox7.Image")));
+            this.guna2PictureBox7.ImageRotate = 0F;
+            this.guna2PictureBox7.Location = new System.Drawing.Point(930, 27);
+            this.guna2PictureBox7.Name = "guna2PictureBox7";
+            this.guna2PictureBox7.Size = new System.Drawing.Size(45, 44);
+            this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox7.TabIndex = 20;
+            this.guna2PictureBox7.TabStop = false;
             // 
-            // guna2TextBox1
+            // guna2PictureBox6
             // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.White;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(32, 48);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(658, 36);
-            this.guna2TextBox1.TabIndex = 16;
+            this.guna2PictureBox6.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._067613af_2284_43fd_b932_4073bca7d6951;
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(738, 28);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(45, 44);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 19;
+            this.guna2PictureBox6.TabStop = false;
+            // 
+            // But_Limpiar
+            // 
+            this.But_Limpiar.BackColor = System.Drawing.Color.White;
+            this.But_Limpiar.BorderRadius = 15;
+            this.But_Limpiar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.But_Limpiar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.But_Limpiar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.But_Limpiar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.But_Limpiar.FillColor = System.Drawing.Color.Black;
+            this.But_Limpiar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
+            this.But_Limpiar.ForeColor = System.Drawing.Color.White;
+            this.But_Limpiar.Location = new System.Drawing.Point(913, 22);
+            this.But_Limpiar.Name = "But_Limpiar";
+            this.But_Limpiar.Size = new System.Drawing.Size(180, 53);
+            this.But_Limpiar.TabIndex = 18;
+            this.But_Limpiar.Text = "   Limpiar";
+            this.But_Limpiar.Click += new System.EventHandler(this.But_Limpiar_Click);
+            // 
+            // But_Buscar
+            // 
+            this.But_Buscar.BackColor = System.Drawing.Color.White;
+            this.But_Buscar.BorderRadius = 15;
+            this.But_Buscar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.But_Buscar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.But_Buscar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.But_Buscar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.But_Buscar.FillColor = System.Drawing.Color.Gold;
+            this.But_Buscar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.But_Buscar.ForeColor = System.Drawing.Color.White;
+            this.But_Buscar.Location = new System.Drawing.Point(715, 23);
+            this.But_Buscar.Name = "But_Buscar";
+            this.But_Buscar.Size = new System.Drawing.Size(180, 53);
+            this.But_Buscar.TabIndex = 17;
+            this.But_Buscar.Text = "   Buscar";
+            this.But_Buscar.Click += new System.EventHandler(this.But_Buscar_Click);
             // 
             // label5
             // 
@@ -1218,7 +1230,7 @@
             this.guna2Panel9.BorderRadius = 8;
             this.guna2Panel9.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel9.Location = new System.Drawing.Point(20, 302);
-            this.guna2Panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.Size = new System.Drawing.Size(1110, 29);
             this.guna2Panel9.TabIndex = 20;
@@ -1228,7 +1240,7 @@
             this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Gold;
             this.guna2HtmlLabel15.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel15.Location = new System.Drawing.Point(71, 136);
-            this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
             this.guna2HtmlLabel15.Size = new System.Drawing.Size(142, 21);
             this.guna2HtmlLabel15.TabIndex = 16;
@@ -1240,7 +1252,7 @@
             this.guna2Panel6.BorderRadius = 8;
             this.guna2Panel6.FillColor = System.Drawing.Color.Gold;
             this.guna2Panel6.Location = new System.Drawing.Point(23, 131);
-            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(1110, 29);
             this.guna2Panel6.TabIndex = 15;
@@ -1264,7 +1276,7 @@
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(110, 20);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(429, 38);
             this.guna2HtmlLabel8.TabIndex = 13;
@@ -1274,7 +1286,7 @@
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(12, 14);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(88, 80);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1296,6 +1308,7 @@
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
             this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
@@ -1308,6 +1321,17 @@
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(909, 0);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(632, 138);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 4;
+            this.guna2PictureBox3.TabStop = false;
+            // 
             // BUSCAR_EXPEDIENTE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1318,8 +1342,8 @@
             this.Controls.Add(this.guna2PictureBox3);
             this.Controls.Add(this.guna2Panel3);
             this.Name = "BUSCAR_EXPEDIENTE";
-            this.Text = "MENU_PRINCIPAL";
-            this.Load += new System.EventHandler(this.MENU_PRINCIPAL_Load);
+            this.Text = "BUSCAR_EXPEDIENTE";
+            this.Load += new System.EventHandler(this.BUSCAR_EXPEDIENTE_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -1334,7 +1358,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
@@ -1342,7 +1365,7 @@
             this.guna2Panel8.PerformLayout();
             this.guna2Panel16.ResumeLayout(false);
             this.guna2Panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pdf_des)).EndInit();
             this.guna2Panel15.ResumeLayout(false);
             this.guna2Panel15.PerformLayout();
             this.guna2Panel17.ResumeLayout(false);
@@ -1359,9 +1382,12 @@
             this.guna2Panel10.PerformLayout();
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1411,13 +1437,12 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Button But_Limpiar;
+        private Guna.UI2.WinForms.Guna2Button But_Buscar;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox text_estado;
+        private System.Windows.Forms.Label lab_Numero_expediente;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private System.Windows.Forms.Label label7;
@@ -1433,29 +1458,32 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private Guna.UI2.WinForms.Guna2Button guna2Button12;
-        private Guna.UI2.WinForms.Guna2Button guna2Button11;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private Guna.UI2.WinForms.Guna2Button But_descargarpdf;
+        private Guna.UI2.WinForms.Guna2Button But_verpdf;
+        private Guna.UI2.WinForms.Guna2PictureBox pic_pdf_des;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_correo_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_telefono_des;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel30;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel31;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel22;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel24;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_empresa_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_nombreusuario_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_dni_des;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel32;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel33;
+        private Guna.UI2.WinForms.Guna2TextBox tex_estado_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lab_tipodedocumento_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labe_fecha_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel text_num_expe_des;
+        private System.Windows.Forms.Label tex_pesoPDF_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_nombrepdf_des;
+        private Guna.UI2.WinForms.Guna2HtmlLabel tex_des_des;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
+        private System.Windows.Forms.ComboBox combo_busquedadeexpediente;
     }
 }

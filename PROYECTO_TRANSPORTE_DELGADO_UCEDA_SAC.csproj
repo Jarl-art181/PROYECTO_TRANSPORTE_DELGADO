@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,6 +41,15 @@
     <Reference Include="Guna.UI2, Version=2.0.4.8, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.8\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.4258.31, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4258.31\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.4258.31, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4258.31\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.4258.31, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.4258.31\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -62,6 +73,18 @@
     </Compile>
     <Compile Include="BUSCAR_EXPEDIENTE.Designer.cs">
       <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.Designer.cs">
+      <DependentUpon>MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VER_DETALLE_DEL_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VER_DETALLE_DEL_EXPEDIENTE.Designer.cs">
+      <DependentUpon>VER_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>
     </Compile>
     <Compile Include="INICIAR_SESIÓN.cs">
       <SubType>Form</SubType>
@@ -99,16 +122,22 @@
     <Compile Include="REGISTRO_DE_EXPEDIENTE.Designer.cs">
       <DependentUpon>REGISTRO_DE_EXPEDIENTE.cs</DependentUpon>
     </Compile>
-    <Compile Include="MENU_PRINCIPAL.cs">
+    <Compile Include="INICIO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MENU_PRINCIPAL.Designer.cs">
-      <DependentUpon>MENU_PRINCIPAL.cs</DependentUpon>
+    <Compile Include="INICIO.Designer.cs">
+      <DependentUpon>INICIO.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BUSCAR_EXPEDIENTE.resx">
       <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.resx">
+      <DependentUpon>MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VER_DETALLE_DEL_EXPEDIENTE.resx">
+      <DependentUpon>VER_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="INICIAR_SESIÓN.resx">
       <DependentUpon>INICIAR_SESIÓN.cs</DependentUpon>
@@ -128,8 +157,8 @@
     <EmbeddedResource Include="REGISTRO_DE_EXPEDIENTE.resx">
       <DependentUpon>REGISTRO_DE_EXPEDIENTE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MENU_PRINCIPAL.resx">
-      <DependentUpon>MENU_PRINCIPAL.cs</DependentUpon>
+    <EmbeddedResource Include="INICIO.resx">
+      <DependentUpon>INICIO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,5 +217,15 @@
   <ItemGroup>
     <None Include="Resources\067613af-2284-43fd-b932-4073bca7d695.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\067613af-2284-43fd-b932-4073bca7d6951.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.Web.WebView2.1.0.4258.31\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.4258.31\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.4258.31\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.4258.31\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
 </Project>

@@ -752,7 +752,7 @@
             this.But_nuevo.Size = new System.Drawing.Size(206, 54);
             this.But_nuevo.TabIndex = 22;
             this.But_nuevo.Text = "       Nuevo";
-            this.But_nuevo.Click += new System.EventHandler(this.guna2Button13_Click);
+            this.But_nuevo.Click += new System.EventHandler(this.But_nuevo_Click);
             // 
             // But_Limpieza
             // 
@@ -1151,7 +1151,7 @@
             this.txtN_expediente.Name = "txtN_expediente";
             this.txtN_expediente.Size = new System.Drawing.Size(268, 24);
             this.txtN_expediente.TabIndex = 1;
-            this.txtN_expediente.Text = "100526";
+            this.txtN_expediente.Text = "12345678";
             this.txtN_expediente.Enter += new System.EventHandler(this.txtN_expediente_Enter);
             // 
             // guna2HtmlLabel9
