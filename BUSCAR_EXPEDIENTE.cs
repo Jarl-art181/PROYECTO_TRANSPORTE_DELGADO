@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -41,11 +41,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             ventana.Show();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+   
         private void guna2Button6_Click(object sender, EventArgs e)
         {
             GESTIONAR_EXPEDIENTE ventana = new GESTIONAR_EXPEDIENTE();

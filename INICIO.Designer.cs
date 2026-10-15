@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INICIO));
-            Guna.Charts.WinForms.LPoint lPoint31 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint32 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint33 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint34 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint35 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint36 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint37 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint38 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint39 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint40 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint41 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint42 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint43 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint44 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint45 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint16 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint17 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint18 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint19 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint20 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint21 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint22 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint23 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint24 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint25 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint26 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint27 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint28 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint29 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint30 = new Guna.Charts.WinForms.LPoint();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -83,6 +83,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.n_ex_registrado = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.label15 = new System.Windows.Forms.Label();
             this.guna2PictureBox16 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.lab_horario = new System.Windows.Forms.Label();
@@ -121,16 +126,11 @@
             this.guna2PictureBox13 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.n_ex_registrado = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.gunaBarDataset1 = new Guna.Charts.WinForms.GunaBarDataset();
             this.gunaDoughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label27 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -147,6 +147,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.guna2Panel4.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox16)).BeginInit();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox11)).BeginInit();
@@ -163,9 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox14)).BeginInit();
             this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2Panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -657,6 +657,67 @@
             this.guna2Panel4.Size = new System.Drawing.Size(1198, 520);
             this.guna2Panel4.TabIndex = 20;
             // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.White;
+            this.guna2Panel8.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel8.BorderRadius = 15;
+            this.guna2Panel8.Controls.Add(this.guna2PictureBox5);
+            this.guna2Panel8.Controls.Add(this.label27);
+            this.guna2Panel8.Controls.Add(this.n_ex_registrado);
+            this.guna2Panel8.Controls.Add(this.label15);
+            this.guna2Panel8.FillColor = System.Drawing.Color.Lavender;
+            this.guna2Panel8.Location = new System.Drawing.Point(35, 108);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(261, 121);
+            this.guna2Panel8.TabIndex = 21;
+            // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.Location = new System.Drawing.Point(42, 18);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(75, 84);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox5.TabIndex = 2;
+            this.guna2PictureBox5.TabStop = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label27.Location = new System.Drawing.Point(129, 62);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(97, 20);
+            this.label27.TabIndex = 16;
+            this.label27.Text = "Expedientes ";
+            // 
+            // n_ex_registrado
+            // 
+            this.n_ex_registrado.BackColor = System.Drawing.Color.Transparent;
+            this.n_ex_registrado.Font = new System.Drawing.Font("Book Antiqua", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.n_ex_registrado.ForeColor = System.Drawing.Color.Black;
+            this.n_ex_registrado.Location = new System.Drawing.Point(158, 12);
+            this.n_ex_registrado.Name = "n_ex_registrado";
+            this.n_ex_registrado.Size = new System.Drawing.Size(41, 47);
+            this.n_ex_registrado.TabIndex = 18;
+            this.n_ex_registrado.Text = "24";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(127, 82);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 20);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Registrados";
+            // 
             // guna2PictureBox16
             // 
             this.guna2PictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox16.Image")));
@@ -1115,79 +1176,45 @@
             this.label17.TabIndex = 13;
             this.label17.Text = "En Proceso";
             // 
-            // n_ex_registrado
-            // 
-            this.n_ex_registrado.BackColor = System.Drawing.Color.Transparent;
-            this.n_ex_registrado.Font = new System.Drawing.Font("Book Antiqua", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.n_ex_registrado.ForeColor = System.Drawing.Color.Black;
-            this.n_ex_registrado.Location = new System.Drawing.Point(158, 12);
-            this.n_ex_registrado.Name = "n_ex_registrado";
-            this.n_ex_registrado.Size = new System.Drawing.Size(41, 47);
-            this.n_ex_registrado.TabIndex = 18;
-            this.n_ex_registrado.Text = "24";
-            // 
-            // guna2PictureBox5
-            // 
-            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(42, 18);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(75, 84);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox5.TabIndex = 2;
-            this.guna2PictureBox5.TabStop = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(127, 82);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 20);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Registrados";
-            // 
             // gunaBarDataset1
             // 
-            lPoint31.Label = "ENERO";
-            lPoint31.Y = 2D;
-            lPoint32.Label = "FEBRERO";
-            lPoint32.Y = 3D;
-            lPoint33.Label = "MARZO";
-            lPoint33.Y = 2D;
-            lPoint34.Label = "ABRIL";
-            lPoint34.Y = 1D;
-            lPoint35.Label = "MAYO";
-            lPoint35.Y = 5D;
-            lPoint36.Label = "JUNIO";
-            lPoint36.Y = 4D;
-            lPoint37.Label = "JULIO";
-            lPoint37.Y = 5D;
-            lPoint38.Label = "AGOSTO";
-            lPoint38.Y = 2D;
-            lPoint39.Label = "SETIEMBRE";
-            lPoint39.Y = 1D;
-            lPoint40.Label = "OCTUBRE";
-            lPoint40.Y = 7D;
-            lPoint41.Label = "NOVIEMBRE";
-            lPoint41.Y = 4D;
-            lPoint42.Label = "DICIEMBRE";
-            lPoint42.Y = 2D;
+            lPoint16.Label = "ENERO";
+            lPoint16.Y = 2D;
+            lPoint17.Label = "FEBRERO";
+            lPoint17.Y = 3D;
+            lPoint18.Label = "MARZO";
+            lPoint18.Y = 2D;
+            lPoint19.Label = "ABRIL";
+            lPoint19.Y = 1D;
+            lPoint20.Label = "MAYO";
+            lPoint20.Y = 5D;
+            lPoint21.Label = "JUNIO";
+            lPoint21.Y = 4D;
+            lPoint22.Label = "JULIO";
+            lPoint22.Y = 5D;
+            lPoint23.Label = "AGOSTO";
+            lPoint23.Y = 2D;
+            lPoint24.Label = "SETIEMBRE";
+            lPoint24.Y = 1D;
+            lPoint25.Label = "OCTUBRE";
+            lPoint25.Y = 7D;
+            lPoint26.Label = "NOVIEMBRE";
+            lPoint26.Y = 4D;
+            lPoint27.Label = "DICIEMBRE";
+            lPoint27.Y = 2D;
             this.gunaBarDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
-            lPoint31,
-            lPoint32,
-            lPoint33,
-            lPoint34,
-            lPoint35,
-            lPoint36,
-            lPoint37,
-            lPoint38,
-            lPoint39,
-            lPoint40,
-            lPoint41,
-            lPoint42});
+            lPoint16,
+            lPoint17,
+            lPoint18,
+            lPoint19,
+            lPoint20,
+            lPoint21,
+            lPoint22,
+            lPoint23,
+            lPoint24,
+            lPoint25,
+            lPoint26,
+            lPoint27});
             this.gunaBarDataset1.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.Orange,
             System.Drawing.Color.Gold,
@@ -1205,16 +1232,16 @@
             // 
             // gunaDoughnutDataset1
             // 
-            lPoint43.Label = "En proceso";
-            lPoint43.Y = 12D;
-            lPoint44.Label = "Pendientes";
-            lPoint44.Y = 8D;
-            lPoint45.Label = "Finalizado";
-            lPoint45.Y = 4D;
+            lPoint28.Label = "En proceso";
+            lPoint28.Y = 12D;
+            lPoint29.Label = "Pendientes";
+            lPoint29.Y = 8D;
+            lPoint30.Label = "Finalizado";
+            lPoint30.Y = 4D;
             this.gunaDoughnutDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
-            lPoint43,
-            lPoint44,
-            lPoint45});
+            lPoint28,
+            lPoint29,
+            lPoint30});
             this.gunaDoughnutDataset1.FillColors.AddRange(new System.Drawing.Color[] {
             System.Drawing.Color.Gold,
             System.Drawing.Color.Goldenrod,
@@ -1236,33 +1263,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 21;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.White;
-            this.guna2Panel8.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel8.BorderRadius = 15;
-            this.guna2Panel8.Controls.Add(this.guna2PictureBox5);
-            this.guna2Panel8.Controls.Add(this.label27);
-            this.guna2Panel8.Controls.Add(this.n_ex_registrado);
-            this.guna2Panel8.Controls.Add(this.label15);
-            this.guna2Panel8.FillColor = System.Drawing.Color.Lavender;
-            this.guna2Panel8.Location = new System.Drawing.Point(35, 108);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(261, 121);
-            this.guna2Panel8.TabIndex = 21;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Book Antiqua", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label27.Location = new System.Drawing.Point(129, 62);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(97, 20);
-            this.label27.TabIndex = 16;
-            this.label27.Text = "Expedientes ";
             // 
             // INICIO
             // 
@@ -1295,6 +1295,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox16)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
@@ -1315,10 +1318,7 @@
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2Panel8.ResumeLayout(false);
-            this.guna2Panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }

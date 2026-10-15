@@ -306,68 +306,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 "expedientes.txt"
             );
 
-            if (!File.Exists(ruta))
-                return;
+            string[] expedientes = new string[0];
 
-            string[] expedientes =
-                File.ReadAllLines(ruta);
-
-            string[] estados =
+            if (File.Exists(ruta))
             {
-                "En Proceso",
-                "Pendiente",
-                "Finalizado"
-            };
-
-            int[] cantidades =
-            {
-                0, 0, 0
-            };
-
-            // Recorrer expedientes
-            for (int i = 0; i < expedientes.Length; i++)
-            {
-                if (string.IsNullOrWhiteSpace(expedientes[i]))
-                    continue;
-
-                string[] datos =
-                    expedientes[i].Split('|');
-
-                if (datos.Length >= 10)
-                {
-                    string estado =
-                        datos[9].Trim();
-
-                    for (int j = 0;
-                         j < estados.Length;
-                         j++)
-                    {
-                        if (estado.Equals(
-                            estados[j],
-                            StringComparison.OrdinalIgnoreCase))
-                        {
-                            cantidades[j]++;
-                            break;
-                        }
-                    }
-                }
+                expedientes = File.ReadAllLines(ruta);
             }
 
-            // Limpiar gráfico
-            gunaDoughnutDataset1.DataPoints.Clear();
-
-            // Agregar datos
-            for (int i = 0;
-                 i < estados.Length;
-                 i++)
-            {
-                gunaDoughnutDataset1.DataPoints.Add(
-                    new LPoint(
-                        estados[i],
-                        cantidades[i]
-                    )
-                );
-            }
+            // Actualizar la dona, la leyenda y el total
+            // desde el inicio, no solamente al generar reporte.
+            ActualizarGraficoEstados(expedientes, expedientes.Length);
         }
 
 
@@ -941,21 +889,21 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // ==========================================
 
             DAT_PROCESO.Text =
-              
+
                 proceso.ToString("00") +
                 " (" +
                 porcentajeProceso.ToString("0") +
                 "%)";
 
             DAT_PENDIENTE.Text =
-                
+
                 pendiente.ToString("00") +
                 " (" +
                 porcentajePendiente.ToString("0") +
                 "%)";
 
             DAT_FINALIZADO.Text =
-                
+
                 finalizado.ToString("00") +
                 " (" +
                 porcentajeFinalizado.ToString("0") +

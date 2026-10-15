@@ -74,7 +74,6 @@
             this.but_cargardatosautomatico = new Guna.UI2.WinForms.Guna2CheckBox();
             this.but_mostarmesajeguardar = new Guna.UI2.WinForms.Guna2CheckBox();
             this.but_limpiarformulario = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.but_modooscuro = new Guna.UI2.WinForms.Guna2CheckBox();
             this.but_mostrarconfirmacion = new Guna.UI2.WinForms.Guna2CheckBox();
             this.but_generarnumeros_automatico = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -690,7 +689,6 @@
             this.guna2Panel5.Controls.Add(this.but_cargardatosautomatico);
             this.guna2Panel5.Controls.Add(this.but_mostarmesajeguardar);
             this.guna2Panel5.Controls.Add(this.but_limpiarformulario);
-            this.guna2Panel5.Controls.Add(this.but_modooscuro);
             this.guna2Panel5.Controls.Add(this.but_mostrarconfirmacion);
             this.guna2Panel5.Controls.Add(this.but_generarnumeros_automatico);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
@@ -759,26 +757,6 @@
             this.but_limpiarformulario.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.but_limpiarformulario.UseVisualStyleBackColor = false;
             // 
-            // but_modooscuro
-            // 
-            this.but_modooscuro.AutoSize = true;
-            this.but_modooscuro.BackColor = System.Drawing.Color.White;
-            this.but_modooscuro.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.but_modooscuro.CheckedState.BorderRadius = 0;
-            this.but_modooscuro.CheckedState.BorderThickness = 0;
-            this.but_modooscuro.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.but_modooscuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_modooscuro.Location = new System.Drawing.Point(612, 115);
-            this.but_modooscuro.Name = "but_modooscuro";
-            this.but_modooscuro.Size = new System.Drawing.Size(120, 24);
-            this.but_modooscuro.TabIndex = 37;
-            this.but_modooscuro.Text = "Modo oscuro";
-            this.but_modooscuro.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.but_modooscuro.UncheckedState.BorderRadius = 0;
-            this.but_modooscuro.UncheckedState.BorderThickness = 0;
-            this.but_modooscuro.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.but_modooscuro.UseVisualStyleBackColor = false;
-            // 
             // but_mostrarconfirmacion
             // 
             this.but_mostrarconfirmacion.AutoSize = true;
@@ -788,7 +766,7 @@
             this.but_mostrarconfirmacion.CheckedState.BorderThickness = 0;
             this.but_mostrarconfirmacion.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.but_mostrarconfirmacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_mostrarconfirmacion.Location = new System.Drawing.Point(612, 77);
+            this.but_mostrarconfirmacion.Location = new System.Drawing.Point(612, 92);
             this.but_mostrarconfirmacion.Name = "but_mostrarconfirmacion";
             this.but_mostrarconfirmacion.Size = new System.Drawing.Size(245, 24);
             this.but_mostrarconfirmacion.TabIndex = 36;
@@ -808,7 +786,7 @@
             this.but_generarnumeros_automatico.CheckedState.BorderThickness = 0;
             this.but_generarnumeros_automatico.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.but_generarnumeros_automatico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_generarnumeros_automatico.Location = new System.Drawing.Point(612, 40);
+            this.but_generarnumeros_automatico.Location = new System.Drawing.Point(612, 55);
             this.but_generarnumeros_automatico.Name = "but_generarnumeros_automatico";
             this.but_generarnumeros_automatico.Size = new System.Drawing.Size(389, 24);
             this.but_generarnumeros_automatico.TabIndex = 35;
@@ -1320,7 +1298,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tex_razonsocial;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2CheckBox but_modooscuro;
         private Guna.UI2.WinForms.Guna2CheckBox but_mostrarconfirmacion;
         private Guna.UI2.WinForms.Guna2CheckBox but_generarnumeros_automatico;
         private Guna.UI2.WinForms.Guna2Button but_guardar;

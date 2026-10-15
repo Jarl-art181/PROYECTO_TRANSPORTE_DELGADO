@@ -80,8 +80,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 but_mostarmesajeguardar.Checked + "|" +
                 but_cargardatosautomatico.Checked + "|" +
                 but_generarnumeros_automatico.Checked + "|" +
-                but_mostrarconfirmacion.Checked + "|" +
-                but_modooscuro.Checked;
+                but_mostrarconfirmacion.Checked + "|";
 
             // Guardar en opciones.txt
             File.WriteAllText(
@@ -153,9 +152,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                 but_mostrarconfirmacion.Checked = confirmar;
 
-                // Sexta opción:
-                // Mostrar bienvenida al abrir el sistema
-                but_modooscuro.Checked = bienvenida;
+               
             }
         }
 
@@ -604,10 +601,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             but_mostrarconfirmacion.Checked = false;
 
-            // Sexta opción:
-            // Mostrar bienvenida al abrir el sistema
-            but_modooscuro.Checked = false;
-
+          
 
             // ==========================================
             // RESTAURAR CARPETA DE PDF

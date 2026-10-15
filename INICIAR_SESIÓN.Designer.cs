@@ -115,7 +115,7 @@
             this.lblhora.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblhora.Location = new System.Drawing.Point(95, 95);
             this.lblhora.Name = "lblhora";
-            this.lblhora.Size = new System.Drawing.Size(133, 30);
+            this.lblhora.Size = new System.Drawing.Size(169, 40);
             this.lblhora.TabIndex = 3;
             this.lblhora.Text = "15: 00: 00";
             // 
@@ -126,7 +126,7 @@
             this.lblFecha.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(97, 33);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(420, 30);
+            this.lblFecha.Size = new System.Drawing.Size(530, 40);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Domingo 12 de setiembre de 2026";
             // 
@@ -161,7 +161,7 @@
             this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(46, 129);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 20);
+            this.label11.Size = new System.Drawing.Size(122, 25);
             this.label11.TabIndex = 28;
             this.label11.Text = "Expediente";
             // 
@@ -172,7 +172,7 @@
             this.label10.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(54, 99);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 20);
+            this.label10.Size = new System.Drawing.Size(101, 25);
             this.label10.TabIndex = 20;
             this.label10.Text = "Registrar";
             // 
@@ -229,7 +229,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(1285, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(213, 22);
+            this.label6.Size = new System.Drawing.Size(259, 27);
             this.label6.TabIndex = 25;
             this.label6.Text = "Sistema seguro y confiable";
             // 
@@ -241,7 +241,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(1259, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 43);
+            this.label9.Size = new System.Drawing.Size(47, 53);
             this.label9.TabIndex = 24;
             this.label9.Text = "|";
             // 
@@ -264,7 +264,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Location = new System.Drawing.Point(391, 20);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(211, 22);
+            this.label8.Size = new System.Drawing.Size(255, 27);
             this.label8.TabIndex = 23;
             this.label8.Text = "Tu carga, nuestro destino ";
             // 
@@ -276,7 +276,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(365, 4);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 43);
+            this.label7.Size = new System.Drawing.Size(47, 53);
             this.label7.TabIndex = 22;
             this.label7.Text = "|";
             // 
@@ -288,7 +288,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(105, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 22);
+            this.label5.Size = new System.Drawing.Size(322, 27);
             this.label5.TabIndex = 20;
             this.label5.Text = "Transporte Delgado Uceda SAC";
             // 
@@ -371,7 +371,7 @@
             this.label12.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(46, 129);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 20);
+            this.label12.Size = new System.Drawing.Size(131, 25);
             this.label12.TabIndex = 28;
             this.label12.Text = "Expedientes";
             // 
@@ -382,7 +382,7 @@
             this.label13.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(54, 99);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 20);
+            this.label13.Size = new System.Drawing.Size(106, 25);
             this.label13.TabIndex = 20;
             this.label13.Text = "Consultar";
             // 
@@ -435,7 +435,7 @@
             this.label14.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(46, 129);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 20);
+            this.label14.Size = new System.Drawing.Size(122, 25);
             this.label14.TabIndex = 28;
             this.label14.Text = "Expediente";
             // 
@@ -446,7 +446,7 @@
             this.label15.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(63, 99);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 20);
+            this.label15.Size = new System.Drawing.Size(79, 25);
             this.label15.TabIndex = 20;
             this.label15.Text = "Buscar";
             // 
@@ -499,7 +499,7 @@
             this.label16.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(46, 129);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 20);
+            this.label16.Size = new System.Drawing.Size(122, 25);
             this.label16.TabIndex = 28;
             this.label16.Text = "Expediente";
             // 
@@ -510,7 +510,7 @@
             this.label17.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(54, 99);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(82, 20);
+            this.label17.Size = new System.Drawing.Size(106, 25);
             this.label17.TabIndex = 20;
             this.label17.Text = "Gestionar";
             // 
@@ -583,7 +583,7 @@
             this.text_Contraseña.Font = new System.Drawing.Font("Sylfaen", 15.75F);
             this.text_Contraseña.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_Contraseña.Location = new System.Drawing.Point(116, 291);
-            this.text_Contraseña.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.text_Contraseña.Margin = new System.Windows.Forms.Padding(5);
             this.text_Contraseña.Name = "text_Contraseña";
             this.text_Contraseña.PlaceholderText = "";
             this.text_Contraseña.SelectedText = "";
@@ -597,7 +597,7 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(26, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(336, 55);
+            this.label3.Size = new System.Drawing.Size(414, 68);
             this.label3.TabIndex = 4;
             this.label3.Text = "BIENVENIDO";
             // 
@@ -615,7 +615,7 @@
             this.text_Usuario.Font = new System.Drawing.Font("Sylfaen", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_Usuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.text_Usuario.Location = new System.Drawing.Point(116, 215);
-            this.text_Usuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.text_Usuario.Margin = new System.Windows.Forms.Padding(5);
             this.text_Usuario.Name = "text_Usuario";
             this.text_Usuario.PlaceholderText = "";
             this.text_Usuario.SelectedText = "";
@@ -640,7 +640,7 @@
             this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(27, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(450, 34);
+            this.label4.Size = new System.Drawing.Size(566, 43);
             this.label4.TabIndex = 6;
             this.label4.Text = "Sistema de Gestión Documentaria";
             // 
@@ -660,7 +660,7 @@
             this.label1.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(33, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 22);
+            this.label1.Size = new System.Drawing.Size(399, 27);
             this.label1.TabIndex = 7;
             this.label1.Text = "Organiza, registra, consulta y gestiona tus ";
             // 
@@ -682,7 +682,7 @@
             this.label2.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(35, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(300, 22);
+            this.label2.Size = new System.Drawing.Size(370, 27);
             this.label2.TabIndex = 8;
             this.label2.Text = "expedientes de forma rápida y segura.";
             // 
