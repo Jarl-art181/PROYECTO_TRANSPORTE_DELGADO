@@ -80,17 +80,23 @@
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.but_guardar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.textCORREO = new System.Windows.Forms.TextBox();
+            this.textCORREO = new Guna.UI2.WinForms.Guna2TextBox();
+            this.textTELEFONO = new Guna.UI2.WinForms.Guna2TextBox();
+            this.textEMPRESA = new Guna.UI2.WinForms.Guna2TextBox();
+            this.textDNI = new Guna.UI2.WinForms.Guna2TextBox();
+            this.texNAME_USUARIO = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.textTELEFONO = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.textEMPRESA = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.textDNI = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.texNAME_USUARIO = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.textPLACA = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ComboTipoDocumento = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.textFecha = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtN_expediente = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtRutaPDF = new Guna.UI2.WinForms.Guna2Panel();
             this.picPDF = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblTipoPDF = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -101,13 +107,9 @@
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnAdjuntarPDF = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtDescripcion = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ComboTipoDocumento = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.textFecha = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtN_expediente = new System.Windows.Forms.TextBox();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -116,6 +118,7 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -806,14 +809,14 @@
             this.guna2Panel8.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel8.BorderRadius = 15;
             this.guna2Panel8.Controls.Add(this.textCORREO);
-            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel21);
             this.guna2Panel8.Controls.Add(this.textTELEFONO);
-            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel19);
             this.guna2Panel8.Controls.Add(this.textEMPRESA);
-            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel20);
             this.guna2Panel8.Controls.Add(this.textDNI);
-            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel8.Controls.Add(this.texNAME_USUARIO);
+            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel21);
+            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel19);
+            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel20);
+            this.guna2Panel8.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel8.Controls.Add(this.guna2HtmlLabel18);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
             this.guna2Panel8.Location = new System.Drawing.Point(596, 187);
@@ -823,13 +826,98 @@
             // 
             // textCORREO
             // 
-            this.textCORREO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCORREO.Location = new System.Drawing.Point(230, 180);
+            this.textCORREO.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textCORREO.DefaultText = "";
+            this.textCORREO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textCORREO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textCORREO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textCORREO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textCORREO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textCORREO.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textCORREO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textCORREO.Location = new System.Drawing.Point(230, 186);
+            this.textCORREO.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textCORREO.Name = "textCORREO";
-            this.textCORREO.Size = new System.Drawing.Size(268, 24);
-            this.textCORREO.TabIndex = 13;
-            this.textCORREO.Text = "juanperez@rojassac.com";
-            this.textCORREO.Enter += new System.EventHandler(this.textCORREO_Enter);
+            this.textCORREO.PlaceholderText = "Ejem. Juan@gamil.com";
+            this.textCORREO.SelectedText = "";
+            this.textCORREO.Size = new System.Drawing.Size(267, 27);
+            this.textCORREO.TabIndex = 29;
+            // 
+            // textTELEFONO
+            // 
+            this.textTELEFONO.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textTELEFONO.DefaultText = "";
+            this.textTELEFONO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textTELEFONO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textTELEFONO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textTELEFONO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textTELEFONO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textTELEFONO.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textTELEFONO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textTELEFONO.Location = new System.Drawing.Point(230, 141);
+            this.textTELEFONO.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textTELEFONO.Name = "textTELEFONO";
+            this.textTELEFONO.PlaceholderText = "Ejem. 912345678";
+            this.textTELEFONO.SelectedText = "";
+            this.textTELEFONO.Size = new System.Drawing.Size(267, 27);
+            this.textTELEFONO.TabIndex = 28;
+            // 
+            // textEMPRESA
+            // 
+            this.textEMPRESA.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textEMPRESA.DefaultText = "";
+            this.textEMPRESA.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textEMPRESA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textEMPRESA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textEMPRESA.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textEMPRESA.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textEMPRESA.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textEMPRESA.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textEMPRESA.Location = new System.Drawing.Point(230, 98);
+            this.textEMPRESA.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEMPRESA.Name = "textEMPRESA";
+            this.textEMPRESA.PlaceholderText = "Ejem. Transporte  Norte SAC";
+            this.textEMPRESA.SelectedText = "";
+            this.textEMPRESA.Size = new System.Drawing.Size(267, 27);
+            this.textEMPRESA.TabIndex = 27;
+            // 
+            // textDNI
+            // 
+            this.textDNI.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textDNI.DefaultText = "";
+            this.textDNI.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textDNI.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textDNI.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textDNI.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textDNI.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textDNI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textDNI.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textDNI.Location = new System.Drawing.Point(230, 56);
+            this.textDNI.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textDNI.Name = "textDNI";
+            this.textDNI.PlaceholderText = "Ejem. 12345678";
+            this.textDNI.SelectedText = "";
+            this.textDNI.Size = new System.Drawing.Size(267, 27);
+            this.textDNI.TabIndex = 26;
+            // 
+            // texNAME_USUARIO
+            // 
+            this.texNAME_USUARIO.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.texNAME_USUARIO.DefaultText = "";
+            this.texNAME_USUARIO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.texNAME_USUARIO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.texNAME_USUARIO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.texNAME_USUARIO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.texNAME_USUARIO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.texNAME_USUARIO.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.texNAME_USUARIO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.texNAME_USUARIO.Location = new System.Drawing.Point(230, 18);
+            this.texNAME_USUARIO.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.texNAME_USUARIO.Name = "texNAME_USUARIO";
+            this.texNAME_USUARIO.PlaceholderText = "Ejem. EXP-12345678";
+            this.texNAME_USUARIO.SelectedText = "";
+            this.texNAME_USUARIO.Size = new System.Drawing.Size(267, 27);
+            this.texNAME_USUARIO.TabIndex = 25;
             // 
             // guna2HtmlLabel21
             // 
@@ -841,16 +929,6 @@
             this.guna2HtmlLabel21.TabIndex = 12;
             this.guna2HtmlLabel21.Text = "Correo:";
             // 
-            // textTELEFONO
-            // 
-            this.textTELEFONO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTELEFONO.Location = new System.Drawing.Point(230, 138);
-            this.textTELEFONO.Name = "textTELEFONO";
-            this.textTELEFONO.Size = new System.Drawing.Size(268, 24);
-            this.textTELEFONO.TabIndex = 11;
-            this.textTELEFONO.Text = "994418578";
-            this.textTELEFONO.Enter += new System.EventHandler(this.textTELEFONO_Enter);
-            // 
             // guna2HtmlLabel19
             // 
             this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
@@ -860,16 +938,6 @@
             this.guna2HtmlLabel19.Size = new System.Drawing.Size(67, 20);
             this.guna2HtmlLabel19.TabIndex = 10;
             this.guna2HtmlLabel19.Text = "Teléfono:";
-            // 
-            // textEMPRESA
-            // 
-            this.textEMPRESA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEMPRESA.Location = new System.Drawing.Point(230, 99);
-            this.textEMPRESA.Name = "textEMPRESA";
-            this.textEMPRESA.Size = new System.Drawing.Size(268, 24);
-            this.textEMPRESA.TabIndex = 9;
-            this.textEMPRESA.Text = "Transporte Rojas SAC";
-            this.textEMPRESA.Enter += new System.EventHandler(this.textEMPRESA_Enter);
             // 
             // guna2HtmlLabel20
             // 
@@ -881,16 +949,6 @@
             this.guna2HtmlLabel20.TabIndex = 8;
             this.guna2HtmlLabel20.Text = "Empresa:";
             // 
-            // textDNI
-            // 
-            this.textDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDNI.Location = new System.Drawing.Point(230, 58);
-            this.textDNI.Name = "textDNI";
-            this.textDNI.Size = new System.Drawing.Size(268, 24);
-            this.textDNI.TabIndex = 7;
-            this.textDNI.Text = "78459554";
-            this.textDNI.Enter += new System.EventHandler(this.textDNI_Enter);
-            // 
             // guna2HtmlLabel17
             // 
             this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
@@ -900,16 +958,6 @@
             this.guna2HtmlLabel17.Size = new System.Drawing.Size(33, 20);
             this.guna2HtmlLabel17.TabIndex = 6;
             this.guna2HtmlLabel17.Text = "DNI:";
-            // 
-            // texNAME_USUARIO
-            // 
-            this.texNAME_USUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texNAME_USUARIO.Location = new System.Drawing.Point(230, 19);
-            this.texNAME_USUARIO.Name = "texNAME_USUARIO";
-            this.texNAME_USUARIO.Size = new System.Drawing.Size(268, 24);
-            this.texNAME_USUARIO.TabIndex = 5;
-            this.texNAME_USUARIO.Text = "Juan Garcia Perez";
-            this.texNAME_USUARIO.Enter += new System.EventHandler(this.texNAME_USUARIO_Enter);
             // 
             // guna2HtmlLabel18
             // 
@@ -925,6 +973,12 @@
             // 
             this.guna2Panel7.BackColor = System.Drawing.Color.Gray;
             this.guna2Panel7.BorderRadius = 15;
+            this.guna2Panel7.Controls.Add(this.textPLACA);
+            this.guna2Panel7.Controls.Add(this.guna2HtmlLabel22);
+            this.guna2Panel7.Controls.Add(this.txtDescripcion);
+            this.guna2Panel7.Controls.Add(this.ComboTipoDocumento);
+            this.guna2Panel7.Controls.Add(this.textFecha);
+            this.guna2Panel7.Controls.Add(this.txtN_expediente);
             this.guna2Panel7.Controls.Add(this.txtRutaPDF);
             this.guna2Panel7.Controls.Add(this.guna2PictureBox6);
             this.guna2Panel7.Controls.Add(this.guna2PictureBox4);
@@ -932,19 +986,117 @@
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel14);
             this.guna2Panel7.Controls.Add(this.btnAdjuntarPDF);
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel13);
-            this.guna2Panel7.Controls.Add(this.txtDescripcion);
-            this.guna2Panel7.Controls.Add(this.ComboTipoDocumento);
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel11);
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel12);
-            this.guna2Panel7.Controls.Add(this.textFecha);
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel10);
-            this.guna2Panel7.Controls.Add(this.txtN_expediente);
             this.guna2Panel7.Controls.Add(this.guna2HtmlLabel9);
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
             this.guna2Panel7.Location = new System.Drawing.Point(32, 129);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(524, 508);
             this.guna2Panel7.TabIndex = 4;
+            // 
+            // textPLACA
+            // 
+            this.textPLACA.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textPLACA.DefaultText = "";
+            this.textPLACA.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textPLACA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textPLACA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textPLACA.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textPLACA.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textPLACA.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textPLACA.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textPLACA.Location = new System.Drawing.Point(230, 156);
+            this.textPLACA.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textPLACA.Name = "textPLACA";
+            this.textPLACA.PlaceholderText = "Ejem.  A1B-234";
+            this.textPLACA.SelectedText = "";
+            this.textPLACA.Size = new System.Drawing.Size(267, 27);
+            this.textPLACA.TabIndex = 24;
+            // 
+            // guna2HtmlLabel22
+            // 
+            this.guna2HtmlLabel22.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel22.Location = new System.Drawing.Point(28, 156);
+            this.guna2HtmlLabel22.Name = "guna2HtmlLabel22";
+            this.guna2HtmlLabel22.Size = new System.Drawing.Size(68, 20);
+            this.guna2HtmlLabel22.TabIndex = 23;
+            this.guna2HtmlLabel22.Text = "N° Placa:";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDescripcion.DefaultText = "";
+            this.txtDescripcion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDescripcion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDescripcion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescripcion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescripcion.Location = new System.Drawing.Point(229, 211);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.PlaceholderText = "Ejem.  31/10/2026";
+            this.txtDescripcion.SelectedText = "";
+            this.txtDescripcion.Size = new System.Drawing.Size(267, 76);
+            this.txtDescripcion.TabIndex = 22;
+            // 
+            // ComboTipoDocumento
+            // 
+            this.ComboTipoDocumento.BackColor = System.Drawing.Color.Transparent;
+            this.ComboTipoDocumento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboTipoDocumento.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboTipoDocumento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboTipoDocumento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboTipoDocumento.ItemHeight = 30;
+            this.ComboTipoDocumento.Location = new System.Drawing.Point(229, 110);
+            this.ComboTipoDocumento.Margin = new System.Windows.Forms.Padding(2);
+            this.ComboTipoDocumento.Name = "ComboTipoDocumento";
+            this.ComboTipoDocumento.Size = new System.Drawing.Size(269, 36);
+            this.ComboTipoDocumento.TabIndex = 21;
+            // 
+            // textFecha
+            // 
+            this.textFecha.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textFecha.DefaultText = "";
+            this.textFecha.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textFecha.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textFecha.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textFecha.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textFecha.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textFecha.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textFecha.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textFecha.Location = new System.Drawing.Point(229, 59);
+            this.textFecha.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textFecha.Name = "textFecha";
+            this.textFecha.PlaceholderText = "Ejem.  31/10/2026";
+            this.textFecha.SelectedText = "";
+            this.textFecha.Size = new System.Drawing.Size(267, 27);
+            this.textFecha.TabIndex = 20;
+            // 
+            // txtN_expediente
+            // 
+            this.txtN_expediente.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtN_expediente.DefaultText = "";
+            this.txtN_expediente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtN_expediente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtN_expediente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtN_expediente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtN_expediente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtN_expediente.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtN_expediente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtN_expediente.Location = new System.Drawing.Point(229, 21);
+            this.txtN_expediente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtN_expediente.Name = "txtN_expediente";
+            this.txtN_expediente.PlaceholderText = "Ejem. EXP-12345678";
+            this.txtN_expediente.SelectedText = "";
+            this.txtN_expediente.Size = new System.Drawing.Size(267, 27);
+            this.txtN_expediente.TabIndex = 19;
             // 
             // txtRutaPDF
             // 
@@ -1070,45 +1222,11 @@
             this.guna2HtmlLabel13.TabIndex = 10;
             this.guna2HtmlLabel13.Text = "Documento PDF:";
             // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDescripcion.DefaultText = "";
-            this.txtDescripcion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDescripcion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDescripcion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescripcion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDescripcion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDescripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDescripcion.Location = new System.Drawing.Point(229, 169);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.PlaceholderText = "";
-            this.txtDescripcion.SelectedText = "";
-            this.txtDescripcion.Size = new System.Drawing.Size(268, 108);
-            this.txtDescripcion.TabIndex = 9;
-            // 
-            // ComboTipoDocumento
-            // 
-            this.ComboTipoDocumento.BackColor = System.Drawing.Color.Transparent;
-            this.ComboTipoDocumento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboTipoDocumento.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboTipoDocumento.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboTipoDocumento.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ComboTipoDocumento.ItemHeight = 30;
-            this.ComboTipoDocumento.Location = new System.Drawing.Point(229, 111);
-            this.ComboTipoDocumento.Name = "ComboTipoDocumento";
-            this.ComboTipoDocumento.Size = new System.Drawing.Size(268, 36);
-            this.ComboTipoDocumento.TabIndex = 8;
-            // 
             // guna2HtmlLabel11
             // 
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(27, 155);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(26, 210);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(91, 20);
             this.guna2HtmlLabel11.TabIndex = 6;
@@ -1124,16 +1242,6 @@
             this.guna2HtmlLabel12.TabIndex = 4;
             this.guna2HtmlLabel12.Text = "Tipo de Documento:";
             // 
-            // textFecha
-            // 
-            this.textFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFecha.Location = new System.Drawing.Point(229, 61);
-            this.textFecha.Name = "textFecha";
-            this.textFecha.Size = new System.Drawing.Size(268, 24);
-            this.textFecha.TabIndex = 3;
-            this.textFecha.Text = "16/09/2026";
-            this.textFecha.Enter += new System.EventHandler(this.textFecha_Enter);
-            // 
             // guna2HtmlLabel10
             // 
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
@@ -1143,16 +1251,6 @@
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(136, 20);
             this.guna2HtmlLabel10.TabIndex = 2;
             this.guna2HtmlLabel10.Text = "Fecha de Registro:";
-            // 
-            // txtN_expediente
-            // 
-            this.txtN_expediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN_expediente.Location = new System.Drawing.Point(229, 22);
-            this.txtN_expediente.Name = "txtN_expediente";
-            this.txtN_expediente.Size = new System.Drawing.Size(268, 24);
-            this.txtN_expediente.TabIndex = 1;
-            this.txtN_expediente.Text = "12345678";
-            this.txtN_expediente.Enter += new System.EventHandler(this.txtN_expediente_Enter);
             // 
             // guna2HtmlLabel9
             // 
@@ -1237,6 +1335,21 @@
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 2;
             this.guna2PictureBox3.TabStop = false;
+            // 
+            // guna2ContextMenuStrip1
+            // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // REGISTRO_DE_EXPEDIENTE
             // 
@@ -1339,12 +1452,8 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private System.Windows.Forms.TextBox textFecha;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private System.Windows.Forms.TextBox txtN_expediente;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
-        private Guna.UI2.WinForms.Guna2TextBox txtDescripcion;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboTipoDocumento;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
@@ -1360,9 +1469,7 @@
         private Guna.UI2.WinForms.Guna2Button But_nuevo;
         private Guna.UI2.WinForms.Guna2Button But_Limpieza;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
-        private System.Windows.Forms.TextBox textDNI;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private System.Windows.Forms.TextBox texNAME_USUARIO;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
@@ -1370,11 +1477,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel24;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
-        private System.Windows.Forms.TextBox textCORREO;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
-        private System.Windows.Forms.TextBox textTELEFONO;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
-        private System.Windows.Forms.TextBox textEMPRESA;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
         private Guna.UI2.WinForms.Guna2Panel txtRutaPDF;
         private Guna.UI2.WinForms.Guna2PictureBox picPDF;
@@ -1383,5 +1487,17 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox10;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox9;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
+        private Guna.UI2.WinForms.Guna2TextBox txtN_expediente;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private Guna.UI2.WinForms.Guna2TextBox textPLACA;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel22;
+        private Guna.UI2.WinForms.Guna2TextBox txtDescripcion;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboTipoDocumento;
+        private Guna.UI2.WinForms.Guna2TextBox textFecha;
+        private Guna.UI2.WinForms.Guna2TextBox textCORREO;
+        private Guna.UI2.WinForms.Guna2TextBox textEMPRESA;
+        private Guna.UI2.WinForms.Guna2TextBox textDNI;
+        private Guna.UI2.WinForms.Guna2TextBox texNAME_USUARIO;
+        private Guna.UI2.WinForms.Guna2TextBox textTELEFONO;
     }
 }

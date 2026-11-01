@@ -29,74 +29,74 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(REPORTES));
-            Guna.Charts.WinForms.ChartFont chartFont97 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont98 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont99 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont100 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid37 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick37 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont101 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid38 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick38 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont102 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid39 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel13 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont103 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick39 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont104 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint1 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint2 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint3 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint17 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint18 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.ChartFont chartFont105 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont106 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont107 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont108 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid40 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick40 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont109 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid41 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick41 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont110 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid42 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel14 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont111 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick42 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont112 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint4 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint5 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint6 = new Guna.Charts.WinForms.LPoint();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.Charts.WinForms.ChartFont chartFont113 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont114 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont115 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont116 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid43 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick43 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont117 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid44 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick44 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont118 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid45 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel15 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont119 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick45 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont120 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint7 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint8 = new Guna.Charts.WinForms.LPoint();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.Charts.WinForms.ChartFont chartFont17 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont18 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont19 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont20 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid7 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick7 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont21 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid8 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick8 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont22 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid9 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel3 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont23 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick9 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont24 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.LPoint lPoint9 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint10 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint11 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint12 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint13 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint14 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint15 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint16 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint17 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint18 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint19 = new Guna.Charts.WinForms.LPoint();
             Guna.Charts.WinForms.LPoint lPoint20 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint21 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint22 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint23 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint24 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint25 = new Guna.Charts.WinForms.LPoint();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -145,16 +145,6 @@
             this.GRAFICO_DONA = new Guna.Charts.WinForms.GunaChart();
             this.gunaDoughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
             this.dgvExpedientes = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
@@ -199,6 +189,17 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Columnplaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -754,39 +755,39 @@
             this.GRAFICO_BARRAS.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.gunaBarDataset1});
             this.GRAFICO_BARRAS.Legend.Display = false;
-            chartFont97.FontName = "Arial";
-            this.GRAFICO_BARRAS.Legend.LabelFont = chartFont97;
+            chartFont1.FontName = "Arial";
+            this.GRAFICO_BARRAS.Legend.LabelFont = chartFont1;
             this.GRAFICO_BARRAS.Location = new System.Drawing.Point(399, 413);
             this.GRAFICO_BARRAS.Name = "GRAFICO_BARRAS";
             this.GRAFICO_BARRAS.Size = new System.Drawing.Size(371, 201);
             this.GRAFICO_BARRAS.TabIndex = 12;
-            chartFont98.FontName = "Arial";
-            chartFont98.Size = 12;
-            chartFont98.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_BARRAS.Title.Font = chartFont98;
-            chartFont99.FontName = "Arial";
-            this.GRAFICO_BARRAS.Tooltips.BodyFont = chartFont99;
-            chartFont100.FontName = "Arial";
-            chartFont100.Size = 9;
-            chartFont100.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_BARRAS.Tooltips.TitleFont = chartFont100;
-            this.GRAFICO_BARRAS.XAxes.GridLines = grid37;
-            chartFont101.FontName = "Arial";
-            tick37.Font = chartFont101;
-            this.GRAFICO_BARRAS.XAxes.Ticks = tick37;
-            this.GRAFICO_BARRAS.YAxes.GridLines = grid38;
-            chartFont102.FontName = "Arial";
-            tick38.Font = chartFont102;
-            tick38.HasMaximum = true;
-            tick38.Maximum = 10D;
-            this.GRAFICO_BARRAS.YAxes.Ticks = tick38;
-            this.GRAFICO_BARRAS.ZAxes.GridLines = grid39;
-            chartFont103.FontName = "Arial";
-            pointLabel13.Font = chartFont103;
-            this.GRAFICO_BARRAS.ZAxes.PointLabels = pointLabel13;
-            chartFont104.FontName = "Arial";
-            tick39.Font = chartFont104;
-            this.GRAFICO_BARRAS.ZAxes.Ticks = tick39;
+            chartFont2.FontName = "Arial";
+            chartFont2.Size = 12;
+            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_BARRAS.Title.Font = chartFont2;
+            chartFont3.FontName = "Arial";
+            this.GRAFICO_BARRAS.Tooltips.BodyFont = chartFont3;
+            chartFont4.FontName = "Arial";
+            chartFont4.Size = 9;
+            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_BARRAS.Tooltips.TitleFont = chartFont4;
+            this.GRAFICO_BARRAS.XAxes.GridLines = grid1;
+            chartFont5.FontName = "Arial";
+            tick1.Font = chartFont5;
+            this.GRAFICO_BARRAS.XAxes.Ticks = tick1;
+            this.GRAFICO_BARRAS.YAxes.GridLines = grid2;
+            chartFont6.FontName = "Arial";
+            tick2.Font = chartFont6;
+            tick2.HasMaximum = true;
+            tick2.Maximum = 10D;
+            this.GRAFICO_BARRAS.YAxes.Ticks = tick2;
+            this.GRAFICO_BARRAS.ZAxes.GridLines = grid3;
+            chartFont7.FontName = "Arial";
+            pointLabel1.Font = chartFont7;
+            this.GRAFICO_BARRAS.ZAxes.PointLabels = pointLabel1;
+            chartFont8.FontName = "Arial";
+            tick3.Font = chartFont8;
+            this.GRAFICO_BARRAS.ZAxes.Ticks = tick3;
             // 
             // gunaBarDataset1
             // 
@@ -796,16 +797,16 @@
             lPoint2.Y = 6D;
             lPoint3.Label = "Carta";
             lPoint3.Y = 4D;
-            lPoint17.Label = "Informe";
-            lPoint17.Y = 3D;
-            lPoint18.Label = "Reclamo";
-            lPoint18.Y = 3D;
+            lPoint4.Label = "Informe";
+            lPoint4.Y = 3D;
+            lPoint5.Label = "Reclamo";
+            lPoint5.Y = 3D;
             this.gunaBarDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
             lPoint1,
             lPoint2,
             lPoint3,
-            lPoint17,
-            lPoint18});
+            lPoint4,
+            lPoint5});
             this.gunaBarDataset1.IndexLabel = "{y}";
             this.gunaBarDataset1.Label = "Expedientes";
             this.gunaBarDataset1.TargetChart = this.GRAFICO_BARRAS;
@@ -867,78 +868,79 @@
             this.gunaDoughnutDataset1});
             this.GRAFICO_DONA.Legend.Display = false;
             this.GRAFICO_DONA.Legend.FullWidth = false;
-            chartFont105.FontName = "Arial";
-            this.GRAFICO_DONA.Legend.LabelFont = chartFont105;
+            chartFont9.FontName = "Arial";
+            this.GRAFICO_DONA.Legend.LabelFont = chartFont9;
             this.GRAFICO_DONA.Location = new System.Drawing.Point(14, 410);
             this.GRAFICO_DONA.Margin = new System.Windows.Forms.Padding(2);
             this.GRAFICO_DONA.Name = "GRAFICO_DONA";
             this.GRAFICO_DONA.Size = new System.Drawing.Size(248, 169);
             this.GRAFICO_DONA.TabIndex = 17;
-            chartFont106.FontName = "Arial";
-            chartFont106.Size = 12;
-            chartFont106.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_DONA.Title.Font = chartFont106;
-            chartFont107.FontName = "Arial";
-            this.GRAFICO_DONA.Tooltips.BodyFont = chartFont107;
-            chartFont108.FontName = "Arial";
-            chartFont108.Size = 9;
-            chartFont108.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_DONA.Tooltips.TitleFont = chartFont108;
+            chartFont10.FontName = "Arial";
+            chartFont10.Size = 12;
+            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_DONA.Title.Font = chartFont10;
+            chartFont11.FontName = "Arial";
+            this.GRAFICO_DONA.Tooltips.BodyFont = chartFont11;
+            chartFont12.FontName = "Arial";
+            chartFont12.Size = 9;
+            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_DONA.Tooltips.TitleFont = chartFont12;
             this.GRAFICO_DONA.XAxes.Display = false;
-            this.GRAFICO_DONA.XAxes.GridLines = grid40;
-            chartFont109.FontName = "Arial";
-            tick40.Font = chartFont109;
-            this.GRAFICO_DONA.XAxes.Ticks = tick40;
+            this.GRAFICO_DONA.XAxes.GridLines = grid4;
+            chartFont13.FontName = "Arial";
+            tick4.Font = chartFont13;
+            this.GRAFICO_DONA.XAxes.Ticks = tick4;
             this.GRAFICO_DONA.YAxes.Display = false;
-            this.GRAFICO_DONA.YAxes.GridLines = grid41;
-            chartFont110.FontName = "Arial";
-            tick41.Font = chartFont110;
-            this.GRAFICO_DONA.YAxes.Ticks = tick41;
-            this.GRAFICO_DONA.ZAxes.GridLines = grid42;
-            chartFont111.FontName = "Arial";
-            pointLabel14.Font = chartFont111;
-            this.GRAFICO_DONA.ZAxes.PointLabels = pointLabel14;
-            chartFont112.FontName = "Arial";
-            tick42.Font = chartFont112;
-            this.GRAFICO_DONA.ZAxes.Ticks = tick42;
+            this.GRAFICO_DONA.YAxes.GridLines = grid5;
+            chartFont14.FontName = "Arial";
+            tick5.Font = chartFont14;
+            this.GRAFICO_DONA.YAxes.Ticks = tick5;
+            this.GRAFICO_DONA.ZAxes.GridLines = grid6;
+            chartFont15.FontName = "Arial";
+            pointLabel2.Font = chartFont15;
+            this.GRAFICO_DONA.ZAxes.PointLabels = pointLabel2;
+            chartFont16.FontName = "Arial";
+            tick6.Font = chartFont16;
+            this.GRAFICO_DONA.ZAxes.Ticks = tick6;
             // 
             // gunaDoughnutDataset1
             // 
-            lPoint4.Label = "En Proceso";
-            lPoint4.Y = 10D;
-            lPoint5.Label = "Pendiente";
-            lPoint5.Y = 5D;
-            lPoint6.Label = "Finalizado";
-            lPoint6.Y = 8D;
+            lPoint6.Label = "En Proceso";
+            lPoint6.Y = 10D;
+            lPoint7.Label = "Pendiente";
+            lPoint7.Y = 5D;
+            lPoint8.Label = "Finalizado";
+            lPoint8.Y = 8D;
             this.gunaDoughnutDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
-            lPoint4,
-            lPoint5,
-            lPoint6});
+            lPoint6,
+            lPoint7,
+            lPoint8});
             this.gunaDoughnutDataset1.Label = "Doughnut1";
             this.gunaDoughnutDataset1.TargetChart = this.GRAFICO_DONA;
             // 
             // dgvExpedientes
             // 
             this.dgvExpedientes.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExpedientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvExpedientes.ColumnHeadersHeight = 42;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colExpediente,
             this.colFechaRegistro,
             this.colDocumento,
+            this.Columnplaca,
             this.ColuDescripción,
             this.coloSolicitante,
             this.colDNI,
@@ -946,14 +948,14 @@
             this.colTelefono,
             this.colCorreo,
             this.coluEstadoExpediente});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExpedientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvExpedientes.Location = new System.Drawing.Point(11, 647);
             this.dgvExpedientes.Name = "dgvExpedientes";
@@ -972,67 +974,6 @@
             this.dgvExpedientes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // colExpediente
-            // 
-            this.colExpediente.HeaderText = "N.º Expediente";
-            this.colExpediente.MinimumWidth = 6;
-            this.colExpediente.Name = "colExpediente";
-            // 
-            // colFechaRegistro
-            // 
-            this.colFechaRegistro.HeaderText = "Fecha";
-            this.colFechaRegistro.MinimumWidth = 6;
-            this.colFechaRegistro.Name = "colFechaRegistro";
-            // 
-            // colDocumento
-            // 
-            this.colDocumento.HeaderText = "Tipo de documento";
-            this.colDocumento.MinimumWidth = 6;
-            this.colDocumento.Name = "colDocumento";
-            // 
-            // ColuDescripción
-            // 
-            this.ColuDescripción.HeaderText = "Descripción";
-            this.ColuDescripción.MinimumWidth = 6;
-            this.ColuDescripción.Name = "ColuDescripción";
-            // 
-            // coloSolicitante
-            // 
-            this.coloSolicitante.HeaderText = "Solicitante";
-            this.coloSolicitante.MinimumWidth = 6;
-            this.coloSolicitante.Name = "coloSolicitante";
-            // 
-            // colDNI
-            // 
-            this.colDNI.HeaderText = "DNI";
-            this.colDNI.MinimumWidth = 6;
-            this.colDNI.Name = "colDNI";
-            // 
-            // coloEmpresa
-            // 
-            this.coloEmpresa.HeaderText = "Empresa";
-            this.coloEmpresa.MinimumWidth = 6;
-            this.coloEmpresa.Name = "coloEmpresa";
-            // 
-            // colTelefono
-            // 
-            this.colTelefono.HeaderText = "Teléfono";
-            this.colTelefono.MinimumWidth = 6;
-            this.colTelefono.Name = "colTelefono";
-            // 
-            // colCorreo
-            // 
-            this.colCorreo.FillWeight = 200F;
-            this.colCorreo.HeaderText = "Correo electrónico";
-            this.colCorreo.MinimumWidth = 6;
-            this.colCorreo.Name = "colCorreo";
-            // 
-            // coluEstadoExpediente
-            // 
-            this.coluEstadoExpediente.HeaderText = "Estado";
-            this.coluEstadoExpediente.MinimumWidth = 6;
-            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
             // 
             // guna2Panel15
             // 
@@ -1081,78 +1022,78 @@
             this.GRAFICO_LINEAL.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.gunaLineDataset1});
             this.GRAFICO_LINEAL.Legend.Display = false;
-            chartFont113.FontName = "Arial";
-            this.GRAFICO_LINEAL.Legend.LabelFont = chartFont113;
+            chartFont17.FontName = "Arial";
+            this.GRAFICO_LINEAL.Legend.LabelFont = chartFont17;
             this.GRAFICO_LINEAL.Location = new System.Drawing.Point(791, 410);
             this.GRAFICO_LINEAL.Name = "GRAFICO_LINEAL";
             this.GRAFICO_LINEAL.Size = new System.Drawing.Size(371, 203);
             this.GRAFICO_LINEAL.TabIndex = 14;
-            chartFont114.FontName = "Arial";
-            chartFont114.Size = 12;
-            chartFont114.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_LINEAL.Title.Font = chartFont114;
-            chartFont115.FontName = "Arial";
-            this.GRAFICO_LINEAL.Tooltips.BodyFont = chartFont115;
-            chartFont116.FontName = "Arial";
-            chartFont116.Size = 9;
-            chartFont116.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.GRAFICO_LINEAL.Tooltips.TitleFont = chartFont116;
-            this.GRAFICO_LINEAL.XAxes.GridLines = grid43;
-            chartFont117.FontName = "Arial";
-            tick43.Font = chartFont117;
-            this.GRAFICO_LINEAL.XAxes.Ticks = tick43;
-            this.GRAFICO_LINEAL.YAxes.GridLines = grid44;
-            chartFont118.FontName = "Arial";
-            tick44.Font = chartFont118;
-            this.GRAFICO_LINEAL.YAxes.Ticks = tick44;
-            this.GRAFICO_LINEAL.ZAxes.GridLines = grid45;
-            chartFont119.FontName = "Arial";
-            pointLabel15.Font = chartFont119;
-            this.GRAFICO_LINEAL.ZAxes.PointLabels = pointLabel15;
-            chartFont120.FontName = "Arial";
-            tick45.Font = chartFont120;
-            this.GRAFICO_LINEAL.ZAxes.Ticks = tick45;
+            chartFont18.FontName = "Arial";
+            chartFont18.Size = 12;
+            chartFont18.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_LINEAL.Title.Font = chartFont18;
+            chartFont19.FontName = "Arial";
+            this.GRAFICO_LINEAL.Tooltips.BodyFont = chartFont19;
+            chartFont20.FontName = "Arial";
+            chartFont20.Size = 9;
+            chartFont20.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.GRAFICO_LINEAL.Tooltips.TitleFont = chartFont20;
+            this.GRAFICO_LINEAL.XAxes.GridLines = grid7;
+            chartFont21.FontName = "Arial";
+            tick7.Font = chartFont21;
+            this.GRAFICO_LINEAL.XAxes.Ticks = tick7;
+            this.GRAFICO_LINEAL.YAxes.GridLines = grid8;
+            chartFont22.FontName = "Arial";
+            tick8.Font = chartFont22;
+            this.GRAFICO_LINEAL.YAxes.Ticks = tick8;
+            this.GRAFICO_LINEAL.ZAxes.GridLines = grid9;
+            chartFont23.FontName = "Arial";
+            pointLabel3.Font = chartFont23;
+            this.GRAFICO_LINEAL.ZAxes.PointLabels = pointLabel3;
+            chartFont24.FontName = "Arial";
+            tick9.Font = chartFont24;
+            this.GRAFICO_LINEAL.ZAxes.Ticks = tick9;
             // 
             // gunaLineDataset1
             // 
             this.gunaLineDataset1.BorderColor = System.Drawing.Color.Empty;
-            lPoint7.Label = "Ene";
-            lPoint7.Y = 2D;
-            lPoint8.Label = "Feb";
-            lPoint8.Y = 2D;
-            lPoint9.Label = "Mar";
+            lPoint9.Label = "Ene";
             lPoint9.Y = 2D;
-            lPoint10.Label = "Abr";
+            lPoint10.Label = "Feb";
             lPoint10.Y = 2D;
-            lPoint11.Label = "May";
+            lPoint11.Label = "Mar";
             lPoint11.Y = 2D;
-            lPoint19.Label = "Jun";
+            lPoint12.Label = "Abr";
+            lPoint12.Y = 2D;
+            lPoint13.Label = "May";
+            lPoint13.Y = 2D;
+            lPoint14.Label = "Jun";
+            lPoint14.Y = 2D;
+            lPoint15.Label = "Jul";
+            lPoint15.Y = 2D;
+            lPoint16.Label = "Ago";
+            lPoint16.Y = 2D;
+            lPoint17.Label = "Set";
+            lPoint17.Y = 2D;
+            lPoint18.Label = "Oct";
+            lPoint18.Y = 2D;
+            lPoint19.Label = "Nov";
             lPoint19.Y = 2D;
-            lPoint20.Label = "Jul";
+            lPoint20.Label = "Dic";
             lPoint20.Y = 2D;
-            lPoint21.Label = "Ago";
-            lPoint21.Y = 2D;
-            lPoint22.Label = "Set";
-            lPoint22.Y = 2D;
-            lPoint23.Label = "Oct";
-            lPoint23.Y = 2D;
-            lPoint24.Label = "Nov";
-            lPoint24.Y = 2D;
-            lPoint25.Label = "Dic";
-            lPoint25.Y = 2D;
             this.gunaLineDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
-            lPoint7,
-            lPoint8,
             lPoint9,
             lPoint10,
             lPoint11,
+            lPoint12,
+            lPoint13,
+            lPoint14,
+            lPoint15,
+            lPoint16,
+            lPoint17,
+            lPoint18,
             lPoint19,
-            lPoint20,
-            lPoint21,
-            lPoint22,
-            lPoint23,
-            lPoint24,
-            lPoint25});
+            lPoint20});
             this.gunaLineDataset1.FillColor = System.Drawing.Color.Empty;
             this.gunaLineDataset1.Label = "Line1";
             this.gunaLineDataset1.TargetChart = this.GRAFICO_LINEAL;
@@ -1431,9 +1372,10 @@
             // 
             // text_fechahasta
             // 
+            this.text_fechahasta.BackColor = System.Drawing.Color.White;
             this.text_fechahasta.BorderRadius = 8;
             this.text_fechahasta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_fechahasta.DefaultText = "dd/mm/aaaa";
+            this.text_fechahasta.DefaultText = "10/10/2027";
             this.text_fechahasta.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_fechahasta.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_fechahasta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -1479,9 +1421,11 @@
             // 
             // Text_fechaantes
             // 
+            this.Text_fechaantes.BackColor = System.Drawing.Color.White;
+            this.Text_fechaantes.BorderColor = System.Drawing.Color.Silver;
             this.Text_fechaantes.BorderRadius = 8;
             this.Text_fechaantes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Text_fechaantes.DefaultText = "dd/mm/aaaa";
+            this.Text_fechaantes.DefaultText = "10/10/2026";
             this.Text_fechaantes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Text_fechaantes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Text_fechaantes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -1622,6 +1566,72 @@
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 4;
             this.guna2PictureBox3.TabStop = false;
+            // 
+            // colExpediente
+            // 
+            this.colExpediente.HeaderText = "N.º Expediente";
+            this.colExpediente.MinimumWidth = 6;
+            this.colExpediente.Name = "colExpediente";
+            // 
+            // colFechaRegistro
+            // 
+            this.colFechaRegistro.HeaderText = "Fecha";
+            this.colFechaRegistro.MinimumWidth = 6;
+            this.colFechaRegistro.Name = "colFechaRegistro";
+            // 
+            // colDocumento
+            // 
+            this.colDocumento.HeaderText = "Tipo de documento";
+            this.colDocumento.MinimumWidth = 6;
+            this.colDocumento.Name = "colDocumento";
+            // 
+            // Columnplaca
+            // 
+            this.Columnplaca.HeaderText = "Placa";
+            this.Columnplaca.Name = "Columnplaca";
+            // 
+            // ColuDescripción
+            // 
+            this.ColuDescripción.HeaderText = "Descripción";
+            this.ColuDescripción.MinimumWidth = 6;
+            this.ColuDescripción.Name = "ColuDescripción";
+            // 
+            // coloSolicitante
+            // 
+            this.coloSolicitante.HeaderText = "Solicitante";
+            this.coloSolicitante.MinimumWidth = 6;
+            this.coloSolicitante.Name = "coloSolicitante";
+            // 
+            // colDNI
+            // 
+            this.colDNI.HeaderText = "DNI";
+            this.colDNI.MinimumWidth = 6;
+            this.colDNI.Name = "colDNI";
+            // 
+            // coloEmpresa
+            // 
+            this.coloEmpresa.HeaderText = "Empresa";
+            this.coloEmpresa.MinimumWidth = 6;
+            this.coloEmpresa.Name = "coloEmpresa";
+            // 
+            // colTelefono
+            // 
+            this.colTelefono.HeaderText = "Teléfono";
+            this.colTelefono.MinimumWidth = 6;
+            this.colTelefono.Name = "colTelefono";
+            // 
+            // colCorreo
+            // 
+            this.colCorreo.FillWeight = 200F;
+            this.colCorreo.HeaderText = "Correo electrónico";
+            this.colCorreo.MinimumWidth = 6;
+            this.colCorreo.Name = "colCorreo";
+            // 
+            // coluEstadoExpediente
+            // 
+            this.coluEstadoExpediente.HeaderText = "Estado";
+            this.coluEstadoExpediente.MinimumWidth = 6;
+            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
             // 
             // REPORTES
             // 
@@ -1765,16 +1775,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
         private Guna.Charts.WinForms.GunaChart GRAFICO_BARRAS;
         private Guna.UI2.WinForms.Guna2DataGridView dgvExpedientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExpediente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaRegistro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColuDescripción;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coloSolicitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coloEmpresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coluEstadoExpediente;
         private Guna.Charts.WinForms.GunaChart GRAFICO_DONA;
         private Guna.Charts.WinForms.GunaDoughnutDataset gunaDoughnutDataset1;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_tot;
@@ -1789,5 +1789,16 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel DAT_PROCESO;
         private Guna.Charts.WinForms.GunaBarDataset gunaBarDataset1;
         private Guna.Charts.WinForms.GunaLineDataset gunaLineDataset1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExpediente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaRegistro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Columnplaca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColuDescripción;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coloSolicitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coloEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluEstadoExpediente;
     }
 }

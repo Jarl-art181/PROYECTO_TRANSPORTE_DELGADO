@@ -326,7 +326,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             textTELEFONO.Clear();
 
             textCORREO.Clear();
-
+            textPLACA.Clear();
 
             ComboTipoDocumento.SelectedIndex = -1;
 
@@ -490,81 +490,62 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private string ObtenerSiguienteNumeroExpediente()
         {
-            string ruta =
-                Path.Combine(
-                    Application.StartupPath,
-                    "Datos",
-                    "expedientes.txt"
-                );
-
+            string ruta = Path.Combine(
+                Application.StartupPath,
+                "Datos",
+                "expedientes.txt"
+            );
 
             int mayor = 0;
 
-
             if (File.Exists(ruta))
             {
-                string[] registros =
-                    File.ReadAllLines(ruta);
+                string[] registros = File.ReadAllLines(ruta);
 
-
-                for (int i = 0;
-                     i < registros.Length;
-                     i++)
+                for (int i = 0; i < registros.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(
-                        registros[i]))
+                    if (string.IsNullOrWhiteSpace(registros[i]))
                     {
                         continue;
                     }
 
-
-                    string[] datos =
-                        registros[i].Split('|');
-
+                    string[] datos = registros[i].Split('|');
 
                     if (datos.Length > 0)
                     {
-                        if (int.TryParse(
-                            datos[0].Trim(),
-                            out int numero))
+                        string numero = datos[0].Trim();
+
+                        // Compatible con expedientes anteriores
+                        numero = numero.Replace("EXP-", "");
+
+                        int valor;
+
+                        if (int.TryParse(numero, out valor))
                         {
-                            if (numero > mayor)
+                            if (valor > mayor)
                             {
-                                mayor = numero;
+                                mayor = valor;
                             }
                         }
                     }
                 }
             }
 
+            int siguiente = mayor + 1;
 
-            int siguiente =
-                mayor + 1;
-
-
-            return siguiente.ToString("D8");
+            return "EXP-" + siguiente.ToString("D8");
         }
 
 
         // =========================================================
         // GENERAR NÚMERO SEGÚN CONFIGURACIÓN
         // =========================================================
-
         private void GenerarNumeroExpediente()
         {
-            if (GenerarNumerosAutomaticamente())
-            {
-                txtN_expediente.Text =
-                    ObtenerSiguienteNumeroExpediente();
+            txtN_expediente.Text =
+                ObtenerSiguienteNumeroExpediente();
 
-                txtN_expediente.ReadOnly = true;
-            }
-            else
-            {
-                txtN_expediente.Clear();
-
-                txtN_expediente.ReadOnly = false;
-            }
+            txtN_expediente.ReadOnly = true;
         }
 
 
@@ -859,24 +840,23 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 2. VALIDAR NÚMERO DE EXPEDIENTE
             // =====================================================
 
-            int numeroExpediente;
+            string numeroTexto = txtN_expediente.Text.Trim();
 
-
-            if (!int.TryParse(
-                txtN_expediente.Text.Trim(),
-                out numeroExpediente))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                numeroTexto, @"^EXP-\d{8}$"))
             {
                 MessageBox.Show(
-                    "El número de expediente debe contener solo números.",
-                    "Dato inválido",
+                    "El número debe tener el formato EXP-12345678.",
+                    "Número inválido",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
 
-                txtN_expediente.Focus();
-
                 return;
             }
+
+            // Obtener únicamente los 8 dígitos
+            string numeroExpediente = numeroTexto.Substring(4);
 
 
             // VALIDAR EXACTAMENTE 8 NÚMEROS
@@ -1123,6 +1103,36 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
             }
 
+            // VALIDAR NÚMERO DE PLACA
+            string placa = textPLACA.Text.Trim().ToUpper();
+
+            if (string.IsNullOrWhiteSpace(placa))
+            {
+                MessageBox.Show(
+                    "Ingrese el número de placa del vehículo.",
+                    "Campo obligatorio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                textPLACA.Focus();
+                return;
+            }
+
+            // Formato de placa: ABC-123
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                placa, @"^[A-Z0-9]{3}-[A-Z0-9]{3}$"))
+            {
+                MessageBox.Show(
+                    "La placa debe tener un formato como ABC-123 o A1B-234.",
+                    "Placa inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                textPLACA.Focus();
+                return;
+            }
 
             // =====================================================
             // 12. OBTENER LOS DATOS
@@ -1172,6 +1182,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 13. CREAR EL REGISTRO
             // =====================================================
 
+            // CREAR REGISTRO CON NÚMERO DE PLACA
             string registro =
                 numeroExpediente + "|" +
                 fechaRegistro + "|" +
@@ -1183,7 +1194,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 telefono_text + "|" +
                 correo + "|" +
                 estado + "|" +
-                pdf;
+                pdf + "|" +
+                placa;
 
 
             // =====================================================

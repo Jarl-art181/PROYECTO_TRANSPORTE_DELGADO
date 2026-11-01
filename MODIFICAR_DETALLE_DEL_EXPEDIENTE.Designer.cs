@@ -828,7 +828,7 @@
             this.text_numer_expe.Location = new System.Drawing.Point(214, 12);
             this.text_numer_expe.Margin = new System.Windows.Forms.Padding(4);
             this.text_numer_expe.Name = "text_numer_expe";
-            this.text_numer_expe.PlaceholderText = "";
+            this.text_numer_expe.PlaceholderText = "EXP-10056522";
             this.text_numer_expe.SelectedText = "";
             this.text_numer_expe.Size = new System.Drawing.Size(323, 39);
             this.text_numer_expe.TabIndex = 25;
