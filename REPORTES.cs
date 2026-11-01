@@ -426,76 +426,35 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // CARGAR GRÁFICO POR MES
         // =========================================================
 
+
         private void CargarExpedientesPorMes()
         {
+            // ==========================================
+            // OBTENER RUTA DE LOS EXPEDIENTES
+            // ==========================================
+
             string ruta = Path.Combine(
                 Application.StartupPath,
                 "Datos",
                 "expedientes.txt"
             );
 
+            // Limpiar gráfico si no existen datos
             if (!File.Exists(ruta))
+            {
+                gunaLineDataset1.DataPoints.Clear();
                 return;
-
-            string[] expedientes =
-                File.ReadAllLines(ruta);
-
-            string[] meses =
-            {
-                "Ene", "Feb", "Mar", "Abr",
-                "May", "Jun", "Jul", "Ago",
-                "Sep", "Oct", "Nov", "Dic"
-            };
-
-            int[] cantidades =
-            {
-                0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 0, 0, 0
-            };
-
-            // Recorrer expedientes
-            for (int i = 0;
-                 i < expedientes.Length;
-                 i++)
-            {
-                if (string.IsNullOrWhiteSpace(expedientes[i]))
-                    continue;
-
-                string[] datos =
-                    expedientes[i].Split('|');
-
-                if (datos.Length >= 10)
-                {
-                    DateTime fecha;
-
-                    if (DateTime.TryParse(
-                        datos[1].Trim(),
-                        out fecha))
-                    {
-                        int mes =
-                            fecha.Month - 1;
-
-                        cantidades[mes]++;
-                    }
-                }
             }
 
-            // Limpiar gráfico
-            gunaLineDataset1.DataPoints.Clear();
+            // Leer todos los registros
+            string[] expedientes = File.ReadAllLines(ruta);
 
-            // Agregar meses
-            for (int i = 0;
-                 i < meses.Length;
-                 i++)
-            {
-                gunaLineDataset1.DataPoints.Add(
-                    new LPoint(
-                        meses[i],
-                        cantidades[i]
-                    )
-                );
-            }
+            // Utilizar el método de actualización
+            // para no repetir código
+            ActualizarGraficoMeses(
+                expedientes,
+                expedientes.Length
+            );
         }
 
 
@@ -687,10 +646,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                 DateTime fecha;
 
-                if (!DateTime.TryParse(
+                
+
+                if (!DateTime.TryParseExact(
                     datos[1].Trim(),
+                    "dd/MM/yyyy",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
                     out fecha))
                 {
+                    // Ignorar expedientes con fecha incorrecta
                     continue;
                 }
 
@@ -1114,61 +1079,109 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // ACTUALIZAR GRÁFICO DE MESES
         // =========================================================
 
+
         private void ActualizarGraficoMeses(
             string[] filtrados,
             int cantidad)
         {
-            string[] meses =
-            {
-                "Ene", "Feb", "Mar", "Abr",
-                "May", "Jun", "Jul", "Ago",
-                "Sep", "Oct", "Nov", "Dic"
-            };
+            // ==========================================
+            // 1. AGRUPAR EXPEDIENTES POR MES Y AÑO
+            // ==========================================
 
-            int[] cantidades =
-            {
-                0, 0, 0, 0,
-                0, 0, 0, 0,
-                0, 0, 0, 0
-            };
+            System.Collections.Generic.SortedDictionary<DateTime, int>
+                expedientesPorMes =
+                new System.Collections.Generic.SortedDictionary<DateTime, int>();
 
-            // Recorrer expedientes filtrados
-            for (int i = 0;
-                 i < cantidad;
-                 i++)
+            // ==========================================
+            // 2. RECORRER LOS EXPEDIENTES
+            // ==========================================
+
+            for (int i = 0; i < cantidad; i++)
             {
-                string[] datos =
-                    filtrados[i].Split('|');
+                // Ignorar registros vacíos
+                if (string.IsNullOrWhiteSpace(filtrados[i]))
+                {
+                    continue;
+                }
+
+                string[] datos = filtrados[i].Split('|');
+
+                // Verificar que exista el campo fecha
+                if (datos.Length < 2)
+                {
+                    continue;
+                }
 
                 DateTime fecha;
 
-                if (DateTime.TryParse(
+                // ======================================
+                // 3. VALIDAR FECHA dd/MM/yyyy
+                // ======================================
+
+                if (!DateTime.TryParseExact(
                     datos[1].Trim(),
+                    "dd/MM/yyyy",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
                     out fecha))
                 {
-                    int mes =
-                        fecha.Month - 1;
+                    continue;
+                }
 
-                    cantidades[mes]++;
+                // ======================================
+                // 4. IDENTIFICAR MES Y AÑO
+                // ======================================
+
+                DateTime periodo = new DateTime(
+                    fecha.Year,
+                    fecha.Month,
+                    1
+                );
+
+                // ======================================
+                // 5. CONTAR EXPEDIENTES
+                // ======================================
+
+                if (expedientesPorMes.ContainsKey(periodo))
+                {
+                    expedientesPorMes[periodo]++;
+                }
+                else
+                {
+                    expedientesPorMes.Add(periodo, 1);
                 }
             }
 
-            // Limpiar gráfico
+            // ==========================================
+            // 6. LIMPIAR DATOS ANTERIORES
+            // ==========================================
+
             gunaLineDataset1.DataPoints.Clear();
 
-            // Agregar resultados
-            for (int i = 0;
-                 i < meses.Length;
-                 i++)
+            // ==========================================
+            // 7. MOSTRAR MESES CON SUS AÑOS
+            // ==========================================
+
+            foreach (var elemento in expedientesPorMes)
             {
+                // Ejemplo: oct 2026
+                string nombreMes = elemento.Key.ToString(
+                    "MMM yyyy",
+                    new System.Globalization.CultureInfo("es-PE")
+                );
+
+                // Cantidad de expedientes del período
+                int total = elemento.Value;
+
                 gunaLineDataset1.DataPoints.Add(
                     new LPoint(
-                        meses[i],
-                        cantidades[i]
+                        nombreMes,
+                        total
                     )
                 );
             }
         }
+
 
         private void AgregarFilaReporte(string[] datos)
         {

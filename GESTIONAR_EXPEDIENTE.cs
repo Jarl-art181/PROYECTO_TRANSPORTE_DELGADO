@@ -272,10 +272,13 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+
         private void But_Ordenar_Click(object sender, EventArgs e)
         {
+            // ==========================================
+            // 1. VALIDAR CRITERIO DE ORDENAMIENTO
+            // ==========================================
 
-            // Verificar que se haya seleccionado un criterio
             if (combo_orden.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -284,10 +287,14 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+
                 return;
             }
 
-            // Verificar que se haya seleccionado Ascendente o Descendente
+            // ==========================================
+            // 2. VALIDAR ASCENDENTE O DESCENDENTE
+            // ==========================================
+
             if (!but_Ascendente.Checked && !But_descendente.Checked)
             {
                 MessageBox.Show(
@@ -296,66 +303,162 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
+
                 return;
             }
 
-            // MÉTODO DE BURBUJA
+            // ==========================================
+            // 3. VERIFICAR QUE EXISTAN EXPEDIENTES
+            // ==========================================
+
+            if (dgvExpedientes.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "No hay expedientes registrados para ordenar.",
+                    "Ordenamiento",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                return;
+            }
+
+            // ==========================================
+            // 4. IDENTIFICAR LA COLUMNA
+            // ==========================================
+
+            string columna = "";
+
+            switch (combo_orden.Text)
+            {
+                case "N.º de Expediente":
+                    columna = "colExpediente";
+                    break;
+
+                case "Fecha":
+                    columna = "colFechaRegistro";
+                    break;
+
+                case "Tipo de documento":
+                    columna = "colDocumento";
+                    break;
+
+                case "Solicitante":
+                    columna = "coloSolicitante";
+                    break;
+
+                case "Empresa":
+                    columna = "coloEmpresa";
+                    break;
+
+                case "Estado":
+                    columna = "coluEstadoExpediente";
+                    break;
+
+                default:
+                    MessageBox.Show(
+                        "Seleccione un criterio válido.",
+                        "Ordenamiento",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+            }
+
+            // ==========================================
+            // 5. VALIDAR DATOS ANTES DE ORDENAR
+            // ==========================================
+
+            for (int i = 0; i < dgvExpedientes.Rows.Count; i++)
+            {
+                string valor = Convert.ToString(
+                    dgvExpedientes.Rows[i].Cells[columna].Value
+                ).Trim();
+
+                // VALIDAR FECHAS
+                if (columna == "colFechaRegistro")
+                {
+                    DateTime fechaValidada;
+
+                    if (!DateTime.TryParseExact(
+                        valor,
+                        "dd/MM/yyyy",
+                        System.Globalization.CultureInfo.InvariantCulture,
+                        System.Globalization.DateTimeStyles.None,
+                        out fechaValidada))
+                    {
+                        MessageBox.Show(
+                            "Se encontró una fecha inválida.\n" +
+                            "El formato correcto es dd/MM/yyyy.",
+                            "Fecha incorrecta",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+
+                        return;
+                    }
+                }
+
+                // VALIDAR NÚMEROS DE EXPEDIENTE
+                if (columna == "colExpediente")
+                {
+                    string numero = valor.Replace("EXP-", "");
+
+                    long numeroValidado;
+
+                    if (!long.TryParse(numero, out numeroValidado))
+                    {
+                        MessageBox.Show(
+                            "Se encontró un número de expediente inválido.",
+                            "Número incorrecto",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+
+                        return;
+                    }
+                }
+            }
+
+            // ==========================================
+            // 6. MÉTODO DE ORDENAMIENTO BURBUJA
+            // ==========================================
+
             for (int i = 0; i < dgvExpedientes.Rows.Count - 1; i++)
             {
                 for (int j = 0; j < dgvExpedientes.Rows.Count - 1 - i; j++)
                 {
-                    string dato1 = "";
-                    string dato2 = "";
+                    // OBTENER LOS DOS DATOS A COMPARAR
+                    string dato1 = Convert.ToString(
+                        dgvExpedientes.Rows[j].Cells[columna].Value
+                    ).Trim();
 
-                    // N.º DE EXPEDIENTE
-                    if (combo_orden.Text == "N.º de Expediente")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[0].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[0].Value?.ToString() ?? "";
-                    }
-
-                    // FECHA
-                    else if (combo_orden.Text == "Fecha")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[1].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[1].Value?.ToString() ?? "";
-                    }
-
-                    // TIPO DE DOCUMENTO
-                    else if (combo_orden.Text == "Tipo de documento")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[2].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[2].Value?.ToString() ?? "";
-                    }
-
-                    // SOLICITANTE
-                    else if (combo_orden.Text == "Solicitante")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[4].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[4].Value?.ToString() ?? "";
-                    }
-
-                    // EMPRESA
-                    else if (combo_orden.Text == "Empresa")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[6].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[6].Value?.ToString() ?? "";
-                    }
-
-                    // ESTADO
-                    else if (combo_orden.Text == "Estado")
-                    {
-                        dato1 = dgvExpedientes.Rows[j].Cells[9].Value?.ToString() ?? "";
-                        dato2 = dgvExpedientes.Rows[j + 1].Cells[9].Value?.ToString() ?? "";
-                    }
+                    string dato2 = Convert.ToString(
+                        dgvExpedientes.Rows[j + 1].Cells[columna].Value
+                    ).Trim();
 
                     bool cambiar = false;
 
-                    if (combo_orden.Text == "Fecha")
-                    {
-                        DateTime fecha1 = DateTime.Parse(dato1);
-                        DateTime fecha2 = DateTime.Parse(dato2);
+                    // ======================================
+                    // ORDENAR POR FECHA
+                    // ======================================
 
+                    if (columna == "colFechaRegistro")
+                    {
+                        DateTime fecha1 = DateTime.ParseExact(
+                            dato1,
+                            "dd/MM/yyyy",
+                            System.Globalization.CultureInfo.InvariantCulture
+                        );
+
+                        DateTime fecha2 = DateTime.ParseExact(
+                            dato2,
+                            "dd/MM/yyyy",
+                            System.Globalization.CultureInfo.InvariantCulture
+                        );
+
+                        // ASCENDENTE: ANTIGUA A RECIENTE
                         if (but_Ascendente.Checked)
                         {
                             if (fecha1 > fecha2)
@@ -364,6 +467,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                             }
                         }
 
+                        // DESCENDENTE: RECIENTE A ANTIGUA
                         if (But_descendente.Checked)
                         {
                             if (fecha1 < fecha2)
@@ -372,26 +476,73 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                             }
                         }
                     }
-                    else
+
+                    // ======================================
+                    // ORDENAR POR NÚMERO DE EXPEDIENTE
+                    // ======================================
+
+                    else if (columna == "colExpediente")
                     {
+                        string texto1 = dato1.Replace("EXP-", "");
+                        string texto2 = dato2.Replace("EXP-", "");
+
+                        long numero1 = long.Parse(texto1);
+                        long numero2 = long.Parse(texto2);
+
+                        // ASCENDENTE: MENOR A MAYOR
                         if (but_Ascendente.Checked)
                         {
-                            if (string.Compare(dato1, dato2) > 0)
+                            if (numero1 > numero2)
                             {
                                 cambiar = true;
                             }
                         }
 
+                        // DESCENDENTE: MAYOR A MENOR
                         if (But_descendente.Checked)
                         {
-                            if (string.Compare(dato1, dato2) < 0)
+                            if (numero1 < numero2)
                             {
                                 cambiar = true;
                             }
                         }
                     }
 
-                    // INTERCAMBIAR LAS FILAS
+                    // ======================================
+                    // ORDENAR POR TEXTO
+                    // ======================================
+
+                    else
+                    {
+                        int comparacion = string.Compare(
+                            dato1,
+                            dato2,
+                            StringComparison.CurrentCultureIgnoreCase
+                        );
+
+                        // ASCENDENTE: A - Z
+                        if (but_Ascendente.Checked)
+                        {
+                            if (comparacion > 0)
+                            {
+                                cambiar = true;
+                            }
+                        }
+
+                        // DESCENDENTE: Z - A
+                        if (But_descendente.Checked)
+                        {
+                            if (comparacion < 0)
+                            {
+                                cambiar = true;
+                            }
+                        }
+                    }
+
+                    // ======================================
+                    // 7. INTERCAMBIAR FILAS COMPLETAS
+                    // ======================================
+
                     if (cambiar)
                     {
                         for (int k = 0; k < dgvExpedientes.Columns.Count; k++)
@@ -409,8 +560,17 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
             }
 
-            // Quitar selección
+            // ==========================================
+            // 8. QUITAR SELECCIÓN
+            // ==========================================
+
             dgvExpedientes.ClearSelection();
+
+            dgvExpedientes.Refresh();
+
+            // ==========================================
+            // 9. MENSAJE FINAL
+            // ==========================================
 
             MessageBox.Show(
                 "Expedientes ordenados correctamente.",
@@ -418,8 +578,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
-
         }
+
 
         private void but_eliminar_Click(object sender, EventArgs e)
         {
@@ -522,14 +682,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     // Obtener la ruta del PDF
                     string rutaPDF = datos[10];
 
-                    // Eliminar el PDF asociado
                     if (!string.IsNullOrWhiteSpace(rutaPDF) &&
-                        rutaPDF != "Sin PDF" &&
-                        File.Exists(rutaPDF))
+       !rutaPDF.Equals(
+           "Sin PDF",
+           StringComparison.OrdinalIgnoreCase))
                     {
-                        File.Delete(rutaPDF);
+                        if (File.Exists(rutaPDF))
+                        {
+                            File.Delete(rutaPDF);
+                        }
                     }
-
                     // No guardar este registro
                     continue;
                 }

@@ -973,20 +973,21 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 6. VALIDAR TELÉFONO
             // =====================================================
 
-            if (!int.TryParse(
-                textTELEFONO.Text.Trim(),
-                out int telefono) ||
-                textTELEFONO.Text.Trim().Length != 9)
+            string telefonoValidar = textTELEFONO.Text.Trim();
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                telefonoValidar, @"^9\d{8}$"))
             {
                 MessageBox.Show(
-                    "El teléfono debe contener exactamente 9 dígitos.",
+                    "El número de celular debe tener exactamente " +
+                    "9 dígitos y comenzar con 9.\n\n" +
+                    "Ejemplo: 987654321.",
                     "Teléfono inválido",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
 
                 textTELEFONO.Focus();
-
                 return;
             }
 

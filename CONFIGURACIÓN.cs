@@ -60,29 +60,55 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // GUARDAR OPCIONES DEL SISTEMA
         // ==========================================
 
-        private void GuardarOpciones()
+
+        private void GuardarOpciones(bool restaurar = false)
         {
-            // Ruta de la carpeta Datos
+            // ==========================================
+            // CREAR CARPETA DATOS
+            // ==========================================
+
             string carpetaDatos = Path.Combine(
                 Application.StartupPath,
                 "Datos"
             );
 
-            // Crear carpeta si no existe
-            if (!Directory.Exists(carpetaDatos))
+            Directory.CreateDirectory(carpetaDatos);
+
+            // ==========================================
+            // OPCIÓN 6: MENSAJE DE BIENVENIDA
+            // ==========================================
+
+            // No existe un CheckBox de bienvenida
+            // en el diseñador actual.
+            // Conservar el valor anterior si existe.
+            bool bienvenida = false;
+
+            if (!restaurar && File.Exists(rutaOpciones))
             {
-                Directory.CreateDirectory(carpetaDatos);
+                string[] anteriores =
+                    File.ReadAllText(rutaOpciones).Split('|');
+
+                if (anteriores.Length >= 6)
+                {
+                    bool.TryParse(
+                        anteriores[5].Trim(),
+                        out bienvenida
+                    );
+                }
             }
 
-            // Guardar el estado de las 6 opciones
+            // ==========================================
+            // GUARDAR LAS 6 OPCIONES
+            // ==========================================
+
             string opciones =
                 but_limpiarformulario.Checked + "|" +
                 but_mostarmesajeguardar.Checked + "|" +
                 but_cargardatosautomatico.Checked + "|" +
                 but_generarnumeros_automatico.Checked + "|" +
-                but_mostrarconfirmacion.Checked + "|";
+                but_mostrarconfirmacion.Checked + "|" +
+                bienvenida;
 
-            // Guardar en opciones.txt
             File.WriteAllText(
                 rutaOpciones,
                 opciones
@@ -94,67 +120,67 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // CARGAR OPCIONES DEL SISTEMA
         // ==========================================
 
+
         private void CargarOpciones()
         {
-            // Verificar que exista opciones.txt
+            // ==========================================
+            // VERIFICAR ARCHIVO DE OPCIONES
+            // ==========================================
+
             if (!File.Exists(rutaOpciones))
             {
                 return;
             }
 
-            // Leer archivo
-            string contenido = File.ReadAllText(rutaOpciones);
+            // ==========================================
+            // LEER OPCIONES GUARDADAS
+            // ==========================================
 
-            // Separar los datos mediante |
+            string contenido =
+                File.ReadAllText(rutaOpciones);
+
             string[] opciones = contenido.Split('|');
 
-            // Verificar que existan las 6 opciones
-            if (opciones.Length >= 6)
+            // Hay 5 opciones visibles en el formulario
+            if (opciones.Length < 5)
             {
-                bool.TryParse(
-                    opciones[0].Trim(),
-                    out bool limpiar
-                );
-
-                bool.TryParse(
-                    opciones[1].Trim(),
-                    out bool mensaje
-                );
-
-                bool.TryParse(
-                    opciones[2].Trim(),
-                    out bool cargar
-                );
-
-                bool.TryParse(
-                    opciones[3].Trim(),
-                    out bool numeracion
-                );
-
-                bool.TryParse(
-                    opciones[4].Trim(),
-                    out bool confirmar
-                );
-
-                bool.TryParse(
-                    opciones[5].Trim(),
-                    out bool bienvenida
-                );
-
-                // Colocar los valores en los CheckBox
-                but_limpiarformulario.Checked = limpiar;
-
-                but_mostarmesajeguardar.Checked = mensaje;
-
-                but_cargardatosautomatico.Checked = cargar;
-
-                but_generarnumeros_automatico.Checked = numeracion;
-
-                but_mostrarconfirmacion.Checked = confirmar;
-
-               
+                return;
             }
+
+            // ==========================================
+            // CONVERTIR TEXTO A BOOLEANOS
+            // ==========================================
+
+            bool.TryParse(opciones[0].Trim(),
+                out bool limpiar);
+
+            bool.TryParse(opciones[1].Trim(),
+                out bool mensaje);
+
+            bool.TryParse(opciones[2].Trim(),
+                out bool cargar);
+
+            bool.TryParse(opciones[3].Trim(),
+                out bool numeracion);
+
+            bool.TryParse(opciones[4].Trim(),
+                out bool confirmar);
+
+            // ==========================================
+            // ACTUALIZAR LOS CHECKBOX
+            // ==========================================
+
+            but_limpiarformulario.Checked = limpiar;
+
+            but_mostarmesajeguardar.Checked = mensaje;
+
+            but_cargardatosautomatico.Checked = cargar;
+
+            but_generarnumeros_automatico.Checked = numeracion;
+
+            but_mostrarconfirmacion.Checked = confirmar;
         }
+
 
 
         // ==========================================
@@ -642,7 +668,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
             // Guardar las 6 opciones
-            GuardarOpciones();
+            GuardarOpciones( true);
 
 
             // Guardar ruta PDF

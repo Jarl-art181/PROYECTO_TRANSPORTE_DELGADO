@@ -914,7 +914,7 @@
             this.texNAME_USUARIO.Location = new System.Drawing.Point(230, 18);
             this.texNAME_USUARIO.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.texNAME_USUARIO.Name = "texNAME_USUARIO";
-            this.texNAME_USUARIO.PlaceholderText = "Ejem. EXP-12345678";
+            this.texNAME_USUARIO.PlaceholderText = "Ejem. Juan Garcia Avalos";
             this.texNAME_USUARIO.SelectedText = "";
             this.texNAME_USUARIO.Size = new System.Drawing.Size(267, 27);
             this.texNAME_USUARIO.TabIndex = 25;
@@ -1356,7 +1356,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1155, 765);
+            this.ClientSize = new System.Drawing.Size(1540, 941);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2PictureBox3);
