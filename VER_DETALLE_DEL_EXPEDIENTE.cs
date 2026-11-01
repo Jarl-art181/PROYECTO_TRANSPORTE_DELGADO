@@ -95,12 +95,23 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                     text_fecha.Text =
                         datos[1];
+                    
 
-                    text_tipoDocumento.Text =
-                        datos[2];
+                    text_tipoDocumento.Text = datos[2];
 
-                    text_descripcion.Text =
-                        datos[3];
+                  
+                    if (datos.Length > 11 &&
+                        !string.IsNullOrWhiteSpace(datos[11]))
+                    {
+                        text_placa.Text = datos[11].Trim().ToUpper();
+                    }
+                    else
+                    {
+                        text_placa.Text = "Sin registrar";
+                    }
+
+                  
+                    text_descripcion.Text = datos[3];
 
                     text_solicitante.Text =
                         datos[4];
@@ -364,5 +375,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
             );
         }
+
+        
     }
 }

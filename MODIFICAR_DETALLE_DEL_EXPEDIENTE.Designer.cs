@@ -82,6 +82,9 @@
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.text_placa = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2CustomGradientPanel11 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -96,6 +99,8 @@
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            this.guna2CustomGradientPanel10.SuspendLayout();
+            this.guna2CustomGradientPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -417,6 +422,9 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.text_placa);
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel13);
+            this.guna2Panel2.Controls.Add(this.guna2CustomGradientPanel11);
             this.guna2Panel2.Controls.Add(this.text_estado);
             this.guna2Panel2.Controls.Add(this.text_correo);
             this.guna2Panel2.Controls.Add(this.text_telefono);
@@ -426,12 +434,10 @@
             this.guna2Panel2.Controls.Add(this.text_descripcion);
             this.guna2Panel2.Controls.Add(this.text_tipoDocumento);
             this.guna2Panel2.Controls.Add(this.text_fecha);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel10);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel11);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel9);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel5);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel6);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel7);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel4);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
@@ -450,7 +456,7 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(13, 132);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(554, 530);
+            this.guna2Panel2.Size = new System.Drawing.Size(554, 588);
             this.guna2Panel2.TabIndex = 0;
             // 
             // text_estado
@@ -463,7 +469,7 @@
             this.text_estado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.text_estado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.text_estado.ItemHeight = 30;
-            this.text_estado.Location = new System.Drawing.Point(214, 480);
+            this.text_estado.Location = new System.Drawing.Point(214, 537);
             this.text_estado.Name = "text_estado";
             this.text_estado.Size = new System.Drawing.Size(323, 36);
             this.text_estado.TabIndex = 53;
@@ -484,7 +490,7 @@
             this.text_correo.Font = new System.Drawing.Font("Arial", 11.25F);
             this.text_correo.ForeColor = System.Drawing.Color.Black;
             this.text_correo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_correo.Location = new System.Drawing.Point(214, 434);
+            this.text_correo.Location = new System.Drawing.Point(214, 491);
             this.text_correo.Margin = new System.Windows.Forms.Padding(4);
             this.text_correo.Name = "text_correo";
             this.text_correo.PlaceholderText = "";
@@ -509,7 +515,7 @@
             this.text_telefono.Font = new System.Drawing.Font("Arial", 11.25F);
             this.text_telefono.ForeColor = System.Drawing.Color.Black;
             this.text_telefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_telefono.Location = new System.Drawing.Point(214, 389);
+            this.text_telefono.Location = new System.Drawing.Point(214, 446);
             this.text_telefono.Margin = new System.Windows.Forms.Padding(4);
             this.text_telefono.Name = "text_telefono";
             this.text_telefono.PlaceholderText = "";
@@ -534,7 +540,7 @@
             this.tex_empresa.Font = new System.Drawing.Font("Arial", 11.25F);
             this.tex_empresa.ForeColor = System.Drawing.Color.Black;
             this.tex_empresa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tex_empresa.Location = new System.Drawing.Point(214, 345);
+            this.tex_empresa.Location = new System.Drawing.Point(214, 402);
             this.tex_empresa.Margin = new System.Windows.Forms.Padding(4);
             this.tex_empresa.Name = "tex_empresa";
             this.tex_empresa.PlaceholderText = "";
@@ -559,7 +565,7 @@
             this.text_dni.Font = new System.Drawing.Font("Arial", 11.25F);
             this.text_dni.ForeColor = System.Drawing.Color.Black;
             this.text_dni.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_dni.Location = new System.Drawing.Point(214, 298);
+            this.text_dni.Location = new System.Drawing.Point(214, 355);
             this.text_dni.Margin = new System.Windows.Forms.Padding(4);
             this.text_dni.Name = "text_dni";
             this.text_dni.PlaceholderText = "";
@@ -584,7 +590,7 @@
             this.text_solicitante.Font = new System.Drawing.Font("Arial", 11.25F);
             this.text_solicitante.ForeColor = System.Drawing.Color.Black;
             this.text_solicitante.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_solicitante.Location = new System.Drawing.Point(214, 253);
+            this.text_solicitante.Location = new System.Drawing.Point(214, 310);
             this.text_solicitante.Margin = new System.Windows.Forms.Padding(4);
             this.text_solicitante.Name = "text_solicitante";
             this.text_solicitante.PlaceholderText = "";
@@ -609,7 +615,7 @@
             this.text_descripcion.Font = new System.Drawing.Font("Arial", 11.25F);
             this.text_descripcion.ForeColor = System.Drawing.Color.Black;
             this.text_descripcion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.text_descripcion.Location = new System.Drawing.Point(214, 149);
+            this.text_descripcion.Location = new System.Drawing.Point(214, 206);
             this.text_descripcion.Margin = new System.Windows.Forms.Padding(4);
             this.text_descripcion.Multiline = true;
             this.text_descripcion.Name = "text_descripcion";
@@ -674,7 +680,7 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(45, 489);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(21, 10);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(49, 18);
             this.guna2HtmlLabel10.TabIndex = 24;
@@ -685,7 +691,7 @@
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(45, 445);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(45, 502);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(125, 18);
             this.guna2HtmlLabel11.TabIndex = 23;
@@ -696,7 +702,7 @@
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(45, 264);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(45, 321);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(75, 18);
             this.guna2HtmlLabel9.TabIndex = 20;
@@ -707,7 +713,7 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(45, 399);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(45, 456);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(59, 18);
             this.guna2HtmlLabel5.TabIndex = 19;
@@ -718,7 +724,7 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(45, 355);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(45, 412);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(62, 18);
             this.guna2HtmlLabel6.TabIndex = 18;
@@ -729,7 +735,7 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(45, 310);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(21, 12);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(29, 18);
             this.guna2HtmlLabel7.TabIndex = 17;
@@ -762,7 +768,7 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(45, 160);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(45, 217);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(81, 18);
             this.guna2HtmlLabel2.TabIndex = 11;
@@ -855,11 +861,12 @@
             this.guna2CustomGradientPanel10.BorderColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel10.BorderRadius = 10;
             this.guna2CustomGradientPanel10.BorderThickness = 1;
+            this.guna2CustomGradientPanel10.Controls.Add(this.guna2HtmlLabel10);
             this.guna2CustomGradientPanel10.FillColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel10.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel10.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel10.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(24, 479);
+            this.guna2CustomGradientPanel10.Location = new System.Drawing.Point(24, 536);
             this.guna2CustomGradientPanel10.Name = "guna2CustomGradientPanel10";
             this.guna2CustomGradientPanel10.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel10.TabIndex = 10;
@@ -874,7 +881,7 @@
             this.guna2CustomGradientPanel9.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel9.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel9.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(24, 434);
+            this.guna2CustomGradientPanel9.Location = new System.Drawing.Point(24, 491);
             this.guna2CustomGradientPanel9.Name = "guna2CustomGradientPanel9";
             this.guna2CustomGradientPanel9.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel9.TabIndex = 9;
@@ -889,7 +896,7 @@
             this.guna2CustomGradientPanel8.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel8.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel8.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel8.Location = new System.Drawing.Point(24, 389);
+            this.guna2CustomGradientPanel8.Location = new System.Drawing.Point(24, 446);
             this.guna2CustomGradientPanel8.Name = "guna2CustomGradientPanel8";
             this.guna2CustomGradientPanel8.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel8.TabIndex = 8;
@@ -904,7 +911,7 @@
             this.guna2CustomGradientPanel7.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel7.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel7.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(24, 344);
+            this.guna2CustomGradientPanel7.Location = new System.Drawing.Point(24, 401);
             this.guna2CustomGradientPanel7.Name = "guna2CustomGradientPanel7";
             this.guna2CustomGradientPanel7.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel7.TabIndex = 7;
@@ -915,11 +922,12 @@
             this.guna2CustomGradientPanel6.BorderColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel6.BorderRadius = 10;
             this.guna2CustomGradientPanel6.BorderThickness = 1;
+            this.guna2CustomGradientPanel6.Controls.Add(this.guna2HtmlLabel7);
             this.guna2CustomGradientPanel6.FillColor = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel6.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel6.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel6.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel6.Location = new System.Drawing.Point(24, 299);
+            this.guna2CustomGradientPanel6.Location = new System.Drawing.Point(24, 356);
             this.guna2CustomGradientPanel6.Name = "guna2CustomGradientPanel6";
             this.guna2CustomGradientPanel6.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel6.TabIndex = 6;
@@ -934,7 +942,7 @@
             this.guna2CustomGradientPanel5.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel5.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel5.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel5.Location = new System.Drawing.Point(24, 253);
+            this.guna2CustomGradientPanel5.Location = new System.Drawing.Point(24, 310);
             this.guna2CustomGradientPanel5.Name = "guna2CustomGradientPanel5";
             this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(177, 39);
             this.guna2CustomGradientPanel5.TabIndex = 5;
@@ -949,10 +957,61 @@
             this.guna2CustomGradientPanel4.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel4.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
             this.guna2CustomGradientPanel4.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(24, 147);
+            this.guna2CustomGradientPanel4.Location = new System.Drawing.Point(24, 204);
             this.guna2CustomGradientPanel4.Name = "guna2CustomGradientPanel4";
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(177, 100);
             this.guna2CustomGradientPanel4.TabIndex = 4;
+            // 
+            // text_placa
+            // 
+            this.text_placa.BackColor = System.Drawing.Color.White;
+            this.text_placa.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.text_placa.BorderRadius = 8;
+            this.text_placa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.text_placa.DefaultText = "A1B-145";
+            this.text_placa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.text_placa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.text_placa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_placa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.text_placa.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.text_placa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_placa.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.text_placa.ForeColor = System.Drawing.Color.Black;
+            this.text_placa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.text_placa.Location = new System.Drawing.Point(214, 151);
+            this.text_placa.Margin = new System.Windows.Forms.Padding(4);
+            this.text_placa.Name = "text_placa";
+            this.text_placa.PlaceholderText = "";
+            this.text_placa.SelectedText = "";
+            this.text_placa.Size = new System.Drawing.Size(323, 39);
+            this.text_placa.TabIndex = 56;
+            this.text_placa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(45, 159);
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(80, 18);
+            this.guna2HtmlLabel13.TabIndex = 55;
+            this.guna2HtmlLabel13.Text = "N° de placa:";
+            // 
+            // guna2CustomGradientPanel11
+            // 
+            this.guna2CustomGradientPanel11.BackColor = System.Drawing.Color.White;
+            this.guna2CustomGradientPanel11.BorderColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2CustomGradientPanel11.BorderRadius = 10;
+            this.guna2CustomGradientPanel11.BorderThickness = 1;
+            this.guna2CustomGradientPanel11.FillColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2CustomGradientPanel11.FillColor2 = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2CustomGradientPanel11.FillColor3 = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2CustomGradientPanel11.FillColor4 = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2CustomGradientPanel11.Location = new System.Drawing.Point(24, 149);
+            this.guna2CustomGradientPanel11.Name = "guna2CustomGradientPanel11";
+            this.guna2CustomGradientPanel11.Size = new System.Drawing.Size(177, 39);
+            this.guna2CustomGradientPanel11.TabIndex = 54;
             // 
             // MODIFICAR_DETALLE_DEL_EXPEDIENTE
             // 
@@ -981,6 +1040,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.guna2CustomGradientPanel10.ResumeLayout(false);
+            this.guna2CustomGradientPanel10.PerformLayout();
+            this.guna2CustomGradientPanel6.ResumeLayout(false);
+            this.guna2CustomGradientPanel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1041,5 +1104,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox text_estado;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox text_placa;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel11;
     }
 }

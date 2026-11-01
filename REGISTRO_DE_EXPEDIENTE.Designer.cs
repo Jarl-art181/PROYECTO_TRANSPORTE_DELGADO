@@ -1039,7 +1039,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(229, 211);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.PlaceholderText = "Ejem.  31/10/2026";
+            this.txtDescripcion.PlaceholderText = "Ejem.  Cargamento incompleto ";
             this.txtDescripcion.SelectedText = "";
             this.txtDescripcion.Size = new System.Drawing.Size(267, 76);
             this.txtDescripcion.TabIndex = 22;
@@ -1055,7 +1055,7 @@
             this.ComboTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboTipoDocumento.ItemHeight = 30;
             this.ComboTipoDocumento.Location = new System.Drawing.Point(229, 110);
-            this.ComboTipoDocumento.Margin = new System.Windows.Forms.Padding(2);
+            this.ComboTipoDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ComboTipoDocumento.Name = "ComboTipoDocumento";
             this.ComboTipoDocumento.Size = new System.Drawing.Size(269, 36);
             this.ComboTipoDocumento.TabIndex = 21;
@@ -1356,7 +1356,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1540, 941);
+            this.ClientSize = new System.Drawing.Size(1155, 765);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2PictureBox3);

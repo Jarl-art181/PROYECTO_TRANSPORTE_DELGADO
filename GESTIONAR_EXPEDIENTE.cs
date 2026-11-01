@@ -109,14 +109,23 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
 
+
         private void CargarExpedientes()
         {
+            // ==========================================
+            // RUTA DEL ARCHIVO
+            // ==========================================
+
             string rutaArchivo = Path.Combine(
                 Application.StartupPath,
                 "Datos",
                 "expedientes.txt"
             );
 
+            // Limpiar los registros anteriores
+            dgvExpedientes.Rows.Clear();
+
+            // Verificar que exista el archivo
             if (!File.Exists(rutaArchivo))
             {
                 MessageBox.Show(
@@ -129,55 +138,139 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 return;
             }
 
-            dgvExpedientes.Rows.Clear();
-
-            string[] registros = File.ReadAllLines(rutaArchivo);
-
-            for (int i = 0; i < registros.Length; i++)
+            try
             {
-                if (string.IsNullOrWhiteSpace(registros[i]))
-                    continue;
+                // ==========================================
+                // LEER EXPEDIENTES
+                // ==========================================
 
-                string[] datos = registros[i].Split('|');
+                string[] registros =
+                    File.ReadAllLines(rutaArchivo);
 
-                if (datos.Length < 10)
-                    continue;
+                // RECORRER CON FOR
+                for (int i = 0; i < registros.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(registros[i]))
+                    {
+                        continue;
+                    }
 
-                int fila = dgvExpedientes.Rows.Add();
+                    string[] datos = registros[i].Split('|');
 
-                dgvExpedientes.Rows[fila].Cells["colExpediente"].Value =
-                    "EXP-" + datos[0];
+                    if (datos.Length < 10)
+                    {
+                        continue;
+                    }
 
-                dgvExpedientes.Rows[fila].Cells["colFechaRegistro"].Value =
-                    datos[1];
+                    // ======================================
+                    // NÚMERO DE EXPEDIENTE
+                    // ======================================
 
-                dgvExpedientes.Rows[fila].Cells["colDocumento"].Value =
-                    datos[2];
+                    string numero = datos[0].Trim();
 
-                dgvExpedientes.Rows[fila].Cells["coluDescripción"].Value =
-                    datos[3];
+                    // Evitar repetir EXP-
+                    if (numero.StartsWith(
+                        "EXP-",
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        numero = numero.Substring(4);
+                    }
 
-                dgvExpedientes.Rows[fila].Cells["coloSolicitante"].Value =
-                    datos[4];
+                    // ======================================
+                    // NÚMERO DE PLACA
+                    // ======================================
 
-                dgvExpedientes.Rows[fila].Cells["colDNI"].Value =
-                    datos[5];
+                    string placa = "Sin registrar";
 
-                dgvExpedientes.Rows[fila].Cells["coloEmpresa"].Value =
-                    datos[6];
+                    if (datos.Length > 11)
+                    {
+                        if (!string.IsNullOrWhiteSpace(datos[11]))
+                        {
+                            placa = datos[11]
+                                .Trim()
+                                .ToUpperInvariant();
+                        }
+                    }
 
-                dgvExpedientes.Rows[fila].Cells["colTelefono"].Value =
-                    datos[7];
+                    // ======================================
+                    // CREAR FILA EN LA TABLA
+                    // ======================================
 
-                dgvExpedientes.Rows[fila].Cells["colCorreo"].Value =
-                    datos[8];
+                    int fila = dgvExpedientes.Rows.Add();
 
-                dgvExpedientes.Rows[fila].Cells["coluEstadoExpediente"].Value =
-                    datos[9];
+                    // N.º EXPEDIENTE
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colExpediente"].Value =
+                        "EXP-" + numero;
+
+                    // FECHA
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colFechaRegistro"].Value =
+                        datos[1];
+
+                    // TIPO DE DOCUMENTO
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colDocumento"].Value =
+                        datos[2];
+
+                    // PLACA
+                    dgvExpedientes.Rows[fila]
+                        .Cells["Columnplaca"].Value =
+                        placa;
+
+                    // DESCRIPCIÓN
+                    dgvExpedientes.Rows[fila]
+                        .Cells["ColuDescripción"].Value =
+                        datos[3];
+
+                    // SOLICITANTE
+                    dgvExpedientes.Rows[fila]
+                        .Cells["coloSolicitante"].Value =
+                        datos[4];
+
+                    // DNI
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colDNI"].Value =
+                        datos[5];
+
+                    // EMPRESA
+                    dgvExpedientes.Rows[fila]
+                        .Cells["coloEmpresa"].Value =
+                        datos[6];
+
+                    // TELÉFONO
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colTelefono"].Value =
+                        datos[7];
+
+                    // CORREO
+                    dgvExpedientes.Rows[fila]
+                        .Cells["colCorreo"].Value =
+                        datos[8];
+
+                    // ESTADO
+                    dgvExpedientes.Rows[fila]
+                        .Cells["coluEstadoExpediente"].Value =
+                        datos[9];
+                }
+
+                // Quitar selección inicial
+                dgvExpedientes.ClearSelection();
+
+                dgvExpedientes.Refresh();
             }
-
-            dgvExpedientes.ClearSelection();
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudieron cargar los expedientes:\n" +
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
+
 
         private void But_Ordenar_Click(object sender, EventArgs e)
         {

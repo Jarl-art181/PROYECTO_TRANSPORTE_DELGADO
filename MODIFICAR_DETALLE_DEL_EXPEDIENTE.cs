@@ -130,11 +130,29 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     text_fecha.Text =
                         datos[1];
 
-                    text_tipoDocumento.Text =
-                        datos[2];
+                   
 
-                    text_descripcion.Text =
-                        datos[3];
+                    text_tipoDocumento.Text = datos[2];
+
+                   
+
+                    if (datos.Length > 11)
+                    {
+                        text_placa.Text = datos[11].Trim();
+                    }
+                    else
+                    {
+                        text_placa.Text = "";
+                    }
+
+                    // Permitir modificar la placa
+                    text_placa.ReadOnly = false;
+
+                    // ==========================================
+                    // CARGAR DESCRIPCIÓN
+                    // ==========================================
+
+                    text_descripcion.Text = datos[3];
 
                     text_solicitante.Text =
                         datos[4];
@@ -737,6 +755,40 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void But_guardarpdf_Click(object sender, EventArgs e)
         {
+
+            // ==========================================
+            // VALIDAR NÚMERO DE PLACA
+            // ==========================================
+
+            string placa = text_placa.Text.Trim().ToUpperInvariant();
+
+            if (string.IsNullOrWhiteSpace(placa))
+            {
+                MessageBox.Show(
+                    "Ingrese el número de placa del vehículo.",
+                    "Placa obligatoria",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                text_placa.Focus();
+                return;
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                placa, @"^[A-Z0-9]{3}-[A-Z0-9]{3}$"))
+            {
+                MessageBox.Show(
+                    "La placa debe tener un formato como ABC-123 o A1B-145.",
+                    "Placa inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                text_placa.Focus();
+                return;
+            }
+
             // Verificar los datos obligatorios
             if (string.IsNullOrWhiteSpace(text_fecha.Text) ||
                 string.IsNullOrWhiteSpace(text_tipoDocumento.Text) ||
@@ -807,17 +859,18 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     }
 
                     nuevosRegistros[i] =
-                        datos[0] + "|" +
-                        text_fecha.Text + "|" +
-                        text_tipoDocumento.Text + "|" +
-                        text_descripcion.Text + "|" +
-                        text_solicitante.Text + "|" +
-                        text_dni.Text + "|" +
-                        tex_empresa.Text + "|" +
-                        text_telefono.Text + "|" +
-                        text_correo.Text + "|" +
-                        text_estado.Text + "|" +
-                        pdf;
+     datos[0] + "|" +
+     text_fecha.Text.Trim() + "|" +
+     text_tipoDocumento.Text.Trim() + "|" +
+     text_descripcion.Text.Trim() + "|" +
+     text_solicitante.Text.Trim() + "|" +
+     text_dni.Text.Trim() + "|" +
+     tex_empresa.Text.Trim() + "|" +
+     text_telefono.Text.Trim() + "|" +
+     text_correo.Text.Trim() + "|" +
+     text_estado.Text.Trim() + "|" +
+     pdf + "|" +
+     placa;
                 }
                 else
                 {

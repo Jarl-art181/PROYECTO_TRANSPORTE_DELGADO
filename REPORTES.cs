@@ -16,6 +16,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
 
+           
+
             // ==========================================
             // CARGA INICIAL DEL FORMULARIO
             // ==========================================
@@ -174,49 +176,68 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // CARGAR EXPEDIENTES EN EL DATAGRIDVIEW
         // =========================================================
 
+
         private void CargarExpedientes()
         {
+            // ==========================================
+            // UBICAR ARCHIVO DE EXPEDIENTES
+            // ==========================================
+
             string ruta = Path.Combine(
                 Application.StartupPath,
                 "Datos",
                 "expedientes.txt"
             );
 
-            if (!File.Exists(ruta))
-                return;
-
+            // Limpiar tabla
             dgvExpedientes.Rows.Clear();
 
-            string[] lineas =
-                File.ReadAllLines(ruta);
-
-            // Recorrer todos los registros
-            for (int i = 0; i < lineas.Length; i++)
+            if (!File.Exists(ruta))
             {
-                if (string.IsNullOrWhiteSpace(lineas[i]))
-                    continue;
+                return;
+            }
 
-                string[] datos =
-                    lineas[i].Split('|');
+            try
+            {
+                // Leer registros
+                string[] registros = File.ReadAllLines(ruta);
 
-                // Verificar que tenga los 10 campos
-                if (datos.Length >= 10)
+                // Recorrer expedientes
+                for (int i = 0; i < registros.Length; i++)
                 {
-                    dgvExpedientes.Rows.Add(
-                        datos[0], // Expediente
-                        datos[1], // Fecha
-                        datos[2], // Tipo
-                        datos[3], // Descripción
-                        datos[4], // Solicitante
-                        datos[5], // DNI
-                        datos[6], // Empresa
-                        datos[7], // Teléfono
-                        datos[8], // Correo
-                        datos[9]  // Estado
-                    );
+                    if (string.IsNullOrWhiteSpace(registros[i]))
+                    {
+                        continue;
+                    }
+
+                    string[] datos = registros[i].Split('|');
+
+                    if (datos.Length < 10)
+                    {
+                        continue;
+                    }
+
+                    // Mostrar los 11 campos visibles
+                    AgregarFilaReporte(datos);
                 }
+
+                // Quitar selección
+                dgvExpedientes.ClearSelection();
+
+                dgvExpedientes.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar expedientes:\n" +
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
+
 
 
         // =========================================================
@@ -520,16 +541,106 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // FECHAS
             // ==========================================
 
-            DateTime fechaDesde;
-            DateTime fechaHasta;
+            // ==========================================
+            // VALIDAR FILTRO POR FECHAS
+            // ==========================================
 
-            bool usarFechaDesde =
+            string textoDesde =
+                Text_fechaantes.Text.Trim();
+
+            string textoHasta =
+                text_fechahasta.Text.Trim();
+
+            bool tieneDesde =
+                !string.IsNullOrWhiteSpace(textoDesde);
+
+            bool tieneHasta =
+                !string.IsNullOrWhiteSpace(textoHasta);
+
+            bool usarFechaDesde = false;
+            bool usarFechaHasta = false;
+
+            DateTime fechaDesde = DateTime.MinValue;
+            DateTime fechaHasta = DateTime.MaxValue;
+
+            // Si una fecha está llena, ambas deben estarlo
+            if (tieneDesde != tieneHasta)
+            {
+                MessageBox.Show(
+                    "Para filtrar por fechas debe completar " +
+                    "Fecha desde y Fecha hasta.",
+                    "Fechas incompletas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            // Validar fechas cuando se ingresa un período
+            if (tieneDesde && tieneHasta)
+            {
+                if (!DateTime.TryParseExact(
+                    textoDesde,
+                    "dd/MM/yyyy",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
+                    out fechaDesde))
+                {
+                    MessageBox.Show(
+                        "Fecha desde inválida. Use dd/MM/yyyy.",
+                        "Fecha incorrecta",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    Text_fechaantes.Focus();
+                    return;
+                }
+
+                if (!DateTime.TryParseExact(
+                    textoHasta,
+                    "dd/MM/yyyy",
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None,
+                    out fechaHasta))
+                {
+                    MessageBox.Show(
+                        "Fecha hasta inválida. Use dd/MM/yyyy.",
+                        "Fecha incorrecta",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    text_fechahasta.Focus();
+                    return;
+                }
+
+                if (fechaDesde > fechaHasta)
+                {
+                    MessageBox.Show(
+                        "Fecha desde no puede ser posterior " +
+                        "a Fecha hasta.",
+                        "Rango incorrecto",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return;
+                }
+
+                usarFechaDesde = true;
+                usarFechaHasta = true;
+            }
+
+
+             usarFechaDesde =
                 DateTime.TryParse(
                     Text_fechaantes.Text,
                     out fechaDesde
                 );
 
-            bool usarFechaHasta =
+             usarFechaHasta =
                 DateTime.TryParse(
                     text_fechahasta.Text,
                     out fechaHasta
@@ -711,35 +822,48 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // MOSTRAR TABLA FILTRADA
         // =========================================================
 
+
         private void MostrarTablaFiltrada(
             string[] filtrados,
             int cantidad)
         {
-            // Limpiar tabla
+            // ==========================================
+            // LIMPIAR TABLA ANTERIOR
+            // ==========================================
+
             dgvExpedientes.Rows.Clear();
 
-            // Recorrer resultados
-            for (int i = 0;
-                 i < cantidad;
-                 i++)
-            {
-                string[] datos =
-                    filtrados[i].Split('|');
+            // ==========================================
+            // RECORRER RESULTADOS FILTRADOS
+            // ==========================================
 
-                dgvExpedientes.Rows.Add(
-                    datos[0],
-                    datos[1],
-                    datos[2],
-                    datos[3],
-                    datos[4],
-                    datos[5],
-                    datos[6],
-                    datos[7],
-                    datos[8],
-                    datos[9]
-                );
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (string.IsNullOrWhiteSpace(filtrados[i]))
+                {
+                    continue;
+                }
+
+                string[] datos = filtrados[i].Split('|');
+
+                if (datos.Length < 10)
+                {
+                    continue;
+                }
+
+                // Agregar todos los campos, incluida la placa
+                AgregarFilaReporte(datos);
             }
+
+            // ==========================================
+            // ACTUALIZAR TABLA
+            // ==========================================
+
+            dgvExpedientes.ClearSelection();
+
+            dgvExpedientes.Refresh();
         }
+
 
 
         // =========================================================
@@ -1045,5 +1169,106 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 );
             }
         }
+
+        private void AgregarFilaReporte(string[] datos)
+        {
+            // ==========================================
+            // VERIFICAR LOS DATOS DEL EXPEDIENTE
+            // ==========================================
+
+            if (datos.Length < 10)
+            {
+                return;
+            }
+
+            // ==========================================
+            // OBTENER NÚMERO DE EXPEDIENTE
+            // ==========================================
+
+            string numero = datos[0].Trim();
+
+            if (numero.StartsWith(
+                "EXP-",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                numero = numero.Substring(4);
+            }
+
+            // ==========================================
+            // OBTENER NÚMERO DE PLACA
+            // ==========================================
+
+            string placa = "Sin registrar";
+
+            if (datos.Length > 11)
+            {
+                if (!string.IsNullOrWhiteSpace(datos[11]))
+                {
+                    placa = datos[11].Trim().ToUpperInvariant();
+                }
+            }
+
+            // ==========================================
+            // CREAR FILA EN LA TABLA
+            // ==========================================
+
+            int fila = dgvExpedientes.Rows.Add();
+
+            // NÚMERO DE EXPEDIENTE
+            dgvExpedientes.Rows[fila]
+                .Cells["colExpediente"].Value =
+                "EXP-" + numero;
+
+            // FECHA
+            dgvExpedientes.Rows[fila]
+                .Cells["colFechaRegistro"].Value =
+                datos[1];
+
+            // TIPO DE DOCUMENTO
+            dgvExpedientes.Rows[fila]
+                .Cells["colDocumento"].Value =
+                datos[2];
+
+            // PLACA
+            dgvExpedientes.Rows[fila]
+                .Cells["Columnplaca"].Value =
+                placa;
+
+            // DESCRIPCIÓN
+            dgvExpedientes.Rows[fila]
+                .Cells["ColuDescripción"].Value =
+                datos[3];
+
+            // SOLICITANTE
+            dgvExpedientes.Rows[fila]
+                .Cells["coloSolicitante"].Value =
+                datos[4];
+
+            // DNI
+            dgvExpedientes.Rows[fila]
+                .Cells["colDNI"].Value =
+                datos[5];
+
+            // EMPRESA
+            dgvExpedientes.Rows[fila]
+                .Cells["coloEmpresa"].Value =
+                datos[6];
+
+            // TELÉFONO
+            dgvExpedientes.Rows[fila]
+                .Cells["colTelefono"].Value =
+                datos[7];
+
+            // CORREO
+            dgvExpedientes.Rows[fila]
+                .Cells["colCorreo"].Value =
+                datos[8];
+
+            // ESTADO
+            dgvExpedientes.Rows[fila]
+                .Cells["coluEstadoExpediente"].Value =
+                datos[9];
+        }
+
     }
 }

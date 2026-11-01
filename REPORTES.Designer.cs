@@ -145,6 +145,17 @@
             this.GRAFICO_DONA = new Guna.Charts.WinForms.GunaChart();
             this.gunaDoughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
             this.dgvExpedientes = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Columnplaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
@@ -189,17 +200,6 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.colExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Columnplaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColuDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluEstadoExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -975,6 +975,72 @@
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dgvExpedientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // colExpediente
+            // 
+            this.colExpediente.HeaderText = "N.º Expediente";
+            this.colExpediente.MinimumWidth = 6;
+            this.colExpediente.Name = "colExpediente";
+            // 
+            // colFechaRegistro
+            // 
+            this.colFechaRegistro.HeaderText = "Fecha";
+            this.colFechaRegistro.MinimumWidth = 6;
+            this.colFechaRegistro.Name = "colFechaRegistro";
+            // 
+            // colDocumento
+            // 
+            this.colDocumento.HeaderText = "Tipo de documento";
+            this.colDocumento.MinimumWidth = 6;
+            this.colDocumento.Name = "colDocumento";
+            // 
+            // Columnplaca
+            // 
+            this.Columnplaca.HeaderText = "Placa";
+            this.Columnplaca.Name = "Columnplaca";
+            // 
+            // ColuDescripción
+            // 
+            this.ColuDescripción.HeaderText = "Descripción";
+            this.ColuDescripción.MinimumWidth = 6;
+            this.ColuDescripción.Name = "ColuDescripción";
+            // 
+            // coloSolicitante
+            // 
+            this.coloSolicitante.HeaderText = "Solicitante";
+            this.coloSolicitante.MinimumWidth = 6;
+            this.coloSolicitante.Name = "coloSolicitante";
+            // 
+            // colDNI
+            // 
+            this.colDNI.HeaderText = "DNI";
+            this.colDNI.MinimumWidth = 6;
+            this.colDNI.Name = "colDNI";
+            // 
+            // coloEmpresa
+            // 
+            this.coloEmpresa.HeaderText = "Empresa";
+            this.coloEmpresa.MinimumWidth = 6;
+            this.coloEmpresa.Name = "coloEmpresa";
+            // 
+            // colTelefono
+            // 
+            this.colTelefono.HeaderText = "Teléfono";
+            this.colTelefono.MinimumWidth = 6;
+            this.colTelefono.Name = "colTelefono";
+            // 
+            // colCorreo
+            // 
+            this.colCorreo.FillWeight = 200F;
+            this.colCorreo.HeaderText = "Correo electrónico";
+            this.colCorreo.MinimumWidth = 6;
+            this.colCorreo.Name = "colCorreo";
+            // 
+            // coluEstadoExpediente
+            // 
+            this.coluEstadoExpediente.HeaderText = "Estado";
+            this.coluEstadoExpediente.MinimumWidth = 6;
+            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
+            // 
             // guna2Panel15
             // 
             this.guna2Panel15.BackColor = System.Drawing.Color.White;
@@ -1375,7 +1441,7 @@
             this.text_fechahasta.BackColor = System.Drawing.Color.White;
             this.text_fechahasta.BorderRadius = 8;
             this.text_fechahasta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_fechahasta.DefaultText = "10/10/2027";
+            this.text_fechahasta.DefaultText = "";
             this.text_fechahasta.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.text_fechahasta.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.text_fechahasta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -1386,7 +1452,7 @@
             this.text_fechahasta.Location = new System.Drawing.Point(270, 47);
             this.text_fechahasta.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.text_fechahasta.Name = "text_fechahasta";
-            this.text_fechahasta.PlaceholderText = "";
+            this.text_fechahasta.PlaceholderText = "10/10/2027";
             this.text_fechahasta.SelectedText = "";
             this.text_fechahasta.Size = new System.Drawing.Size(186, 34);
             this.text_fechahasta.TabIndex = 19;
@@ -1425,7 +1491,7 @@
             this.Text_fechaantes.BorderColor = System.Drawing.Color.Silver;
             this.Text_fechaantes.BorderRadius = 8;
             this.Text_fechaantes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Text_fechaantes.DefaultText = "10/10/2026";
+            this.Text_fechaantes.DefaultText = "";
             this.Text_fechaantes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.Text_fechaantes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Text_fechaantes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -1436,7 +1502,7 @@
             this.Text_fechaantes.Location = new System.Drawing.Point(35, 47);
             this.Text_fechaantes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Text_fechaantes.Name = "Text_fechaantes";
-            this.Text_fechaantes.PlaceholderText = "";
+            this.Text_fechaantes.PlaceholderText = "10/10/2026";
             this.Text_fechaantes.SelectedText = "";
             this.Text_fechaantes.Size = new System.Drawing.Size(186, 34);
             this.Text_fechaantes.TabIndex = 13;
@@ -1566,72 +1632,6 @@
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 4;
             this.guna2PictureBox3.TabStop = false;
-            // 
-            // colExpediente
-            // 
-            this.colExpediente.HeaderText = "N.º Expediente";
-            this.colExpediente.MinimumWidth = 6;
-            this.colExpediente.Name = "colExpediente";
-            // 
-            // colFechaRegistro
-            // 
-            this.colFechaRegistro.HeaderText = "Fecha";
-            this.colFechaRegistro.MinimumWidth = 6;
-            this.colFechaRegistro.Name = "colFechaRegistro";
-            // 
-            // colDocumento
-            // 
-            this.colDocumento.HeaderText = "Tipo de documento";
-            this.colDocumento.MinimumWidth = 6;
-            this.colDocumento.Name = "colDocumento";
-            // 
-            // Columnplaca
-            // 
-            this.Columnplaca.HeaderText = "Placa";
-            this.Columnplaca.Name = "Columnplaca";
-            // 
-            // ColuDescripción
-            // 
-            this.ColuDescripción.HeaderText = "Descripción";
-            this.ColuDescripción.MinimumWidth = 6;
-            this.ColuDescripción.Name = "ColuDescripción";
-            // 
-            // coloSolicitante
-            // 
-            this.coloSolicitante.HeaderText = "Solicitante";
-            this.coloSolicitante.MinimumWidth = 6;
-            this.coloSolicitante.Name = "coloSolicitante";
-            // 
-            // colDNI
-            // 
-            this.colDNI.HeaderText = "DNI";
-            this.colDNI.MinimumWidth = 6;
-            this.colDNI.Name = "colDNI";
-            // 
-            // coloEmpresa
-            // 
-            this.coloEmpresa.HeaderText = "Empresa";
-            this.coloEmpresa.MinimumWidth = 6;
-            this.coloEmpresa.Name = "coloEmpresa";
-            // 
-            // colTelefono
-            // 
-            this.colTelefono.HeaderText = "Teléfono";
-            this.colTelefono.MinimumWidth = 6;
-            this.colTelefono.Name = "colTelefono";
-            // 
-            // colCorreo
-            // 
-            this.colCorreo.FillWeight = 200F;
-            this.colCorreo.HeaderText = "Correo electrónico";
-            this.colCorreo.MinimumWidth = 6;
-            this.colCorreo.Name = "colCorreo";
-            // 
-            // coluEstadoExpediente
-            // 
-            this.coluEstadoExpediente.HeaderText = "Estado";
-            this.coluEstadoExpediente.MinimumWidth = 6;
-            this.coluEstadoExpediente.Name = "coluEstadoExpediente";
             // 
             // REPORTES
             // 

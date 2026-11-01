@@ -542,10 +542,26 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // =========================================================
         private void GenerarNumeroExpediente()
         {
-            txtN_expediente.Text =
-                ObtenerSiguienteNumeroExpediente();
+            // Consultar si la numeración automática está activada
+            bool automatico = GenerarNumerosAutomaticamente();
 
-            txtN_expediente.ReadOnly = true;
+            if (automatico)
+            {
+                // Generar el siguiente número automáticamente
+                txtN_expediente.Text =
+                    ObtenerSiguienteNumeroExpediente();
+
+                // Bloquear para evitar modificaciones
+                txtN_expediente.ReadOnly = true;
+            }
+            else
+            {
+                // Permitir ingresar el número manualmente
+                txtN_expediente.ReadOnly = false;
+
+                // Mantener el prefijo
+                txtN_expediente.Text = "EXP-";
+            }
         }
 
 
@@ -861,19 +877,26 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             // VALIDAR EXACTAMENTE 8 NÚMEROS
 
-            if (txtN_expediente.Text.Trim().Length != 8)
+             numeroTexto = txtN_expediente.Text.Trim();
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                numeroTexto, @"^EXP-\d{8}$"))
             {
                 MessageBox.Show(
-                    "El número de expediente debe tener exactamente 8 números.",
+                    "El número debe tener el formato EXP-12345678.",
                     "Número inválido",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
 
                 txtN_expediente.Focus();
-
                 return;
             }
+
+            // Obtener únicamente los 8 dígitos
+             numeroExpediente = numeroTexto.Substring(4);
+
+
 
 
             // =====================================================
@@ -1037,8 +1060,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             //     UTILIZANDO MATRIZ + FOR
             // =====================================================
 
-            string numero_Expediente =
-                txtN_expediente.Text.Trim();
+            // Obtener el número sin el prefijo EXP-
+            string numero_Expediente = numeroExpediente;
 
 
             if (File.Exists(archivoExpedientes))

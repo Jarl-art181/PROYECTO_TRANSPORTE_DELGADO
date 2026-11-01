@@ -86,6 +86,9 @@
             this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             this.tex_des_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblPlaca = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tex_estado_des = new Guna.UI2.WinForms.Guna2TextBox();
             this.lab_tipodedocumento_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.labe_fecha_des = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -223,7 +226,6 @@
             this.guna2Button8.Name = "guna2Button8";
             this.guna2Button8.Size = new System.Drawing.Size(337, 63);
             this.guna2Button8.TabIndex = 49;
-            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
             // guna2HtmlLabel6
             // 
@@ -646,12 +648,12 @@
             // tex_nombrepdf_des
             // 
             this.tex_nombrepdf_des.BackColor = System.Drawing.Color.White;
-            this.tex_nombrepdf_des.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tex_nombrepdf_des.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tex_nombrepdf_des.ForeColor = System.Drawing.Color.Black;
             this.tex_nombrepdf_des.Location = new System.Drawing.Point(81, 39);
             this.tex_nombrepdf_des.Margin = new System.Windows.Forms.Padding(4);
             this.tex_nombrepdf_des.Name = "tex_nombrepdf_des";
-            this.tex_nombrepdf_des.Size = new System.Drawing.Size(160, 17);
+            this.tex_nombrepdf_des.Size = new System.Drawing.Size(134, 15);
             this.tex_nombrepdf_des.TabIndex = 23;
             this.tex_nombrepdf_des.Text = "guia_remision_110.pdf";
             // 
@@ -861,9 +863,9 @@
             this.guna2Panel13.BorderRadius = 11;
             this.guna2Panel13.Controls.Add(this.tex_des_des);
             this.guna2Panel13.FillColor = System.Drawing.Color.White;
-            this.guna2Panel13.Location = new System.Drawing.Point(24, 282);
+            this.guna2Panel13.Location = new System.Drawing.Point(24, 310);
             this.guna2Panel13.Name = "guna2Panel13";
-            this.guna2Panel13.Size = new System.Drawing.Size(517, 127);
+            this.guna2Panel13.Size = new System.Drawing.Size(517, 99);
             this.guna2Panel13.TabIndex = 25;
             // 
             // tex_des_des
@@ -881,6 +883,9 @@
             // 
             this.guna2Panel12.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel12.BorderRadius = 11;
+            this.guna2Panel12.Controls.Add(this.lblPlaca);
+            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel19);
+            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel20);
             this.guna2Panel12.Controls.Add(this.tex_estado_des);
             this.guna2Panel12.Controls.Add(this.lab_tipodedocumento_des);
             this.guna2Panel12.Controls.Add(this.labe_fecha_des);
@@ -892,8 +897,41 @@
             this.guna2Panel12.FillColor = System.Drawing.Color.White;
             this.guna2Panel12.Location = new System.Drawing.Point(24, 90);
             this.guna2Panel12.Name = "guna2Panel12";
-            this.guna2Panel12.Size = new System.Drawing.Size(517, 142);
+            this.guna2Panel12.Size = new System.Drawing.Size(517, 170);
             this.guna2Panel12.TabIndex = 23;
+            // 
+            // lblPlaca
+            // 
+            this.lblPlaca.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlaca.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca.ForeColor = System.Drawing.Color.Black;
+            this.lblPlaca.Location = new System.Drawing.Point(240, 94);
+            this.lblPlaca.Name = "lblPlaca";
+            this.lblPlaca.Size = new System.Drawing.Size(128, 20);
+            this.lblPlaca.TabIndex = 30;
+            this.lblPlaca.Text = "Guia de Remisión";
+            // 
+            // guna2HtmlLabel19
+            // 
+            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel19.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel19.Location = new System.Drawing.Point(240, 93);
+            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
+            this.guna2HtmlLabel19.Size = new System.Drawing.Size(3, 2);
+            this.guna2HtmlLabel19.TabIndex = 29;
+            this.guna2HtmlLabel19.Text = null;
+            // 
+            // guna2HtmlLabel20
+            // 
+            this.guna2HtmlLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel20.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel20.Location = new System.Drawing.Point(43, 94);
+            this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
+            this.guna2HtmlLabel20.Size = new System.Drawing.Size(88, 20);
+            this.guna2HtmlLabel20.TabIndex = 28;
+            this.guna2HtmlLabel20.Text = "N° de placa:";
             // 
             // tex_estado_des
             // 
@@ -910,13 +948,14 @@
             this.tex_estado_des.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tex_estado_des.ForeColor = System.Drawing.Color.Black;
             this.tex_estado_des.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tex_estado_des.Location = new System.Drawing.Point(245, 97);
+            this.tex_estado_des.Location = new System.Drawing.Point(249, 125);
             this.tex_estado_des.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tex_estado_des.Name = "tex_estado_des";
             this.tex_estado_des.PlaceholderText = "";
             this.tex_estado_des.SelectedText = "";
             this.tex_estado_des.Size = new System.Drawing.Size(104, 33);
             this.tex_estado_des.TabIndex = 27;
+            this.tex_estado_des.TextChanged += new System.EventHandler(this.tex_estado_des_TextChanged);
             // 
             // lab_tipodedocumento_des
             // 
@@ -956,11 +995,12 @@
             this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(43, 94);
+            this.guna2HtmlLabel17.Location = new System.Drawing.Point(47, 122);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             this.guna2HtmlLabel17.Size = new System.Drawing.Size(57, 20);
             this.guna2HtmlLabel17.TabIndex = 3;
             this.guna2HtmlLabel17.Text = "Estado:";
+            this.guna2HtmlLabel17.Click += new System.EventHandler(this.guna2HtmlLabel17_Click);
             // 
             // guna2HtmlLabel18
             // 
@@ -1001,7 +1041,7 @@
             this.guna2Panel14.BorderRadius = 8;
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel12);
             this.guna2Panel14.FillColor = System.Drawing.Color.Gold;
-            this.guna2Panel14.Location = new System.Drawing.Point(24, 246);
+            this.guna2Panel14.Location = new System.Drawing.Point(24, 274);
             this.guna2Panel14.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.Size = new System.Drawing.Size(517, 29);
@@ -1484,5 +1524,8 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
         private System.Windows.Forms.ComboBox combo_busquedadeexpediente;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPlaca;
     }
 }
