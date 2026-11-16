@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 {
     public partial class GESTIONAR_EXPEDIENTE : Form
     {
-        private string rutaPDFSeleccionado = "";
         public GESTIONAR_EXPEDIENTE()
         {
             InitializeComponent();
@@ -21,7 +13,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
 
-            CargarExpedientes();
+            // Botones y panel de seguimiento (antes de escalar,
+            // para que se ajusten igual que los demás controles)
+            CrearControlesSeguimiento();
+
+            // Botón "Gestionar" colocado en el diseñador
+            ConectarBotonGestionar();
+
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            Escalado.AjustarPantallaCompleta(this);
+
             combo_orden.Items.Clear();
 
             combo_orden.Items.Add("N.º de Expediente");
@@ -41,98 +42,92 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             dgvExpedientes.ColumnHeadersHeightSizeMode =
                 DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
-
+            // Cargar la tabla una sola vez
             CargarExpedientes();
         }
 
 
+        // ==========================================
+        // NAVEGACIÓN
+        // Abre el formulario elegido y cierra el actual
+        // para que no se acumulen ventanas abiertas.
+        // ==========================================
+
+        private void AbrirFormulario(Form ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Volver a la pantalla de Iniciar sesión
+            Funciones.CerrarSesion(this);
         }
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)
         {
-
+            // Evento conectado en el diseñador (sin acción)
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-
+            // Evento conectado en el diseñador (sin acción)
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
-
+            // Ya estamos en Gestionar Expediente
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            INICIO ventana = new INICIO();
-            ventana.Show();
+            AbrirFormulario(new INICIO());
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            REGISTRO_DE_EXPEDIENTE ventana = new REGISTRO_DE_EXPEDIENTE();
-            ventana.Show();
+            AbrirFormulario(new REGISTRO_DE_EXPEDIENTE());
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            CONSULTAR_EXPEDIENTE ventana = new CONSULTAR_EXPEDIENTE();
-            ventana.Show();
+            AbrirFormulario(new CONSULTAR_EXPEDIENTE());
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            BUSCAR_EXPEDIENTE ventana = new BUSCAR_EXPEDIENTE();
-            ventana.Show();
+            AbrirFormulario(new BUSCAR_EXPEDIENTE());
         }
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            REPORTES ventana = new REPORTES();
-            ventana.Show();
+            AbrirFormulario(new REPORTES());
         }
 
         private void guna2Button8_Click(object sender, EventArgs e)
         {
-            CONFIGURACIÓN ventana = new CONFIGURACIÓN();
-            ventana.Show();
+            AbrirFormulario(new CONFIGURACIÓN());
         }
 
         private void GESTIONAR_EXPEDIENTE_Load(object sender, EventArgs e)
         {
-
+            // Los datos ya se cargaron en el constructor
         }
 
 
 
         private void CargarExpedientes()
         {
-            // ==========================================
-            // RUTA DEL ARCHIVO
-            // ==========================================
-
-            string rutaArchivo = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
             // Limpiar los registros anteriores
             dgvExpedientes.Rows.Clear();
 
             // Verificar que exista el archivo
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Archivo no encontrado"
                 );
 
                 return;
@@ -141,39 +136,25 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             try
             {
                 // ==========================================
-                // LEER EXPEDIENTES
+                // LEER SOLO EXPEDIENTES VÁLIDOS
                 // ==========================================
 
-                string[] registros =
-                    File.ReadAllLines(rutaArchivo);
+                string[] registros = Funciones.LeerExpedientesValidos();
 
                 // RECORRER CON FOR
                 for (int i = 0; i < registros.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(registros[i]))
-                    {
-                        continue;
-                    }
-
                     string[] datos = registros[i].Split('|');
 
-                    if (datos.Length < 10)
-                    {
-                        continue;
-                    }
-
                     // ======================================
-                    // NÚMERO DE EXPEDIENTE
+                    // NÚMERO DE EXPEDIENTE (8 dígitos)
                     // ======================================
 
-                    string numero = datos[0].Trim();
+                    string numero = Funciones.NormalizarNumero(datos[0]);
 
-                    // Evitar repetir EXP-
-                    if (numero.StartsWith(
-                        "EXP-",
-                        StringComparison.OrdinalIgnoreCase))
+                    if (numero == "")
                     {
-                        numero = numero.Substring(4);
+                        numero = datos[0].Trim();
                     }
 
                     // ======================================
@@ -370,6 +351,67 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 5. VALIDAR DATOS ANTES DE ORDENAR
             // ==========================================
 
+            string titulo;
+            string problema = ProblemaParaOrdenar(columna, out titulo);
+
+            if (problema != "")
+            {
+                MessageBox.Show(
+                    problema,
+                    titulo,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            // ==========================================
+            // 6 y 7. MÉTODO DE ORDENAMIENTO BURBUJA
+            // ==========================================
+
+            OrdenarTabla(columna, but_Ascendente.Checked);
+
+            // Recordar el orden para mantenerlo al volver
+            // de la ficha de gestión
+            ultimaColumnaOrden = columna;
+            ultimoOrdenAscendente = but_Ascendente.Checked;
+
+            // ==========================================
+            // 8. QUITAR SELECCIÓN
+            // ==========================================
+
+            dgvExpedientes.ClearSelection();
+
+            dgvExpedientes.Refresh();
+
+            // ==========================================
+            // 9. MENSAJE FINAL
+            // ==========================================
+
+            MessageBox.Show(
+                "Expedientes ordenados correctamente.",
+                "Ordenamiento",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+
+        // Orden elegido por última vez ("" = sin ordenar)
+        private string ultimaColumnaOrden = "";
+        private bool ultimoOrdenAscendente = true;
+
+
+        // ==========================================
+        // REVISAR QUE LOS DATOS SE PUEDAN ORDENAR
+        // Devuelve "" si todo está bien, o el mensaje del problema.
+        // ==========================================
+
+        private string ProblemaParaOrdenar(string columna, out string titulo)
+        {
+            titulo = "";
+
             for (int i = 0; i < dgvExpedientes.Rows.Count; i++)
             {
                 string valor = Convert.ToString(
@@ -388,15 +430,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         System.Globalization.DateTimeStyles.None,
                         out fechaValidada))
                     {
-                        MessageBox.Show(
-                            "Se encontró una fecha inválida.\n" +
-                            "El formato correcto es dd/MM/yyyy.",
-                            "Fecha incorrecta",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-
-                        return;
+                        titulo = "Fecha incorrecta";
+                        return "Se encontró una fecha inválida.\n" +
+                               "El formato correcto es dd/MM/yyyy.";
                     }
                 }
 
@@ -409,22 +445,22 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                     if (!long.TryParse(numero, out numeroValidado))
                     {
-                        MessageBox.Show(
-                            "Se encontró un número de expediente inválido.",
-                            "Número incorrecto",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-
-                        return;
+                        titulo = "Número incorrecto";
+                        return "Se encontró un número de expediente inválido.";
                     }
                 }
             }
 
-            // ==========================================
-            // 6. MÉTODO DE ORDENAMIENTO BURBUJA
-            // ==========================================
+            return "";
+        }
 
+
+        // ==========================================
+        // ORDENAR LA TABLA (MÉTODO BURBUJA)
+        // ==========================================
+
+        private void OrdenarTabla(string columna, bool ascendente)
+        {
             for (int i = 0; i < dgvExpedientes.Rows.Count - 1; i++)
             {
                 for (int j = 0; j < dgvExpedientes.Rows.Count - 1 - i; j++)
@@ -459,7 +495,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         );
 
                         // ASCENDENTE: ANTIGUA A RECIENTE
-                        if (but_Ascendente.Checked)
+                        if (ascendente)
                         {
                             if (fecha1 > fecha2)
                             {
@@ -468,7 +504,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         }
 
                         // DESCENDENTE: RECIENTE A ANTIGUA
-                        if (But_descendente.Checked)
+                        if (!ascendente)
                         {
                             if (fecha1 < fecha2)
                             {
@@ -490,7 +526,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         long numero2 = long.Parse(texto2);
 
                         // ASCENDENTE: MENOR A MAYOR
-                        if (but_Ascendente.Checked)
+                        if (ascendente)
                         {
                             if (numero1 > numero2)
                             {
@@ -499,7 +535,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         }
 
                         // DESCENDENTE: MAYOR A MENOR
-                        if (But_descendente.Checked)
+                        if (!ascendente)
                         {
                             if (numero1 < numero2)
                             {
@@ -521,7 +557,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         );
 
                         // ASCENDENTE: A - Z
-                        if (but_Ascendente.Checked)
+                        if (ascendente)
                         {
                             if (comparacion > 0)
                             {
@@ -530,7 +566,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                         }
 
                         // DESCENDENTE: Z - A
-                        if (But_descendente.Checked)
+                        if (!ascendente)
                         {
                             if (comparacion < 0)
                             {
@@ -559,25 +595,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     }
                 }
             }
-
-            // ==========================================
-            // 8. QUITAR SELECCIÓN
-            // ==========================================
-
-            dgvExpedientes.ClearSelection();
-
-            dgvExpedientes.Refresh();
-
-            // ==========================================
-            // 9. MENSAJE FINAL
-            // ==========================================
-
-            MessageBox.Show(
-                "Expedientes ordenados correctamente.",
-                "Ordenamiento",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
         }
 
 
@@ -586,11 +603,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Verificar que haya una fila seleccionada
             if (dgvExpedientes.SelectedRows.Count == 0)
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "Seleccione un expediente para eliminar.",
-                    "Eliminar expediente",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Eliminar expediente"
                 );
 
                 return;
@@ -602,23 +617,33 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 .Cells["colExpediente"]
                 .Value?.ToString() ?? "";
 
-            if (string.IsNullOrWhiteSpace(expedienteSeleccionado))
+            string numeroExpediente =
+                Funciones.NormalizarNumero(expedienteSeleccionado);
+
+            if (numeroExpediente == "")
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No se pudo identificar el expediente.",
-                    "Eliminar expediente",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Eliminar expediente"
                 );
 
                 return;
             }
 
-            // Quitar EXP-
-            string numeroExpediente =
-                expedienteSeleccionado.Replace("EXP-", "");
-            // Confirmar eliminación según configuración
-            if (MostrarConfirmacionAlEliminar())
+            // Los expedientes finalizados se conservan para consulta
+            if (Funciones.EsEstado(Funciones.EstadoDe(numeroExpediente), Funciones.FINALIZADO))
+            {
+                Funciones.Aviso(
+                    "El expediente " + expedienteSeleccionado + " está Finalizado.\n" +
+                    "Se conserva para consulta y no se puede eliminar.",
+                    "Eliminar expediente"
+                );
+
+                return;
+            }
+
+            // Confirmar eliminación según configuración (opción 5)
+            if (Funciones.LeerOpcion(4, true))
             {
                 DialogResult respuesta = MessageBox.Show(
                     "¿Está seguro de eliminar el expediente " +
@@ -634,91 +659,28 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
             }
 
-            // Ruta del archivo
-            string rutaArchivo = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
+            // Quitar solo la línea de este expediente.
+            // Los demás registros se conservan aunque estén incompletos.
+            string rutaPDF;
 
-            if (!File.Exists(rutaArchivo))
+            if (!Funciones.EliminarExpediente(numeroExpediente, out rutaPDF))
             {
-                MessageBox.Show(
-                    "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                Funciones.Aviso(
+                    "No se pudo eliminar el expediente " +
+                    expedienteSeleccionado + ".",
+                    "Eliminar expediente"
                 );
 
                 return;
             }
 
-            // Leer todos los registros
-            string[] registros = File.ReadAllLines(rutaArchivo);
+            // Borrar el PDF solo si es una copia creada por el sistema
+            // y ningún otro expediente la usa. El PDF original del
+            // usuario nunca se borra.
+            Funciones.BorrarCopiaPDF(rutaPDF, numeroExpediente);
 
-            // Arreglo para guardar los registros que permanecerán
-            string[] nuevosRegistros = new string[registros.Length];
-
-            int posicion = 0;
-
-            // Recorrer los registros
-            for (int i = 0; i < registros.Length; i++)
-            {
-                if (string.IsNullOrWhiteSpace(registros[i]))
-                {
-                    continue;
-                }
-
-                string[] datos = registros[i].Split('|');
-
-                if (datos.Length < 11)
-                {
-                    continue;
-                }
-
-                // Buscar el expediente seleccionado
-                if (datos[0] == numeroExpediente)
-                {
-                    // Obtener la ruta del PDF
-                    string rutaPDF = datos[10];
-
-                    if (!string.IsNullOrWhiteSpace(rutaPDF) &&
-       !rutaPDF.Equals(
-           "Sin PDF",
-           StringComparison.OrdinalIgnoreCase))
-                    {
-                        if (File.Exists(rutaPDF))
-                        {
-                            File.Delete(rutaPDF);
-                        }
-                    }
-                    // No guardar este registro
-                    continue;
-                }
-
-                // Guardar los demás registros
-                nuevosRegistros[posicion] = registros[i];
-
-                posicion++;
-            }
-
-            // Crear un arreglo con el tamaño exacto
-            string[] registrosFinales = new string[posicion];
-
-            // Copiar los registros que permanecen
-            for (int i = 0; i < posicion; i++)
-            {
-                registrosFinales[i] = nuevosRegistros[i];
-            }
-
-            // Guardar nuevamente el archivo
-            File.WriteAllLines(
-                rutaArchivo,
-                registrosFinales
-            );
-
-            // Actualizar la tabla
-            CargarExpedientes();
+            // Actualizar la tabla conservando el orden elegido
+            RecargarYSeleccionar("");
 
             MessageBox.Show(
                 "El expediente " + expedienteSeleccionado +
@@ -826,6 +788,18 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             string numeroExpediente =
                 expedienteSeleccionado.Replace("EXP-", "");
 
+            // Los expedientes finalizados no se modifican
+            if (Funciones.EsEstado(Funciones.EstadoDe(numeroExpediente), Funciones.FINALIZADO))
+            {
+                Funciones.Aviso(
+                    "El expediente " + expedienteSeleccionado + " está Finalizado.\n" +
+                    "Se conserva para consulta y no se puede modificar.",
+                    "Modificar expediente"
+                );
+
+                return;
+            }
+
             MODIFICAR_DETALLE_DEL_EXPEDIENTE ventana =
                 new MODIFICAR_DETALLE_DEL_EXPEDIENTE(
                     numeroExpediente
@@ -833,43 +807,211 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             ventana.ShowDialog();
 
-            CargarExpedientes();
-
-
-
-
+            // Actualizar conservando el orden y el expediente seleccionado
+            RecargarYSeleccionar(Funciones.NormalizarNumero(numeroExpediente));
         }
 
-        private bool MostrarConfirmacionAlEliminar()
+
+        // =========================================================
+        // ESTADO DEL EXPEDIENTE SELECCIONADO
+        // ---------------------------------------------------------
+        // Iniciar atención y Finalizar expediente se realizan desde
+        // la ficha (Gestiondelexpediente), con el botón "Gestionar".
+        // =========================================================
+
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblEstadoSeleccionado;
+
+
+        // =========================================================
+        // FRANJA AMARILLA SOBRE LA TABLA (guna2Panel10)
+        // Muestra el título del listado y el estado de la fila
+        // seleccionada, ambos centrados en la altura de la franja.
+        // =========================================================
+
+        private void CrearControlesSeguimiento()
         {
-            string rutaOpciones = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "opciones.txt"
-            );
+            Control franja = guna2Panel10;
 
-            // Si no existe configuración,
-            // por seguridad mostramos confirmación
-            if (!File.Exists(rutaOpciones))
-                return true;
+            // El título está sobre la franja (en el mismo contenedor):
+            // se centra verticalmente dentro de ella
+            guna2HtmlLabel10.Top = franja.Top + (franja.Height - guna2HtmlLabel10.Height) / 2;
+            guna2HtmlLabel10.BringToFront();
 
-            string contenido = File.ReadAllText(rutaOpciones);
+            // El estado se muestra a continuación del título
+            int despuesDelTitulo = guna2HtmlLabel10.Right - franja.Left + 25;
 
-            string[] opciones = contenido.Split('|');
+            lblEstadoSeleccionado = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblEstadoSeleccionado.BackColor = System.Drawing.Color.Transparent;
+            lblEstadoSeleccionado.ForeColor = System.Drawing.Color.Black;
+            lblEstadoSeleccionado.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            lblEstadoSeleccionado.Text = "Seleccione un expediente de la tabla.";
+            franja.Controls.Add(lblEstadoSeleccionado);
 
-            if (opciones.Length >= 5)
+            lblEstadoSeleccionado.Location = new System.Drawing.Point(
+                despuesDelTitulo,
+                (franja.Height - lblEstadoSeleccionado.Height) / 2);
+
+            // Actualizar el estado y los botones al seleccionar una fila
+            dgvExpedientes.SelectionChanged += dgvExpedientes_SelectionChanged;
+        }
+
+
+        // =========================================================
+        // ESTADO DE LA FILA SELECCIONADA
+        // =========================================================
+
+        private string NumeroSeleccionado()
+        {
+            if (dgvExpedientes.SelectedRows.Count == 0)
             {
-                bool.TryParse(
-                    opciones[4],
-                    out bool confirmar
-                );
-
-                return confirmar;
+                return "";
             }
 
-            return true;
+            object valor = dgvExpedientes.SelectedRows[0].Cells["colExpediente"].Value;
+
+            return Funciones.NormalizarNumero(valor == null ? "" : valor.ToString());
         }
 
+        private string EstadoSeleccionado()
+        {
+            if (dgvExpedientes.SelectedRows.Count == 0)
+            {
+                return "";
+            }
+
+            object valor = dgvExpedientes.SelectedRows[0].Cells["coluEstadoExpediente"].Value;
+
+            return valor == null ? "" : valor.ToString().Trim();
+        }
+
+
+        // =========================================================
+        // HABILITAR O DESHABILITAR BOTONES SEGÚN EL ESTADO
+        // Finalizado -> solo consulta (sin modificar ni eliminar)
+        // =========================================================
+
+        private void ActualizarBotonesSeguimiento()
+        {
+            string numero = NumeroSeleccionado();
+            string estado = EstadoSeleccionado();
+
+            bool finalizado = Funciones.EsEstado(estado, Funciones.FINALIZADO);
+
+            But_Modificar.Enabled = !finalizado;
+            but_eliminar.Enabled = !finalizado;
+
+            // "Gestionar" solo con una fila seleccionada
+            guna2Button9.Enabled = numero != "";
+
+            if (numero == "")
+            {
+                lblEstadoSeleccionado.Text = "Seleccione un expediente de la tabla.";
+            }
+            else if (finalizado)
+            {
+                lblEstadoSeleccionado.Text = "EXP-" + numero + ": Finalizado (solo consulta)";
+            }
+            else
+            {
+                lblEstadoSeleccionado.Text = "EXP-" + numero + ": " + estado;
+            }
+        }
+
+        private void dgvExpedientes_SelectionChanged(object sender, EventArgs e)
+        {
+            ActualizarBotonesSeguimiento();
+        }
+
+
+        // Vuelve a cargar la tabla, mantiene el orden elegido
+        // y selecciona el expediente indicado (por su código,
+        // no por su posición, que puede cambiar al ordenar)
+        private void RecargarYSeleccionar(string numero)
+        {
+            CargarExpedientes();
+
+            // Volver a aplicar el último orden (sin mensajes)
+            string titulo;
+
+            if (ultimaColumnaOrden != "" &&
+                ProblemaParaOrdenar(ultimaColumnaOrden, out titulo) == "")
+            {
+                OrdenarTabla(ultimaColumnaOrden, ultimoOrdenAscendente);
+            }
+
+            dgvExpedientes.ClearSelection();
+
+            for (int i = 0; i < dgvExpedientes.Rows.Count; i++)
+            {
+                object valor = dgvExpedientes.Rows[i].Cells["colExpediente"].Value;
+
+                if (numero != "" && valor != null &&
+                    Funciones.NormalizarNumero(valor.ToString()) == numero)
+                {
+                    dgvExpedientes.CurrentCell = dgvExpedientes.Rows[i].Cells[0];
+                    dgvExpedientes.Rows[i].Selected = true;
+                    break;
+                }
+            }
+
+            ActualizarBotonesSeguimiento();
+        }
+
+
+        // =========================================================
+        // BOTÓN "GESTIONAR" (guna2Button9, colocado en el diseñador)
+        // Se habilita solo con una fila seleccionada y abre la ficha
+        // del expediente usando su CÓDIGO.
+        // =========================================================
+
+        private void ConectarBotonGestionar()
+        {
+            guna2Button9.Click += btnGestionar_Click;
+
+            // El icono está encima del botón: también debe responder
+            guna2PictureBox9.Click += btnGestionar_Click;
+            guna2PictureBox9.Cursor = Cursors.Hand;
+
+            // Sin fila seleccionada, deshabilitado
+            guna2Button9.Enabled = false;
+        }
+
+        private void btnGestionar_Click(object sender, EventArgs e)
+        {
+            // El icono no se deshabilita: comprobar de nuevo
+            if (!guna2Button9.Enabled)
+            {
+                return;
+            }
+
+            string numero = NumeroSeleccionado();
+
+            if (numero == "")
+            {
+                Funciones.Aviso(
+                    "Seleccione un expediente de la tabla.",
+                    "Gestionar expediente"
+                );
+
+                return;
+            }
+
+            AbrirFichaDeGestion(numero);
+        }
+
+        // Abre la ficha del expediente y, al cerrarla, actualiza
+        // la tabla conservando el orden y la selección
+        private void AbrirFichaDeGestion(string numero)
+        {
+            using (Gestiondelexpediente ficha = new Gestiondelexpediente(numero))
+            {
+                ficha.ShowDialog(this);
+            }
+
+            // Al volver: datos actualizados, mismo orden y misma selección
+            // (si se eliminó, simplemente ya no aparece en la tabla)
+            RecargarYSeleccionar(numero);
+        }
     }
    
     

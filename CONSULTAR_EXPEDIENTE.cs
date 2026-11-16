@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -21,6 +20,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
 
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            Escalado.AjustarPantallaCompleta(this);
+
             // Configurar la tabla
             dgvExpedientes.AllowUserToAddRows = false;
             dgvExpedientes.ReadOnly = true;
@@ -33,50 +35,18 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             Columnplaca.Visible = true;
             Columnplaca.HeaderText = "Placa";
 
+            // Filtros: número EXP- + 8 dígitos y fechas dd/MM/yyyy
+            // (al escribir y al pegar)
+            Restricciones.Codigo(text_nu_expediente, false);
+            Restricciones.Fecha(text_fecha_desde);
+            Restricciones.Fecha(text_fecha_hasta);
+
             // Corregir el ejemplo del filtro
             text_nu_expediente.PlaceholderText =
                 "Ej: EXP-00000001";
 
            
 
-        }
-
-        // =====================================================
-        // OBTENER LA RUTA DE EXPEDIENTES
-        // =====================================================
-
-        private string ObtenerRutaExpedientes()
-        {
-            return Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-        }
-
-        // =====================================================
-        // NORMALIZAR EL NÚMERO DE EXPEDIENTE
-        // =====================================================
-
-        private string NormalizarNumero(string numero)
-        {
-            numero = numero.Trim().ToUpperInvariant();
-
-            // Retirar EXP- cuando exista
-            if (numero.StartsWith("EXP-"))
-            {
-                numero = numero.Substring(4);
-            }
-
-            // Admitir expedientes anteriores
-            // con números de hasta ocho dígitos
-            if (!Regex.IsMatch(numero, @"^\d{1,8}$"))
-            {
-                return "";
-            }
-
-            // Completar con ceros a la izquierda
-            return numero.PadLeft(8, '0');
         }
 
         // =====================================================
@@ -93,7 +63,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             }
 
             // Número de expediente
-            string numero = NormalizarNumero(datos[0]);
+            string numero = Funciones.NormalizarNumero(datos[0]);
 
             if (numero == "")
             {
@@ -114,39 +84,29 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Crear nueva fila
             int fila = dgvExpedientes.Rows.Add();
 
-            // Mostrar todos los datos
-            dgvExpedientes.Rows[fila].Cells["colExpediente"].Value =
-                "EXP-" + numero;
+            // Mostrar todos los datos.
+            // PonerCelda solo escribe si la columna existe en el diseño,
+            // así la tabla sigue funcionando si se quita o agrega una columna.
+            PonerCelda(fila, "colExpediente", "EXP-" + numero);
+            PonerCelda(fila, "colFechaRegistro", datos[1]);
+            PonerCelda(fila, "colDocumento", datos[2]);
+            PonerCelda(fila, "Columnplaca", placa);
+            PonerCelda(fila, "ColuDescripción", datos[3]);
+            PonerCelda(fila, "coloSolicitante", datos[4]);
+            PonerCelda(fila, "colDNI", datos[5]);
+            PonerCelda(fila, "coloEmpresa", datos[6]);
+            PonerCelda(fila, "colTelefono", datos[7]);
+            PonerCelda(fila, "colCorreo", datos[8]);
+            PonerCelda(fila, "coluEstadoExpediente", datos[9]);
+        }
 
-            dgvExpedientes.Rows[fila].Cells["colFechaRegistro"].Value =
-                datos[1];
-
-            dgvExpedientes.Rows[fila].Cells["colDocumento"].Value =
-                datos[2];
-
-            dgvExpedientes.Rows[fila].Cells["Columnplaca"].Value =
-                placa;
-
-            dgvExpedientes.Rows[fila].Cells["ColuDescripción"].Value =
-                datos[3];
-
-            dgvExpedientes.Rows[fila].Cells["coloSolicitante"].Value =
-                datos[4];
-
-            dgvExpedientes.Rows[fila].Cells["colDNI"].Value =
-                datos[5];
-
-            dgvExpedientes.Rows[fila].Cells["coloEmpresa"].Value =
-                datos[6];
-
-            dgvExpedientes.Rows[fila].Cells["colTelefono"].Value =
-                datos[7];
-
-            dgvExpedientes.Rows[fila].Cells["colCorreo"].Value =
-                datos[8];
-
-            dgvExpedientes.Rows[fila].Cells["coluEstadoExpediente"].Value =
-                datos[9];
+        // Escribe un valor en una celda solo si la columna existe
+        private void PonerCelda(int fila, string columna, string valor)
+        {
+            if (dgvExpedientes.Columns.Contains(columna))
+            {
+                dgvExpedientes.Rows[fila].Cells[columna].Value = valor;
+            }
         }
 
 
@@ -156,41 +116,20 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void CargarDatosExpedientes()
         {
-            string rutaArchivo =
-                ObtenerRutaExpedientes();
-
             // Limpiar tabla
             dgvExpedientes.Rows.Clear();
 
-            // Verificar archivo
-            if (!File.Exists(rutaArchivo))
-            {
-                return;
-            }
-
             try
             {
+                // Solo expedientes válidos (sin líneas vacías
+                // ni registros incompletos)
                 string[] registros =
-                    File.ReadAllLines(rutaArchivo);
+                    Funciones.LeerExpedientesValidos();
 
                 // Recorrer todos los expedientes
                 for (int i = 0; i < registros.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(registros[i]))
-                    {
-                        continue;
-                    }
-
-                    string[] datos =
-                        registros[i].Split('|');
-
-                    if (datos.Length < 10)
-                    {
-                        continue;
-                    }
-
-                    // Agregar registro
-                    AgregarExpediente(datos);
+                    AgregarExpediente(registros[i].Split('|'));
                 }
 
                 dgvExpedientes.ClearSelection();
@@ -214,46 +153,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private bool CargarDatosAutomaticamente()
         {
-            string rutaOpciones = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "opciones.txt"
-            );
-
-            // Si no existe configuración,
-            // cargar automáticamente
-            if (!File.Exists(rutaOpciones))
-            {
-                return true;
-            }
-
-            try
-            {
-                string contenido =
-                    File.ReadAllText(rutaOpciones);
-
-                string[] opciones =
-                    contenido.Split('|');
-
-                // Índice 2: cargar datos automáticamente
-                if (opciones.Length >= 3)
-                {
-                    bool cargarDatos;
-
-                    if (bool.TryParse(
-                        opciones[2].Trim(),
-                        out cargarDatos))
-                    {
-                        return cargarDatos;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return true;
-            }
-
-            return true;
+            // Opción 3 de Configuración (por defecto: sí)
+            return Funciones.LeerOpcion(2, true);
         }
 
         // =====================================================
@@ -336,7 +237,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
 
                 if (!System.Text.RegularExpressions.Regex.IsMatch(
-                    numeroTexto, @"^(EXP-)?\d{8}$"))
+                    numeroTexto, @"^(EXP-)?[0-9]{8}$"))
                 {
                     MessageBox.Show(
                         "Ingrese el formato EXP-12345678.",
@@ -350,7 +251,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
 
                 // Normalizar número
-                numeroBuscado = NormalizarNumero(numeroTexto);
+                numeroBuscado = Funciones.NormalizarNumero(numeroTexto);
             }
 
 
@@ -377,12 +278,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
 
                 // Validar fecha inicial
-                if (!DateTime.TryParseExact(
-                    fechaDesdeTexto,
-                    "dd/MM/yyyy",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out fechaDesde))
+                if (!Funciones.ConvertirFecha(fechaDesdeTexto, out fechaDesde))
                 {
                     MessageBox.Show(
                         "La fecha desde no es válida. Use dd/MM/yyyy.",
@@ -396,12 +292,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
 
                 // Validar fecha final
-                if (!DateTime.TryParseExact(
-                    fechaHastaTexto,
-                    "dd/MM/yyyy",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out fechaHasta))
+                if (!Funciones.ConvertirFecha(fechaHastaTexto, out fechaHasta))
                 {
                     MessageBox.Show(
                         "La fecha hasta no es válida. Use dd/MM/yyyy.",
@@ -448,15 +339,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 6. VERIFICAR ARCHIVO
             // ==========================================
 
-            string rutaArchivo = ObtenerRutaExpedientes();
-
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Archivo no encontrado"
                 );
 
                 return;
@@ -469,7 +356,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             try
             {
-                string[] registros = File.ReadAllLines(rutaArchivo);
+                string[] registros = Funciones.LeerExpedientesValidos();
 
                 // Arreglo que guardará solamente las coincidencias
                 string[] resultados = new string[registros.Length];
@@ -499,7 +386,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     if (buscarNumero)
                     {
                         string numeroArchivo =
-                            NormalizarNumero(datos[0]);
+                            Funciones.NormalizarNumero(datos[0]);
 
                         if (numeroArchivo != numeroBuscado)
                         {
@@ -554,12 +441,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     {
                         DateTime fechaRegistro;
 
-                        if (!DateTime.TryParseExact(
-                            datos[1].Trim(),
-                            "dd/MM/yyyy",
-                            System.Globalization.CultureInfo.InvariantCulture,
-                            System.Globalization.DateTimeStyles.None,
-                            out fechaRegistro))
+                        if (!Funciones.ConvertirFecha(datos[1], out fechaRegistro))
                         {
                             continue;
                         }
@@ -674,13 +556,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // CARGAR TIPOS DE DOCUMENTO
             // ==========================================
 
-            comb_tipo_de_documento.Items.Clear();
-
-            comb_tipo_de_documento.Items.Add("Solicitud");
-            comb_tipo_de_documento.Items.Add("Oficio");
-            comb_tipo_de_documento.Items.Add("Carta");
-            comb_tipo_de_documento.Items.Add("Informe");
-            comb_tipo_de_documento.Items.Add("Reclamo");
+            Funciones.LlenarCombo(comb_tipo_de_documento, Funciones.TiposDocumento);
 
             comb_tipo_de_documento.SelectedIndex = -1;
 
@@ -688,11 +564,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // CARGAR ESTADOS
             // ==========================================
 
-            comb_estado.Items.Clear();
-
-            comb_estado.Items.Add("En proceso");
-            comb_estado.Items.Add("Pendiente");
-            comb_estado.Items.Add("Finalizado");
+            Funciones.LlenarCombo(comb_estado, Funciones.Estados);
 
             comb_estado.SelectedIndex = -1;
 
@@ -718,7 +590,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             object sender,
             EventArgs e)
         {
-            Application.Exit();
+            // Volver a la pantalla de Iniciar sesión
+            Funciones.CerrarSesion(this);
         }
 
         // =====================================================

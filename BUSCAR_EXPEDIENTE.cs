@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -19,6 +18,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         private Label labelValorPlaca;
         private Label labelNombrePDF;
         private ToolTip ayudaPDF = new ToolTip();
+
+        // Seguimiento: fecha de inicio, finalización, resultado y observación
+        private Label labelFechasSeguimiento;
+        private Label labelResultado;
+        private Label labelObservacion;
 
         private bool placaEnDatosExpediente = false;
 
@@ -41,19 +45,16 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Configurar la placa y el nombre del PDF
             ConfigurarCampoPlaca();
             ConfigurarNombrePDF();
-        }
 
-        // ==========================================
-        // RUTA DEL ARCHIVO DE EXPEDIENTES
-        // ==========================================
+            // Configurar los datos de seguimiento
+            ConfigurarSeguimiento();
 
-        private string ObtenerRutaExpedientes()
-        {
-            return Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
+            // Número de expediente: EXP- + 8 dígitos (al escribir y al pegar)
+            Restricciones.Codigo(combo_busquedadeexpediente);
+
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            // (al final, para incluir las etiquetas creadas por código)
+            Escalado.AjustarPantallaCompleta(this);
         }
 
         // ==========================================
@@ -301,32 +302,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
         // ==========================================
-        // NORMALIZAR NÚMERO DE EXPEDIENTE
-        // ==========================================
-
-        private string NormalizarNumero(string numero)
-        {
-            numero = numero.Trim();
-
-            // Compatible con números antiguos
-            if (numero.StartsWith(
-                "EXP-",
-                StringComparison.OrdinalIgnoreCase))
-            {
-                numero = numero.Substring(4);
-            }
-
-            if (!Regex.IsMatch(
-                numero,
-                @"^\d{1,8}$"))
-            {
-                return "";
-            }
-
-            return numero.PadLeft(8, '0');
-        }
-
-        // ==========================================
         // CARGAR EXPEDIENTES AL COMBOBOX
         // ==========================================
 
@@ -334,16 +309,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         {
             combo_busquedadeexpediente.Items.Clear();
 
-            string rutaArchivo =
-                ObtenerRutaExpedientes();
-
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Archivo no encontrado"
                 );
 
                 return;
@@ -351,29 +321,19 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             try
             {
+                // Solo expedientes válidos (sin líneas vacías)
                 string[] registros =
-                    File.ReadAllLines(rutaArchivo);
+                    Funciones.LeerExpedientesValidos();
 
                 for (int i = 0;
                      i < registros.Length;
                      i++)
                 {
-                    if (string.IsNullOrWhiteSpace(
-                        registros[i]))
-                    {
-                        continue;
-                    }
-
                     string[] datos =
                         registros[i].Split('|');
 
-                    if (datos.Length < 10)
-                    {
-                        continue;
-                    }
-
                     string numero =
-                        NormalizarNumero(datos[0]);
+                        Funciones.NormalizarNumero(datos[0]);
 
                     if (numero == "")
                     {
@@ -407,8 +367,86 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // LIMPIAR INFORMACIÓN ANTERIOR
         // ==========================================
 
+        // ==========================================
+        // CONFIGURAR DATOS DE SEGUIMIENTO
+        // - Fechas: en la fila superior de "Información
+        //   del Expediente" (espacio libre del diseño).
+        // - Resultado y observación: en el recuadro de
+        //   Descripción, debajo del texto de descripción.
+        // ==========================================
+
+        private Label CrearEtiquetaSeguimiento(Control padre, int x, int y, int ancho, int alto, bool negrita)
+        {
+            Label etiqueta = new Label();
+
+            etiqueta.AutoSize = false;
+            etiqueta.AutoEllipsis = true;
+            etiqueta.Bounds = new Rectangle(x, y, ancho, alto);
+            etiqueta.BackColor = Color.Transparent;
+            etiqueta.ForeColor = Color.Black;
+            etiqueta.Font = new Font("Arial", 10F, negrita ? FontStyle.Bold : FontStyle.Regular);
+            etiqueta.TextAlign = ContentAlignment.MiddleLeft;
+            etiqueta.Text = "";
+
+            padre.Controls.Add(etiqueta);
+            etiqueta.BringToFront();
+
+            return etiqueta;
+        }
+
+        private void ConfigurarSeguimiento()
+        {
+            // Entre el estado (text_estado) y "Registrado el" (label7)
+            int inicioX = text_estado.Right + 20;
+            int ancho = label7.Left - inicioX - 10;
+
+            labelFechasSeguimiento = CrearEtiquetaSeguimiento(
+                guna2Panel8, inicioX, text_estado.Top, ancho, text_estado.Height, false);
+
+            // Debajo de la descripción
+            int x = tex_des_des.Left;
+            int anchoTexto = guna2Panel13.Width - x - 15;
+
+            labelResultado = CrearEtiquetaSeguimiento(
+                guna2Panel13, x, tex_des_des.Bottom + 4, anchoTexto, 22, true);
+
+            // Usa el alto que queda libre dentro del recuadro
+            int arribaObservacion = tex_des_des.Bottom + 26;
+            int altoObservacion = Math.Max(20, guna2Panel13.Height - arribaObservacion - 4);
+
+            labelObservacion = CrearEtiquetaSeguimiento(
+                guna2Panel13, x, arribaObservacion, anchoTexto, altoObservacion, false);
+        }
+
+        private void MostrarSeguimiento(string[] datos)
+        {
+            labelFechasSeguimiento.Text =
+                "Inicio de atención: " +
+                Funciones.CampoParaMostrar(datos, Funciones.CAMPO_INICIO) +
+                "     Finalización: " +
+                Funciones.CampoParaMostrar(datos, Funciones.CAMPO_FIN);
+
+            labelResultado.Text =
+                "Resultado: " +
+                Funciones.CampoParaMostrar(datos, Funciones.CAMPO_RESULTADO);
+
+            labelObservacion.Text =
+                "Observación final: " +
+                Funciones.CampoParaMostrar(datos, Funciones.CAMPO_OBSERVACION);
+
+            // Texto completo al pasar el mouse
+            ayudaPDF.SetToolTip(labelObservacion, labelObservacion.Text);
+        }
+
+
         private void LimpiarDetalles()
         {
+            // Seguimiento
+            labelFechasSeguimiento.Text = "";
+            labelResultado.Text = "";
+            labelObservacion.Text = "";
+            ayudaPDF.SetToolTip(labelObservacion, "");
+
             // Encabezado
             lab_Numero_expediente.Text = "";
             label7.Text = "";
@@ -478,10 +516,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             string rutaPDF = datos[10].Trim();
 
-            if (string.IsNullOrWhiteSpace(rutaPDF) ||
-                rutaPDF.Equals(
-                    "Sin PDF",
-                    StringComparison.OrdinalIgnoreCase))
+            if (!Funciones.TienePDF(rutaPDF))
             {
                 return;
             }
@@ -535,7 +570,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         {
             // NÚMERO
             string numero =
-                NormalizarNumero(datos[0]);
+                Funciones.NormalizarNumero(datos[0]);
 
             lab_Numero_expediente.Text =
                 "EXP-" + numero;
@@ -644,6 +679,12 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // ======================================
 
             MostrarInformacionPDF(datos);
+
+            // ======================================
+            // MOSTRAR SEGUIMIENTO
+            // ======================================
+
+            MostrarSeguimiento(datos);
         }
 
         // ==========================================
@@ -679,7 +720,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // VALIDAR FORMATO
             if (!Regex.IsMatch(
                 numeroTexto,
-                @"^EXP-\d{8}$"))
+                @"^EXP-[0-9]{8}$"))
             {
                 MessageBox.Show(
                     "El número debe tener el formato " +
@@ -698,16 +739,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             string numeroBuscado =
                 numeroTexto.Substring(4);
 
-            string rutaArchivo =
-                ObtenerRutaExpedientes();
-
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Archivo no encontrado"
                 );
 
                 return;
@@ -718,30 +754,18 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             try
             {
                 string[] registros =
-                    File.ReadAllLines(rutaArchivo);
+                    Funciones.LeerExpedientesValidos();
 
                 // BUSCAR CON CICLO FOR
                 for (int i = 0;
                      i < registros.Length;
                      i++)
                 {
-                    if (string.IsNullOrWhiteSpace(
-                        registros[i]))
-                    {
-                        continue;
-                    }
-
                     string[] datos =
                         registros[i].Split('|');
 
-                    // Validar cantidad mínima de campos
-                    if (datos.Length < 10)
-                    {
-                        continue;
-                    }
-
                     string numeroArchivo =
-                        NormalizarNumero(datos[0]);
+                        Funciones.NormalizarNumero(datos[0]);
 
                     if (numeroArchivo == numeroBuscado)
                     {
@@ -821,49 +845,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         private void But_verpdf_Click(
             object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(
-                rutaPDFSeleccionado))
-            {
-                MessageBox.Show(
-                    "El expediente no tiene un PDF adjunto.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-
-                return;
-            }
-
-            if (!File.Exists(rutaPDFSeleccionado))
-            {
-                MessageBox.Show(
-                    "No se encontró el archivo PDF.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = rutaPDFSeleccionado,
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "No se pudo abrir el PDF:\n" +
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
+            // Abrir con control de errores
+            Funciones.AbrirPDF(rutaPDFSeleccionado);
         }
 
         // ==========================================
@@ -873,172 +856,69 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         private void But_descargarpdf_Click(
             object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(
-                rutaPDFSeleccionado))
-            {
-                MessageBox.Show(
-                    "El expediente no tiene un PDF adjunto.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-
-                return;
-            }
-
-            if (!File.Exists(rutaPDFSeleccionado))
-            {
-                MessageBox.Show(
-                    "No se encontró el archivo PDF.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            using (SaveFileDialog guardar =
-                new SaveFileDialog())
-            {
-                guardar.Filter =
-                    "Archivo PDF (*.pdf)|*.pdf";
-
-                guardar.FileName =
-                    Path.GetFileName(
-                        rutaPDFSeleccionado
-                    );
-
-                guardar.OverwritePrompt = true;
-
-                if (guardar.ShowDialog() ==
-                    DialogResult.OK)
-                {
-                    try
-                    {
-                        string origen =
-                            Path.GetFullPath(
-                                rutaPDFSeleccionado
-                            );
-
-                        string destino =
-                            Path.GetFullPath(
-                                guardar.FileName
-                            );
-
-                        // Impedir copiar sobre el mismo PDF
-                        if (string.Equals(
-                            origen,
-                            destino,
-                            StringComparison.OrdinalIgnoreCase))
-                        {
-                            MessageBox.Show(
-                                "Seleccione otra ubicación " +
-                                "para guardar el PDF.",
-                                "Ubicación inválida",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning
-                            );
-
-                            return;
-                        }
-
-                        File.Copy(
-                            origen,
-                            destino,
-                            true
-                        );
-
-                        MessageBox.Show(
-                            "PDF guardado correctamente.",
-                            "Documento PDF",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(
-                            "No se pudo guardar el PDF:\n" +
-                            ex.Message,
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
-                    }
-                }
-            }
+            // Guardar una copia con control de errores
+            Funciones.DescargarPDF(rutaPDFSeleccionado);
         }
 
         // ==========================================
         // BOTONES DE NAVEGACIÓN
+        // Abre el formulario elegido y cierra el actual
+        // para que no se acumulen ventanas abiertas.
         // ==========================================
+
+        private void AbrirFormulario(Form ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
 
         private void guna2Button1_Click(
             object sender, EventArgs e)
         {
-            Application.Exit();
+            // Volver a la pantalla de Iniciar sesión
+            Funciones.CerrarSesion(this);
         }
 
         private void guna2HtmlLabel5_Click(
             object sender, EventArgs e)
         {
-            GESTIONAR_EXPEDIENTE ventana =
-                new GESTIONAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new GESTIONAR_EXPEDIENTE());
         }
 
         private void guna2Button6_Click(
             object sender, EventArgs e)
         {
-            GESTIONAR_EXPEDIENTE ventana =
-                new GESTIONAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new GESTIONAR_EXPEDIENTE());
         }
 
         private void guna2Button3_Click(
             object sender, EventArgs e)
         {
-            REGISTRO_DE_EXPEDIENTE ventana =
-                new REGISTRO_DE_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new REGISTRO_DE_EXPEDIENTE());
         }
 
         private void guna2Button2_Click(
             object sender, EventArgs e)
         {
-            INICIO ventana = new INICIO();
-
-            ventana.Show();
+            AbrirFormulario(new INICIO());
         }
 
         private void guna2Button4_Click(
             object sender, EventArgs e)
         {
-            CONSULTAR_EXPEDIENTE ventana =
-                new CONSULTAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new CONSULTAR_EXPEDIENTE());
         }
 
         private void guna2Button7_Click(
             object sender, EventArgs e)
         {
-            REPORTES ventana = new REPORTES();
-
-            ventana.Show();
+            AbrirFormulario(new REPORTES());
         }
 
         private void guna2Button8_Click(
             object sender, EventArgs e)
         {
-            CONFIGURACIÓN ventana =
-                new CONFIGURACIÓN();
-
-            ventana.Show();
+            AbrirFormulario(new CONFIGURACIÓN());
         }
 
       

@@ -65,7 +65,9 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            this.comboESTADO = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.comb_destino = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tex_estado = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
@@ -534,7 +536,7 @@
             // guna2PictureBox5
             // 
             this.guna2PictureBox5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox5.Image = global::PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC.Properties.Resources._8a41f07a_7020_4cc3_aa97_9d994a693faf;
+            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
             this.guna2PictureBox5.ImageRotate = 0F;
             this.guna2PictureBox5.Location = new System.Drawing.Point(3, 715);
             this.guna2PictureBox5.Name = "guna2PictureBox5";
@@ -606,38 +608,70 @@
             // 
             this.guna2Panel10.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel10.BorderRadius = 15;
-            this.guna2Panel10.Controls.Add(this.comboESTADO);
+            this.guna2Panel10.Controls.Add(this.comb_destino);
+            this.guna2Panel10.Controls.Add(this.tex_estado);
+            this.guna2Panel10.Controls.Add(this.guna2HtmlLabel23);
             this.guna2Panel10.Controls.Add(this.guna2HtmlLabel24);
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
-            this.guna2Panel10.Location = new System.Drawing.Point(596, 472);
+            this.guna2Panel10.Location = new System.Drawing.Point(596, 413);
             this.guna2Panel10.Name = "guna2Panel10";
-            this.guna2Panel10.Size = new System.Drawing.Size(533, 113);
+            this.guna2Panel10.Size = new System.Drawing.Size(533, 224);
             this.guna2Panel10.TabIndex = 13;
             // 
-            // comboESTADO
+            // comb_destino
             // 
-            this.comboESTADO.BackColor = System.Drawing.Color.Transparent;
-            this.comboESTADO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboESTADO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboESTADO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboESTADO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comboESTADO.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboESTADO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.comboESTADO.ItemHeight = 30;
-            this.comboESTADO.Location = new System.Drawing.Point(215, 35);
-            this.comboESTADO.Name = "comboESTADO";
-            this.comboESTADO.Size = new System.Drawing.Size(268, 36);
-            this.comboESTADO.TabIndex = 18;
+            this.comb_destino.BackColor = System.Drawing.Color.Transparent;
+            this.comb_destino.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comb_destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comb_destino.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comb_destino.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comb_destino.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.comb_destino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comb_destino.ItemHeight = 30;
+            this.comb_destino.Location = new System.Drawing.Point(107, 83);
+            this.comb_destino.Margin = new System.Windows.Forms.Padding(2);
+            this.comb_destino.Name = "comb_destino";
+            this.comb_destino.Size = new System.Drawing.Size(363, 36);
+            this.comb_destino.TabIndex = 25;
+            // 
+            // tex_estado
+            // 
+            this.tex_estado.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tex_estado.DefaultText = "";
+            this.tex_estado.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tex_estado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tex_estado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tex_estado.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tex_estado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tex_estado.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tex_estado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tex_estado.Location = new System.Drawing.Point(139, 145);
+            this.tex_estado.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tex_estado.Name = "tex_estado";
+            this.tex_estado.PlaceholderText = "";
+            this.tex_estado.SelectedText = "";
+            this.tex_estado.Size = new System.Drawing.Size(295, 42);
+            this.tex_estado.TabIndex = 25;
+            // 
+            // guna2HtmlLabel23
+            // 
+            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel23.Location = new System.Drawing.Point(28, 124);
+            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
+            this.guna2HtmlLabel23.Size = new System.Drawing.Size(57, 20);
+            this.guna2HtmlLabel23.TabIndex = 5;
+            this.guna2HtmlLabel23.Text = "Estado:";
             // 
             // guna2HtmlLabel24
             // 
             this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel24.Location = new System.Drawing.Point(28, 46);
+            this.guna2HtmlLabel24.Location = new System.Drawing.Point(27, 25);
             this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
-            this.guna2HtmlLabel24.Size = new System.Drawing.Size(57, 20);
+            this.guna2HtmlLabel24.Size = new System.Drawing.Size(121, 20);
             this.guna2HtmlLabel24.TabIndex = 4;
-            this.guna2HtmlLabel24.Text = "Estado:";
+            this.guna2HtmlLabel24.Text = "Área del destino:";
             // 
             // guna2HtmlLabel15
             // 
@@ -655,7 +689,7 @@
             this.guna2Panel11.BorderRadius = 5;
             this.guna2Panel11.Controls.Add(this.guna2HtmlLabel25);
             this.guna2Panel11.FillColor = System.Drawing.Color.Gold;
-            this.guna2Panel11.Location = new System.Drawing.Point(596, 433);
+            this.guna2Panel11.Location = new System.Drawing.Point(596, 374);
             this.guna2Panel11.Name = "guna2Panel11";
             this.guna2Panel11.Size = new System.Drawing.Size(533, 33);
             this.guna2Panel11.TabIndex = 12;
@@ -666,9 +700,9 @@
             this.guna2HtmlLabel25.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel25.Location = new System.Drawing.Point(9, 6);
             this.guna2HtmlLabel25.Name = "guna2HtmlLabel25";
-            this.guna2HtmlLabel25.Size = new System.Drawing.Size(269, 23);
+            this.guna2HtmlLabel25.Size = new System.Drawing.Size(277, 23);
             this.guna2HtmlLabel25.TabIndex = 7;
-            this.guna2HtmlLabel25.Text = "ESTADO DEL EXPEDIENTE";
+            this.guna2HtmlLabel25.Text = "DESTINO DEL EXPEDIENTE";
             // 
             // guna2Panel9
             // 
@@ -819,7 +853,7 @@
             this.guna2Panel8.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel8.Controls.Add(this.guna2HtmlLabel18);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(596, 187);
+            this.guna2Panel8.Location = new System.Drawing.Point(596, 128);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(533, 229);
             this.guna2Panel8.TabIndex = 5;
@@ -1055,7 +1089,7 @@
             this.ComboTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboTipoDocumento.ItemHeight = 30;
             this.ComboTipoDocumento.Location = new System.Drawing.Point(229, 110);
-            this.ComboTipoDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComboTipoDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.ComboTipoDocumento.Name = "ComboTipoDocumento";
             this.ComboTipoDocumento.Size = new System.Drawing.Size(269, 36);
             this.ComboTipoDocumento.TabIndex = 21;
@@ -1268,7 +1302,7 @@
             this.guna2Panel6.BorderRadius = 8;
             this.guna2Panel6.Controls.Add(this.guna2HtmlLabel16);
             this.guna2Panel6.FillColor = System.Drawing.Color.Gold;
-            this.guna2Panel6.Location = new System.Drawing.Point(596, 148);
+            this.guna2Panel6.Location = new System.Drawing.Point(596, 89);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.Size = new System.Drawing.Size(533, 33);
             this.guna2Panel6.TabIndex = 4;
@@ -1473,7 +1507,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
-        private Guna.UI2.WinForms.Guna2ComboBox comboESTADO;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel24;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
@@ -1499,5 +1532,8 @@
         private Guna.UI2.WinForms.Guna2TextBox textDNI;
         private Guna.UI2.WinForms.Guna2TextBox texNAME_USUARIO;
         private Guna.UI2.WinForms.Guna2TextBox textTELEFONO;
+        private Guna.UI2.WinForms.Guna2ComboBox comb_destino;
+        private Guna.UI2.WinForms.Guna2TextBox tex_estado;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel23;
     }
 }

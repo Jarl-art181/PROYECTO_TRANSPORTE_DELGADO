@@ -74,6 +74,12 @@
     <Compile Include="BUSCAR_EXPEDIENTE.Designer.cs">
       <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestiondelexpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestiondelexpediente.Designer.cs">
+      <DependentUpon>Gestiondelexpediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,10 +134,16 @@
     <Compile Include="INICIO.Designer.cs">
       <DependentUpon>INICIO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Escalado.cs" />
+    <Compile Include="Funciones.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Restricciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BUSCAR_EXPEDIENTE.resx">
       <DependentUpon>BUSCAR_EXPEDIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestiondelexpediente.resx">
+      <DependentUpon>Gestiondelexpediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.resx">
       <DependentUpon>MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>

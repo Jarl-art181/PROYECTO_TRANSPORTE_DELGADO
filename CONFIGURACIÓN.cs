@@ -33,26 +33,13 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
 
-            // Ruta de configuracion.txt
-            rutaConfiguracion = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "configuracion.txt"
-            );
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            Escalado.AjustarPantallaCompleta(this);
 
-            // Ruta de opciones.txt
-            rutaOpciones = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "opciones.txt"
-            );
-
-            // Ruta de rutaPDF.txt
-            rutaPDF = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "rutaPDF.txt"
-            );
+            // Rutas de los archivos de configuración
+            rutaConfiguracion = Funciones.RutaConfiguracion();
+            rutaOpciones = Funciones.RutaOpciones();
+            rutaPDF = Funciones.RutaArchivoCarpetaPDF();
         }
 
 
@@ -67,12 +54,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // CREAR CARPETA DATOS
             // ==========================================
 
-            string carpetaDatos = Path.Combine(
-                Application.StartupPath,
-                "Datos"
-            );
-
-            Directory.CreateDirectory(carpetaDatos);
+            Directory.CreateDirectory(Funciones.CarpetaDatos());
 
             // ==========================================
             // OPCIÓN 6: MENSAJE DE BIENVENIDA
@@ -233,8 +215,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 string carpetaGuardada =
                     File.ReadAllText(rutaPDF).Trim();
 
-                // Verificar que no esté vacía
-                if (!string.IsNullOrWhiteSpace(carpetaGuardada))
+                // Mostrarla solo si la carpeta todavía existe
+                if (!string.IsNullOrWhiteSpace(carpetaGuardada) &&
+                    Directory.Exists(carpetaGuardada))
                 {
                     txtCarpetaPDF.Text = carpetaGuardada;
                     return;
@@ -245,11 +228,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // CARPETA PREDETERMINADA
             // ==========================================
 
-            string carpetaPredeterminada = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "PDF"
-            );
+            string carpetaPredeterminada =
+                Funciones.CarpetaPDFPredeterminada();
 
             // Crear carpeta si no existe
             if (!Directory.Exists(carpetaPredeterminada))
@@ -267,27 +247,56 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // GUARDAR RUTA DE ALMACENAMIENTO DE PDF
         // ==========================================
 
-        private void GuardarRutaPDF()
+        private bool GuardarRutaPDF()
         {
             string carpeta = txtCarpetaPDF.Text.Trim();
 
             // Verificar que exista una ruta
             if (string.IsNullOrWhiteSpace(carpeta))
             {
-                return;
+                return true;
             }
 
-            // Crear la carpeta si no existe
-            if (!Directory.Exists(carpeta))
+            try
             {
+                // Crear la carpeta si no existe
                 Directory.CreateDirectory(carpeta);
-            }
 
-            // Guardar la ruta
-            File.WriteAllText(
-                rutaPDF,
-                carpeta
-            );
+                // Guardar la ruta
+                File.WriteAllText(rutaPDF, carpeta);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Funciones.Aviso(
+                    "No se pudo usar la carpeta de PDF indicada.\n" +
+                    ex.Message,
+                    "Carpeta de PDF"
+                );
+
+                return false;
+            }
+        }
+
+
+        // ==========================================
+        // GUARDAR DATOS DE LA EMPRESA
+        // (se usa en Guardar y en Restaurar)
+        // ==========================================
+
+        private void GuardarDatosEmpresa()
+        {
+            // LimpiarTexto evita que el carácter | desordene el archivo
+            string configuracion =
+                Funciones.LimpiarTexto(tex_razonsocial.Text) + "|" +
+                Funciones.LimpiarTexto(tex_ruc.Text) + "|" +
+                Funciones.LimpiarTexto(tex_direccion.Text) + "|" +
+                Funciones.LimpiarTexto(tex_telefono.Text) + "|" +
+                Funciones.LimpiarTexto(tex_correo.Text) + "|" +
+                Funciones.LimpiarTexto(tex_horario.Text);
+
+            File.WriteAllText(rutaConfiguracion, configuracion);
         }
 
 
@@ -299,7 +308,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             object sender,
             EventArgs e)
         {
-            Application.Exit();
+            // Volver a la pantalla de Iniciar sesión
+            Funciones.CerrarSesion(this);
         }
 
 
@@ -444,84 +454,34 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             object sender,
             EventArgs e)
         {
-            // ======================================
-            // CREAR CARPETA DATOS
-            // ======================================
-
-            string carpetaDatos = Path.Combine(
-                Application.StartupPath,
-                "Datos"
-            );
-
-            if (!Directory.Exists(carpetaDatos))
+            try
             {
-                Directory.CreateDirectory(carpetaDatos);
+                // Crear carpeta Datos
+                Directory.CreateDirectory(Funciones.CarpetaDatos());
+
+                // Guardar datos de la empresa
+                GuardarDatosEmpresa();
+
+                // Guardar las 6 opciones
+                GuardarOpciones();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudo guardar la configuración.\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                return;
             }
 
-
-            // ======================================
-            // OBTENER DATOS DE LA EMPRESA
-            // ======================================
-
-            string razonSocial =
-                tex_razonsocial.Text.Trim();
-
-            string ruc =
-                tex_ruc.Text.Trim();
-
-            string direccion =
-                tex_direccion.Text.Trim();
-
-            string telefono =
-                tex_telefono.Text.Trim();
-
-            string correo =
-                tex_correo.Text.Trim();
-
-            string horario =
-                tex_horario.Text.Trim();
-
-
-            // ======================================
-            // UNIR DATOS DE LA EMPRESA
-            // ======================================
-
-            string configuracion =
-                razonSocial + "|" +
-                ruc + "|" +
-                direccion + "|" +
-                telefono + "|" +
-                correo + "|" +
-                horario;
-
-
-            // ======================================
-            // GUARDAR CONFIGURACIÓN DE EMPRESA
-            // ======================================
-
-            File.WriteAllText(
-                rutaConfiguracion,
-                configuracion
-            );
-
-
-            // ======================================
-            // GUARDAR LAS 6 OPCIONES
-            // ======================================
-
-            GuardarOpciones();
-
-
-            // ======================================
-            // GUARDAR RUTA DE PDF
-            // ======================================
-
-            GuardarRutaPDF();
-
-
-            // ======================================
-            // MENSAJE
-            // ======================================
+            // Guardar ruta de PDF
+            if (!GuardarRutaPDF())
+            {
+                return;
+            }
 
             MessageBox.Show(
                 "La configuración se guardó correctamente.",
@@ -633,17 +593,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // RESTAURAR CARPETA DE PDF
             // ==========================================
 
-            string carpetaPDF = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "PDF"
-            );
-
-            // Crear carpeta si no existe
-            if (!Directory.Exists(carpetaPDF))
-            {
-                Directory.CreateDirectory(carpetaPDF);
-            }
+            string carpetaPDF = Funciones.CarpetaPDFPredeterminada();
 
             txtCarpetaPDF.Text = carpetaPDF;
 
@@ -652,27 +602,30 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // GUARDAR TODO
             // ==========================================
 
-            // Guardar datos de empresa
-            string configuracion =
-                tex_razonsocial.Text.Trim() + "|" +
-                tex_ruc.Text.Trim() + "|" +
-                tex_direccion.Text.Trim() + "|" +
-                tex_telefono.Text.Trim() + "|" +
-                tex_correo.Text.Trim() + "|" +
-                tex_horario.Text.Trim();
+            try
+            {
+                Directory.CreateDirectory(Funciones.CarpetaDatos());
 
-            File.WriteAllText(
-                rutaConfiguracion,
-                configuracion
-            );
+                GuardarDatosEmpresa();
 
+                GuardarOpciones(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudo restaurar la configuración.\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
 
-            // Guardar las 6 opciones
-            GuardarOpciones( true);
+                return;
+            }
 
-
-            // Guardar ruta PDF
-            GuardarRutaPDF();
+            if (!GuardarRutaPDF())
+            {
+                return;
+            }
 
 
             // ==========================================

@@ -2,7 +2,6 @@
 using System;
 using System.Windows.Forms;
 using System.IO;
-using System.Diagnostics;
 
 namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 {
@@ -12,8 +11,20 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // VARIABLES
         // ==========================================
 
+        // PDF que se mostrará y guardará
         private string rutaPDFSeleccionado = "";
+
+        // PDF que tenía el expediente al abrir el formulario
+        private string rutaPDFOriginal = "";
+
+        // true cuando el usuario presiona "Quitar PDF"
+        private bool pdfQuitado = false;
+
+        // Número de expediente (8 dígitos)
         private string numeroExpedienteActual = "";
+
+        // Número tal como está guardado en el archivo
+        private string numeroGuardado = "";
 
         // ==========================================
         // CONSTRUCTOR
@@ -29,122 +40,135 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            numeroExpedienteActual = numeroExpediente;
+            // Reducir la ventana si no cabe en la pantalla
+            Escalado.AjustarDialogo(this);
 
-            CargarExpediente(numeroExpediente);
+            numeroExpedienteActual =
+                Funciones.NormalizarNumero(numeroExpediente);
+
+            CargarExpediente();
+
+            // Límites y formatos (después de cargar, para no
+            // modificar en silencio los datos ya guardados)
+            Restricciones.Dni(text_dni);
+            Restricciones.Celular(text_telefono);
+            Restricciones.Placa(text_placa);
+            Restricciones.Texto(text_solicitante, Restricciones.MAX_NOMBRE);
+            Restricciones.Texto(tex_empresa, Restricciones.MAX_EMPRESA);
+            Restricciones.Texto(text_correo, Restricciones.MAX_CORREO);
+            Restricciones.Texto(text_descripcion, Restricciones.MAX_DESCRIPCION);
         }
 
         // ==========================================
         // CARGAR EXPEDIENTE
         // ==========================================
 
-        private void CargarExpediente(string numeroExpediente)
+        private void CargarExpediente()
         {
-            string rutaArchivo = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            if (!File.Exists(rutaArchivo))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No existe el archivo de expedientes.",
-                    "Archivo no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Archivo no encontrado"
                 );
 
                 return;
             }
 
-            string[] registros = File.ReadAllLines(rutaArchivo);
+            // Buscar el expediente por número
+            string[] datos =
+                Funciones.BuscarExpediente(numeroExpedienteActual);
 
-            for (int i = 0; i < registros.Length; i++)
+            if (datos == null)
             {
-                if (string.IsNullOrWhiteSpace(registros[i]))
-                {
-                    continue;
-                }
+                Funciones.Aviso(
+                    "No se encontró el expediente seleccionado.",
+                    "Expediente no encontrado"
+                );
 
-                string[] datos = registros[i].Split('|');
-
-                if (datos.Length < 11)
-                {
-                    continue;
-                }
-
-                // Buscar el expediente por número
-                if (datos[0].Trim() == numeroExpediente.Trim())
-                {
-                    // Número de expediente
-                    text_numer_expe.Text = "EXP-" + datos[0].Trim();
-
-                    // Fecha
-                    text_fecha.Text = datos[1];
-
-                    // Tipo de documento
-                    text_tipoDocumento.Text = datos[2];
-
-                    // Placa: campo número 12 del archivo
-                    if (datos.Length > 11)
-                    {
-                        text_placa.Text = datos[11].Trim();
-                    }
-                    else
-                    {
-                        text_placa.Text = "";
-                    }
-
-                    // Descripción
-                    text_descripcion.Text = datos[3];
-
-                    // Solicitante
-                    text_solicitante.Text = datos[4];
-
-                    // DNI
-                    text_dni.Text = datos[5];
-
-                    // Empresa
-                    tex_empresa.Text = datos[6];
-
-                    // Teléfono
-                    text_telefono.Text = datos[7];
-
-                    // Correo electrónico
-                    text_correo.Text = datos[8];
-
-                    // Cargar estados
-                    text_estado.Items.Clear();
-
-                    text_estado.Items.Add("En proceso");
-                    text_estado.Items.Add("Pendiente");
-                    text_estado.Items.Add("Finalizado");
-
-                    text_estado.Text = datos[9];
-
-                    // Cargar PDF
-                    string rutaPDF = datos[10];
-
-                    MostrarPDF(rutaPDF);
-
-                    // Permitir modificar los datos
-                    text_fecha.ReadOnly = false;
-                    text_tipoDocumento.ReadOnly = false;
-                    text_placa.ReadOnly = false;
-                    text_descripcion.ReadOnly = false;
-                    text_solicitante.ReadOnly = false;
-                    text_dni.ReadOnly = false;
-                    tex_empresa.ReadOnly = false;
-                    text_telefono.ReadOnly = false;
-                    text_correo.ReadOnly = false;
-
-                    // El número de expediente no se modifica
-                    text_numer_expe.ReadOnly = true;
-
-                    break;
-                }
+                return;
             }
+
+            numeroGuardado = datos[0].Trim();
+
+            // Número de expediente
+            text_numer_expe.Text = "EXP-" + numeroExpedienteActual;
+
+            // Fecha
+            text_fecha.Text = datos[1];
+
+            // Tipo de documento
+            text_tipoDocumento.Text = datos[2];
+
+            // Placa: campo número 12 del archivo
+            if (datos.Length > 11)
+            {
+                text_placa.Text = datos[11].Trim();
+            }
+            else
+            {
+                text_placa.Text = "";
+            }
+
+            // Descripción
+            text_descripcion.Text = datos[3];
+
+            // Solicitante
+            text_solicitante.Text = datos[4];
+
+            // DNI
+            text_dni.Text = datos[5];
+
+            // Empresa
+            tex_empresa.Text = datos[6];
+
+            // Teléfono
+            text_telefono.Text = datos[7];
+
+            // Correo electrónico
+            text_correo.Text = datos[8];
+
+            // Cargar estados
+            Funciones.LlenarCombo(text_estado, Funciones.Estados);
+
+            text_estado.Text = datos[9];
+
+            // El estado solo cambia desde Gestionar
+            // (Iniciar atención / Finalizar expediente)
+            text_estado.Enabled = false;
+
+            // Un expediente finalizado se conserva solo para consulta
+            if (Funciones.EsEstado(datos[9], Funciones.FINALIZADO))
+            {
+                Funciones.Aviso(
+                    "El expediente está Finalizado y no se puede modificar.\n" +
+                    "Puede consultarlo en Buscar o en Ver detalle.",
+                    "Modificar expediente"
+                );
+            }
+
+            // Cargar PDF (campo 11; puede faltar en registros antiguos)
+            if (datos.Length > 10)
+            {
+                rutaPDFOriginal = datos[10].Trim();
+            }
+
+            MostrarPDF(rutaPDFOriginal);
+
+            // Permitir modificar los datos
+            // La fecha de registro no se cambia
+            text_fecha.ReadOnly = true;
+            text_tipoDocumento.ReadOnly = false;
+            text_placa.ReadOnly = false;
+            text_descripcion.ReadOnly = false;
+            text_solicitante.ReadOnly = false;
+            text_dni.ReadOnly = false;
+            tex_empresa.ReadOnly = false;
+            text_telefono.ReadOnly = false;
+            text_correo.ReadOnly = false;
+
+            // El número de expediente no se modifica
+            text_numer_expe.ReadOnly = true;
         }
 
         // ==========================================
@@ -153,11 +177,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void MostrarPDF(string rutaPDF)
         {
+            rutaPDFSeleccionado = "";
+
             // Verificar si el expediente tiene PDF
-            if (string.IsNullOrWhiteSpace(rutaPDF) ||
-                rutaPDF == "Sin PDF")
+            if (!Funciones.TienePDF(rutaPDF))
             {
-                rutaPDFSeleccionado = "";
                 webViewPDF.Source = null;
                 return;
             }
@@ -165,14 +189,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Verificar que exista físicamente
             if (!File.Exists(rutaPDF))
             {
-                rutaPDFSeleccionado = "";
                 webViewPDF.Source = null;
 
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No se encontró el archivo PDF.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Documento PDF"
                 );
 
                 return;
@@ -180,101 +201,18 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             rutaPDFSeleccionado = rutaPDF;
 
-            // Mostrar documento en el visor
-            webViewPDF.Source = new Uri(rutaPDF);
-        }
-
-        // ==========================================
-        // ADJUNTAR NUEVO PDF
-        // ==========================================
-
-        private void but_adjuntarPDF_Click(
-            object sender, EventArgs e)
-        {
-            OpenFileDialog seleccionar = new OpenFileDialog();
-
-            seleccionar.Filter =
-                "Archivo PDF (*.pdf)|*.pdf";
-
-            seleccionar.Title =
-                "Seleccionar nuevo PDF";
-
-            if (seleccionar.ShowDialog() == DialogResult.OK)
+            try
             {
-                FileInfo archivo =
-                    new FileInfo(seleccionar.FileName);
-
-                double pesoMB =
-                    archivo.Length / (1024.0 * 1024.0);
-
-                if (pesoMB > 10)
-                {
-                    MessageBox.Show(
-                        "El PDF no puede superar los 10 MB.",
-                        "PDF demasiado grande",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
-
-                    return;
-                }
-
-                rutaPDFSeleccionado = seleccionar.FileName;
-
-                webViewPDF.Source =
-                    new Uri(rutaPDFSeleccionado);
-
-                MessageBox.Show(
-                    "Nuevo PDF seleccionado correctamente.",
-                    "PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                // Mostrar documento en el visor
+                webViewPDF.Source = new Uri(rutaPDF);
+            }
+            catch (Exception ex)
+            {
+                Funciones.Aviso(
+                    "No se pudo mostrar el PDF.\n" + ex.Message,
+                    "Documento PDF"
                 );
             }
-        }
-
-        // ==========================================
-        // QUITAR PDF
-        // ==========================================
-
-        private void but_quitarPDF_Click(
-            object sender, EventArgs e)
-        {
-            DialogResult respuesta = MessageBox.Show(
-                "¿Desea quitar el PDF del expediente?",
-                "Quitar PDF",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (respuesta != DialogResult.Yes)
-            {
-                return;
-            }
-
-            // Quitar asociación con el PDF
-            rutaPDFSeleccionado = "";
-
-            // Limpiar visor
-            webViewPDF.Source = null;
-
-            MessageBox.Show(
-                "El PDF será quitado al guardar los cambios.",
-                "PDF",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-
-        // ==========================================
-        // GUARDAR CAMBIOS - MÉTODO COMPATIBLE
-        // ==========================================
-
-        private void but_guardarCambios_Click(
-            object sender, EventArgs e)
-        {
-            // Utilizar un único método de guardado
-            But_guardarpdf_Click(sender, e);
         }
 
         // ==========================================
@@ -284,43 +222,33 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         private void But_adjuntarpdf_Click_1(
             object sender, EventArgs e)
         {
-            OpenFileDialog seleccionar =
-                new OpenFileDialog();
-
-            seleccionar.Filter =
-                "Archivos PDF (*.pdf)|*.pdf";
-
-            if (seleccionar.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog seleccionar = new OpenFileDialog())
             {
-                FileInfo archivo =
-                    new FileInfo(seleccionar.FileName);
+                seleccionar.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
-                double tamañoMB =
-                    archivo.Length / (1024.0 * 1024.0);
-
-                if (tamañoMB > 10)
+                if (seleccionar.ShowDialog() != DialogResult.OK)
                 {
-                    MessageBox.Show(
-                        "El archivo PDF no puede superar los 10 MB.",
-                        "PDF demasiado grande",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
-
                     return;
                 }
 
-                rutaPDFSeleccionado = seleccionar.FileName;
+                if (!Funciones.PDFDentroDelLimite(seleccionar.FileName))
+                {
+                    return;
+                }
 
-                webViewPDF.Source =
-                    new Uri(rutaPDFSeleccionado);
+                // Se copiará a la carpeta del sistema al guardar
+                MostrarPDF(seleccionar.FileName);
+                pdfQuitado = false;
 
-                MessageBox.Show(
-                    "PDF adjuntado correctamente.",
-                    "Documento PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                if (rutaPDFSeleccionado != "")
+                {
+                    MessageBox.Show(
+                        "PDF adjuntado correctamente.",
+                        "Documento PDF",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
             }
         }
 
@@ -333,11 +261,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         {
             if (string.IsNullOrWhiteSpace(rutaPDFSeleccionado))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "No hay ningún PDF adjunto para quitar.",
-                    "Quitar PDF",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Quitar PDF"
                 );
 
                 return;
@@ -352,7 +278,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             if (respuesta == DialogResult.Yes)
             {
+                // Solo se quita la asociación; el archivo no se borra
                 rutaPDFSeleccionado = "";
+                pdfQuitado = true;
 
                 webViewPDF.Source = null;
 
@@ -386,50 +314,15 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         }
 
         // ==========================================
-        // GUARDAR CAMBIOS PRINCIPAL
+        // VALIDAR DATOS
+        // (mismas reglas que Registrar Expediente)
         // ==========================================
 
-        private void But_guardarpdf_Click(
-            object sender, EventArgs e)
+        private bool ValidarFormulario()
         {
-            // ======================================
-            // 1. VALIDAR PLACA
-            // ======================================
+            const string OBLIGATORIO = "Campo obligatorio";
 
-            string placa =
-                text_placa.Text.Trim().ToUpperInvariant();
-
-            if (string.IsNullOrWhiteSpace(placa))
-            {
-                MessageBox.Show(
-                    "Ingrese el número de placa del vehículo.",
-                    "Placa obligatoria",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                text_placa.Focus();
-                return;
-            }
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(
-                placa, @"^[A-Z0-9]{3}-[A-Z0-9]{3}$"))
-            {
-                MessageBox.Show(
-                    "La placa debe tener un formato como ABC-123 o A1B-145.",
-                    "Placa inválida",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                text_placa.Focus();
-                return;
-            }
-
-            // ======================================
-            // 2. VALIDAR CAMPOS OBLIGATORIOS
-            // ======================================
-
+            // 1. CAMPOS VACÍOS
             if (string.IsNullOrWhiteSpace(text_fecha.Text) ||
                 string.IsNullOrWhiteSpace(text_tipoDocumento.Text) ||
                 string.IsNullOrWhiteSpace(text_descripcion.Text) ||
@@ -437,162 +330,174 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 string.IsNullOrWhiteSpace(text_dni.Text) ||
                 string.IsNullOrWhiteSpace(tex_empresa.Text) ||
                 string.IsNullOrWhiteSpace(text_telefono.Text) ||
-                string.IsNullOrWhiteSpace(text_correo.Text) ||
-                string.IsNullOrWhiteSpace(text_estado.Text))
+                string.IsNullOrWhiteSpace(text_correo.Text))
             {
-                MessageBox.Show(
+                Funciones.Aviso(
                     "Complete todos los datos del expediente.",
-                    "Guardar cambios",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "Guardar cambios"
                 );
 
-                return;
+                return false;
             }
 
-           
-            string telefonoValidar = text_telefono.Text.Trim();
+            // 1b. LARGOS MÁXIMOS DE LOS TEXTOS
+            if (!Restricciones.LargoValido(text_solicitante, Restricciones.MAX_NOMBRE, "Solicitante")) return false;
+            if (!Restricciones.LargoValido(tex_empresa, Restricciones.MAX_EMPRESA, "Empresa")) return false;
+            if (!Restricciones.LargoValido(text_correo, Restricciones.MAX_CORREO, "Correo")) return false;
+            if (!Restricciones.LargoValido(text_descripcion, Restricciones.MAX_DESCRIPCION, "Descripción")) return false;
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(
-                telefonoValidar, @"^9\d{8}$"))
-            {
-                MessageBox.Show(
+            // 2. FECHA: es de solo lectura (se conserva la fecha de registro)
+
+            // 3. TIPO DE DOCUMENTO
+            if (!Funciones.Validar(
+                    Funciones.EstaEnLista(text_tipoDocumento.Text, Funciones.TiposDocumento),
+                    "El tipo de documento debe ser: " +
+                    string.Join(", ", Funciones.TiposDocumento) + ".",
+                    "Tipo de documento inválido", text_tipoDocumento)) return false;
+
+            // 4. NOMBRE
+            if (!Funciones.Validar(Funciones.EsNombreValido(text_solicitante.Text),
+                    "El nombre solo debe contener letras y espacios.",
+                    "Dato inválido", text_solicitante)) return false;
+
+            // 5. DNI
+            if (!Funciones.Validar(Funciones.EsDNIValido(text_dni.Text),
+                    "El DNI debe contener exactamente 8 dígitos.",
+                    "DNI inválido", text_dni)) return false;
+
+            // 6. TELÉFONO
+            if (!Funciones.Validar(Funciones.EsTelefonoValido(text_telefono.Text),
                     "El número de celular debe tener exactamente " +
-                    "9 dígitos y comenzar con 9.\n\n" +
-                    "Ejemplo: 987654321.",
-                    "Teléfono inválido",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    "9 dígitos y comenzar con 9.\n\nEjemplo: 987654321.",
+                    "Teléfono inválido", text_telefono)) return false;
+
+            // 7. CORREO
+            if (!Funciones.Validar(Funciones.EsCorreoValido(text_correo.Text),
+                    "El correo debe terminar en @gmail.com.",
+                    "Correo inválido", text_correo)) return false;
+
+            // 9. PLACA
+            if (!Funciones.Validar(!string.IsNullOrWhiteSpace(text_placa.Text),
+                    "Ingrese el número de placa del vehículo.",
+                    OBLIGATORIO, text_placa)) return false;
+
+            if (!Funciones.Validar(Funciones.EsPlacaValida(text_placa.Text),
+                    "La placa debe tener un formato como ABC-123 o A1B-145.",
+                    "Placa inválida", text_placa)) return false;
+
+            return true;
+        }
+
+        // ==========================================
+        // GUARDAR CAMBIOS PRINCIPAL
+        // ==========================================
+
+        private void But_guardarpdf_Click(
+            object sender, EventArgs e)
+        {
+            // 1. LEER EL EXPEDIENTE ACTUAL DEL ARCHIVO
+            //    (para conservar su estado y su seguimiento)
+            string[] actual = Funciones.BuscarExpediente(numeroExpedienteActual);
+
+            if (actual == null)
+            {
+                Funciones.Aviso(
+                    "No se encontró el expediente que desea modificar.",
+                    "Expediente no encontrado"
                 );
 
-                text_telefono.Focus();
                 return;
             }
 
-
-         
-
-            string rutaArchivo = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            if (!File.Exists(rutaArchivo))
+            if (Funciones.EsEstado(actual[9], Funciones.FINALIZADO))
             {
-                MessageBox.Show(
-                    "No existe el archivo de expedientes.",
-                    "Guardar cambios",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                Funciones.Aviso(
+                    "El expediente está Finalizado y no se puede modificar.",
+                    "Modificar expediente"
                 );
 
                 return;
             }
 
-            // ======================================
-            // 4. LEER EXPEDIENTES
-            // ======================================
-
-            string[] registros = File.ReadAllLines(rutaArchivo);
-
-            string[] nuevosRegistros =
-                new string[registros.Length];
-
-            // La variable debe declararse ANTES del for
-            bool expedienteEncontrado = false;
-
-            // ======================================
-            // 5. BUSCAR Y MODIFICAR EXPEDIENTE
-            // ======================================
-
-            for (int i = 0; i < registros.Length; i++)
+            // 2. VALIDAR
+            if (!ValidarFormulario())
             {
-                // Conservar líneas vacías
-                if (string.IsNullOrWhiteSpace(registros[i]))
+                return;
+            }
+
+            // 2. DEFINIR EL PDF QUE SE GUARDARÁ
+            string pdf = rutaPDFSeleccionado;
+            bool pdfNuevo = false;
+
+            if (string.IsNullOrWhiteSpace(pdf))
+            {
+                // Si el usuario no quitó el PDF, se conserva la ruta
+                // anterior aunque el archivo no se haya encontrado
+                if (!pdfQuitado && Funciones.TienePDF(rutaPDFOriginal))
                 {
-                    nuevosRegistros[i] = registros[i];
-                    continue;
-                }
-
-                string[] datos = registros[i].Split('|');
-
-                // Conservar registros antiguos o incompletos
-                if (datos.Length < 11)
-                {
-                    nuevosRegistros[i] = registros[i];
-                    continue;
-                }
-
-                // Buscar el expediente correspondiente
-                if (datos[0].Trim() == numeroExpedienteActual.Trim())
-                {
-                    // CORRECCIÓN PRINCIPAL
-                    // El expediente sí fue encontrado
-                    expedienteEncontrado = true;
-
-                    // Obtener PDF
-                    string pdf = rutaPDFSeleccionado;
-
-                    if (string.IsNullOrWhiteSpace(pdf))
-                    {
-                        pdf = "Sin PDF";
-                    }
-
-                    // ==================================
-                    // GUARDAR LOS 12 CAMPOS
-                    // ==================================
-
-                    nuevosRegistros[i] =
-                        datos[0] + "|" +
-                        text_fecha.Text.Trim() + "|" +
-                        text_tipoDocumento.Text.Trim() + "|" +
-                        text_descripcion.Text.Trim() + "|" +
-                        text_solicitante.Text.Trim() + "|" +
-                        text_dni.Text.Trim() + "|" +
-                        tex_empresa.Text.Trim() + "|" +
-                        text_telefono.Text.Trim() + "|" +
-                        text_correo.Text.Trim() + "|" +
-                        text_estado.Text.Trim() + "|" +
-                        pdf + "|" +
-                        placa;
+                    pdf = rutaPDFOriginal;
                 }
                 else
                 {
-                    // Mantener los demás registros
-                    nuevosRegistros[i] = registros[i];
+                    pdf = "Sin PDF";
                 }
             }
-
-            // ======================================
-            // 6. VERIFICAR SI SE ENCONTRÓ
-            // ======================================
-
-            if (!expedienteEncontrado)
+            else if (!string.Equals(
+                pdf,
+                rutaPDFOriginal,
+                StringComparison.OrdinalIgnoreCase))
             {
-                MessageBox.Show(
-                    "No se encontró el expediente que desea modificar.",
-                    "Expediente no encontrado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                // Se adjuntó un PDF nuevo: copiarlo al sistema
+                // conservando el archivo original del usuario
+                pdf = Funciones.CopiarPDFAlSistema(pdf, numeroExpedienteActual);
+
+                if (pdf == "")
+                {
+                    return;
+                }
+
+                pdfNuevo = true;
+            }
+
+            // 3. CREAR EL REGISTRO
+            //    Se parte del expediente guardado (16 campos) y solo se
+            //    cambian los datos editables. El estado (campo 9) y el
+            //    seguimiento (campos 12 a 15) se conservan sin cambios.
+            string[] campos = Funciones.CompletarCampos(actual);
+
+            campos[0] = numeroGuardado;
+            // campos[1] (fecha de registro) se conserva: es de solo lectura
+            campos[2] = Funciones.LimpiarTexto(text_tipoDocumento.Text);
+            campos[3] = Funciones.LimpiarTexto(text_descripcion.Text);
+            campos[4] = Funciones.LimpiarTexto(text_solicitante.Text);
+            campos[5] = Funciones.LimpiarTexto(text_dni.Text);
+            campos[6] = Funciones.LimpiarTexto(tex_empresa.Text);
+            campos[7] = Funciones.LimpiarTexto(text_telefono.Text);
+            campos[8] = Funciones.LimpiarTexto(text_correo.Text);
+            campos[10] = pdf;
+            campos[11] = Funciones.LimpiarTexto(text_placa.Text).ToUpperInvariant();
+
+            string registro = string.Join("|", campos);
+
+            // 4. REEMPLAZAR EN EL ARCHIVO (escritura segura)
+            if (!Funciones.ReemplazarExpediente(numeroExpedienteActual, registro))
+            {
+                // No dejar copias de PDF sin expediente
+                if (pdfNuevo)
+                {
+                    try
+                    {
+                        File.Delete(pdf);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
 
                 return;
             }
 
-            // ======================================
-            // 7. GUARDAR CAMBIOS EN EL ARCHIVO
-            // ======================================
-
-            File.WriteAllLines(
-                rutaArchivo,
-                nuevosRegistros
-            );
-
-            // ======================================
-            // 8. MOSTRAR CONFIRMACIÓN
-            // ======================================
-
+            // 5. MOSTRAR CONFIRMACIÓN
             MessageBox.Show(
                 "Los datos del expediente se modificaron correctamente.",
                 "Guardar cambios",
@@ -600,10 +505,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 MessageBoxIcon.Information
             );
 
-            // ======================================
-            // 9. CERRAR FORMULARIO
-            // ======================================
-
+            // 6. CERRAR FORMULARIO
             this.Close();
         }
     }

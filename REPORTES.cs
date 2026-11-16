@@ -16,25 +16,41 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
 
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            Escalado.AjustarPantallaCompleta(this);
+
            
 
             // ==========================================
             // CARGA INICIAL DEL FORMULARIO
             // ==========================================
 
+            // Filtros de fecha: dd/MM/yyyy (al escribir y al pegar)
+            Restricciones.Fecha(Text_fechaantes);
+            Restricciones.Fecha(text_fechahasta);
+
             CargarTipos();
             CargarEstadosCombo();
 
-            // Mostrar todos los expedientes al iniciar
-            CargarExpedientes();
+            // Leer el archivo UNA sola vez y mostrar
+            // tabla, tarjetas y gráficos con todos los datos
+            string[] expedientes = Funciones.LeerExpedientesValidos();
 
-            // Cargar tarjetas
-            CargarResumenExpedientes();
+            MostrarReporte(expedientes, expedientes.Length);
+        }
 
-            // Cargar gráficos
-            CargarEstados();
-            CargarTiposDocumento();
-            CargarExpedientesPorMes();
+
+        // =========================================================
+        // MOSTRAR TABLA, TARJETAS Y GRÁFICOS
+        // =========================================================
+
+        private void MostrarReporte(string[] expedientes, int cantidad)
+        {
+            MostrarTablaFiltrada(expedientes, cantidad);
+            ActualizarTarjetas(expedientes, cantidad);
+            ActualizarGraficoEstados(expedientes, cantidad);
+            ActualizarGraficoTipos(expedientes, cantidad);
+            ActualizarGraficoMeses(expedientes, cantidad);
         }
 
 
@@ -44,14 +60,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void CargarTipos()
         {
-            comb_tipodedocumento.Items.Clear();
+            Funciones.LlenarCombo(comb_tipodedocumento, Funciones.TiposDocumento);
 
-            comb_tipodedocumento.Items.Add("Todos");
-            comb_tipodedocumento.Items.Add("Solicitud");
-            comb_tipodedocumento.Items.Add("Oficio");
-            comb_tipodedocumento.Items.Add("Carta");
-            comb_tipodedocumento.Items.Add("Informe");
-            comb_tipodedocumento.Items.Add("Reclamo");
+            comb_tipodedocumento.Items.Insert(0, "Todos");
 
             comb_tipodedocumento.SelectedIndex = 0;
         }
@@ -75,12 +86,26 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
         // =========================================================
+        // NAVEGACIÓN
+        // Abre el formulario elegido y cierra el actual para que
+        // no se acumulen ventanas abiertas.
+        // =========================================================
+
+        private void AbrirFormulario(Form ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
+
+
+        // =========================================================
         // BOTÓN SALIR
         // =========================================================
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Volver a la pantalla de Iniciar sesión
+            Funciones.CerrarSesion(this);
         }
 
 
@@ -90,10 +115,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
-            GESTIONAR_EXPEDIENTE ventana =
-                new GESTIONAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new GESTIONAR_EXPEDIENTE());
         }
 
 
@@ -103,10 +125,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            BUSCAR_EXPEDIENTE ventana =
-                new BUSCAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new BUSCAR_EXPEDIENTE());
         }
 
 
@@ -116,10 +135,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            INICIO ventana =
-                new INICIO();
-
-            ventana.Show();
+            AbrirFormulario(new INICIO());
         }
 
 
@@ -129,10 +145,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            REGISTRO_DE_EXPEDIENTE ventana =
-                new REGISTRO_DE_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new REGISTRO_DE_EXPEDIENTE());
         }
 
 
@@ -142,10 +155,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            CONSULTAR_EXPEDIENTE ventana =
-                new CONSULTAR_EXPEDIENTE();
-
-            ventana.Show();
+            AbrirFormulario(new CONSULTAR_EXPEDIENTE());
         }
 
 
@@ -155,10 +165,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void guna2Button8_Click(object sender, EventArgs e)
         {
-            CONFIGURACIÓN ventana =
-                new CONFIGURACIÓN();
-
-            ventana.Show();
+            AbrirFormulario(new CONFIGURACIÓN());
         }
 
 
@@ -173,292 +180,6 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
         // =========================================================
-        // CARGAR EXPEDIENTES EN EL DATAGRIDVIEW
-        // =========================================================
-
-
-        private void CargarExpedientes()
-        {
-            // ==========================================
-            // UBICAR ARCHIVO DE EXPEDIENTES
-            // ==========================================
-
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            // Limpiar tabla
-            dgvExpedientes.Rows.Clear();
-
-            if (!File.Exists(ruta))
-            {
-                return;
-            }
-
-            try
-            {
-                // Leer registros
-                string[] registros = File.ReadAllLines(ruta);
-
-                // Recorrer expedientes
-                for (int i = 0; i < registros.Length; i++)
-                {
-                    if (string.IsNullOrWhiteSpace(registros[i]))
-                    {
-                        continue;
-                    }
-
-                    string[] datos = registros[i].Split('|');
-
-                    if (datos.Length < 10)
-                    {
-                        continue;
-                    }
-
-                    // Mostrar los 11 campos visibles
-                    AgregarFilaReporte(datos);
-                }
-
-                // Quitar selección
-                dgvExpedientes.ClearSelection();
-
-                dgvExpedientes.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error al cargar expedientes:\n" +
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-        }
-
-
-
-        // =========================================================
-        // CARGAR RESUMEN DE LAS TARJETAS
-        // =========================================================
-
-        private void CargarResumenExpedientes()
-        {
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            if (!File.Exists(ruta))
-                return;
-
-            string[] expedientes =
-                File.ReadAllLines(ruta);
-
-            int total = 0;
-            int proceso = 0;
-            int pendiente = 0;
-            int finalizado = 0;
-
-            // Recorrer los expedientes
-            for (int i = 0; i < expedientes.Length; i++)
-            {
-                if (string.IsNullOrWhiteSpace(expedientes[i]))
-                    continue;
-
-                string[] datos =
-                    expedientes[i].Split('|');
-
-                if (datos.Length >= 10)
-                {
-                    total++;
-
-                    string estado =
-                        datos[9].Trim();
-
-                    if (estado.Equals(
-                        "En Proceso",
-                        StringComparison.OrdinalIgnoreCase))
-                    {
-                        proceso++;
-                    }
-                    else if (estado.Equals(
-                        "Pendiente",
-                        StringComparison.OrdinalIgnoreCase))
-                    {
-                        pendiente++;
-                    }
-                    else if (estado.Equals(
-                        "Finalizado",
-                        StringComparison.OrdinalIgnoreCase))
-                    {
-                        finalizado++;
-                    }
-                }
-            }
-
-            // Mostrar datos en las tarjetas
-            num_Totalexpe.Text =
-                total.ToString();
-
-            num_proceso_ex.Text =
-                proceso.ToString();
-
-            num_pendientes_exp.Text =
-                pendiente.ToString();
-
-            num_finalizados_exp.Text =
-                finalizado.ToString();
-        }
-
-
-        // =========================================================
-        // CARGAR GRÁFICO DE ESTADOS
-        // =========================================================
-
-        private void CargarEstados()
-        {
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            string[] expedientes = new string[0];
-
-            if (File.Exists(ruta))
-            {
-                expedientes = File.ReadAllLines(ruta);
-            }
-
-            // Actualizar la dona, la leyenda y el total
-            // desde el inicio, no solamente al generar reporte.
-            ActualizarGraficoEstados(expedientes, expedientes.Length);
-        }
-
-
-        // =========================================================
-        // CARGAR GRÁFICO POR TIPO DE DOCUMENTO
-        // =========================================================
-
-        private void CargarTiposDocumento()
-        {
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            if (!File.Exists(ruta))
-                return;
-
-            string[] expedientes =
-                File.ReadAllLines(ruta);
-
-            string[] tipos =
-            {
-                "Solicitud",
-                "Oficio",
-                "Carta",
-                "Informe",
-                "Reclamo"
-            };
-
-            int[] cantidades =
-            {
-                0, 0, 0, 0, 0
-            };
-
-            // Recorrer expedientes
-            for (int i = 0;
-                 i < expedientes.Length;
-                 i++)
-            {
-                if (string.IsNullOrWhiteSpace(expedientes[i]))
-                    continue;
-
-                string[] datos =
-                    expedientes[i].Split('|');
-
-                if (datos.Length >= 10)
-                {
-                    string tipo =
-                        datos[2].Trim();
-
-                    // Buscar el tipo
-                    for (int j = 0;
-                         j < tipos.Length;
-                         j++)
-                    {
-                        if (tipo.Equals(
-                            tipos[j],
-                            StringComparison.OrdinalIgnoreCase))
-                        {
-                            cantidades[j]++;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // Limpiar gráfico
-            gunaBarDataset1.DataPoints.Clear();
-
-            // Agregar datos
-            for (int i = 0;
-                 i < tipos.Length;
-                 i++)
-            {
-                gunaBarDataset1.DataPoints.Add(
-                    new LPoint(
-                        tipos[i],
-                        cantidades[i]
-                    )
-                );
-            }
-        }
-
-
-        // =========================================================
-        // CARGAR GRÁFICO POR MES
-        // =========================================================
-
-
-        private void CargarExpedientesPorMes()
-        {
-            // ==========================================
-            // OBTENER RUTA DE LOS EXPEDIENTES
-            // ==========================================
-
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
-            // Limpiar gráfico si no existen datos
-            if (!File.Exists(ruta))
-            {
-                gunaLineDataset1.DataPoints.Clear();
-                return;
-            }
-
-            // Leer todos los registros
-            string[] expedientes = File.ReadAllLines(ruta);
-
-            // Utilizar el método de actualización
-            // para no repetir código
-            ActualizarGraficoMeses(
-                expedientes,
-                expedientes.Length
-            );
-        }
-
-
-        // =========================================================
         // BOTÓN GENERAR REPORTE
         // =========================================================
 
@@ -466,14 +187,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             object sender,
             EventArgs e)
         {
-            string ruta = Path.Combine(
-                Application.StartupPath,
-                "Datos",
-                "expedientes.txt"
-            );
-
             // Verificar archivo
-            if (!File.Exists(ruta))
+            if (!File.Exists(Funciones.RutaExpedientes()))
             {
                 MessageBox.Show(
                     "No se encontró el archivo de expedientes.",
@@ -485,9 +200,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 return;
             }
 
-            // Leer archivo
+            // Leer solo expedientes válidos
+            // (sin líneas vacías ni registros incompletos)
             string[] expedientes =
-                File.ReadAllLines(ruta);
+                Funciones.LeerExpedientesValidos();
 
             // Arreglo para guardar
             // solamente los expedientes filtrados
@@ -539,12 +255,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Validar fechas cuando se ingresa un período
             if (tieneDesde && tieneHasta)
             {
-                if (!DateTime.TryParseExact(
-                    textoDesde,
-                    "dd/MM/yyyy",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out fechaDesde))
+                if (!Funciones.ConvertirFecha(textoDesde, out fechaDesde))
                 {
                     MessageBox.Show(
                         "Fecha desde inválida. Use dd/MM/yyyy.",
@@ -557,12 +268,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     return;
                 }
 
-                if (!DateTime.TryParseExact(
-                    textoHasta,
-                    "dd/MM/yyyy",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out fechaHasta))
+                if (!Funciones.ConvertirFecha(textoHasta, out fechaHasta))
                 {
                     MessageBox.Show(
                         "Fecha hasta inválida. Use dd/MM/yyyy.",
@@ -593,17 +299,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             }
 
 
-             usarFechaDesde =
-                DateTime.TryParse(
-                    Text_fechaantes.Text,
-                    out fechaDesde
-                );
-
-             usarFechaHasta =
-                DateTime.TryParse(
-                    text_fechahasta.Text,
-                    out fechaHasta
-                );
+            // Nota: las fechas se interpretan siempre como
+            // dd/MM/yyyy, sin depender del idioma de Windows.
 
             // ==========================================
             // FILTROS SELECCIONADOS
@@ -634,43 +331,28 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 string[] datos =
                     expedientes[i].Split('|');
 
-                if (datos.Length < 10)
-                    continue;
-
                 bool cumple = true;
 
 
                 // ======================================
                 // FILTRO POR FECHA
+                // (solo cuando se ingresaron ambas fechas)
                 // ======================================
 
-                DateTime fecha;
-
-                
-
-                if (!DateTime.TryParseExact(
-                    datos[1].Trim(),
-                    "dd/MM/yyyy",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.DateTimeStyles.None,
-                    out fecha))
+                if (usarFechaDesde || usarFechaHasta)
                 {
-                    // Ignorar expedientes con fecha incorrecta
-                    continue;
-                }
+                    DateTime fecha;
 
-                // Fecha desde
-                if (usarFechaDesde &&
-                    fecha.Date < fechaDesde.Date)
-                {
-                    cumple = false;
-                }
-
-                // Fecha hasta
-                if (usarFechaHasta &&
-                    fecha.Date > fechaHasta.Date)
-                {
-                    cumple = false;
+                    if (!Funciones.ConvertirFecha(datos[1], out fecha))
+                    {
+                        // Fecha incorrecta: no entra en el período
+                        cumple = false;
+                    }
+                    else if (fecha.Date < fechaDesde.Date ||
+                             fecha.Date > fechaHasta.Date)
+                    {
+                        cumple = false;
+                    }
                 }
 
 
@@ -678,7 +360,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 // FILTRO POR TIPO DE DOCUMENTO
                 // ======================================
 
-                if (tipoSeleccionado != "Todos")
+                if (tipoSeleccionado != "" && tipoSeleccionado != "Todos")
                 {
                     if (!datos[2].Trim().Equals(
                         tipoSeleccionado,
@@ -693,7 +375,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 // FILTRO POR ESTADO
                 // ======================================
 
-                if (estadoSeleccionado != "Todos")
+                if (estadoSeleccionado != "" && estadoSeleccionado != "Todos")
                 {
                     if (!datos[9].Trim().Equals(
                         estadoSeleccionado,
@@ -719,53 +401,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
             // ==========================================
-            // MOSTRAR RESULTADOS
+            // MOSTRAR RESULTADOS EN TABLA, TARJETAS Y GRÁFICOS
             // ==========================================
 
-            MostrarTablaFiltrada(
-                filtrados,
-                cantidadFiltrados
-            );
-
-
-            // ==========================================
-            // ACTUALIZAR TARJETAS
-            // ==========================================
-
-            ActualizarTarjetas(
-                filtrados,
-                cantidadFiltrados
-            );
-
-
-            // ==========================================
-            // ACTUALIZAR GRÁFICO DE ESTADOS
-            // ==========================================
-
-            ActualizarGraficoEstados(
-                filtrados,
-                cantidadFiltrados
-            );
-
-
-            // ==========================================
-            // ACTUALIZAR GRÁFICO DE TIPOS
-            // ==========================================
-
-            ActualizarGraficoTipos(
-                filtrados,
-                cantidadFiltrados
-            );
-
-
-            // ==========================================
-            // ACTUALIZAR GRÁFICO DE MESES
-            // ==========================================
-
-            ActualizarGraficoMeses(
-                filtrados,
-                cantidadFiltrados
-            );
+            MostrarReporte(filtrados, cantidadFiltrados);
 
 
             // ==========================================
@@ -848,6 +487,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                  i < cantidad;
                  i++)
             {
+                if (!Funciones.EsRegistroValido(filtrados[i]))
+                {
+                    continue;
+                }
+
                 string[] datos =
                     filtrados[i].Split('|');
 
@@ -907,6 +551,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             for (int i = 0; i < cantidad; i++)
             {
+                if (!Funciones.EsRegistroValido(filtrados[i]))
+                {
+                    continue;
+                }
+
                 string[] datos =
                     filtrados[i].Split('|');
 
@@ -950,6 +599,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             gunaDoughnutDataset1.DataPoints.Add(
                 new LPoint("Finalizado", finalizado)
             );
+
+            // Redibujar el gráfico con los nuevos datos
+            GRAFICO_DONA.Update();
 
 
             // ==========================================
@@ -1017,14 +669,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             string[] filtrados,
             int cantidad)
         {
-            string[] tipos =
-            {
-                "Solicitud",
-                "Oficio",
-                "Carta",
-                "Informe",
-                "Reclamo"
-            };
+            string[] tipos = Funciones.TiposDocumento;
 
             int[] cantidades =
             {
@@ -1036,6 +681,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                  i < cantidad;
                  i++)
             {
+                if (!Funciones.EsRegistroValido(filtrados[i]))
+                {
+                    continue;
+                }
+
                 string[] datos =
                     filtrados[i].Split('|');
 
@@ -1072,6 +722,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     )
                 );
             }
+
+            // Redibujar el gráfico con los nuevos datos
+            GRAFICO_BARRAS.Update();
         }
 
 
@@ -1162,12 +815,15 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // 7. MOSTRAR MESES CON SUS AÑOS
             // ==========================================
 
+            System.Globalization.CultureInfo cultura =
+                new System.Globalization.CultureInfo("es-PE");
+
             foreach (var elemento in expedientesPorMes)
             {
                 // Ejemplo: oct 2026
                 string nombreMes = elemento.Key.ToString(
                     "MMM yyyy",
-                    new System.Globalization.CultureInfo("es-PE")
+                    cultura
                 );
 
                 // Cantidad de expedientes del período
@@ -1180,6 +836,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                     )
                 );
             }
+
+            // Redibujar el gráfico con los nuevos datos
+            GRAFICO_LINEAL.Update();
         }
 
 
@@ -1198,13 +857,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // OBTENER NÚMERO DE EXPEDIENTE
             // ==========================================
 
-            string numero = datos[0].Trim();
+            string numero = Funciones.NormalizarNumero(datos[0]);
 
-            if (numero.StartsWith(
-                "EXP-",
-                StringComparison.OrdinalIgnoreCase))
+            if (numero == "")
             {
-                numero = numero.Substring(4);
+                numero = datos[0].Trim();
             }
 
             // ==========================================

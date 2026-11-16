@@ -19,6 +19,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
            this.WindowState = FormWindowState.Maximized;
           this.FormBorderStyle = FormBorderStyle.None;
            this.DoubleBuffered = true;
+
+            // Ajustar el diseño al tamaño y escalado de la pantalla
+            Escalado.AjustarPantallaCompleta(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
