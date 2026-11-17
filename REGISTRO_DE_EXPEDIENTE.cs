@@ -545,8 +545,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 return;
             }
 
-            // Primer movimiento del historial (con fecha y hora)
-            Funciones.AgregarMovimiento(numeroExpediente, "Expediente registrado");
+            // Primera acción del historial (fecha, hora y responsable)
+            Funciones.RegistrarHistorial(numeroExpediente, Funciones.ACCION_REGISTRO, Funciones.UsuarioActual,
+                "Estado: Pendiente. Área de destino: " + Funciones.LimpiarTexto(comb_destino.Text));
 
 
             // 5. LIMPIAR SEGÚN CONFIGURACIÓN (opción 1)

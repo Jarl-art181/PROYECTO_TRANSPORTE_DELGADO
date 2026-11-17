@@ -111,6 +111,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             btnPrepararDerivacion.Click += btnPrepararDerivacion_Click;
             btnCancelarDerivacion.Click += btnCerrarPanel_Click;
             btnVerPdfArea.Click += btnVerPdfCorreo_Click;
+            cmbAreaDerivar.SelectedIndexChanged += cmbAreaDerivar_SelectedIndexChanged;
 
             // Panel Correos preparados
             btnCerrarVerCorreo.Click += btnCerrarPanel_Click;
@@ -128,6 +129,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             Restricciones.Texto(txtObservacion, Restricciones.MAX_OBSERVACION);
             Restricciones.Texto(txtAsunto, 200);
             Restricciones.Texto(txtMensaje, 1000);
+            Restricciones.Texto(txtEncargado, Restricciones.MAX_NOMBRE);
             Restricciones.Texto(txtCorreoEncargado, Restricciones.MAX_CORREO);
             Restricciones.Texto(txtAsuntoArea, 200);
             Restricciones.Texto(txtMensajeArea, 1000);
@@ -360,9 +362,11 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
         // =========================================================
         // 4. PREPARAR CORREO (dos pestañas, cada una con su destinatario)
         //   - Notificar al solicitante: correo del solicitante (solo lectura)
-        //   - Derivar al encargado del área: correo del encargado (editable)
-        // El correo se prepara como borrador y se abre en la aplicación
-        // de correo del administrador. El estado del expediente no cambia.
+        //   - Derivar al encargado del área: área responsable y encargado
+        // Se abre Gmail en el navegador predeterminado con el
+        // destinatario, el asunto y el mensaje. El sistema NO envía
+        // el correo: solo registra lo que realmente hizo (correo
+        // preparado y derivación registrada). El estado no cambia.
         // =========================================================
 
         private void btnNotificar_Click(object sender, EventArgs e)
@@ -375,14 +379,26 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             MostrarPanel(panelCorreo);
         }
 
-        // Nombre del PDF para mostrar ("Sin PDF" si no hay)
-        private string NombrePDF()
+        // ¿El PDF del expediente existe en el disco?
+        private bool ExistePDF()
         {
             string pdf = RutaPDF();
-            return Funciones.TienePDF(pdf) && File.Exists(pdf) ? Path.GetFileName(pdf) : "Sin PDF";
+            return Funciones.TienePDF(pdf) && File.Exists(pdf);
+        }
+
+        // Nombre del PDF para mostrar
+        private string NombrePDF()
+        {
+            if (ExistePDF())
+            {
+                return Path.GetFileName(RutaPDF());
+            }
+
+            return Funciones.TienePDF(RutaPDF()) ? "PDF no encontrado" : "Sin PDF";
         }
 
         // Pestaña 1: Notificar al solicitante
+        // (correo, nombre, número y estado del expediente)
         private void PrepararNotificacion()
         {
             string nombre = Mostrar(campos[4]);
@@ -401,35 +417,84 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             // Adjunto
             lblNombrePdf.Text = NombrePDF();
             ayuda.SetToolTip(lblNombrePdf, lblNombrePdf.Text);
-            btnVerPdfCorreo.Enabled = lblNombrePdf.Text != "Sin PDF";
+            btnVerPdfCorreo.Enabled = ExistePDF();
         }
 
         // Pestaña 2: Derivar al encargado del área
         private void PrepararDerivacion()
         {
             string area = campos[Funciones.CAMPO_AREA].Trim();
-            string codigo = "EXP-" + numeroExpediente;
 
-            // Área de destino (solo lectura)
+            // Área registrada (solo lectura) y área responsable (se puede cambiar)
             txtAreaDestino.Text = Mostrar(area);
 
-            // Correo del encargado: el guardado para esa área, si existe
-            txtCorreoEncargado.Text = area != "" ? Funciones.CorreoDeArea(area) : "";
+            cmbAreaDerivar.SelectedIndex = -1;
+            cmbAreaDerivar.SelectedItem = Funciones.EstaEnLista(area, Funciones.Areas) ? area : null;
 
-            // Asunto con el código y el motivo; mensaje editable
-            txtAsuntoArea.Text = "Expediente " + codigo + " - " + Mostrar(campos[3]);
-            txtMensajeArea.Text =
-                "Adjunto el expediente para su revisión. Por favor, confirme quién lo atenderá.";
+            CargarEncargado();
 
             // Adjunto
             lblNombrePdfArea.Text = NombrePDF();
             ayuda.SetToolTip(lblNombrePdfArea, lblNombrePdfArea.Text);
-            btnVerPdfArea.Enabled = lblNombrePdfArea.Text != "Sin PDF";
+            btnVerPdfArea.Enabled = ExistePDF();
+        }
+
+        // Área responsable elegida ("" si no hay)
+        private string AreaElegida()
+        {
+            return cmbAreaDerivar.SelectedItem == null ? "" : cmbAreaDerivar.SelectedItem.ToString();
+        }
+
+        // Carga el encargado guardado del área y prepara asunto y mensaje
+        private void CargarEncargado()
+        {
+            string area = AreaElegida();
+            string encargado;
+            string correo;
+
+            Funciones.EncargadoDeArea(area, out encargado, out correo);
+
+            txtEncargado.Text = encargado;
+            txtCorreoEncargado.Text = correo;
+
+            string codigo = "EXP-" + numeroExpediente;
+
+            txtAsuntoArea.Text = "Derivación del expediente " + codigo + " - " + Mostrar(campos[3]);
+            txtMensajeArea.Text =
+                "Estimado(a) encargado(a) del área de " + (area != "" ? area : "...") + ":\r\n\r\n" +
+                "Se deriva el expediente " + codigo + " (" + Mostrar(campos[2]) + "), sobre " + Mostrar(campos[3]) +
+                ", presentado por " + Mostrar(campos[4]) + ".\r\n" +
+                "Adjunto el expediente para su revisión. Por favor, confirme quién lo atenderá.";
+        }
+
+        private void cmbAreaDerivar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (campos != null)
+            {
+                CargarEncargado();
+            }
         }
 
         private void btnVerPdfCorreo_Click(object sender, EventArgs e)
         {
             Funciones.AbrirPDF(RutaPDF());
+        }
+
+        // El PDF debe existir antes de preparar cualquier correo
+        private bool PDFListo(string titulo)
+        {
+            if (ExistePDF())
+            {
+                return true;
+            }
+
+            Funciones.Aviso(
+                Funciones.TienePDF(RutaPDF())
+                    ? "No se encontró el PDF del expediente en:\n" + RutaPDF() + "\n\nVuelva a adjuntarlo en Modificar antes de preparar el correo."
+                    : "El expediente no tiene PDF. Adjúntelo en Modificar antes de preparar el correo.",
+                titulo);
+
+            return false;
         }
 
         // Preparar correo: Notificar al solicitante
@@ -455,21 +520,32 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             if (!Funciones.Validar(txtMensaje.Text.Trim() != "",
                     "Ingrese el mensaje.", "Campo obligatorio", txtMensaje)) return;
 
-            PrepararYRegistrar(para, txtAsunto.Text.Trim(), txtMensaje.Text.Trim(),
-                "Solicitante", "Notificación preparada para el solicitante");
+            if (!PDFListo("Notificar al solicitante")) return;
+
+            if (!AbrirCorreo(para, txtAsunto.Text.Trim(), txtMensaje.Text.Trim(), "Solicitante"))
+            {
+                return;
+            }
+
+            // Solo lo que realmente ocurrió: el correo quedó preparado
+            Funciones.RegistrarHistorial(numeroExpediente, Funciones.ACCION_CORREO_PREPARADO, Funciones.UsuarioActual,
+                "Notificación al solicitante: " + para);
+
+            TerminarCorreo(para);
         }
 
         // Preparar correo: Derivar al encargado del área
         private void btnPrepararDerivacion_Click(object sender, EventArgs e)
         {
-            string area = campos[Funciones.CAMPO_AREA].Trim();
+            string area = AreaElegida();
+            string encargado = txtEncargado.Text.Trim();
             string para = txtCorreoEncargado.Text.Trim();
 
-            if (area == "")
-            {
-                Funciones.Aviso("El expediente no tiene área de destino. Regístrela en Modificar.", "Derivar al área");
-                return;
-            }
+            if (!Funciones.Validar(area != "",
+                    "Seleccione el área responsable.", "Campo obligatorio", cmbAreaDerivar)) return;
+
+            if (!Funciones.Validar(encargado != "",
+                    "Ingrese el nombre del encargado del área " + area + ".", "Campo obligatorio", txtEncargado)) return;
 
             if (!Funciones.Validar(para != "",
                     "Ingrese el correo del encargado del área " + area + ".", "Campo obligatorio", txtCorreoEncargado)) return;
@@ -483,51 +559,59 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             if (!Funciones.Validar(txtMensajeArea.Text.Trim() != "",
                     "Ingrese el mensaje.", "Campo obligatorio", txtMensajeArea)) return;
 
-            // Se recuerda el correo para la próxima derivación a esa área
-            if (Funciones.CorreoDeArea(area) != para)
+            if (!PDFListo("Derivar al área")) return;
+
+            if (!AbrirCorreo(para, txtAsuntoArea.Text.Trim(), txtMensajeArea.Text.Trim(), area))
             {
-                Funciones.GuardarCorreoDeArea(area, para);
+                return;
             }
 
-            PrepararYRegistrar(para, txtAsuntoArea.Text.Trim(), txtMensajeArea.Text.Trim(),
-                area, "Derivación preparada para el área " + area);
+            // Se recuerda el encargado para la próxima derivación a esa área
+            Funciones.GuardarEncargadoDeArea(area, encargado, para);
+
+            // Dos acciones reales: la derivación al área y el correo preparado
+            Funciones.RegistrarHistorial(numeroExpediente, Funciones.ACCION_DERIVACION, area,
+                "Encargado: " + encargado + " (" + para + ")");
+            Funciones.RegistrarHistorial(numeroExpediente, Funciones.ACCION_CORREO_PREPARADO, Funciones.UsuarioActual,
+                "Derivación al área " + area + ": " + para);
+
+            TerminarCorreo(para);
         }
 
-        // Crea el borrador, lo abre y lo registra en el historial
-        private void PrepararYRegistrar(string para, string asunto, string mensaje,
-            string destinatario, string movimiento)
+        // Abre Gmail en el navegador y guarda el correo preparado
+        private bool AbrirCorreo(string para, string asunto, string mensaje, string destinatario)
         {
-            string ruta;
             string error;
 
-            Cursor = Cursors.WaitCursor;
-            bool listo = Funciones.PrepararBorrador(numeroExpediente, para, asunto, mensaje, RutaPDF(), out ruta, out error);
-            Cursor = Cursors.Default;
-
-            // Solo se registra si el borrador se abrió
-            if (!listo)
+            if (!Funciones.AbrirGmail(para, asunto, mensaje, out error))
             {
                 MessageBox.Show(
-                    "No se pudo abrir el borrador y no se registró.\n\n" + error,
+                    "No se pudo abrir Gmail. No se registró nada.\n\n" + error,
                     "Preparar correo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
 
-                return;
+                return false;
             }
 
             Funciones.RegistrarCorreo(numeroExpediente, para, asunto, mensaje, NombrePDF(), destinatario);
-            Funciones.AgregarMovimiento(numeroExpediente, movimiento + " (" + para + ")");
+            return true;
+        }
 
+        // Cierra el panel y recuerda adjuntar el PDF antes de enviar
+        private void TerminarCorreo(string para)
+        {
             MostrarPanel(null);
             CargarDatos();
 
             MessageBox.Show(
-                "El borrador para " + para + " se abrió en su aplicación de correo.\n" +
-                "Revíselo y envíelo desde allí.\n\n" +
+                "Se abrió Gmail en su navegador con el mensaje para " + para + ".\n" +
+                "Si Gmail le pide iniciar sesión, hágalo y el mensaje aparecerá listo.\n\n" +
+                "Antes de enviarlo, adjunte el PDF del expediente (botón Ver PDF):\n" + RutaPDF() + "\n\n" +
+                "El correo NO se ha enviado todavía: envíelo desde Gmail.\n" +
                 "El expediente mantiene su estado: " + Mostrar(Estado()) + ".",
-                "Preparar correo",
+                "Correo preparado",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );

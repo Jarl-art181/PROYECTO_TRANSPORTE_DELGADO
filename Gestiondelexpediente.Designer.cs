@@ -88,6 +88,11 @@
             this.btnPrepararDerivacion = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancelarDerivacion = new Guna.UI2.WinForms.Guna2Button();
             this.tablaBotonesDerivar = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbAreaDerivar = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblRegistrada = new System.Windows.Forms.Label();
+            this.tablaAreaDerivar = new System.Windows.Forms.TableLayoutPanel();
+            this.lblEncargado = new System.Windows.Forms.Label();
+            this.txtEncargado = new Guna.UI2.WinForms.Guna2TextBox();
             this.tablaDerivar = new System.Windows.Forms.TableLayoutPanel();
             this.panelCorreo = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTituloVerCorreo = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -131,6 +136,7 @@
             this.tabArea.SuspendLayout();
             this.tablaAdjuntoArea.SuspendLayout();
             this.tablaBotonesDerivar.SuspendLayout();
+            this.tablaAreaDerivar.SuspendLayout();
             this.tablaDerivar.SuspendLayout();
             this.panelCorreo.SuspendLayout();
             this.tablaBotonesVerCorreo.SuspendLayout();
@@ -727,7 +733,7 @@
             this.lblAreaDestino.BackColor = System.Drawing.Color.Transparent;
             this.lblAreaDestino.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAreaDestino.ForeColor = System.Drawing.Color.Black;
-            this.lblAreaDestino.Text = "Área de destino:";
+            this.lblAreaDestino.Text = "Área responsable:";
             this.lblAreaDestino.Name = "lblAreaDestino";
             this.lblAreaDestino.TabIndex = 131;
             // 
@@ -931,6 +937,76 @@
             this.tablaBotonesDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tablaBotonesDerivar.Name = "tablaBotonesDerivar";
             this.tablaBotonesDerivar.TabIndex = 145;
+            //
+            // cmbAreaDerivar
+            //
+            this.cmbAreaDerivar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbAreaDerivar.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAreaDerivar.BorderRadius = 6;
+            this.cmbAreaDerivar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbAreaDerivar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAreaDerivar.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbAreaDerivar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAreaDerivar.ForeColor = System.Drawing.Color.Black;
+            this.cmbAreaDerivar.ItemHeight = 26;
+            this.cmbAreaDerivar.Items.AddRange(new object[] {"Administración", "Operaciones", "Contabilidad", "Gerencia"});
+            this.cmbAreaDerivar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbAreaDerivar.Name = "cmbAreaDerivar";
+            this.cmbAreaDerivar.TabIndex = 160;
+            //
+            // lblRegistrada
+            //
+            this.lblRegistrada.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblRegistrada.AutoSize = true;
+            this.lblRegistrada.BackColor = System.Drawing.Color.Transparent;
+            this.lblRegistrada.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrada.ForeColor = System.Drawing.Color.DimGray;
+            this.lblRegistrada.Name = "lblRegistrada";
+            this.lblRegistrada.TabIndex = 161;
+            this.lblRegistrada.Text = "Registrada:";
+            //
+            // tablaAreaDerivar
+            //
+            this.tablaAreaDerivar.BackColor = System.Drawing.Color.White;
+            this.tablaAreaDerivar.ColumnCount = 3;
+            this.tablaAreaDerivar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tablaAreaDerivar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.tablaAreaDerivar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tablaAreaDerivar.Controls.Add(this.cmbAreaDerivar, 0, 0);
+            this.tablaAreaDerivar.Controls.Add(this.lblRegistrada, 1, 0);
+            this.tablaAreaDerivar.Controls.Add(this.txtAreaDestino, 2, 0);
+            this.tablaAreaDerivar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablaAreaDerivar.Margin = new System.Windows.Forms.Padding(0);
+            this.tablaAreaDerivar.RowCount = 1;
+            this.tablaAreaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tablaAreaDerivar.Name = "tablaAreaDerivar";
+            this.tablaAreaDerivar.TabIndex = 162;
+            //
+            // lblEncargado
+            //
+            this.lblEncargado.AutoSize = true;
+            this.lblEncargado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblEncargado.BackColor = System.Drawing.Color.Transparent;
+            this.lblEncargado.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncargado.ForeColor = System.Drawing.Color.Black;
+            this.lblEncargado.Text = "Encargado:";
+            this.lblEncargado.Name = "lblEncargado";
+            this.lblEncargado.TabIndex = 163;
+            //
+            // txtEncargado
+            //
+            this.txtEncargado.BorderRadius = 6;
+            this.txtEncargado.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEncargado.DefaultText = "";
+            this.txtEncargado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEncargado.FillColor = System.Drawing.Color.White;
+            this.txtEncargado.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEncargado.ForeColor = System.Drawing.Color.Black;
+            this.txtEncargado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEncargado.PlaceholderText = "Nombre del encargado del área";
+            this.txtEncargado.SelectedText = "";
+            this.txtEncargado.Name = "txtEncargado";
+            this.txtEncargado.TabIndex = 164;
             // 
             // tablaDerivar
             // 
@@ -939,24 +1015,27 @@
             this.tablaDerivar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31F));
             this.tablaDerivar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69F));
             this.tablaDerivar.Controls.Add(this.lblAreaDestino, 0, 0);
-            this.tablaDerivar.Controls.Add(this.txtAreaDestino, 1, 0);
-            this.tablaDerivar.Controls.Add(this.lblCorreoEncargado, 0, 1);
-            this.tablaDerivar.Controls.Add(this.txtCorreoEncargado, 1, 1);
-            this.tablaDerivar.Controls.Add(this.lblAsuntoArea, 0, 2);
-            this.tablaDerivar.Controls.Add(this.txtAsuntoArea, 1, 2);
-            this.tablaDerivar.Controls.Add(this.lblMensajeArea, 0, 3);
-            this.tablaDerivar.Controls.Add(this.txtMensajeArea, 1, 3);
-            this.tablaDerivar.Controls.Add(this.lblAdjuntoArea, 0, 4);
-            this.tablaDerivar.Controls.Add(this.tablaAdjuntoArea, 1, 4);
-            this.tablaDerivar.Controls.Add(this.tablaBotonesDerivar, 0, 5);
+            this.tablaDerivar.Controls.Add(this.tablaAreaDerivar, 1, 0);
+            this.tablaDerivar.Controls.Add(this.lblEncargado, 0, 1);
+            this.tablaDerivar.Controls.Add(this.txtEncargado, 1, 1);
+            this.tablaDerivar.Controls.Add(this.lblCorreoEncargado, 0, 2);
+            this.tablaDerivar.Controls.Add(this.txtCorreoEncargado, 1, 2);
+            this.tablaDerivar.Controls.Add(this.lblAsuntoArea, 0, 3);
+            this.tablaDerivar.Controls.Add(this.txtAsuntoArea, 1, 3);
+            this.tablaDerivar.Controls.Add(this.lblMensajeArea, 0, 4);
+            this.tablaDerivar.Controls.Add(this.txtMensajeArea, 1, 4);
+            this.tablaDerivar.Controls.Add(this.lblAdjuntoArea, 0, 5);
+            this.tablaDerivar.Controls.Add(this.tablaAdjuntoArea, 1, 5);
+            this.tablaDerivar.Controls.Add(this.tablaBotonesDerivar, 0, 6);
             this.tablaDerivar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablaDerivar.RowCount = 6;
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19F));
+            this.tablaDerivar.RowCount = 7;
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tablaDerivar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tablaDerivar.SetColumnSpan(this.tablaBotonesDerivar, 2);
             this.tablaDerivar.Name = "tablaDerivar";
             this.tablaDerivar.TabIndex = 146;
@@ -1541,6 +1620,8 @@
             this.tablaCorreo.ResumeLayout(false);
             this.tablaCorreo.PerformLayout();
             this.barraCorreo.ResumeLayout(false);
+            this.tablaAreaDerivar.ResumeLayout(false);
+            this.tablaAreaDerivar.PerformLayout();
             this.tablaDerivar.ResumeLayout(false);
             this.tablaDerivar.PerformLayout();
             this.tablaBotonesDerivar.ResumeLayout(false);
@@ -1644,6 +1725,11 @@
         private Guna.UI2.WinForms.Guna2Button btnPrepararDerivacion;
         private Guna.UI2.WinForms.Guna2Button btnCancelarDerivacion;
         private System.Windows.Forms.TableLayoutPanel tablaBotonesDerivar;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbAreaDerivar;
+        private System.Windows.Forms.Label lblRegistrada;
+        private System.Windows.Forms.TableLayoutPanel tablaAreaDerivar;
+        private System.Windows.Forms.Label lblEncargado;
+        private Guna.UI2.WinForms.Guna2TextBox txtEncargado;
         private System.Windows.Forms.TableLayoutPanel tablaDerivar;
         private Guna.UI2.WinForms.Guna2Panel panelCorreo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloVerCorreo;

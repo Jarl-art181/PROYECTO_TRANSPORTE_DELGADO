@@ -134,6 +134,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
                 dgvExpedientes.ClearSelection();
                 dgvExpedientes.Refresh();
+
+                // Resumen de Expedientes Registrados (sin selección)
+                MostrarResumen();
             }
             catch (Exception ex)
             {
@@ -541,6 +544,94 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             // Colocar cursor
             text_nu_expediente.Focus();
+        }
+
+        // =====================================================
+        // EXPEDIENTES REGISTRADOS: RESUMEN DE LA FILA ELEGIDA
+        // Solicitante, documento, motivo, último movimiento
+        // del historial e inicio de atención.
+        // =====================================================
+
+        // Código (8 dígitos) de la fila seleccionada ("" si no hay)
+        private string NumeroSeleccionado()
+        {
+            if (dgvExpedientes.SelectedRows.Count == 0 ||
+                !dgvExpedientes.Columns.Contains("colExpediente"))
+            {
+                return "";
+            }
+
+            object valor = dgvExpedientes.SelectedRows[0].Cells["colExpediente"].Value;
+
+            return Funciones.NormalizarNumero(valor == null ? "" : valor.ToString());
+        }
+
+        private void MostrarResumen()
+        {
+            string numero = NumeroSeleccionado();
+            string[] datos = numero != "" ? Funciones.BuscarExpediente(numero) : null;
+
+            // Sin selección: valores vacíos y botón deshabilitado
+            if (datos == null)
+            {
+                Label[] valores = { lblSolicitanteValor, lblDocumentoValor, lblMotivoValor,
+                                    lblUltimoMovimientoValor, lblInicioAtencionValor };
+
+                for (int i = 0; i < valores.Length; i++)
+                {
+                    valores[i].Text = "-";
+                }
+
+                lblSolicitanteValor.Text = "Seleccione un expediente de la tabla";
+                guna2Button1.Enabled = false;
+                return;
+            }
+
+            string[] campos = Funciones.CompletarCampos(datos);
+
+            lblSolicitanteValor.Text = Mostrar(campos[4]);
+            lblDocumentoValor.Text = Mostrar(campos[2]);
+            lblMotivoValor.Text = Mostrar(campos[3]);
+            lblUltimoMovimientoValor.Text = Funciones.UltimoMovimiento(numero);
+            lblInicioAtencionValor.Text = Mostrar(campos[Funciones.CAMPO_INICIO]);
+
+            guna2Button1.Enabled = true;
+        }
+
+        // "Sin registrar" cuando falta el dato
+        private string Mostrar(string valor)
+        {
+            return string.IsNullOrWhiteSpace(valor) ? Funciones.SIN_REGISTRAR : valor.Trim();
+        }
+
+        private void dgvExpedientes_SelectionChanged(object sender, EventArgs e)
+        {
+            MostrarResumen();
+        }
+
+        // =====================================================
+        // BOTÓN "VER DETALLE O HISTORIAL"
+        // Abre el historial del expediente seleccionado
+        // (fecha, hora, acción, responsable y observación).
+        // =====================================================
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            string numero = NumeroSeleccionado();
+
+            if (numero == "")
+            {
+                Funciones.Aviso("Seleccione un expediente de la tabla.", "Ver detalle o Historial");
+                return;
+            }
+
+            using (HISTORIAL_DEL_EXPEDIENTE ventana = new HISTORIAL_DEL_EXPEDIENTE(numero))
+            {
+                ventana.ShowDialog(this);
+            }
+
+            // El historial puede haber cambiado (por ejemplo, desde Ver detalle)
+            MostrarResumen();
         }
 
         // =====================================================

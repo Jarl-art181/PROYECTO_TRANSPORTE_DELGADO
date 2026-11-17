@@ -122,6 +122,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lblSolicitanteValor = new System.Windows.Forms.Label();
+            this.lblDocumentoValor = new System.Windows.Forms.Label();
+            this.lblMotivoValor = new System.Windows.Forms.Label();
+            this.lblUltimoMovimientoValor = new System.Windows.Forms.Label();
+            this.lblInicioAtencionValor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -190,6 +195,7 @@
             this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvExpedientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvExpedientes.Location = new System.Drawing.Point(9, 10);
+            this.dgvExpedientes.SelectionChanged += new System.EventHandler(this.dgvExpedientes_SelectionChanged);
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidth = 51;
@@ -1149,6 +1155,8 @@
             // 
             this.guna2Panel10.BackColor = System.Drawing.Color.DarkGray;
             this.guna2Panel10.BorderRadius = 10;
+            this.guna2Panel10.Controls.Add(this.lblUltimoMovimientoValor);
+            this.guna2Panel10.Controls.Add(this.lblInicioAtencionValor);
             this.guna2Panel10.Controls.Add(this.label8);
             this.guna2Panel10.Controls.Add(this.guna2Button1);
             this.guna2Panel10.Controls.Add(this.guna2Panel11);
@@ -1163,6 +1171,9 @@
             // 
             this.guna2Panel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel11.BorderRadius = 10;
+            this.guna2Panel11.Controls.Add(this.lblSolicitanteValor);
+            this.guna2Panel11.Controls.Add(this.lblDocumentoValor);
+            this.guna2Panel11.Controls.Add(this.lblMotivoValor);
             this.guna2Panel11.Controls.Add(this.label7);
             this.guna2Panel11.Controls.Add(this.label6);
             this.guna2Panel11.Controls.Add(this.label5);
@@ -1190,6 +1201,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(253, 46);
             this.guna2Button1.TabIndex = 21;
             this.guna2Button1.Text = "Ver detalle o Historial";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // label5
             // 
@@ -1242,6 +1254,66 @@
             this.label12.Size = new System.Drawing.Size(130, 16);
             this.label12.TabIndex = 3;
             this.label12.Text = "Ultimo Movimiento:";
+            //
+            // lblSolicitanteValor
+            //
+            this.lblSolicitanteValor.AutoEllipsis = true;
+            this.lblSolicitanteValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblSolicitanteValor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSolicitanteValor.ForeColor = System.Drawing.Color.Black;
+            this.lblSolicitanteValor.Location = new System.Drawing.Point(110, 17);
+            this.lblSolicitanteValor.Name = "lblSolicitanteValor";
+            this.lblSolicitanteValor.Size = new System.Drawing.Size(285, 16);
+            this.lblSolicitanteValor.TabIndex = 31;
+            this.lblSolicitanteValor.Text = "-";
+            //
+            // lblDocumentoValor
+            //
+            this.lblDocumentoValor.AutoEllipsis = true;
+            this.lblDocumentoValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblDocumentoValor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocumentoValor.ForeColor = System.Drawing.Color.Black;
+            this.lblDocumentoValor.Location = new System.Drawing.Point(110, 44);
+            this.lblDocumentoValor.Name = "lblDocumentoValor";
+            this.lblDocumentoValor.Size = new System.Drawing.Size(285, 16);
+            this.lblDocumentoValor.TabIndex = 32;
+            this.lblDocumentoValor.Text = "-";
+            //
+            // lblMotivoValor
+            //
+            this.lblMotivoValor.AutoEllipsis = true;
+            this.lblMotivoValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblMotivoValor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotivoValor.ForeColor = System.Drawing.Color.Black;
+            this.lblMotivoValor.Location = new System.Drawing.Point(110, 73);
+            this.lblMotivoValor.Name = "lblMotivoValor";
+            this.lblMotivoValor.Size = new System.Drawing.Size(285, 16);
+            this.lblMotivoValor.TabIndex = 33;
+            this.lblMotivoValor.Text = "-";
+            //
+            // lblUltimoMovimientoValor
+            //
+            this.lblUltimoMovimientoValor.AutoEllipsis = true;
+            this.lblUltimoMovimientoValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblUltimoMovimientoValor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltimoMovimientoValor.ForeColor = System.Drawing.Color.Black;
+            this.lblUltimoMovimientoValor.Location = new System.Drawing.Point(471, 36);
+            this.lblUltimoMovimientoValor.Name = "lblUltimoMovimientoValor";
+            this.lblUltimoMovimientoValor.Size = new System.Drawing.Size(395, 16);
+            this.lblUltimoMovimientoValor.TabIndex = 34;
+            this.lblUltimoMovimientoValor.Text = "-";
+            //
+            // lblInicioAtencionValor
+            //
+            this.lblInicioAtencionValor.AutoEllipsis = true;
+            this.lblInicioAtencionValor.BackColor = System.Drawing.Color.Transparent;
+            this.lblInicioAtencionValor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicioAtencionValor.ForeColor = System.Drawing.Color.Black;
+            this.lblInicioAtencionValor.Location = new System.Drawing.Point(471, 91);
+            this.lblInicioAtencionValor.Name = "lblInicioAtencionValor";
+            this.lblInicioAtencionValor.Size = new System.Drawing.Size(395, 16);
+            this.lblInicioAtencionValor.TabIndex = 35;
+            this.lblInicioAtencionValor.Text = "-";
             // 
             // CONSULTAR_EXPEDIENTE
             // 
@@ -1386,5 +1458,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblSolicitanteValor;
+        private System.Windows.Forms.Label lblDocumentoValor;
+        private System.Windows.Forms.Label lblMotivoValor;
+        private System.Windows.Forms.Label lblUltimoMovimientoValor;
+        private System.Windows.Forms.Label lblInicioAtencionValor;
     }
 }

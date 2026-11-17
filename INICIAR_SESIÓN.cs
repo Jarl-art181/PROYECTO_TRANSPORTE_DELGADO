@@ -49,6 +49,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
         private void But_Iniciar_sesion_Click(object sender, EventArgs e)
         {
+            // Responsable que se guarda en el historial
+            string usuario = Funciones.LimpiarTexto(text_Usuario.Text);
+            Funciones.UsuarioActual = usuario != "" ? usuario : "Administrador";
+
             INICIO ventana = new INICIO();
             ventana.Show();
         }

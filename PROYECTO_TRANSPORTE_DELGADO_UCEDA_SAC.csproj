@@ -80,6 +80,12 @@
     <Compile Include="Gestiondelexpediente.Designer.cs">
       <DependentUpon>Gestiondelexpediente.cs</DependentUpon>
     </Compile>
+    <Compile Include="HISTORIAL_DEL_EXPEDIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HISTORIAL_DEL_EXPEDIENTE.Designer.cs">
+      <DependentUpon>HISTORIAL_DEL_EXPEDIENTE.cs</DependentUpon>
+    </Compile>
     <Compile Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestiondelexpediente.resx">
       <DependentUpon>Gestiondelexpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HISTORIAL_DEL_EXPEDIENTE.resx">
+      <DependentUpon>HISTORIAL_DEL_EXPEDIENTE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MODIFICAR_DETALLE_DEL_EXPEDIENTE.resx">
       <DependentUpon>MODIFICAR_DETALLE_DEL_EXPEDIENTE.cs</DependentUpon>

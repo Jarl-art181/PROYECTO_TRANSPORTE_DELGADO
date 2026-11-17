@@ -497,6 +497,10 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 return;
             }
 
+            // Acción en el historial
+            Funciones.RegistrarHistorial(numeroExpedienteActual, Funciones.ACCION_MODIFICACION, Funciones.UsuarioActual,
+                "Datos del expediente actualizados");
+
             // 5. MOSTRAR CONFIRMACIÓN
             MessageBox.Show(
                 "Los datos del expediente se modificaron correctamente.",

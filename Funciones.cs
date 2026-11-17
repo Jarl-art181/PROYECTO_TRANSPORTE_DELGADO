@@ -653,18 +653,31 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             bool sinArea = datos == null ||
                            CompletarCampos(datos)[CAMPO_AREA].Trim() == "";
 
+            bool iniciado;
+
             if (sinArea && areaResponsable != "")
             {
                 int[] posiciones3 = { CAMPO_INICIO, CAMPO_RESPONSABLE, CAMPO_AREA };
                 string[] valores3 = { FechaHoraActual(), areaResponsable, areaResponsable };
 
-                return CambiarEstado(numero, PENDIENTE, EN_PROCESO, posiciones3, valores3);
+                iniciado = CambiarEstado(numero, PENDIENTE, EN_PROCESO, posiciones3, valores3);
+            }
+            else
+            {
+                int[] posiciones = { CAMPO_INICIO, CAMPO_RESPONSABLE };
+                string[] valores = { FechaHoraActual(), areaResponsable };
+
+                iniciado = CambiarEstado(numero, PENDIENTE, EN_PROCESO, posiciones, valores);
             }
 
-            int[] posiciones = { CAMPO_INICIO, CAMPO_RESPONSABLE };
-            string[] valores = { FechaHoraActual(), areaResponsable };
+            if (iniciado)
+            {
+                RegistrarHistorial(numero, ACCION_INICIO,
+                    areaResponsable != "" ? areaResponsable : UsuarioActual,
+                    "Estado: Pendiente -> En proceso");
+            }
 
-            return CambiarEstado(numero, PENDIENTE, EN_PROCESO, posiciones, valores);
+            return iniciado;
         }
 
 
@@ -682,17 +695,31 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             int[] posiciones = { CAMPO_RESULTADO, CAMPO_OBSERVACION, CAMPO_FIN };
             string[] valores = { resultado.Trim(), observacion.Trim(), FechaHoraActual() };
 
-            return CambiarEstado(numero, EN_PROCESO, FINALIZADO, posiciones, valores);
+            if (!CambiarEstado(numero, EN_PROCESO, FINALIZADO, posiciones, valores))
+            {
+                return false;
+            }
+
+            string[] datos = BuscarExpediente(numero);
+            string responsable = datos != null ? CompletarCampos(datos)[CAMPO_RESPONSABLE].Trim() : "";
+
+            RegistrarHistorial(numero, ACCION_FIN,
+                responsable != "" ? responsable : UsuarioActual,
+                resultado.Trim() + ": " + observacion.Trim());
+
+            return true;
         }
 
 
         // =====================================================
         // ARCHIVOS DE SEGUIMIENTO Y CORREOS
-        //   movimientos.txt : número | fecha y hora | movimiento
+        //   historial.txt   : número | fecha | hora | acción |
+        //                     responsable | observación
+        //   movimientos.txt : formato anterior (solo lectura)
         //   correos.txt     : número | fecha y hora | para | asunto |
         //                     mensaje | adjunto | destinatario
         //                     (Solicitante o el área de destino)
-        //   correos_areas.txt : área | correo del encargado
+        //   correos_areas.txt : área | encargado | correo
         // =====================================================
 
         // Áreas de la empresa (Registro e Iniciar atención)
@@ -799,107 +826,240 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
         // =====================================================
-        // MOVIMIENTOS (HISTORIAL)
+        // HISTORIAL DEL EXPEDIENTE (historial.txt)
+        // Una línea por acción realizada:
+        //   número | fecha | hora | acción | responsable | observación
+        // Solo se registran acciones que realmente ocurrieron.
         // =====================================================
 
-        public static bool AgregarMovimiento(string numero, string movimiento)
+        // Acciones que se guardan en el historial
+        public const string ACCION_REGISTRO = "Expediente registrado";
+        public const string ACCION_MODIFICACION = "Expediente modificado";
+        public const string ACCION_INICIO = "Atención iniciada";
+        public const string ACCION_FIN = "Expediente finalizado";
+        public const string ACCION_CORREO_PREPARADO = "Correo preparado";
+        public const string ACCION_DERIVACION = "Derivación registrada";
+
+        // "Correo enviado" solo se registraría con la confirmación real
+        // de un servicio de correo (todavía no hay ninguno conectado)
+        public const string ACCION_CORREO_ENVIADO = "Correo enviado";
+
+        // Usuario que inició sesión (responsable de las acciones del sistema)
+        public static string UsuarioActual = "Administrador";
+
+        public static string RutaHistorial()
         {
-            return AgregarLinea(
-                RutaMovimientos(),
-                NormalizarNumero(numero) + "|" + FechaHoraActual() + "|" + LimpiarTexto(movimiento));
+            return Path.Combine(CarpetaDatos(), "historial.txt");
         }
 
-        // Historial completo, ordenado por fecha y hora:
-        // registro, movimientos guardados, inicio y cierre.
-        // No se inventan horas: si no existe, se muestra solo la fecha.
-        public static string[] HistorialDelExpediente(string numero)
+        // Guarda una acción en el historial.
+        // No repite la misma acción, responsable y observación
+        // si ya se registró para ese expediente en el mismo minuto.
+        public static bool RegistrarHistorial(string numero, string accion, string responsable, string observacion)
+        {
+            string buscado = NormalizarNumero(numero);
+
+            if (buscado == "")
+            {
+                return false;
+            }
+
+            string fecha = DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            string hora = DateTime.Now.ToString("HH:mm", CultureInfo.InvariantCulture);
+
+            string linea =
+                buscado + "|" + fecha + "|" + hora + "|" + LimpiarTexto(accion) + "|" +
+                LimpiarTexto(responsable) + "|" + LimpiarTexto(observacion);
+
+            // Evitar duplicados
+            string[] anteriores = LineasDelExpediente(RutaHistorial(), buscado);
+
+            for (int i = 0; i < anteriores.Length; i++)
+            {
+                if (anteriores[i].Trim() == linea)
+                {
+                    return true;
+                }
+            }
+
+            return AgregarLinea(RutaHistorial(), linea);
+        }
+
+        // Historial completo como matriz de 5 columnas:
+        //   0 fecha | 1 hora | 2 acción | 3 responsable | 4 observación
+        // Ordenado por fecha y hora (método burbuja).
+        // Si un expediente antiguo no tiene alguna acción en el
+        // historial, se completa con los datos de expedientes.txt
+        // (sin inventar horas y sin repetir acciones).
+        public static string[,] MatrizHistorial(string numero)
         {
             string[] datos = BuscarExpediente(numero);
 
             if (datos == null)
             {
-                return new string[0];
+                return new string[0, 5];
             }
 
             string[] campos = CompletarCampos(datos);
-            string[] movimientos = LineasDelExpediente(RutaMovimientos(), numero);
+            string[] lineas = LineasDelExpediente(RutaHistorial(), numero);
+            string[] antiguos = LineasDelExpediente(RutaMovimientos(), numero);
 
-            // Arreglos paralelos: fecha (texto) y descripción
-            string[] fechas = new string[movimientos.Length + 3];
-            string[] textos = new string[movimientos.Length + 3];
+            string[,] filas = new string[lineas.Length + antiguos.Length + 3, 5];
             int cantidad = 0;
 
-            bool registroGuardado = false;
-
-            for (int i = 0; i < movimientos.Length; i++)
+            // 1. Acciones guardadas en historial.txt
+            for (int i = 0; i < lineas.Length; i++)
             {
-                string[] partes = movimientos[i].Split('|');
+                string[] p = lineas[i].Split('|');
 
-                if (partes.Length < 3)
+                if (p.Length < 6)
                 {
                     continue;
                 }
 
-                if (partes[2].Trim() == "Expediente registrado")
+                for (int k = 0; k < 5; k++)
                 {
-                    registroGuardado = true;
+                    filas[cantidad, k] = p[k + 1].Trim();
                 }
 
-                fechas[cantidad] = partes[1].Trim();
-                textos[cantidad] = partes[2].Trim();
                 cantidad++;
             }
 
-            // Expedientes antiguos: el registro solo tiene fecha
-            if (!registroGuardado)
+            // 2. Movimientos del formato anterior (movimientos.txt)
+            for (int i = 0; i < antiguos.Length; i++)
             {
-                fechas[cantidad] = campos[1].Trim();
-                textos[cantidad] = "Expediente registrado";
+                string[] p = antiguos[i].Split('|');
+
+                if (p.Length < 3 || ExisteAccion(filas, cantidad, p[2].Trim()))
+                {
+                    continue;
+                }
+
+                string[] fechaHora = p[1].Trim().Split(' ');
+
+                filas[cantidad, 0] = fechaHora[0];
+                filas[cantidad, 1] = fechaHora.Length > 1 ? fechaHora[1] : "";
+                filas[cantidad, 2] = p[2].Trim();
+                filas[cantidad, 3] = SIN_REGISTRAR;
+                filas[cantidad, 4] = "";
                 cantidad++;
             }
 
-            if (campos[CAMPO_INICIO].Trim() != "")
+            // 3. Acciones que solo constan en expedientes.txt
+            string responsable = campos[CAMPO_RESPONSABLE].Trim() != "" ? campos[CAMPO_RESPONSABLE].Trim() : SIN_REGISTRAR;
+
+            if (!ExisteAccion(filas, cantidad, ACCION_REGISTRO))
             {
-                string responsable = campos[CAMPO_RESPONSABLE].Trim();
-
-                fechas[cantidad] = campos[CAMPO_INICIO].Trim();
-                textos[cantidad] = "Atención iniciada" + (responsable != "" ? " por " + responsable : "");
-                cantidad++;
+                AgregarFila(filas, ref cantidad, campos[1].Trim(), ACCION_REGISTRO, SIN_REGISTRAR,
+                    "Registrado antes del historial");
             }
 
-            if (campos[CAMPO_FIN].Trim() != "")
+            if (campos[CAMPO_INICIO].Trim() != "" && !ExisteAccion(filas, cantidad, ACCION_INICIO))
             {
-                fechas[cantidad] = campos[CAMPO_FIN].Trim();
-                textos[cantidad] = "Expediente finalizado: " + campos[CAMPO_RESULTADO].Trim();
-                cantidad++;
+                AgregarFila(filas, ref cantidad, campos[CAMPO_INICIO].Trim(), ACCION_INICIO, responsable,
+                    "Estado: En proceso");
             }
 
-            // Ordenar por fecha (método burbuja)
+            if (campos[CAMPO_FIN].Trim() != "" && !ExisteAccion(filas, cantidad, ACCION_FIN))
+            {
+                AgregarFila(filas, ref cantidad, campos[CAMPO_FIN].Trim(), ACCION_FIN, responsable,
+                    campos[CAMPO_RESULTADO].Trim() + ": " + campos[CAMPO_OBSERVACION].Trim());
+            }
+
+            // 4. Ordenar por fecha y hora (método burbuja)
             for (int i = 0; i < cantidad - 1; i++)
             {
                 for (int j = 0; j < cantidad - 1 - i; j++)
                 {
-                    if (FechaParaOrdenar(fechas[j]) > FechaParaOrdenar(fechas[j + 1]))
+                    if (FechaParaOrdenar(filas[j, 0] + " " + filas[j, 1]) >
+                        FechaParaOrdenar(filas[j + 1, 0] + " " + filas[j + 1, 1]))
                     {
-                        string f = fechas[j]; fechas[j] = fechas[j + 1]; fechas[j + 1] = f;
-                        string t = textos[j]; textos[j] = textos[j + 1]; textos[j + 1] = t;
+                        for (int k = 0; k < 5; k++)
+                        {
+                            string temporal = filas[j, k];
+                            filas[j, k] = filas[j + 1, k];
+                            filas[j + 1, k] = temporal;
+                        }
                     }
                 }
             }
 
-            string[] historial = new string[cantidad];
+            // 5. Matriz final con el tamaño exacto
+            string[,] historial = new string[cantidad, 5];
 
             for (int i = 0; i < cantidad; i++)
             {
-                historial[i] = fechas[i] + "   " + textos[i];
+                for (int k = 0; k < 5; k++)
+                {
+                    historial[i, k] = filas[i, k] ?? "";
+                }
             }
 
             return historial;
         }
 
+        // ¿La acción ya está en las primeras "cantidad" filas?
+        private static bool ExisteAccion(string[,] filas, int cantidad, string accion)
+        {
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (filas[i, 2] == accion)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        // Agrega una fila separando la fecha y la hora (si la hay)
+        private static void AgregarFila(string[,] filas, ref int cantidad, string fechaHora,
+            string accion, string responsable, string observacion)
+        {
+            string[] partes = fechaHora.Split(' ');
+
+            filas[cantidad, 0] = partes[0];
+            filas[cantidad, 1] = partes.Length > 1 ? partes[1] : "";
+            filas[cantidad, 2] = accion;
+            filas[cantidad, 3] = responsable;
+            filas[cantidad, 4] = observacion;
+            cantidad++;
+        }
+
+        // Historial en texto (una línea por acción) para listas
+        public static string[] HistorialDelExpediente(string numero)
+        {
+            string[,] filas = MatrizHistorial(numero);
+            string[] historial = new string[filas.GetLength(0)];
+
+            for (int i = 0; i < historial.Length; i++)
+            {
+                historial[i] =
+                    (filas[i, 0] + " " + filas[i, 1]).Trim() + "   " + filas[i, 2] +
+                    (filas[i, 3] != "" && filas[i, 3] != SIN_REGISTRAR ? " (" + filas[i, 3] + ")" : "");
+            }
+
+            return historial;
+        }
+
+        // Última acción del historial ("Sin registrar" si no hay)
+        public static string UltimoMovimiento(string numero)
+        {
+            string[,] filas = MatrizHistorial(numero);
+            int ultima = filas.GetLength(0) - 1;
+
+            if (ultima < 0)
+            {
+                return SIN_REGISTRAR;
+            }
+
+            return (filas[ultima, 0] + " " + filas[ultima, 1]).Trim() + " - " + filas[ultima, 2];
+        }
+
         private static DateTime FechaParaOrdenar(string texto)
         {
             DateTime fecha;
+            texto = texto.Trim();
 
             if (DateTime.TryParseExact(texto, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha) ||
                 DateTime.TryParseExact(texto, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))
@@ -942,8 +1102,9 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
         // =====================================================
-        // CORREOS DE LOS ENCARGADOS DE ÁREA (correos_areas.txt)
-        // Una línea por área:  área | correo del encargado
+        // ENCARGADOS DE ÁREA (correos_areas.txt)
+        // Una línea por área:  área | encargado | correo
+        // (también se leen líneas antiguas:  área | correo)
         // =====================================================
 
         public static string RutaCorreosAreas()
@@ -951,26 +1112,41 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             return Path.Combine(CarpetaDatos(), "correos_areas.txt");
         }
 
-        // Correo guardado para el área ("" si no hay)
-        public static string CorreoDeArea(string area)
+        // Encargado y correo guardados para el área (false si no hay)
+        public static bool EncargadoDeArea(string area, out string encargado, out string correo)
         {
+            encargado = "";
+            correo = "";
+
             string[] lineas = LeerLineasArchivo(RutaCorreosAreas());
 
             for (int i = 0; i < lineas.Length; i++)
             {
                 string[] partes = lineas[i].Split('|');
 
-                if (partes.Length >= 2 && partes[0].Trim() == area.Trim())
+                if (partes[0].Trim() != (area ?? "").Trim())
                 {
-                    return partes[1].Trim();
+                    continue;
                 }
+
+                if (partes.Length >= 3)
+                {
+                    encargado = partes[1].Trim();
+                    correo = partes[2].Trim();
+                }
+                else if (partes.Length == 2)
+                {
+                    correo = partes[1].Trim();
+                }
+
+                return true;
             }
 
-            return "";
+            return false;
         }
 
-        // Guarda (o reemplaza) el correo del encargado del área
-        public static bool GuardarCorreoDeArea(string area, string correo)
+        // Guarda (o reemplaza) el encargado y el correo del área
+        public static bool GuardarEncargadoDeArea(string area, string encargado, string correo)
         {
             string[] lineas = LeerLineasArchivo(RutaCorreosAreas());
             string[] nuevas = new string[lineas.Length + 1];
@@ -986,8 +1162,8 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
                 }
             }
 
-            // Agregar el área con su correo
-            nuevas[cantidad] = LimpiarTexto(area) + "|" + LimpiarTexto(correo);
+            // Agregar el área con su encargado
+            nuevas[cantidad] = LimpiarTexto(area) + "|" + LimpiarTexto(encargado) + "|" + LimpiarTexto(correo);
             cantidad++;
 
             string[] resultado = new string[cantidad];
@@ -1003,21 +1179,21 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
 
         // =====================================================
-        // BORRADOR DE CORREO
-        // El sistema no envía correos ni guarda contraseñas:
-        // prepara un borrador (.eml) con el PDF adjunto y lo abre
-        // en la aplicación de correo del administrador (Outlook,
-        // Thunderbird...), donde lo revisa y lo envía él mismo.
-        // Los borradores quedan en Datos\Borradores.
+        // ABRIR GMAIL EN EL NAVEGADOR
+        // El sistema no envía correos ni pide contraseñas:
+        // abre la ventana de redacción de Gmail en el navegador
+        // predeterminado con el destinatario, el asunto y el
+        // mensaje ya escritos. Si no hay una sesión iniciada,
+        // Gmail pide iniciar sesión y luego muestra el correo.
+        // Gmail no permite adjuntar archivos desde el enlace:
+        // el PDF se adjunta en Gmail antes de enviar.
         // =====================================================
 
-        // false solo en pruebas automáticas: crea el borrador sin abrirlo
-        public static bool AbrirBorradorAlPreparar = true;
+        // false solo en pruebas automáticas: arma el enlace sin abrirlo
+        public static bool AbrirAplicacionDeCorreo = true;
 
-        public static string CarpetaBorradores()
-        {
-            return Path.Combine(CarpetaDatos(), "Borradores");
-        }
+        // Último enlace preparado (para revisar en pruebas)
+        public static string UltimoEnlaceCorreo = "";
 
         public static bool EsCorreoConFormato(string texto)
         {
@@ -1039,108 +1215,42 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
             }
         }
 
-        // Crea el borrador para UNA sola dirección y lo abre.
-        // Devuelve true si el borrador quedó listo en la aplicación de correo.
-        public static bool PrepararBorrador(string numero, string para, string asunto, string mensaje,
-            string adjunto, out string rutaBorrador, out string error)
-        {
-            rutaBorrador = "";
-            error = "";
+        // Dirección oficial de redacción de Gmail
+        public const string GMAIL_REDACTAR = "https://mail.google.com/mail/?view=cm&fs=1";
 
-            string carpeta = CarpetaBorradores();
-            string temporal = Path.Combine(carpeta, "temporal");
+        // Arma el enlace de Gmail (UNA sola dirección, sin copias):
+        //   to = destinatario, su = asunto, body = mensaje
+        public static string EnlaceGmail(string para, string asunto, string mensaje)
+        {
+            string texto = (mensaje ?? "").Replace("\r\n", "\n");
+
+            return GMAIL_REDACTAR +
+                   "&to=" + Uri.EscapeDataString((para ?? "").Trim()) +
+                   "&su=" + Uri.EscapeDataString(asunto ?? "") +
+                   "&body=" + Uri.EscapeDataString(texto);
+        }
+
+        // Abre Gmail en el navegador predeterminado.
+        // Devuelve true si se abrió (NO significa que el correo se envió).
+        public static bool AbrirGmail(string para, string asunto, string mensaje, out string error)
+        {
+            error = "";
+            UltimoEnlaceCorreo = EnlaceGmail(para, asunto, mensaje);
 
             try
             {
-                // 1. Escribir el correo en una carpeta temporal (.eml)
-                if (Directory.Exists(temporal))
+                if (AbrirAplicacionDeCorreo)
                 {
-                    Directory.Delete(temporal, true);
-                }
-
-                Directory.CreateDirectory(temporal);
-
-                using (System.Net.Mail.MailMessage correo = new System.Net.Mail.MailMessage())
-                {
-                    // Remitente provisional: la aplicación de correo usa la cuenta del administrador
-                    correo.From = new System.Net.Mail.MailAddress("administrador@localhost");
-                    correo.To.Add(para.Trim());
-                    correo.Subject = asunto;
-                    correo.Body = mensaje;
-                    correo.SubjectEncoding = System.Text.Encoding.UTF8;
-                    correo.BodyEncoding = System.Text.Encoding.UTF8;
-
-                    if (TienePDF(adjunto) && File.Exists(adjunto))
-                    {
-                        correo.Attachments.Add(new System.Net.Mail.Attachment(adjunto, "application/pdf"));
-                    }
-
-                    using (System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient())
-                    {
-                        cliente.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                        cliente.PickupDirectoryLocation = temporal;
-                        cliente.Send(correo);
-                    }
-                }
-
-                // 2. Marcarlo como borrador (X-Unsent) y quitar el remitente provisional
-                string[] lineas = File.ReadAllLines(Directory.GetFiles(temporal, "*.eml")[0]);
-                string[] borrador = new string[lineas.Length + 1];
-                int cantidad = 0;
-                bool enEncabezado = true;
-
-                borrador[cantidad] = "X-Unsent: 1";
-                cantidad++;
-
-                for (int i = 0; i < lineas.Length; i++)
-                {
-                    if (lineas[i] == "")
-                    {
-                        enEncabezado = false;
-                    }
-
-                    if (enEncabezado && (lineas[i].StartsWith("X-Sender:") ||
-                                         lineas[i].StartsWith("X-Receiver:") ||
-                                         lineas[i].StartsWith("From:")))
-                    {
-                        continue;
-                    }
-
-                    borrador[cantidad] = lineas[i];
-                    cantidad++;
-                }
-
-                string[] final = new string[cantidad];
-
-                for (int i = 0; i < cantidad; i++)
-                {
-                    final[i] = borrador[i];
-                }
-
-                rutaBorrador = Path.Combine(carpeta,
-                    "EXP-" + NormalizarNumero(numero) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".eml");
-
-                File.WriteAllLines(rutaBorrador, final);
-                Directory.Delete(temporal, true);
-
-                // 3. Abrir el borrador en la aplicación de correo
-                if (AbrirBorradorAlPreparar)
-                {
-                    Process.Start(rutaBorrador);
+                    ProcessStartInfo inicio = new ProcessStartInfo(UltimoEnlaceCorreo);
+                    inicio.UseShellExecute = true;
+                    Process.Start(inicio);
                 }
 
                 return true;
             }
             catch (Exception ex)
             {
-                error = ex.Message;
-
-                if (rutaBorrador != "" && File.Exists(rutaBorrador))
-                {
-                    error = "No hay una aplicación de correo que abra el borrador.\n" +
-                            "El borrador quedó guardado en:\n" + rutaBorrador;
-                }
-
+                error = "No se pudo abrir el navegador predeterminado.\n" + ex.Message;
                 return false;
             }
         }
@@ -1383,6 +1493,7 @@ namespace PROYECTO_TRANSPORTE_DELGADO_UCEDA_SAC
 
             // Quitar también su historial y sus correos, para que un
             // expediente nuevo con el mismo número no los herede
+            QuitarLineasDelExpediente(RutaHistorial(), buscado);
             QuitarLineasDelExpediente(RutaMovimientos(), buscado);
             QuitarLineasDelExpediente(RutaCorreos(), buscado);
 
